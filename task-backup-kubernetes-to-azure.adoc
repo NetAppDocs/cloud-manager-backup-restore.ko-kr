@@ -1,0 +1,172 @@
+---
+sidebar: sidebar 
+permalink: task-backup-kubernetes-to-azure.html 
+keywords: backing up, back up, backup, back up kubernetes volumes, persistent volumes, PV, persistence volume claim, PVC, azure, azure blob, back up volumes, cloud backup, aks, kubernetes 
+summary: 몇 가지 단계를 완료하여 AKS Kubernetes 클러스터의 영구 볼륨에서 Azure Blob 스토리지로 데이터 백업을 시작하십시오. 
+---
+= Kubernetes 영구 볼륨 데이터를 Azure Blob 스토리지에 백업
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+몇 가지 단계를 완료하여 AKS Kubernetes 클러스터의 영구 볼륨에서 Azure Blob 스토리지로 데이터 백업을 시작하십시오.
+
+
+
+== 빠른 시작
+
+다음 단계를 따라 빠르게 시작하거나 나머지 섹션으로 스크롤하여 자세한 내용을 확인하십시오.
+
+.span class="image"><img src="https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png"[] Alt="One"></span> 사전 요구 사항 검토
+* Kubernetes 클러스터를 Cloud Manager 작업 환경으로 발견했습니다.
++
+** Trident는 클러스터에 설치해야 하며 Trident 버전은 21.1 이상이어야 합니다.
+** 백업하려는 영구 체적을 생성하는 데 사용되는 모든 PVC는 "snapshotPolicy(스냅샷 정책)"를 "default(기본값)"로 설정해야 합니다.
+** 클러스터는 '백엔드 스토리지'를 위해 Azure에서 Cloud Volumes ONTAP를 사용해야 합니다.
+** Cloud Volumes ONTAP 시스템에서 ONTAP 9.7P5 이상을 실행해야 합니다.
+
+
+* 백업이 위치할 스토리지 공간에 대한 유효한 클라우드 공급자 가입이 있습니다.
+* 에 가입했습니다 https://azuremarketplace.microsoft.com/en-us/marketplace/apps/netapp.cloud-manager?tab=Overview["Cloud Manager Marketplace 백업 오퍼링"^]또는 을(를) 구입한 경우 link:task-licensing-cloud-backup.html#use-cloud-backup-byol-licenses["활성화합니다"^] Cloud Backup BYOL 라이센스는 NetApp에서 제공
+
+
+[role="quick-margin-para"]
+작업 환경을 선택하고 오른쪽 패널에서 백업 및 복원 서비스 옆에 있는 * 활성화 * 를 클릭한 다음 설정 마법사를 따릅니다.
+
+[role="quick-margin-para"]
+image:screenshot_backup_cvo_enable.png["작업 환경을 선택한 후 사용할 수 있는 Cloud Backup Enable 버튼을 보여 주는 스크린샷"]
+
+[role="quick-margin-para"]
+기본 정책은 매일 볼륨을 백업하고 각 볼륨의 최근 30개 백업 복사본을 유지합니다. 시간별, 일별, 주별 또는 월별 백업으로 변경하거나 더 많은 옵션을 제공하는 시스템 정의 정책 중 하나를 선택합니다. 보존할 백업 복사본의 수를 변경할 수도 있습니다.
+
+[role="quick-margin-para"]
+image:screenshot_backup_policy_k8s_azure.png["백업 스케줄 및 보존 기간을 선택할 수 있는 Cloud Backup 설정을 보여 주는 스크린샷"]
+
+[role="quick-margin-para"]
+Select Volumes 페이지에서 백업할 볼륨을 식별합니다. 백업 파일은 Cloud Volumes ONTAP 시스템과 동일한 Azure 가입 및 지역을 사용하는 Blob 컨테이너에 저장됩니다.
+
+
+
+== 요구 사항
+
+Kubernetes 영구 볼륨을 Blob 스토리지에 백업하기 전에 다음 요구사항을 읽고 지원되는 구성이 있는지 확인합니다.
+
+다음 이미지는 각 구성 요소와 이러한 구성 요소 간에 준비해야 하는 연결을 보여 줍니다.
+
+image:diagram_cloud_backup_k8s_cvo_azure.png["Cloud Backup이 소스 시스템 및 백업 파일이 있는 대상 스토리지의 볼륨과 통신하는 방법을 보여주는 다이어그램입니다."]
+
+개별 엔드포인트가 선택 사항입니다.
+
+Kubernetes 클러스터 요구사항::
++
+--
+* Kubernetes 클러스터를 Cloud Manager 작업 환경으로 발견했습니다. https://docs.netapp.com/us-en/cloud-manager-kubernetes/task-kubernetes-discover-azure.html["Kubernetes 클러스터를 검색하는 방법을 알아보십시오"^].
+* Trident는 클러스터에 설치해야 하며 Trident 버전은 21.1 이상이어야 합니다. 을 참조하십시오 link:https://netapp-trident.readthedocs.io/en/latest/kubernetes/deploying/index.html["Trident 설치 방법"] 또는.
+* 클러스터는 '백엔드 스토리지'를 위해 Azure에서 Cloud Volumes ONTAP를 사용해야 합니다.
+* Cloud Volumes ONTAP 시스템은 Kubernetes 클러스터와 같은 Azure 지역에 있어야 하며 ONTAP 9.7P5 이상을 실행해야 합니다.
++
+사내 위치의 Kubernetes 클러스터는 지원되지 않습니다. Cloud Volumes ONTAP 시스템을 사용하는 클라우드 구축 환경의 Kubernetes 클러스터만 지원됩니다.
+
+* 백업하려는 영구 볼륨을 생성하는 데 사용되는 모든 영구 볼륨 클레임 객체에는 "snapshotPolicy"가 "default"로 설정되어 있어야 합니다.
++
+주석 아래에 '스냅샷 정책'을 추가하여 개별 PVC에 대해 이 작업을 수행할 수 있습니다.
+
++
+[source, json]
+----
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: full
+  annotations:
+    trident.netapp.io/snapshotPolicy: "default"
+spec:
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 1000Mi
+  storageClassName: silver
+----
++
+backend.json 파일의 기본값 아래에 'shapshotPolicy' 필드를 추가하여 특정 백엔드 스토리지와 관련된 모든 PVC에 대해 이 작업을 수행할 수 있습니다.
+
++
+[source, json]
+----
+apiVersion: trident.netapp.io/v1
+kind: TridentBackendConfig
+metadata:
+  name: backend-tbc-ontap-nas-advanced
+spec:
+  version: 1
+  storageDriverName: ontap-nas
+  managementLIF: 10.0.0.1
+  dataLIF: 10.0.0.2
+  backendName: tbc-ontap-nas-advanced
+  svm: trident_svm
+  credentials:
+    name: backend-tbc-ontap-nas-advanced-secret
+  limitAggregateUsage: 80%
+  limitVolumeSize: 50Gi
+  nfsMountOptions: nfsvers=4
+  defaults:
+    spaceReserve: volume
+    exportPolicy: myk8scluster
+    snapshotPolicy: default
+    snapshotReserve: '10'
+  deletionPolicy: retain
+----
+
+
+--
+라이센스 요구 사항:: Cloud Backup PAYGO 라이센스의 경우 Cloud Backup을 활성화하기 전에 Azure Marketplace를 통해 가입해야 합니다. Cloud Backup에 대한 청구는 이 구독을 통해 이루어집니다. https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-deploying-otc-azure.html["작업 환경 마법사의 세부 정보 및 자격 증명 페이지에서 구독할 수 있습니다"^].
++
+--
+Cloud Backup BYOL 라이센스의 경우, 라이센스 기간 및 용량 동안 서비스를 사용할 수 있도록 지원하는 NetApp의 일련 번호가 필요합니다. link:task-licensing-cloud-backup.html#use-cloud-backup-byol-licenses["BYOL 라이센스 관리 방법에 대해 알아보십시오"].
+
+그리고 백업이 위치할 스토리지 공간에 대한 Microsoft Azure 구독이 있어야 합니다.
+
+--
+지원되는 Azure 지역:: Cloud Backup은 모든 Azure 지역에서 지원됩니다 https://cloud.netapp.com/cloud-volumes-global-regions["Cloud Volumes ONTAP가 지원되는 경우"^].
+
+
+
+
+== 기존 시스템에서 Cloud Backup 활성화
+
+작업 환경에서 바로 언제든지 Cloud Backup을 사용할 수 있습니다.
+
+.단계
+. 작업 환경을 선택하고 오른쪽 패널에서 백업 및 복원 서비스 옆에 있는 * 활성화 * 를 클릭합니다.
++
+image:screenshot_backup_cvo_enable.png["작업 환경을 선택한 후 사용할 수 있는 Cloud Backup Settings(클라우드 백업 설정) 버튼을 보여 주는 스크린샷"]
+
+. 백업 정책 세부 정보를 입력하고 * 다음 * 을 클릭합니다.
++
+백업 스케줄을 정의하고 유지할 백업 수를 선택할 수 있습니다.
+
++
+image:screenshot_backup_policy_k8s_azure.png["스케줄 및 백업 보존을 선택할 수 있는 Cloud Backup 설정을 보여 주는 스크린샷"]
+
+. 백업할 영구 볼륨을 선택합니다.
++
+** 모든 볼륨을 백업하려면 제목 행(image:button_backup_all_volumes.png[""])를 클릭합니다.
+** 개별 볼륨을 백업하려면 각 볼륨에 대한 확인란을 선택합니다(image:button_backup_1_volume.png[""])를 클릭합니다.
++
+image:screenshot_backup_select_volumes_k8s.png["백업할 볼륨을 선택하는 스크린샷"]
+
+
+
+. 백업 활성화 * 를 클릭하면 선택한 각 볼륨의 초기 백업이 시작됩니다.
+
+
+백업 파일은 Cloud Volumes ONTAP 시스템과 동일한 Azure 가입 및 지역을 사용하는 Blob 컨테이너에 저장됩니다.
+
+Kubernetes 대시보드가 표시되므로 백업 상태를 모니터링할 수 있습니다.
+
+가능합니다 link:task-managing-backups.html["볼륨에 대한 백업을 시작 및 중지하거나 백업 일정을 변경합니다"^]. 또한 가능합니다  Azure(동일한 지역)의 동일한 또는 다른 Kubernetes 클러스터에서 새 볼륨으로.

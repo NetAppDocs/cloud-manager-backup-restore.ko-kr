@@ -1,0 +1,176 @@
+---
+settings:
+  name: Cloud Backup
+  platform: cloud
+  internal:
+    pdf_enabled: true
+  prod:
+    pdf_enabled: true
+    harmony_enabled: false
+  langs: ko-kr,us-en,ja-jp,zh-cn
+sidebar:
+  entries:
+  - title: 모든 Cloud Manager 설명서
+    url: https://docs.netapp.com/us-en/cloud-manager-family
+  - title: Cloud Backup 문서
+    url: "/index.html"
+  - title: 릴리스 정보
+    url: "/whats-new.html"
+  - title: 시작하십시오
+    entries:
+    - title: Cloud Backup에 대해 자세히 알아보십시오
+      url: "/concept-backup-to-cloud.html"
+    - title: 라이센스를 설정합니다
+      url: "/task-licensing-cloud-backup.html"
+    - title: 백업 및 복원 작업의 상태를 모니터링합니다
+      url: task-monitor-backup-jobs.html
+  - title: ONTAP 데이터를 백업 및 복원합니다
+    entries:
+    - title: ONTAP 데이터 보호
+      url: "/concept-ontap-backup-to-cloud.html"
+    - title: Cloud Volumes ONTAP를 Amazon S3에 백업합니다
+      url: "/task-backup-to-s3.html"
+    - title: Cloud Volumes ONTAP를 Azure Blob에 백업합니다
+      url: "/task-backup-to-azure.html"
+    - title: Cloud Volumes ONTAP을 Google Cloud에 백업합니다
+      url: "/task-backup-to-gcp.html"
+    - title: 사내 ONTAP를 Amazon S3에 백업
+      url: "/task-backup-onprem-to-aws.html"
+    - title: 온프레미스 ONTAP를 Azure Blob에 백업
+      url: "/task-backup-onprem-to-azure.html"
+    - title: 사내 ONTAP를 Google Cloud로 백업합니다
+      url: "/task-backup-onprem-to-gcp.html"
+    - title: 사내 ONTAP를 StorageGRID로 백업합니다
+      url: "/task-backup-onprem-private-cloud.html"
+    - title: ONTAP 백업을 관리합니다
+      url: "/task-manage-backups-ontap.html"
+    - title: ONTAP 백업에서 복원합니다
+      url: "/task-restore-backups-ontap.html"
+  - title: Kubernetes 데이터 백업 및 복원
+    entries:
+    - title: Kubernetes 데이터 보호
+      url: "/concept-kubernetes-backup-to-cloud.html"
+    - title: Amazon S3에 백업
+      url: "/task-backup-kubernetes-to-s3.html"
+    - title: Azure Blob에 백업
+      url: "/task-backup-kubernetes-to-azure.html"
+    - title: Google Cloud로 백업합니다
+      url: "/task-backup-kubernetes-to-gcp.html"
+    - title: Kubernetes 백업 관리
+      url: "/task-manage-backups-kubernetes.html"
+    - title: Kubernetes 백업에서 복원합니다
+      url: "/task-restore-backups-kubernetes.html"
+  - title: 사내 애플리케이션 데이터를 백업 및 복원합니다
+    entries:
+    - title: 온프레미스 애플리케이션 데이터를 보호합니다
+      url: "/concept-protect-app-data-to-cloud.html"
+    - title: 사내 애플리케이션 데이터를 클라우드에 백업
+      url: "/task-backup-app-data-to-cloud.html"
+    - title: 애플리케이션 보호 관리
+      url: "/task-manage-app-backups.html"
+    - title: 애플리케이션 데이터를 복원합니다
+      entries:
+      - title: Oracle 데이터베이스를 복원합니다
+        url: "/task-restore-oracle-data.html"
+      - title: SQL Server 데이터베이스를 복원합니다
+        url: "/task-restore-sql-data.html"
+  - title: 참조하십시오
+    entries:
+    - title: 지원되는 AWS 아카이브 스토리지 계층
+      url: "/reference-aws-backup-tiers.html"
+    - title: 지원되는 Azure 아카이브 액세스 계층
+      url: "/reference-azure-backup-tiers.html"
+    - title: 교차 계정 및 교차 지역 구성
+      url: "/reference-cross-account.html"
+      entries:
+      - title: AWS에서 다중 계정 액세스를 위해 백업을 구성합니다
+        url: "/reference-backup-multi-account-aws.html"
+      - title: Azure에서 다중 계정 액세스를 위한 백업을 구성합니다
+        url: "/reference-backup-multi-account-azure.html"
+  - title: 지식 및 지원
+    entries:
+    - title: 지원을 위해 등록하십시오
+      url: "/task-support-registration.html"
+    - title: 도움을 받으십시오
+      url: "/task-get-help.html"
+  - title: 법적 고지
+    url: "/legal-notices.html"
+homepage:
+  tiles:
+  - title: 시작하십시오
+    links:
+    - title: Cloud Backup에 대해 자세히 알아보십시오
+      url: concept-backup-to-cloud.html
+    - title: 새로운 기능
+      url: whats-new.html
+    - title: 라이센스를 설정합니다
+      url: task-licensing-cloud-backup.html
+  - title: ONTAP 데이터를 클라우드에 백업합니다
+    links:
+    - title: Cloud Volumes ONTAP에서 Amazon S3로 전환
+      url: task-backup-to-s3.html
+    - title: Cloud Volumes ONTAP에서 Azure Blob으로 설정합니다
+      url: task-backup-to-azure.html
+    - title: Cloud Volumes ONTAP에서 Google Cloud로
+      url: task-backup-to-gcp.html
+    - title: 사내 ONTAP에서 Amazon S3로 전환
+      url: task-backup-onprem-to-aws.html
+    - title: 온프레미스 ONTAP에서 Azure Blob으로
+      url: task-backup-onprem-to-azure.html
+    - title: 온프레미스 ONTAP에서 Google Cloud로
+      url: task-backup-onprem-to-gcp.html
+    - title: 사내 ONTAP에서 StorageGRID로
+      url: task-backup-onprem-private-cloud.html
+  - title: Kubernetes 데이터를 클라우드에 백업합니다
+    links:
+    - title: Kubernetes 클러스터를 Amazon S3에 연결
+      url: task-backup-kubernetes-to-s3.html
+    - title: Azure Blob에 대한 Kubernetes 클러스터
+      url: task-backup-kubernetes-to-azure.html
+    - title: Kubernetes 클러스터를 Google Cloud로
+      url: task-backup-kubernetes-to-gcp.html
+  - title: 사내 애플리케이션 데이터를 백업 및 복원합니다
+    links:
+    - title: 사내 애플리케이션 데이터를 클라우드에 백업
+      url: "/task-backup-app-data-to-cloud.html"
+    - title: Oracle 데이터베이스를 복원합니다
+      url: "/task-restore-oracle-data.html"
+    - title: SQL Server 데이터베이스를 복원합니다
+      url: "/task-restore-sql-data.html"
+  - title: 백업 파일에서 데이터를 복원합니다
+    links:
+    - title: ONTAP 볼륨을 복원합니다
+      url: task-restore-backups-ontap.html
+    - title: ONTAP 파일을 복원합니다
+      url: task-restore-backups-ontap.html
+    - title: Kubernetes 볼륨 복원
+      url: task-restore-backups-kubernetes.html
+  - title: ONTAP 백업 파일을 관리합니다
+    links:
+    - title: 볼륨 백업을 설정 및 해제합니다
+      url: task-manage-backups-ontap.html#enabling-and-disabling-backups-of-volumes
+    - title: 기존 백업 정책을 편집합니다
+      url: task-manage-backups-ontap.html#editing-an-existing-backup-policy
+    - title: 새 백업 정책을 추가합니다
+      url: task-manage-backups-ontap.html#adding-a-new-backup-policy
+    - title: 기존 볼륨에 할당된 정책을 변경합니다
+      url: task-manage-backups-ontap.html#changing-the-policy-assigned-to-existing-volumes
+    - title: 수동 볼륨 백업을 생성합니다
+      url: task-manage-backups-ontap.html#creating-a-manual-volume-backup-at-any-time
+    - title: 각 볼륨의 백업 목록을 봅니다
+      url: task-manage-backups-ontap.html#viewing-the-list-of-backups-for-each-volume
+    - title: 백업을 삭제합니다
+      url: task-manage-backups-ontap.html#deleting-backups
+    - title: 백업 및 복원 작업의 상태를 모니터링합니다
+      url: task-monitor-backup-jobs.html
+  - title: 블로그 커뮤니티
+    links:
+    - title: NetApp 커뮤니티
+      url: https://community.netapp.com/t5/Cloud-Data-Services/ct-p/CDS
+    - title: Cloud Central 블로그
+      url: https://cloud.netapp.com/blog
+    - title: Cloud Central 사용 사례
+      url: https://cloud.netapp.com/cloud-backup
+    - title: 클라우드 웨비나
+      url: https://cloud.netapp.com/events
+product-family: {}

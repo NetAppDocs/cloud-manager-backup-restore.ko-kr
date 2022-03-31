@@ -1,0 +1,331 @@
+---
+sidebar: sidebar 
+permalink: task-manage-backups-ontap.html 
+keywords: cloud backup, cloud backup service, backup schedule, change schedule, change backup schedule, modify schedule, modify backup schedule, retention, backup retention, delete, delete backups, deleting, deleting backups, disable, disable backups, turn off backups, disable cloud backup, turn off cloud backup 
+summary: 백업 일정을 변경하고, 볼륨 백업을 활성화/비활성화하고, 백업을 삭제하는 등 Cloud Volumes ONTAP 및 온-프레미스 ONTAP 시스템의 백업을 관리할 수 있습니다. 
+---
+= ONTAP 시스템의 백업 관리
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+백업 일정을 변경하고, 볼륨 백업을 활성화/비활성화하고, 백업을 삭제하는 등 Cloud Volumes ONTAP 및 온-프레미스 ONTAP 시스템의 백업을 관리할 수 있습니다.
+
+
+CAUTION: 클라우드 공급자 환경에서 직접 백업 파일을 관리하거나 변경하지 마십시오. 이로 인해 파일이 손상되어 지원되지 않는 구성이 발생할 수 있습니다.
+
+
+
+== 백업 중인 볼륨 보기
+
+Backup Dashboard에서 현재 백업 중인 모든 볼륨의 목록을 볼 수 있습니다.
+
+.단계
+. 백업 및 복원 * 탭을 클릭합니다.
+. 볼륨 * 탭을 클릭하여 Cloud Volumes ONTAP 및 온-프레미스 ONTAP 시스템의 볼륨 목록을 표시합니다.
++
+image:screenshot_backup_dashboard.png["백업 파일이 있는 모든 작업 환경 및 볼륨을 보여 주는 스크린샷"]
+
+
+
+특정 작업 환경에서 특정 볼륨을 찾는 경우 작업 환경 및 볼륨으로 목록을 세분화하거나 검색 필터를 사용할 수 있습니다.
+
+
+
+== 기존 백업 정책 편집
+
+작업 환경의 볼륨에 현재 적용된 백업 정책의 속성을 변경할 수 있습니다. 백업 정책을 변경하면 정책을 사용하는 모든 기존 볼륨에 영향을 줍니다.
+
+.단계
+. 볼륨 * 탭에서 * 백업 설정 * 을 선택합니다.
++
+image:screenshot_backup_settings_button.png["볼륨 탭의 백업 설정 단추를 보여 주는 스크린샷"]
+
+. 백업 설정 페이지에서 을 클릭합니다 image:screenshot_horizontal_more_button.gif["추가 아이콘"] 설정을 변경하려는 작업 환경의 경우 * 정책 관리 * 를 선택합니다.
++
+image:screenshot_backup_modify_policy.png["백업 설정 페이지의 정책 관리 옵션을 보여 주는 스크린샷"]
+
+. Manage Policies_ 페이지에서 해당 작업 환경에서 변경할 백업 정책에 대해 * Edit Policy * 를 클릭합니다.
++
+image:screenshot_backup_manage_policy_page_edit.png["정책 관리 페이지의 정책 편집 단추를 보여 주는 스크린샷"]
+
+. Edit Policy_페이지에서 스케줄 및 백업 보존을 변경하고 * Save * 를 클릭합니다.
++
+image:screenshot_backup_edit_policy.png["백업 스케줄 및 백업 보존 설정을 수정할 수 있는 백업 정책 설정을 보여 주는 스크린샷"]
+
++
+클러스터에서 ONTAP 9.10.1 이상이 실행 중이고 클라우드 스토리지에 AWS 또는 Azure를 사용하는 경우 일정 일 후에 아카이브 스토리지에 대한 백업 계층화를 활성화 또는 비활성화할 수도 있습니다.link:reference-azure-backup-tiers.html["Azure 아카이브 스토리지 사용에 대해 자세히 알아보십시오"]..
+
++
+image:screenshot_backup_modify_policy_page2.png["Cloud Backup의 아카이브 스토리지 설정으로 계층화하는 방법을 보여 주는 스크린샷"]
+
++
+아카이브 스토리지로 계층화된 모든 백업 파일은 아카이빙에 대한 백업 계층화를 중지하는 경우 해당 계층에 남아 있습니다. 이러한 백업 파일은 표준 계층으로 자동으로 다시 이동되지 않습니다.
+
+
+
+
+
+== 볼륨 백업 활성화 및 비활성화
+
+해당 볼륨의 백업 복사본이 필요하지 않고 백업 저장 비용을 지불하지 않으려는 경우 볼륨 백업을 중지할 수 있습니다. 현재 백업 중이 아닌 경우 백업 목록에 새 볼륨을 추가할 수도 있습니다.
+
+.단계
+. 볼륨 * 탭에서 * 백업 설정 * 을 선택합니다.
++
+image:screenshot_backup_settings_button.png["작업 환경을 선택한 후 사용할 수 있는 백업 설정 단추를 보여 주는 스크린샷"]
+
+. 백업 설정 페이지에서 _ 을(를) 클릭합니다 image:screenshot_horizontal_more_button.gif["추가 아이콘"] 작업 환경의 경우 * 볼륨 관리 * 를 선택합니다.
++
+image:screenshot_backup_manage_volumes.png["백업 설정 페이지의 볼륨 관리 단추를 보여 주는 스크린샷"]
+
+. 변경할 볼륨 또는 볼륨의 확인란을 선택한 다음 볼륨의 백업을 시작 또는 중지할지 여부에 따라 * 활성화 * 또는 * 비활성화 * 를 클릭합니다.
++
+image:screenshot_backup_manage_volumes_page.png["볼륨 관리 페이지에서 볼륨을 선택하거나 선택 취소할 수 있습니다."]
+
++
+"Automatically back up future volumes..." 확인란을 사용하여 나중에 모든 볼륨을 추가하여 백업을 활성화할지 여부를 선택할 수 있습니다. 이 설정을 비활성화하면 나중에 추가된 볼륨에 대해 백업을 수동으로 활성화해야 합니다.
+
+. 변경 사항을 적용하려면 * 저장 * 을 클릭합니다.
+
+
+* 참고: * 볼륨이 백업되지 않도록 하는 경우 클라우드 공급자가 백업이 사용하는 용량에 대한 객체 스토리지 비용을 계속 청구합니다 <<Deleting backups,백업을 삭제합니다>>.
+
+
+
+== 새 백업 정책 추가
+
+작업 환경에 Cloud Backup을 활성화하면 처음에 선택한 모든 볼륨이 사용자가 정의한 기본 백업 정책을 사용하여 백업됩니다. RPO(복구 지점 목표)가 다른 특정 볼륨에 서로 다른 백업 정책을 할당하려면 해당 클러스터에 대한 추가 정책을 생성한 다음 해당 정책을 다른 볼륨에 할당할 수 있습니다.
+
+작업 환경의 특정 볼륨에 새 백업 정책을 적용하려면 먼저 작업 환경에 백업 정책을 추가해야 합니다. 그러면 됩니다 <<Changing the policy assigned to existing volumes,해당 작업 환경의 볼륨에 정책을 적용합니다>>.
+
+.단계
+. 볼륨 * 탭에서 * 백업 설정 * 을 선택합니다.
++
+image:screenshot_backup_settings_button.png["볼륨 탭의 백업 설정 단추를 보여 주는 스크린샷"]
+
+. 백업 설정 페이지에서 을 클릭합니다 image:screenshot_horizontal_more_button.gif["추가 아이콘"] 새 정책을 추가할 작업 환경의 경우 * 정책 관리 * 를 선택합니다.
++
+image:screenshot_backup_modify_policy.png["백업 설정 페이지의 정책 관리 옵션을 보여 주는 스크린샷"]
+
+. Manage Policies_ 페이지에서 * Add New Policy * 를 클릭합니다.
++
+image:screenshot_backup_manage_policy_page_add.png["정책 관리 페이지의 새 정책 추가 단추를 보여 주는 스크린샷"]
+
+. Add New Policy_페이지에서 스케줄 및 백업 보존을 정의하고 * Save * 를 클릭합니다.
++
+image:screenshot_backup_add_new_policy.png["백업 스케줄 및 백업 보존 설정을 추가할 수 있는 백업 정책 설정을 보여 주는 스크린샷"]
+
++
+클러스터에서 ONTAP 9.10.1 이상이 실행 중이고 클라우드 스토리지에 AWS 또는 Azure를 사용하는 경우 일정 일 후에 아카이브 스토리지에 대한 백업 계층화를 활성화 또는 비활성화할 수도 있습니다.link:reference-azure-backup-tiers.html["Azure 아카이브 스토리지 사용에 대해 자세히 알아보십시오"]..
+
++
+image:screenshot_backup_modify_policy_page2.png["Cloud Backup의 아카이브 스토리지 설정으로 계층화하는 방법을 보여 주는 스크린샷"]
+
+
+
+
+
+== 기존 볼륨에 할당된 정책을 변경합니다
+
+백업 빈도를 변경하거나 보존 값을 변경하려는 경우 기존 볼륨에 할당된 백업 정책을 변경할 수 있습니다.
+
+볼륨에 적용할 정책이 이미 있어야 합니다. <<Adding a new backup policy,작업 환경에 대한 새 백업 정책을 추가하는 방법에 대해 알아봅니다>>.
+
+.단계
+. 볼륨 * 탭에서 * 백업 설정 * 을 선택합니다.
++
+image:screenshot_backup_settings_button.png["작업 환경을 선택한 후 사용할 수 있는 백업 설정 단추를 보여 주는 스크린샷"]
+
+. 백업 설정 페이지에서 _ 을(를) 클릭합니다 image:screenshot_horizontal_more_button.gif["추가 아이콘"] 볼륨이 있는 작업 환경의 경우 * 볼륨 관리 * 를 선택합니다.
++
+image:screenshot_backup_manage_volumes.png["백업 설정 페이지의 볼륨 관리 단추를 보여 주는 스크린샷"]
+
+. 정책을 변경할 볼륨 또는 볼륨의 확인란을 선택한 다음 * 정책 변경 * 을 클릭합니다.
++
+image:screenshot_backup_manage_volumes_page_change.png["볼륨 관리 페이지에서 볼륨을 선택하거나 선택 취소할 수 있습니다."]
+
+. Change Policy_페이지에서 볼륨에 적용할 정책을 선택하고 * Change Policy * 를 클릭합니다.
++
+image:screenshot_backup_change_policy.png["선택한 볼륨에 적용할 새 정책을 선택하는 방법을 보여 주는 스크린샷"]
+
+. 변경 사항을 적용하려면 * 저장 * 을 클릭합니다.
+
+
+
+
+== 언제든지 수동 볼륨 백업 생성
+
+언제든지 주문형 백업을 생성하여 볼륨의 현재 상태를 캡처할 수 있습니다. 이 기능은 볼륨에 매우 중요한 변경 사항이 있어 해당 데이터를 보호하기 위해 다음 예약 백업을 기다리지 않으려는 경우 또는 볼륨이 현재 백업되고 있지 않아 현재 상태를 캡처하려는 경우에 유용합니다.
+
+백업 이름에는 타임 스탬프가 포함되어 있어 다른 예약된 백업에서 필요 시 백업을 식별할 수 있습니다.
+
+
+NOTE: 데이터 보호 볼륨에서 필요 시 볼륨 백업을 지원하지 않습니다.
+
+.단계
+. 볼륨 * 탭에서 을 클릭합니다 image:screenshot_horizontal_more_button.gif["추가 아이콘"] 볼륨에 대해 * Backup Now * 를 선택합니다.
++
+image:screenshot_backup_now_button.png["볼륨을 선택한 후 사용할 수 있는 지금 백업 단추를 보여 주는 스크린샷"]
+
+
+
+백업이 생성될 때까지 해당 볼륨의 백업 상태 열에 "진행 중"이 표시됩니다.
+
+
+
+== 각 볼륨의 백업 목록 보기
+
+각 볼륨에 있는 모든 백업 파일 목록을 볼 수 있습니다. 이 페이지에는 마지막으로 수행된 백업, 현재 백업 정책, 백업 파일 크기 등과 같은 소스 볼륨, 대상 위치 및 백업 세부 정보에 대한 세부 정보가 표시됩니다.
+
+이 페이지에서는 다음 작업도 수행할 수 있습니다.
+
+* 볼륨에 대한 모든 백업 파일을 삭제합니다
+* 볼륨에 대한 개별 백업 파일을 삭제합니다
+* 볼륨에 대한 백업 보고서를 다운로드합니다
+
+
+.단계
+. 볼륨 * 탭에서 을 클릭합니다 image:screenshot_horizontal_more_button.gif["추가 아이콘"] 소스 볼륨에 대해 * Details & Backup List * 를 선택합니다.
++
+image:screenshot_backup_view_backups_button.png["단일 볼륨에 사용할 수 있는 세부 정보 및 AMP, 백업 목록 단추를 보여 주는 스크린샷"]
+
++
+모든 백업 파일 목록이 소스 볼륨, 대상 위치 및 백업 세부 정보에 대한 세부 정보와 함께 표시됩니다.
+
++
+image:screenshot_backup_view_backups.png["단일 볼륨의 모든 백업 파일 목록을 보여 주는 스크린샷"]
+
+
+
+
+
+== 백업을 삭제하는 중입니다
+
+Cloud Backup을 사용하면 단일 백업 파일을 삭제하거나, 볼륨의 모든 백업을 삭제하거나, 작업 환경 또는 Kubernetes 클러스터 내의 모든 볼륨의 모든 백업을 삭제할 수 있습니다. 백업이 더 이상 필요하지 않거나 소스 볼륨을 삭제하고 모든 백업을 제거하려는 경우 모든 백업을 삭제할 수 있습니다.
+
+
+CAUTION: 백업이 있는 작업 환경 또는 클러스터를 삭제하려면 * 시스템을 삭제하기 전에 * 백업을 삭제해야 합니다. Cloud Backup은 시스템을 삭제할 때 백업을 자동으로 삭제하지 않으며, 시스템이 삭제된 후 백업을 삭제할 수 있도록 UI에 현재 지원이 없습니다. 나머지 백업에 대한 오브젝트 스토리지 비용은 계속해서 청구됩니다.
+
+
+
+=== 작업 환경의 모든 백업 파일을 삭제하는 중입니다
+
+작업 환경의 모든 백업을 삭제해도 이 작업 환경의 볼륨에 대한 향후 백업이 비활성화되지는 않습니다. 작업 환경에서 모든 볼륨의 백업 생성을 중지하려면 백업을 비활성화할 수 있습니다 <<Disabling Cloud Backup for a working environment,참조하십시오>>.
+
+.단계
+. 볼륨 * 탭에서 * 백업 설정 * 을 선택합니다.
++
+image:screenshot_backup_settings_button.png["작업 환경을 선택한 후 사용할 수 있는 백업 설정 단추를 보여 주는 스크린샷"]
+
+. 을 클릭합니다 image:screenshot_horizontal_more_button.gif["추가 아이콘"] 작업 환경 또는 Kubernetes 클러스터의 경우 모든 백업을 삭제하고 * Delete all backups * 를 선택합니다.
++
+image:screenshot_delete_all_backups.png["작업 환경의 모든 백업을 삭제하기 위해 모든 백업 삭제 버튼을 선택하는 스크린샷"]
+
+. 확인 대화 상자에서 작업 환경의 이름을 입력하고 * 삭제 * 를 클릭합니다.
+
+
+
+
+=== 볼륨에 대한 모든 백업 파일을 삭제하는 중입니다
+
+볼륨에 대한 모든 백업을 삭제하면 해당 볼륨에 대한 이후의 백업도 비활성화됩니다.
+
+가능합니다 <<Starting and stopping backups of volumes,볼륨에 대한 백업을 다시 시작합니다>> 언제든지 백업 관리 페이지에서 수행할 수 있습니다.
+
+.단계
+. 볼륨 * 탭에서 을 클릭합니다 image:screenshot_horizontal_more_button.gif["추가 아이콘"] 소스 볼륨에 대해 * Details & Backup List * 를 선택합니다.
++
+image:screenshot_backup_view_backups_button.png["단일 볼륨에 사용할 수 있는 세부 정보 및 AMP, 백업 목록 단추를 보여 주는 스크린샷"]
+
++
+모든 백업 파일 목록이 표시됩니다.
+
++
+image:screenshot_backup_view_backups.png["단일 볼륨의 모든 백업 파일 목록을 보여 주는 스크린샷"]
+
+. Actions * > * Delete all backups * 를 클릭합니다.
++
+image:screenshot_delete_we_backups.png["볼륨의 모든 백업 파일을 삭제하는 방법을 보여 주는 스크린샷"]
+
+. 확인 대화 상자에서 볼륨 이름을 입력하고 * 삭제 * 를 클릭합니다.
+
+
+
+
+=== 볼륨에 대한 단일 백업 파일 삭제
+
+단일 백업 파일을 삭제할 수 있습니다. 이 기능은 ONTAP 9.8 이상의 시스템에서 볼륨 백업을 생성한 경우에만 사용할 수 있습니다.
+
+.단계
+. 볼륨 * 탭에서 을 클릭합니다 image:screenshot_horizontal_more_button.gif["추가 아이콘"] 소스 볼륨에 대해 * Details & Backup List * 를 선택합니다.
++
+image:screenshot_backup_view_backups_button.png["단일 볼륨에 사용할 수 있는 세부 정보 및 AMP, 백업 목록 단추를 보여 주는 스크린샷"]
+
++
+모든 백업 파일 목록이 표시됩니다.
+
++
+image:screenshot_backup_view_backups.png["단일 볼륨의 모든 백업 파일 목록을 보여 주는 스크린샷"]
+
+. 을 클릭합니다 image:screenshot_horizontal_more_button.gif["추가 아이콘"] 삭제하려는 볼륨 백업 파일의 경우 * 삭제 * 를 클릭합니다.
++
+image:screenshot_delete_one_backup.png["단일 백업 파일을 삭제하는 방법을 보여 주는 스크린샷"]
+
+. 확인 대화 상자에서 * 삭제 * 를 클릭합니다.
+
+
+
+
+== 작업 환경에서 Cloud Backup을 해제합니다
+
+작업 환경에서 Cloud Backup을 비활성화하면 시스템의 각 볼륨에 대한 백업이 비활성화되고 볼륨을 복구하는 기능도 비활성화됩니다. 기존 백업은 삭제되지 않습니다. 이 작업 환경에서 백업 서비스의 등록을 취소하지 않습니다. 기본적으로 모든 백업 및 복원 작업을 일정 기간 동안 일시 중지할 수 있습니다.
+
+사용자가 비용을 부담하지 않는 한, 클라우드 공급자가 백업 용량에 대한 오브젝트 스토리지 비용에 대해 계속 청구한다는 점에 유의하십시오 <<Deleting all backup files for a working environment,백업을 삭제합니다>>.
+
+.단계
+. 볼륨 * 탭에서 * 백업 설정 * 을 선택합니다.
++
+image:screenshot_backup_settings_button.png["작업 환경을 선택한 후 사용할 수 있는 백업 설정 단추를 보여 주는 스크린샷"]
+
+. 백업 설정 페이지에서 _ 을(를) 클릭합니다 image:screenshot_horizontal_more_button.gif["추가 아이콘"] 작업 환경 또는 Kubernetes 클러스터의 경우 백업을 비활성화하고 * 백업 비활성화 * 를 선택합니다.
++
+image:screenshot_disable_backups.png["작업 환경의 백업 비활성화 단추 스크린샷"]
+
+. 확인 대화 상자에서 * 비활성화 * 를 클릭합니다.
+
+
+
+NOTE: 백업이 비활성화된 동안 해당 작업 환경에 대해 * 백업 활성화 * 버튼이 나타납니다. 이 버튼을 클릭하면 해당 작업 환경에 대한 백업 기능을 다시 활성화할 수 있습니다.
+
+
+
+== 작업 환경에 대한 클라우드 백업 등록을 취소하는 중입니다
+
+백업 기능을 더 이상 사용하지 않고 해당 작업 환경의 백업에 대한 비용을 더 이상 부과하지 않으려는 경우 작업 환경에 대한 클라우드 백업 등록을 취소할 수 있습니다. 일반적으로 이 기능은 작업 환경을 삭제할 계획이고 백업 서비스를 취소할 때 사용됩니다.
+
+클러스터 백업이 저장되는 대상 오브젝트 저장소를 변경하려는 경우에도 이 기능을 사용할 수 있습니다. 작업 환경에 대한 Cloud Backup의 등록을 취소한 후 새 클라우드 공급자 정보를 사용하여 해당 클러스터에 대한 Cloud Backup을 활성화할 수 있습니다.
+
+클라우드 백업을 등록 취소하려면 먼저 다음 단계를 순서대로 수행해야 합니다.
+
+* 작업 환경에서 Cloud Backup을 비활성화합니다
+* 해당 작업 환경의 모든 백업을 삭제합니다
+
+
+이 두 작업이 완료될 때까지 등록 취소 옵션을 사용할 수 없습니다.
+
+.단계
+. 볼륨 * 탭에서 * 백업 설정 * 을 선택합니다.
++
+image:screenshot_backup_settings_button.png["작업 환경을 선택한 후 사용할 수 있는 백업 설정 단추를 보여 주는 스크린샷"]
+
+. 백업 설정 페이지에서 _ 을(를) 클릭합니다 image:screenshot_horizontal_more_button.gif["추가 아이콘"] 백업 서비스의 등록을 취소하려는 작업 환경의 경우 * 등록 취소 * 를 선택합니다.
++
+image:screenshot_backup_unregister.png["작업 환경의 백업 등록 취소 단추 스크린샷"]
+
+. 확인 대화 상자에서 * 등록 취소 * 를 클릭합니다.
+

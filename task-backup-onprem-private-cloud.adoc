@@ -1,0 +1,242 @@
+---
+sidebar: sidebar 
+permalink: task-backup-onprem-private-cloud.html 
+keywords: backing up, back up, backup, backup on-prem ontap, on-prem, on-premises, back up volumes, cloud backup, StorageGRID 
+summary: 몇 가지 단계를 완료하여 사내 ONTAP 시스템의 데이터를 NetApp StorageGRID 시스템의 오브젝트 스토리지로 백업을 시작하십시오. 
+---
+= 사내 ONTAP 데이터를 StorageGRID에 백업
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+몇 가지 단계를 완료하여 사내 ONTAP 시스템의 데이터를 NetApp StorageGRID 시스템의 오브젝트 스토리지로 백업을 시작하십시오.
+
+"사내 ONTAP 시스템"에는 FAS, AFF 및 ONTAP Select 시스템이 포함됩니다.
+
+
+
+== 빠른 시작
+
+다음 단계를 따라 빠르게 시작하거나 나머지 섹션을 아래로 스크롤하여 자세한 내용을 확인하십시오.
+
+.span class="image"><img src="https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png"[] Alt="One"></span> 구성에 대한 지원을 확인합니다
+* 온프레미스 클러스터를 검색한 후 Cloud Manager의 작업 환경에 추가했습니다. 을 참조하십시오 https://docs.netapp.com/us-en/cloud-manager-ontap-onprem/task-discovering-ontap.html["ONTAP 클러스터 검색"^] 를 참조하십시오.
++
+** 클러스터에서 ONTAP 9.7P5 이상이 실행 중입니다.
+** 클러스터에는 SnapMirror 라이센스가 있으며, 이 라이센스는 프리미엄 번들 또는 데이터 보호 번들의 일부로 포함됩니다.
+** 클러스터에는 StorageGRID 및 커넥터에 대한 필수 네트워크 연결이 있어야 합니다.
+
+
+* Connector가 구내에 설치되어 있습니다.
++
+** 커넥터 네트워킹은 ONTAP 클러스터 및 StorageGRID에 대한 아웃바운드 HTTPS 연결을 활성화합니다.
+
+
+* 을(를) 구입했습니다 link:task-licensing-cloud-backup.html#use-a-cloud-backup-byol-license["활성화합니다"^] Cloud Backup BYOL 라이센스는 NetApp에서 제공
+* StorageGRID의 버전 10.3 이상에는 S3 권한이 있는 액세스 키가 있습니다.
+
+
+[role="quick-margin-para"]
+작업 환경을 선택하고 오른쪽 패널에서 백업 및 복원 서비스 옆에 있는 * 활성화 > 볼륨 백업 * 을 클릭한 다음 설정 마법사를 따릅니다.
+
+[role="quick-margin-para"]
+image:screenshot_backup_onprem_enable.png["작업 환경을 선택한 후 사용할 수 있는 백업 및 앰프, 복원 활성화 버튼이 표시된 스크린샷"]
+
+[role="quick-margin-para"]
+공급자로 StorageGRID를 선택하고 StorageGRID 서버 및 서비스 계정 세부 정보를 입력합니다. 또한 볼륨이 상주하는 ONTAP 클러스터에서 IPspace를 지정해야 합니다.
+
+[role="quick-margin-para"]
+image:screenshot_backup_provider_settings_storagegrid.png["ONTAP 클러스터에서 StorageGRID로 볼륨을 백업할 때의 클라우드 공급자 세부 정보를 보여 주는 스크린샷"]
+
+[role="quick-margin-para"]
+기본 정책은 매일 볼륨을 백업하고 각 볼륨의 최근 30개 백업 복사본을 유지합니다. 시간별, 일별, 주별 또는 월별 백업으로 변경하거나 더 많은 옵션을 제공하는 시스템 정의 정책 중 하나를 선택합니다. 보존할 백업 복사본의 수를 변경할 수도 있습니다.
+
+[role="quick-margin-para"]
+image:screenshot_backup_onprem_policy.png["백업 스케줄 및 보존 기간을 선택할 수 있는 Cloud Backup 설정을 보여 주는 스크린샷"]
+
+[role="quick-margin-para"]
+Select Volumes(볼륨 선택) 페이지의 기본 백업 정책을 사용하여 백업할 볼륨을 식별합니다. 특정 볼륨에 서로 다른 백업 정책을 할당하려면 추가 정책을 생성한 후 나중에 볼륨에 적용할 수 있습니다.
+
+[role="quick-margin-para"]
+S3 버킷은 입력한 S3 액세스 키와 비밀 키로 표시된 서비스 계정에 자동으로 생성되며 백업 파일은 여기에 저장됩니다.
+
+
+
+== 요구 사항
+
+사내 볼륨을 StorageGRID에 백업하기 전에 다음 요구 사항을 읽고 지원되는 구성이 있는지 확인합니다.
+
+다음 이미지는 온프레미스 ONTAP 시스템을 StorageGRID에 백업할 때의 각 구성 요소와 이러한 시스템 간에 준비해야 하는 연결을 보여 줍니다.
+
+image:diagram_cloud_backup_onprem_storagegrid.png["Cloud Backup이 소스 시스템 및 백업 파일이 있는 대상 스토리지의 볼륨과 통신하는 방법을 보여주는 다이어그램입니다."]
+
+현재 StorageGRID를 사용할 때 단일 파일 복원이 지원되지 않으므로 클라우드 복원 인스턴스는 이 다이어그램에 표시되지 않습니다.
+
+
+
+=== ONTAP 클러스터 준비
+
+볼륨 데이터 백업을 시작하려면 Cloud Manager에서 사내 ONTAP 클러스터를 검색해야 합니다.
+
+https://docs.netapp.com/us-en/cloud-manager-ontap-onprem/task-discovering-ontap.html["클러스터를 검색하는 방법에 대해 알아보십시오"^].
+
+ONTAP 요구 사항::
++
+--
+* ONTAP 9.7P5 이상
+* SnapMirror 라이센스(프리미엄 번들 또는 데이터 보호 번들의 일부로 포함)
++
+* 참고: * Cloud Backup을 사용할 때는 "하이브리드 클라우드 번들"이 필요하지 않습니다.
+
++
+자세한 내용은 를 참조하십시오 https://docs.netapp.com/us-en/ontap/system-admin/manage-licenses-concept.html["클러스터 라이센스를 관리합니다"^].
+
+* 시간 및 시간대가 올바르게 설정되었습니다.
++
+자세한 내용은 를 참조하십시오 https://docs.netapp.com/us-en/ontap/system-admin/manage-cluster-time-concept.html["클러스터 시간을 구성합니다"^].
+
+
+
+--
+클러스터 네트워킹 요구 사항::
++
+--
+* ONTAP 클러스터는 백업 및 복원 작업을 위해 인터클러스터 LIF에서 StorageGRID로 사용자 지정 포트를 통한 HTTPS 연결을 시작합니다. 백업 설정 중에 포트를 구성할 수 있습니다.
++
+ONTAP는 오브젝트 스토리지 간에 데이터를 읽고 씁니다. 오브젝트 스토리지는 한 번도 시작되고, 응답 하기만 합니다.
+
+* ONTAP를 사용하려면 Connector에서 클러스터 관리 LIF로 인바운드 연결이 필요합니다. 커넥터는 해당 위치에 있어야 합니다.
+* 인터클러스터 LIF는 백업할 볼륨을 호스팅하는 각 ONTAP 노드에 필요합니다. LIF는 ONTAP가 오브젝트 스토리지에 연결하는 데 사용해야 하는 _IPspace_와 연결되어 있어야 합니다. https://docs.netapp.com/us-en/ontap/networking/standard_properties_of_ipspaces.html["IPspace에 대해 자세히 알아보십시오"^].
++
+클라우드 백업을 설정하면 사용할 IPspace를 묻는 메시지가 표시됩니다. 각 LIF가 연결되는 IPspace를 선택해야 합니다. 이는 여러분이 생성한 "기본" IPspace 또는 사용자 지정 IPspace가 될 수 있습니다.
+
+* 노드의 인터클러스터 LIF는 오브젝트 저장소에 액세스할 수 있습니다.
+* 볼륨이 있는 스토리지 VM에 대해 DNS 서버가 구성되었습니다. 자세한 내용은 를 참조하십시오 https://docs.netapp.com/us-en/ontap/networking/configure_dns_services_auto.html["SVM을 위한 DNS 서비스 구성"^].
+* 을 사용하는 경우 기본값 이외의 IPspace를 사용하는 경우 오브젝트 스토리지에 액세스하려면 정적 라우트를 생성해야 할 수 있습니다.
+* 필요한 경우 Cloud Backup Service에서 지정한 포트(일반적으로 포트 443)를 통해 개체 스토리지로 ONTAP 연결을 허용하고 포트 53(TCP/UDP)을 통해 스토리지 VM에서 DNS 서버로 이름 확인 트래픽을 허용하도록 방화벽 규칙을 업데이트합니다.
+
+
+--
+
+
+
+
+=== StorageGRID 준비 중
+
+StorageGRID는 다음 요구 사항을 충족해야 합니다. 를 참조하십시오 https://docs.netapp.com/sgws-115/index.jsp["StorageGRID 설명서"^] 를 참조하십시오.
+
+지원되는 StorageGRID 버전:: StorageGRID 10.3 이상이 지원됩니다.
+S3 자격 증명:: StorageGRID에 백업을 설정하면 백업 마법사에서 서비스 계정에 대한 S3 액세스 키와 암호 키를 입력하라는 메시지가 표시됩니다. 서비스 계정을 사용하면 클라우드 백업에서 백업을 저장하는 데 사용되는 StorageGRID 버킷을 인증하고 액세스할 수 있습니다. 키는 StorageGRID가 누가 요청하는지 알 수 있도록 필요합니다.
++
+--
+이러한 액세스 키는 다음 권한을 가진 사용자와 연결되어야 합니다.
+
+[source, json]
+----
+"s3:ListAllMyBuckets",
+"s3:ListBucket",
+"s3:GetObject",
+"s3:PutObject",
+"s3:DeleteObject",
+"s3:CreateBucket"
+----
+--
+오브젝트 버전 관리:: 오브젝트 저장소 버킷에서 StorageGRID 오브젝트 버전 관리를 사용하도록 설정하면 안 됩니다.
+
+
+
+
+=== 커넥터 작성 또는 전환
+
+데이터를 StorageGRID에 백업할 때 Connector를 사내에서 사용할 수 있어야 합니다. 새 커넥터를 설치하거나 현재 선택한 커넥터가 내부에 있는지 확인해야 합니다.
+
+* https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-connectors.html["커넥터에 대해 자세히 알아보십시오"^]
+* https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-installing-linux.html["인터넷에 액세스할 수 있는 Linux 호스트에 커넥터 설치"^]
+* https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-managing-connectors.html["커넥터 간 전환"^]
+
+
+
+
+=== 커넥터를 위한 네트워킹 준비
+
+커넥터에 필요한 네트워크 연결이 있는지 확인합니다.
+
+.단계
+. 커넥터가 설치된 네트워크에서 다음 연결을 사용할 수 있는지 확인합니다.
++
+** 포트 443을 통해 StorageGRID에 HTTPS로 연결합니다
+** 포트 443을 통해 ONTAP 클러스터 관리 LIF에 HTTPS로 연결합니다
+** 포트 443을 통해 클라우드 백업으로 아웃바운드 인터넷 연결
+
+
+
+
+
+
+=== 라이센스 요구 사항
+
+Cloud Backup의 30일 무료 평가판을 만료되기 전에 NetApp에서 Cloud Backup BYOL 라이센스를 구매하고 활성화해야 합니다. 이 라이센스는 계정에 사용되며 여러 시스템에서 사용할 수 있습니다.
+
+라이센스 기간 및 용량 동안 서비스를 사용할 수 있도록 NetApp의 일련 번호가 필요합니다. link:task-licensing-cloud-backup.html#use-a-cloud-backup-byol-license["BYOL 라이센스 관리 방법에 대해 알아보십시오"].
+
+
+TIP: StorageGRID에 파일을 백업할 때는 PAYGO 라이센스가 지원되지 않습니다.
+
+클러스터에 SnapMirror 라이센스가 필요합니다. Cloud Backup을 사용할 때는 "하이브리드 클라우드 번들"이 필요하지 않습니다.
+
+
+
+== StorageGRID로 클라우드 백업 지원
+
+사내 작업 환경에서 언제든지 직접 Cloud Backup을 사용할 수 있습니다.
+
+.단계
+. Canvas에서 온-프레미스 작업 환경을 선택하고 오른쪽 패널의 백업 및 복원 서비스 옆에 있는 * 활성화 > 볼륨 백업 * 을 클릭합니다.
++
+image:screenshot_backup_onprem_enable.png["작업 환경을 선택한 후 사용할 수 있는 백업 및 앰프, 복원 활성화 버튼이 표시된 스크린샷"]
+
+. 공급자로 * StorageGRID * 를 선택하고 * 다음 * 을 클릭한 후 공급자 세부 정보를 입력합니다.
++
+.. StorageGRID 서버의 FQDN과 ONTAP이 StorageGRID와의 HTTPS 통신에 사용해야 하는 포트(예: S 3.eng.company.com:8082`)
+.. 백업을 저장하기 위해 버킷에 액세스하는 데 사용되는 액세스 키 및 비밀 키
+.. 백업할 볼륨이 상주하는 ONTAP 클러스터의 IPspace 이 IPspace용 인터클러스터 LIF는 아웃바운드 인터넷 액세스를 가져야 합니다.
++
+올바른 IPspace를 선택하면 클라우드 백업이 ONTAP에서 StorageGRID 오브젝트 스토리지로의 연결을 설정할 수 있습니다.
+
++
+image:screenshot_backup_provider_settings_storagegrid.png["온프레미스 클러스터에서 StorageGRID 스토리지로 볼륨을 백업할 때의 클라우드 공급자 세부 정보를 보여 주는 스크린샷"]
+
++
+서비스가 시작된 후에는 이 정보를 변경할 수 없습니다.
+
+
+
+. Define Policy_페이지에서 기본 백업 일정 및 보존 값을 선택하고 * Next * 를 클릭합니다.
++
+image:screenshot_backup_onprem_policy.png["백업 스케줄 및 보존 기간을 선택할 수 있는 Cloud Backup 설정을 보여 주는 스크린샷"]
+
++
+을 참조하십시오 link:concept-ontap-backup-to-cloud.html#customizable-backup-schedule-and-retention-settings-per-cluster["기존 정책 목록입니다"^].
+
+. Select Volumes(볼륨 선택) 페이지의 기본 백업 정책을 사용하여 백업할 볼륨을 선택합니다. 특정 볼륨에 서로 다른 백업 정책을 할당하려는 경우 추가 정책을 생성하여 나중에 해당 볼륨에 적용할 수 있습니다.
++
+** 모든 볼륨을 백업하려면 제목 행(image:button_backup_all_volumes.png[""])를 클릭합니다.
+** 개별 볼륨을 백업하려면 각 볼륨에 대한 확인란을 선택합니다(image:button_backup_1_volume.png[""])를 클릭합니다.
++
+image:screenshot_backup_select_volumes.png["백업할 볼륨을 선택하는 스크린샷"]
+
+
+
++
+나중에 이 클러스터에 추가된 모든 볼륨에 백업을 사용하도록 설정하려면 "Automatically back up future volumes..." 확인란을 선택한 상태로 둡니다. 이 설정을 비활성화하면 이후 볼륨에 대해 백업을 수동으로 활성화해야 합니다.
+
+. 백업 활성화 * 를 클릭하면 선택한 각 볼륨의 초기 백업이 시작됩니다.
+
+
+S3 버킷은 입력한 S3 액세스 키와 비밀 키로 표시된 서비스 계정에 자동으로 생성되며 백업 파일은 여기에 저장됩니다. 백업 상태를 모니터링할 수 있도록 볼륨 백업 대시보드가 표시됩니다.
+
+가능합니다 link:task-manage-backups-ontap.html["볼륨에 대한 백업을 시작 및 중지하거나 백업 일정을 변경합니다"^]. 또한 가능합니다  새로운 볼륨으로 ONTAP 데이터를 이동합니다.

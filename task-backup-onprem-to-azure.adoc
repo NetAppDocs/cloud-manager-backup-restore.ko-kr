@@ -1,0 +1,255 @@
+---
+sidebar: sidebar 
+permalink: task-backup-onprem-to-azure.html 
+keywords: backing up, back up, backup, backup on-prem ontap, on-premises, back up volumes, cloud backup, azure, azure blob 
+summary: 몇 가지 단계를 완료하여 사내 ONTAP 시스템에서 Azure Blob 저장소로 데이터 백업을 시작하십시오. 
+---
+= 온프레미스 ONTAP 데이터를 Azure Blob 저장소에 백업
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+몇 가지 단계를 완료하여 사내 ONTAP 시스템에서 Azure Blob 저장소로 데이터 백업을 시작하십시오.
+
+"사내 ONTAP 시스템"에는 FAS, AFF 및 ONTAP Select 시스템이 포함됩니다.
+
+
+TIP: 대부분의 경우 Cloud Manager를 사용하여 모든 백업 및 복원 작업을 수행할 수 있습니다. 그러나 ONTAP 9.9.1부터 ONTAP 시스템 관리자를 사용하여 사내 ONTAP 클러스터의 볼륨 백업 작업을 시작할 수 있습니다. https://docs.netapp.com/us-en/ontap/task_cloud_backup_data_using_cbs.html["System Manager를 사용하여 Cloud Backup을 사용하여 볼륨을 클라우드에 백업하는 방법을 알아보십시오."^]
+
+
+
+== 빠른 시작
+
+다음 단계를 따라 빠르게 시작하거나 나머지 섹션을 아래로 스크롤하여 자세한 내용을 확인하십시오.
+
+.span class="image"><img src="https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png"[] Alt="One"></span> 구성에 대한 지원을 확인합니다
+* 온프레미스 클러스터를 검색한 후 Cloud Manager의 작업 환경에 추가했습니다. 을 참조하십시오 https://docs.netapp.com/us-en/cloud-manager-ontap-onprem/task-discovering-ontap.html["ONTAP 클러스터 검색"^] 를 참조하십시오.
++
+** 클러스터에서 ONTAP 9.7P5 이상이 실행 중입니다.
+** 클러스터에는 SnapMirror 라이센스가 있으며, 이 라이센스는 프리미엄 번들 또는 데이터 보호 번들의 일부로 포함됩니다.
+** 클러스터에는 Blob 저장소 및 커넥터에 대한 필수 네트워크 연결이 있어야 합니다.
+
+
+* Connector는 Blob 저장소 및 클러스터에 대한 필수 네트워크 연결과 필요한 권한이 있어야 합니다.
+* 백업이 위치할 오브젝트 스토리지 공간에 대한 유효한 Azure 구독이 있습니다.
+
+
+[role="quick-margin-para"]
+작업 환경을 선택하고 오른쪽 패널에서 백업 및 복원 서비스 옆에 있는 * 활성화 > 볼륨 백업 * 을 클릭한 다음 설정 마법사를 따릅니다.
+
+[role="quick-margin-para"]
+image:screenshot_backup_onprem_enable.png["작업 환경을 선택한 후 사용할 수 있는 백업 및 앰프, 복원 활성화 버튼이 표시된 스크린샷"]
+
+[role="quick-margin-para"]
+공급자로서 Microsoft Azure를 선택한 다음 공급자 세부 정보를 입력합니다. 백업을 생성할 Azure 가입 및 지역을 선택해야 합니다. 기본 Microsoft 관리 암호화 키를 사용하는 대신 데이터 암호화에 대해 고객이 관리하는 키를 직접 선택할 수도 있습니다.
+
+[role="quick-margin-para"]
+image:screenshot_backup_onprem_to_azure.png["온프레미스 클러스터에서 Azure Blob 저장소로 볼륨을 백업할 때의 클라우드 공급자 세부 정보를 보여 주는 스크린샷"]
+
+[role="quick-margin-para"]
+볼륨이 상주하는 ONTAP 클러스터에서 IPspace를 선택합니다. 온프레미스 데이터 센터에서 VNET에 보다 안전하게 연결할 수 있도록 기존 Azure 프라이빗 끝점을 사용하도록 선택할 수도 있습니다.
+
+[role="quick-margin-para"]
+image:screenshot_backup_onprem_azure_networking.png["ONTAP 시스템에서 Azure Blob 저장소로 볼륨을 백업할 때 네트워킹 세부 정보를 보여 주는 스크린샷"]
+
+[role="quick-margin-para"]
+기본 정책은 매일 볼륨을 백업하고 각 볼륨의 최근 30개 백업 복사본을 유지합니다. 시간별, 일별, 주별 또는 월별 백업으로 변경하거나 더 많은 옵션을 제공하는 시스템 정의 정책 중 하나를 선택합니다. 보존할 백업 복사본의 수를 변경할 수도 있습니다.
+
+[role="quick-margin-para"]
+기본적으로 백업은 Cool 액세스 계층에 저장됩니다. 클러스터에서 ONTAP 9.10.1 이상을 사용하는 경우 추가 비용 최적화를 위해 일정 일 후에 Azure 아카이브 스토리지에 백업을 계층화하도록 선택할 수 있습니다.
+
+[role="quick-margin-para"]
+image:screenshot_backup_policy_azure.png["백업 스케줄 및 보존 기간을 선택할 수 있는 Cloud Backup 설정을 보여 주는 스크린샷"]
+
+[role="quick-margin-para"]
+Select Volumes(볼륨 선택) 페이지의 기본 백업 정책을 사용하여 백업할 볼륨을 식별합니다. 특정 볼륨에 서로 다른 백업 정책을 할당하려면 추가 정책을 생성한 후 나중에 볼륨에 적용할 수 있습니다.
+
+
+
+== 요구 사항
+
+온프레미스 볼륨을 Azure Blob 저장소에 백업하기 전에 다음 요구 사항을 읽고 지원되는 구성이 있는지 확인합니다.
+
+다음 이미지는 각 구성 요소와 이러한 구성 요소 간에 준비해야 하는 연결을 보여 줍니다.
+
+image:diagram_cloud_backup_onprem_azure.png["Cloud Backup이 소스 시스템 및 백업 파일이 있는 대상 스토리지의 볼륨과 통신하는 방법을 보여주는 다이어그램입니다."]
+
+Cloud Restore 인스턴스가 클라우드에 배포되면 Connector와 동일한 서브넷에 위치합니다.
+
+
+
+=== ONTAP 클러스터 준비
+
+볼륨 데이터 백업을 시작하려면 Cloud Manager에서 사내 ONTAP 클러스터를 검색해야 합니다.
+
+https://docs.netapp.com/us-en/cloud-manager-ontap-onprem/task-discovering-ontap.html["클러스터를 검색하는 방법에 대해 알아보십시오"^].
+
+ONTAP 요구 사항::
++
+--
+* ONTAP 9.7P5 이상
+* SnapMirror 라이센스(프리미엄 번들 또는 데이터 보호 번들의 일부로 포함)
++
+* 참고: * Cloud Backup을 사용할 때는 "하이브리드 클라우드 번들"이 필요하지 않습니다.
+
++
+자세한 내용은 를 참조하십시오 https://docs.netapp.com/us-en/ontap/system-admin/manage-licenses-concept.html["클러스터 라이센스를 관리합니다"^].
+
+* 시간 및 시간대가 올바르게 설정되었습니다.
++
+자세한 내용은 를 참조하십시오 https://docs.netapp.com/us-en/ontap/system-admin/manage-cluster-time-concept.html["클러스터 시간을 구성합니다"^].
+
+
+
+--
+클러스터 네트워킹 요구 사항::
++
+--
+* ONTAP 클러스터는 백업 및 복원 작업을 위해 인터클러스터 LIF에서 Azure Blob 스토리지로의 포트 443을 통한 HTTPS 연결을 시작합니다.
++
+ONTAP는 오브젝트 스토리지 간에 데이터를 읽고 씁니다. 오브젝트 스토리지는 한 번도 시작되고, 응답 하기만 합니다.
+
+* ONTAP를 사용하려면 Connector에서 클러스터 관리 LIF로 인바운드 연결이 필요합니다. 커넥터는 Azure VNET에 상주할 수 있습니다.
+* 인터클러스터 LIF는 백업할 볼륨을 호스팅하는 각 ONTAP 노드에 필요합니다. LIF는 ONTAP가 오브젝트 스토리지에 연결하는 데 사용해야 하는 _IPspace_와 연결되어 있어야 합니다. https://docs.netapp.com/us-en/ontap/networking/standard_properties_of_ipspaces.html["IPspace에 대해 자세히 알아보십시오"^].
++
+클라우드 백업을 설정하면 사용할 IPspace를 묻는 메시지가 표시됩니다. 각 LIF가 연결되는 IPspace를 선택해야 합니다. 이는 여러분이 생성한 "기본" IPspace 또는 사용자 지정 IPspace가 될 수 있습니다.
+
+* 노드의 및 인터클러스터 LIF는 오브젝트 저장소에 액세스할 수 있습니다.
+* 볼륨이 있는 스토리지 VM에 대해 DNS 서버가 구성되었습니다. 자세한 내용은 를 참조하십시오 https://docs.netapp.com/us-en/ontap/networking/configure_dns_services_auto.html["SVM을 위한 DNS 서비스 구성"^].
+* 을 사용하는 경우 기본값 이외의 IPspace를 사용하는 경우 오브젝트 스토리지에 액세스하려면 정적 라우트를 생성해야 할 수 있습니다.
+* 필요한 경우 포트 443을 통해 ONTAP에서 오브젝트 스토리지로 Cloud Backup Service 연결을 허용하고 포트 53(TCP/UDP)을 통해 스토리지 VM에서 DNS 서버로 이름 확인 트래픽을 허용하도록 방화벽 규칙을 업데이트합니다.
+
+
+--
+
+
+
+
+=== 커넥터 작성 또는 전환
+
+Azure Blob 저장소에 데이터를 백업할 때는 Connector가 Azure VNET에 있고, Connector는 클라우드에 데이터를 백업하는 데 필요합니다. 온-프레미스에 배포된 Connector는 사용할 수 없습니다. 새 커넥터를 만들거나 현재 선택한 커넥터가 올바른 공급자에 있는지 확인해야 합니다.
+
+* https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-connectors.html["커넥터에 대해 자세히 알아보십시오"^]
+* https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-creating-connectors-azure.html["Azure에서 커넥터 만들기"^]
+* https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-managing-connectors.html["커넥터 간 전환"^]
+
+
+
+
+=== 커넥터를 위한 네트워킹 준비
+
+커넥터에 필요한 네트워크 연결이 있는지 확인합니다.
+
+.단계
+. 커넥터가 설치된 네트워크에서 다음 연결을 사용할 수 있는지 확인합니다.
++
+** 포트 443(HTTPS)을 통해 Cloud Backup Service에 아웃바운드 인터넷 연결
+** Blob 개체 저장소에 대한 포트 443을 통한 HTTPS 연결
+** 포트 443을 통해 ONTAP 클러스터 관리 LIF에 HTTPS로 연결합니다
+
+
+. Azure 스토리지에 VNET 프라이빗 엔드포인트를 설정합니다. 이 기능은 ONTAP 클러스터에서 VNET로 ExpressRoute 또는 VPN 연결을 사용하는 경우, Connector와 Blob 스토리지 간의 통신을 가상 프라이빗 네트워크에 유지하는 데 필요합니다.
+
+
+
+
+=== 지원 지역
+
+모든 지역의 온프레미스 시스템에서 Azure Blob으로 백업을 생성할 수 있습니다 https://cloud.netapp.com/cloud-volumes-global-regions["Cloud Volumes ONTAP가 지원되는 경우"^]Azure Government 지역을 비롯한 모든 지역에서 사용할 수 있습니다. 서비스를 설정할 때 백업을 저장할 지역을 지정합니다.
+
+
+
+=== 라이센스 요구 사항
+
+Cloud Backup의 30일 무료 평가판 기간이 만료되기 전에 Azure에서 PAYGO(Pay-as-you-Go) Cloud Manager Marketplace 오퍼링을 구독하거나 NetApp에서 Cloud Backup BYOL 라이센스를 구입하여 활성화해야 합니다. 이러한 라이센스는 계정에 사용되며 여러 시스템에서 사용할 수 있습니다.
+
+* Cloud Backup PAYGO 라이센스의 경우 에 대한 구독이 필요합니다 https://azuremarketplace.microsoft.com/en-us/marketplace/apps/netapp.cloud-manager?tab=Overview["Azure를 지원합니다"^] Cloud Manager Marketplace 오퍼링을 지속적으로 사용하여 Cloud Backup을 사용합니다. Cloud Backup에 대한 청구는 이 구독을 통해 이루어집니다.
+* Cloud Backup BYOL 라이센스의 경우, 가입이 필요하지 않습니다. 라이센스 기간 및 용량 동안 서비스를 사용할 수 있도록 NetApp의 일련 번호가 필요합니다. link:task-licensing-cloud-backup.html#use-cloud-backup-byol-licenses["BYOL 라이센스 관리 방법에 대해 알아보십시오"].
+
+
+백업이 위치할 오브젝트 스토리지 공간에 Azure를 구독해야 합니다.
+
+클러스터에 SnapMirror 라이센스가 필요합니다. Cloud Backup을 사용할 때는 "하이브리드 클라우드 번들"이 필요하지 않습니다.
+
+
+
+=== 백업을 위한 Azure Blob 저장소 준비
+
+. 가상 또는 물리적 네트워크에서 인터넷 액세스에 프록시 서버를 사용하는 경우 클라우드 복원 가상 시스템이 다음 끝점에 연결할 수 있는 아웃바운드 인터넷 액세스를 가지고 있는지 확인합니다.
++
+[cols="43,57"]
+|===
+| 엔드포인트 | 목적 
+
+
+| http://olcentgbl.trafficmanager.net \https://olcentgbl.trafficmanager.net 으로 문의하십시오 | 클라우드 복원 가상 머신용 CentOS 패키지를 제공합니다. 
+
+
+| http://cloudmanagerinfraprod.azurecr.io \https://cloudmanagerinfraprod.azurecr.io 으로 문의하십시오 | 클라우드 복원 가상 머신 이미지 리포지토리. 
+|===
+. 기본 Microsoft 관리 암호화 키를 사용하는 대신 활성화 마법사에서 데이터 암호화에 대해 사용자 지정 관리 키를 선택합니다. 이 경우 Azure 가입, 키 저장소 이름 및 키가 필요합니다. https://docs.microsoft.com/en-us/azure/storage/common/customer-managed-keys-overview["자신의 키를 사용하는 방법을 확인하십시오"^].
+. 온프레미스 데이터 센터에서 VNET로 공용 인터넷을 통해 보다 안전하게 연결하려면 활성화 마법사에서 Azure 프라이빗 끝점을 구성하는 옵션이 있습니다. 이 경우 이 연결에 대한 VNET 및 서브넷을 알아야 합니다. https://docs.microsoft.com/en-us/azure/private-link/private-endpoint-overview["개인 엔드포인트 사용에 대한 자세한 내용을 참조하십시오"^].
+
+
+
+
+== 클라우드 백업 활성화
+
+사내 작업 환경에서 언제든지 직접 Cloud Backup을 사용할 수 있습니다.
+
+.단계
+. Canvas에서 작업 환경을 선택하고 오른쪽 패널의 백업 및 복원 서비스 옆에 있는 * 활성화 > 볼륨 백업 * 을 클릭합니다.
++
+image:screenshot_backup_onprem_enable.png["작업 환경을 선택한 후 사용할 수 있는 백업 및 앰프, 복원 활성화 버튼이 표시된 스크린샷"]
+
+. 공급자로서 Microsoft Azure를 선택하고 * 다음 * 을 클릭합니다.
+. 제공업체 세부사항을 입력하고 * 다음 * 을 클릭합니다.
++
+.. 백업에 사용되는 Azure 가입 및 백업을 저장할 Azure 지역
+.. Blob 컨테이너를 관리하는 리소스 그룹 - 새 리소스 그룹을 만들거나 기존 리소스 그룹을 선택할 수 있습니다.
+.. 기본 Microsoft 관리 암호화 키를 사용할지 또는 고객이 관리하는 키를 직접 선택하여 데이터 암호화를 관리할지 여부를 결정합니다. (https://docs.microsoft.com/en-us/azure/storage/common/customer-managed-keys-overview["자신의 키를 사용하는 방법을 확인하십시오"^])를 클릭합니다.
++
+image:screenshot_backup_onprem_to_azure.png["온프레미스 클러스터에서 Azure Blob 저장소로 볼륨을 백업할 때의 클라우드 공급자 세부 정보를 보여 주는 스크린샷"]
+
+
+
+. 네트워킹 세부 정보를 입력하고 * 다음 * 을 클릭합니다.
++
+.. 백업할 볼륨이 상주하는 ONTAP 클러스터의 IPspace 이 IPspace용 인터클러스터 LIF는 아웃바운드 인터넷 액세스를 가져야 합니다.
+.. 필요에 따라 Azure 프라이빗 끝점을 구성할지 여부를 선택합니다. https://docs.microsoft.com/en-us/azure/private-link/private-endpoint-overview["개인 엔드포인트 사용에 대한 자세한 내용을 참조하십시오"].
++
+image:screenshot_backup_onprem_azure_networking.png["ONTAP 시스템에서 Azure Blob 저장소로 볼륨을 백업할 때 네트워킹 세부 정보를 보여 주는 스크린샷"]
+
+
+
+. 기본 백업 정책 세부 정보를 입력하고 * 다음 * 을 클릭합니다.
++
+.. 백업 스케줄을 정의하고 보존할 백업 수를 선택합니다. link:concept-ontap-backup-to-cloud.html#customizable-backup-schedule-and-retention-settings-per-cluster["선택할 수 있는 기존 정책 목록을 봅니다"^].
+.. ONTAP 9.10.1 이상을 사용하는 경우 추가 비용 최적화를 위해 일정 일 후에 Azure 아카이브 스토리지에 백업을 계층화하도록 선택할 수 있습니다. link:reference-azure-backup-tiers.html["아카이브 계층 사용에 대해 자세히 알아보십시오"].
++
+image:screenshot_backup_policy_azure.png["스케줄 및 백업 보존을 선택할 수 있는 Cloud Backup 설정을 보여 주는 스크린샷"]
+
+
+
+. Select Volumes(볼륨 선택) 페이지의 기본 백업 정책을 사용하여 백업할 볼륨을 선택합니다. 특정 볼륨에 서로 다른 백업 정책을 할당하려는 경우 추가 정책을 생성하여 나중에 해당 볼륨에 적용할 수 있습니다.
++
+** 모든 볼륨을 백업하려면 제목 행(image:button_backup_all_volumes.png[""])를 클릭합니다.
+** 개별 볼륨을 백업하려면 각 볼륨에 대한 확인란을 선택합니다(image:button_backup_1_volume.png[""])를 클릭합니다.
++
+image:screenshot_backup_select_volumes.png["백업할 볼륨을 선택하는 스크린샷"]
+
+
+
++
+나중에 추가된 모든 볼륨에 백업을 사용하려면 "Automatically back up future volumes..." 확인란을 선택하기만 하면 됩니다. 이 설정을 비활성화하면 이후 볼륨에 대해 백업을 수동으로 활성화해야 합니다.
+
+. 백업 활성화 * 를 클릭하면 Cloud Backup이 볼륨의 초기 백업을 시작합니다.
+
+
+Cloud Backup은 선택한 각 볼륨의 초기 백업을 시작하고, 백업 상태를 모니터링할 수 있도록 Volume Backup Dashboard가 표시됩니다.
+
+가능합니다 link:task-manage-backups-ontap.html["볼륨에 대한 백업을 시작 및 중지하거나 백업 일정을 변경합니다"^]. 또한 가능합니다  Azure의 Cloud Volumes ONTAP 시스템 또는 사내 ONTAP 시스템으로 데이터를 이동합니다.

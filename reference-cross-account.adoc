@@ -1,0 +1,20 @@
+---
+sidebar: sidebar 
+permalink: reference-cross-account.html 
+keywords: cross account, backup, aws, azure 
+summary: 이 항목에서는 여러 클라우드 공급자를 사용할 때 계정 간에 구성할 수 있도록 Cloud Backup을 구성하는 방법을 설명합니다. 
+---
+= 교차 계정 및 교차 지역 구성
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+이 항목에서는 여러 클라우드 공급자를 사용할 때 계정 간에 구성할 수 있도록 Cloud Backup을 구성하는 방법을 설명합니다.
+
+* link:reference-backup-multi-account-aws.html["AWS에서 다중 계정 액세스를 위해 Cloud Backup을 구성합니다"]
+* link:reference-backup-multi-account-azure.html["Azure에서 다중 계정 액세스를 위해 Cloud Backup을 구성합니다"]
+

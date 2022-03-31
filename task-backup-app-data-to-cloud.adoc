@@ -1,0 +1,132 @@
+---
+sidebar: sidebar 
+permalink: task-backup-app-data-to-cloud.html 
+keywords: backing up, back up, backup, backup application data, Azure, Amazon Web services, Cloud Backup, cloud backup service, Oracle database, Microsoft SQL Server database, SnapCenter Server, register 
+summary: ONTAP에서 클라우드 서비스로 애플리케이션 데이터를 백업하려면 몇 가지 단계를 완료하십시오. 
+---
+= 사내 애플리케이션 데이터를 클라우드에 백업
+:hardbreaks:
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Cloud Backup for Applications를 Cloud Manager 및 사내 SnapCenter와 통합하여 ONTAP에서 클라우드로 애플리케이션 데이터를 백업할 수 있습니다.
+
+
+
+== SnapCenter 서버를 등록합니다
+
+SnapCenter 서버 4.6이 실행 중인 호스트는 SnapCenterAdmin 역할을 가진 사용자만 등록할 수 있습니다. 여러 SnapCenter 서버 호스트를 등록할 수 있지만, 일단 등록하면 SnapCenter 서버 호스트를 제거할 수 없습니다.
+
+* 단계 *
+
+. Cloud Manager UI에서 * 백업 및 복원 * > * 응용 프로그램 * 을 클릭합니다.
+. 설정 * 드롭다운에서 * SnapCenter 서버 * 를 클릭합니다.
+. SnapCenter 서버 등록 * 을 클릭합니다.
+. 다음 세부 정보를 지정합니다.
++
+.. SnapCenter 서버 필드에서 SnapCenter 서버 호스트의 FQDN 또는 IP 주소를 지정합니다.
+.. 포트 필드에서 SnapCenter 서버가 실행 중인 포트 번호를 지정합니다.
++
+SnapCenter 서버와 클라우드 응용 프로그램 백업 간에 통신이 이루어지게 하려면 포트가 열려 있어야 합니다.
+
+.. 태그 필드에서 SnapCenter 서버에 태그를 지정할 사이트 이름, 도시 이름 또는 사용자 지정 이름을 지정합니다.
++
+태그는 쉼표로 구분됩니다.
+
+.. 사용자 이름 및 암호 필드에서 SnapCenterAdmin 역할을 가진 사용자의 자격 증명을 지정합니다.
+
+
+. Register * 를 클릭합니다.
+
+
+* 완료 후 *
+
+등록된 SnapCenter 서버 호스트를 사용하여 보호되는 모든 응용 프로그램을 보려면 * 백업 및 복원 * > * 응용 프로그램 * 을 클릭합니다.
+
+
+NOTE: SQL Server 데이터베이스의 경우 Application Name 열에 _application_name(호스트 이름)_format으로 이름이 표시됩니다. 이름을 _application_name(호스트 이름)_format으로 입력하여 검색하면 SQL Server 데이터베이스 세부 정보가 표시되지 않습니다.
+
+지원되는 응용 프로그램 및 해당 구성은 다음과 같습니다.
+
+* Oracle 데이터베이스: 최소 1일, 주별 또는 월별 스케줄을 사용하여 생성된 전체 백업(데이터 + 로그)
+* Microsoft SQL Server 데이터베이스:
++
+** 독립 실행형, 페일오버 클러스터 인스턴스, 가용성 그룹
+** 최소 1개의 일일, 주별 또는 월별 스케줄을 사용하여 생성된 전체 백업입니다
+
+
+
+
+다음 Oracle 및 SQL Server 데이터베이스는 표시되지 않습니다.
+
+* 백업이 없는 데이터베이스입니다
+* 주문형 또는 시간별 정책만 있는 데이터베이스
+* RDM 또는 VMDK에 상주하는 데이터베이스입니다
+
+
+
+
+== 애플리케이션 데이터를 백업합니다
+
+단일 정책을 사용하여 하나 이상의 애플리케이션을 클라우드에 동시에 보호할 수 있습니다. 기본 사전 스캔 정책만 할당하여 애플리케이션을 보호할 수 있습니다.
+
+
+IMPORTANT: Cloud Manager GUI를 사용하는 경우 한 번에 하나의 애플리케이션만 보호할 수 있습니다. 그러나 REST API를 사용하는 경우 여러 애플리케이션을 동시에 보호할 수 있습니다.
+
+SQL Server 인스턴스를 보호하는 경우 해당 인스턴스에 있는 해당 데이터베이스의 모든 볼륨에 대해 클라우드 보호가 구성됩니다. SQL Server 가용성 그룹을 보호하는 경우 해당 가용성 그룹에 있는 데이터베이스의 모든 볼륨에 대해 클라우드 보호가 구성됩니다. 그러나 백업 기본 설정에 따라 해당 볼륨에서 스냅샷이 복사됩니다.
+
+* 단계 *
+
+. Cloud Manager UI에서 * 백업 및 복원 * > * 응용 프로그램 * 을 클릭합니다.
+. 을 클릭합니다 image:icon-action.png["아이콘을 클릭하여 작업을 선택합니다"] 응용 프로그램에 해당하는 을 클릭하고 * 백업 활성화 * 를 클릭합니다.
+. 작업 환경을 추가합니다.
++
+애플리케이션이 실행되고 있는 SVM을 호스팅하는 ONTAP 클러스터를 구성합니다. 애플리케이션 중 하나에 대한 작업 환경을 추가한 후 동일한 ONTAP 클러스터에 있는 다른 모든 애플리케이션에 다시 사용할 수 있습니다.
+
++
+.. SVM을 선택하고 작업 환경 추가를 클릭합니다.
+.. 작업 환경 추가 마법사에서 다음을 수행합니다.
++
+... ONTAP 클러스터의 IP 주소를 지정합니다.
+... 관리자 자격 증명을 지정합니다.
++
+Cloud Backup for Applications는 클러스터 관리자만 지원합니다.
+
+
+
+.. 작업 환경 추가 * 를 클릭합니다.
+
+
+. 클라우드 공급자를 선택하고 구성합니다.
++
+[role="tabbed-block"]
+====
+.Amazon Web Services를 구성합니다
+--
+.. AWS 계정을 지정합니다.
+.. AWS 액세스 키 필드에서 키를 지정합니다.
+.. AWS 암호 키 필드에 암호를 지정합니다.
+.. 백업을 생성할 영역을 선택합니다.
+.. 작업 환경으로 추가된 ONTAP 클러스터의 IP 주소를 지정합니다.
+
+
+--
+.Microsoft Azure를 구성합니다
+--
+.. Azure 구독 ID를 지정합니다.
+.. 백업을 생성할 영역을 선택합니다.
+.. 새 자원 그룹을 만들거나 기존 자원 그룹을 사용합니다.
+.. 작업 환경으로 추가된 ONTAP 클러스터의 IP 주소를 지정합니다.
+
+
+--
+====
+
+
+. 정책 할당 페이지에서 정책을 선택하고 * 다음 * 을 클릭합니다.
+. 세부 정보를 검토하고 * 백업 활성화 * 를 클릭합니다.
+
