@@ -63,7 +63,7 @@ image:diagram_cloud_backup_cvo_google.png["Cloud Backup이 소스 시스템의 �
 
 지원되는 ONTAP 버전:: Cloud Volumes ONTAP 9.7P5 이상
 지원되는 GCP 지역:: Cloud Backup은 모든 GCP 지역에서 지원됩니다 https://cloud.netapp.com/cloud-volumes-global-regions["Cloud Volumes ONTAP가 지원되는 경우"^].
-라이센스 요구 사항:: Cloud Backup PAYGO 라이센스의 경우, 를 통한 구독 https://console.cloud.google.com/marketplace/details/netapp-cloudmanager/cloud-manager?supportedpurview=project&rif_reserved["GCP 마켓플레이스"] Cloud Backup을 활성화하기 전에 가 필요합니다. Cloud Backup에 대한 청구는 이 구독을 통해 이루어집니다..
+라이센스 요구 사항:: Cloud Backup PAYGO 라이센스의 경우, 를 통한 구독 https://console.cloud.google.com/marketplace/details/netapp-cloudmanager/cloud-manager?supportedpurview=project&rif_reserved["GCP 마켓플레이스"] Cloud Backup을 활성화하기 전에 가 필요합니다. Cloud Backup에 대한 청구는 이 구독을 통해 이루어집니다. https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-deploying-gcp.html["작업 환경 마법사의 세부 정보 및 자격 증명 페이지에서 구독할 수 있습니다"^].
 +
 --
 Cloud Backup BYOL 라이센스의 경우, 라이센스 기간 및 용량 동안 서비스를 사용할 수 있도록 지원하는 NetApp의 일련 번호가 필요합니다. link:task-licensing-cloud-backup.html#use-cloud-backup-byol-licenses["BYOL 라이센스 관리 방법에 대해 알아보십시오"].
@@ -111,7 +111,7 @@ image:screenshot_backup_to_gcp.png["에는 작업 환경 마법사의 클라우�
 
 Cloud Backup은 시스템에서 활성화되어 매일 생성한 볼륨을 백업하며 최근 30개의 백업 복사본을 보존합니다.
 
-가능합니다 link:task-manage-backups-ontap.html["볼륨에 대한 백업을 시작 및 중지하거나 백업 일정을 변경합니다"^]. 또한 가능합니다  Google의 Cloud Volumes ONTAP 시스템 또는 온프레미스 ONTAP 시스템으로.
+가능합니다 link:task-manage-backups-ontap.html["볼륨에 대한 백업을 시작 및 중지하거나 백업 일정을 변경합니다"^]. 또한 가능합니다 link:task-restore-backups-ontap.html["백업 파일에서 전체 볼륨을 복원합니다"^] Google의 Cloud Volumes ONTAP 시스템 또는 온프레미스 ONTAP 시스템으로.
 
 
 
@@ -153,4 +153,4 @@ image:screenshot_backup_select_volumes.png["백업할 볼륨을 선택하는 스
 
 Cloud Backup은 선택한 각 볼륨의 초기 백업을 시작하고, 백업 상태를 모니터링할 수 있도록 Volume Backup Dashboard가 표시됩니다.
 
-가능합니다 link:task-manage-backups-ontap.html["볼륨에 대한 백업을 시작 및 중지하거나 백업 일정을 변경합니다"^]. 또한 가능합니다  Google의 Cloud Volumes ONTAP 시스템 또는 온프레미스 ONTAP 시스템으로.
+가능합니다 link:task-manage-backups-ontap.html["볼륨에 대한 백업을 시작 및 중지하거나 백업 일정을 변경합니다"^]. 또한 가능합니다 link:task-restore-backups-ontap.html["백업 파일에서 전체 볼륨을 복원합니다"^] Google의 Cloud Volumes ONTAP 시스템 또는 온프레미스 ONTAP 시스템으로.

@@ -66,7 +66,7 @@ Kubernetes 클러스터 요구사항::
 +
 --
 * Kubernetes 클러스터를 Cloud Manager 작업 환경으로 발견했습니다. https://docs.netapp.com/us-en/cloud-manager-kubernetes/task-kubernetes-discover-gke.html["Kubernetes 클러스터를 검색하는 방법을 알아보십시오"^].
-* Trident는 클러스터에 설치해야 하며 Trident 버전은 21.1 이상이어야 합니다. 을 참조하십시오 link:https://netapp-trident.readthedocs.io/en/latest/kubernetes/deploying/index.html["Trident 설치 방법"] 또는.
+* Trident는 클러스터에 설치해야 하며 Trident 버전은 21.1 이상이어야 합니다. 을 참조하십시오 link:https://netapp-trident.readthedocs.io/en/latest/kubernetes/deploying/index.html["Trident 설치 방법"] 또는 https://netapp-trident.readthedocs.io/en/latest/kubernetes/upgrades/index.html["Trident 버전을 업그레이드하는 방법"].
 * 클러스터는 해당 백엔드 스토리지에 대해 GCP에서 Cloud Volumes ONTAP를 사용해야 합니다.
 * Cloud Volumes ONTAP 시스템은 Kubernetes 클러스터와 같은 GCP 지역에 있어야 하며 ONTAP 9.7P5 이상을 실행해야 합니다.
 +
@@ -126,7 +126,7 @@ spec:
 
 --
 지원되는 GCP 지역:: Cloud Backup은 모든 GCP 지역에서 지원됩니다 https://cloud.netapp.com/cloud-volumes-global-regions["Cloud Volumes ONTAP가 지원되는 경우"^].
-라이센스 요구 사항:: Cloud Backup PAYGO 라이센스의 경우, 를 통한 구독 https://console.cloud.google.com/marketplace/details/netapp-cloudmanager/cloud-manager?supportedpurview=project&rif_reserved["GCP 마켓플레이스"] Cloud Backup을 활성화하기 전에 가 필요합니다. Cloud Backup에 대한 청구는 이 구독을 통해 이루어집니다..
+라이센스 요구 사항:: Cloud Backup PAYGO 라이센스의 경우, 를 통한 구독 https://console.cloud.google.com/marketplace/details/netapp-cloudmanager/cloud-manager?supportedpurview=project&rif_reserved["GCP 마켓플레이스"] Cloud Backup을 활성화하기 전에 가 필요합니다. Cloud Backup에 대한 청구는 이 구독을 통해 이루어집니다. https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-deploying-gcp.html["작업 환경 마법사의 세부 정보 및 자격 증명 페이지에서 구독할 수 있습니다"^].
 +
 --
 Cloud Backup BYOL 라이센스의 경우, 라이센스 기간 및 용량 동안 서비스를 사용할 수 있도록 지원하는 NetApp의 일련 번호가 필요합니다. link:task-licensing-cloud-backup.html#use-cloud-backup-byol-licenses["BYOL 라이센스 관리 방법에 대해 알아보십시오"].
@@ -171,4 +171,4 @@ image:screenshot_backup_select_volumes_k8s.png["백업할 볼륨을 선택하는
 
 Kubernetes 대시보드가 표시되므로 백업 상태를 모니터링할 수 있습니다.
 
-가능합니다 link:task-managing-backups.html["볼륨에 대한 백업을 시작 및 중지하거나 백업 일정을 변경합니다"^]. 또한 가능합니다  GCP(동일한 지역)의 동일한 또는 다른 Kubernetes 클러스터의 새 볼륨으로.
+가능합니다 link:task-managing-backups.html["볼륨에 대한 백업을 시작 및 중지하거나 백업 일정을 변경합니다"^]. 또한 가능합니다 link:task-restore-backups.html#restoring-volumes-from-a-kubernetes-backup-file["백업 파일에서 전체 볼륨을 복원합니다"^] GCP(동일한 지역)의 동일한 또는 다른 Kubernetes 클러스터의 새 볼륨으로.
