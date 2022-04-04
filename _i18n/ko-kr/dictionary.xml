@@ -374,7 +374,6 @@
   <block id="10f6202d30d30fab178f494f51fd80be" category="list-text">볼륨 또는 개별 파일을 소스 시스템 또는 다른 시스템으로 복원합니다.</block>
   <block id="8d3b14a9e537b12cc786825ea2f9e4cb" category="list-text">다른 구독/계정을 사용하거나 다른 지역에 있는 작업 환경으로 데이터를 복원합니다.</block>
   <block id="54abac4b0e4ba613b4a723ce5bc4fb9c" category="list-text">블록 수준에서 데이터를 복원하여 원래 ACL을 보존하면서 데이터를 사용자가 지정한 위치에 직접 배치합니다.</block>
-  <block id="f319acfc40bbcab25f408ee9038599f7" category="list-text">단일 파일 복원을 위한 개별 파일을 선택하기 위한 탐색 가능한 파일 카탈로그.</block>
   <block id="8c2fa8f9ca2c046b2cddcd4a9239752f" category="section-title">지원되는 ONTAP 작업 환경 및 오브젝트 스토리지 공급자</block>
   <block id="c69521d41090229a4c8162ebc8682468" category="paragraph">Cloud Backup을 사용하면 다음과 같은 작업 환경에서 ONTAP 볼륨을 다음 퍼블릭 및 프라이빗 클라우드 공급자의 오브젝트 스토리지로 백업할 수 있습니다.</block>
   <block id="da3ad9d6a0eca9d57ad9063ff8690ab6" category="cell">소스 작업 환경</block>
@@ -401,13 +400,11 @@
   <block id="7d42bbb55a0a84fa72ab6edcc4fae677" category="list-text">백업의 경우 클라우드 공급자에게 오브젝트 스토리지 비용을 지불하십시오.</block>
   <block id="0de9b3cec1ef6cadb404383ceab17afa" category="paragraph">Cloud Backup은 소스 볼륨의 스토리지 효율성을 유지하므로 데이터_after_ONTAP 효율성(중복제거 및 압축이 적용된 후 더 적은 양의 데이터)에 대한 클라우드 공급자 개체 스토리지 비용을 지불하게 됩니다.</block>
   <block id="4add3b76588efda22443faf65d7b33b8" category="list-text">Browse &amp; Restore를 사용한 파일 복원의 경우 Restore 인스턴스가 실행 중일 때만 클라우드 공급자에 컴퓨팅 비용을 지불합니다.</block>
-  <block id="2e8e31cde916a3195214336332198f1d" category="paragraph">인스턴스는 Connector와 동일한 서브넷에 상주하며 복원할 개별 파일을 찾기 위해 백업 파일을 탐색할 때만 실행됩니다. 비용 절감을 위해 사용하지 않을 때는 인스턴스가 해제됩니다.</block>
   <block id="61c85306674ea0662e30c30a451e8bb6" category="inline-link">m5n.xlarge 인스턴스</block>
   <block id="8eee98a18c217036ccb07ef6bed307a3" category="paragraph">m5n.xlarge 인스턴스를 사용할 수 없는 지역에서는 대신 M5.xlarge 인스턴스에서 Restore가 실행됩니다.</block>
   <block id="8d63888e8805c64f266bdd3b3aae561b" category="inline-link">Standard_D4s_v3 VM</block>
   <block id="ffc6e434091ae2664cbbe027fc45747f" category="paragraph">인스턴스의 이름은 _Cloud-Restore-instance_이며 연결된 계정 ID가 있습니다. 예: _ 클라우드 - 복원 - 인스턴스 - MyAccount _.</block>
   <block id="c44bf8d814d25bd36e966009ffe7c778" category="list-text">Browse &amp; Restore를 사용한 볼륨 복원의 경우 별도의 인스턴스 또는 가상 머신이 필요하지 않으므로 비용이 들지 않습니다.</block>
-  <block id="019995fe578c139f5c7879d1c512272e" category="list-text">검색 및 복원을 사용한 볼륨 또는 파일 복원의 경우 Amazon Athena 및 AWS Glue 리소스가 필요합니다. 볼륨 및 파일을 복원할 때 이러한 리소스에 비용이 연결됩니다. 검색 및 복원은 현재 AWS A3에서만 지원됩니다.</block>
   <block id="e1b4a0ddcd3124f71fd5c65649282433" category="paragraph">* 서비스 요금 *</block>
   <block id="da7eba6ba6d65c47401a65d01a2b5be6" category="paragraph">서비스 비용은 NetApp에 지불되며 이러한 백업에서_create_backups와 to_restore_volumes 또는 파일에 대한 비용을 모두 부담합니다. 오브젝트 스토리지에 백업된 ONTAP 볼륨의 소스 논리적 사용 용량(_Before_ONTAP 효율성)을 사용하여 계산한, 자신이 보호하는 데이터에 대해서만 비용을 지불합니다. 이 용량을 FETB(Front-End Terabytes)라고도 합니다.</block>
   <block id="0b9c6eef4e3d3a222eb04e910d252339" category="inline-xref">라이센싱</block>
@@ -709,39 +706,31 @@
   <block id="16d050cc0c345f23a8c1f9d1557ac107" category="list-text">확인 대화 상자에서 * 등록 취소 * 를 클릭합니다.</block>
   <block id="087310fbce62062547e7755ce36288a5" category="summary">Cloud Backup의 새로운 기능에 대해 알아보십시오.</block>
   <block id="2b0d303ec45a6f12beec71d59abfee40" category="doc">클라우드 백업의 새로운 기능</block>
-  <block id="ec9b8f6823bcd6e5f05df71983a3ea63" category="section-title">2022년 4월 3일</block>
   <block id="53a177bd3753cd5dd3160eb23ae27ae3" category="section-title">Cloud Backup for Applications 1.1.0 지원</block>
   <block id="9793a7606042d0fe65c3a7569fe10e8a" category="inline-link-macro">사내 애플리케이션 데이터를 클라우드로 보호하는 방법에 대해 자세히 알아보십시오</block>
-  <block id="01f2ae9bea9fe30701f09beb6db8263f" category="paragraph"><block ref="a674deae71d4abae6a5e9726f531eb11" category="inline-link-macro-rx"></block>.</block>
   <block id="03a4b55a53bde0dfb397461371884e8e" category="section-title">모든 ONTAP 백업 파일에서 볼륨 또는 파일을 검색하는 새로운 검색 및 복원 기능</block>
   <block id="abad9ff4f9967065f50634a2a3606dd0" category="inline-link-macro">검색 및 amp;Restore 사용 방법에 대해 알아봅니다</block>
-  <block id="c94a7fd1550e4a8904300b181c98caaf" category="section-title">2022년 3월 3일</block>
   <block id="4164f4229952724961b18ee1aba05107" category="section-title">GKE Kubernetes 클러스터에서 Google Cloud 스토리지로 영구 볼륨을 백업하는 기능</block>
   <block id="6aa300e24ddf3ee5a99bbb1cf5bb4a72" category="inline-link-macro">자세한 내용을 보려면 여기를 클릭하십시오</block>
-  <block id="6ff133e735e841b3a54d6f8c0a84c071" category="paragraph">GKE 클러스터에 NetApp Astra Trident가 설치되어 있고 Cloud Volumes ONTAP for GCP를 클러스터의 백엔드 스토리지로 사용하는 경우, Google Cloud 스토리지와 영구 볼륨을 백업 및 복원할 수 있습니다. <block ref="04c62f5c961d468f8c7e3d8b6a8a1398" category="inline-link-macro-rx"></block>.</block>
   <block id="425adda56e394de12209334423b302c9" category="section-title">Cloud Data Sense를 사용하여 Cloud Backup 파일을 검사하는 베타 기능은 이 릴리즈에서 더 이상 제공되지 않습니다.</block>
   <block id="f49fe4c56999dcc895c26b71ec63e34f" category="section-title">2022년 2월 14일</block>
   <block id="00cc27904469b8648e9ce7406785695d" category="section-title">이제 단일 클러스터의 개별 볼륨에 백업 정책을 할당할 수 있습니다.</block>
   <block id="963d2836c97952a191ac974f0e9b5e67" category="inline-link-macro">클러스터에 대한 새 백업 정책을 생성하고 이를 선택한 볼륨에 할당하는 방법을 알아보십시오</block>
-  <block id="056d5c98f94dd0eca78fff3496e65d8f" category="paragraph">과거에는 클러스터의 모든 볼륨에 단일 백업 정책만 할당할 수 있었습니다. 이제 단일 클러스터에 대해 여러 백업 정책을 생성하고 여러 볼륨에 서로 다른 정책을 적용할 수 있습니다. <block ref="f5709b6141daa2d8cef3c3b52da344f9" category="inline-link-macro-rx"></block>.</block>
   <block id="77140e0c93e73cb88d01dd1b37161fac" category="section-title">새 옵션을 사용하면 새로 생성된 볼륨에 기본 백업 정책을 자동으로 적용할 수 있습니다.</block>
   <block id="e239caf739c8a0f59aa2ff963f94dcd3" category="paragraph">과거에는 Cloud Backup을 활성화한 후 작업 환경에서 생성된 새 볼륨을 수동으로 백업 정책을 적용해야 했습니다. 이제 Cloud Manager, System Manager, CLI 또는 API에서 볼륨이 생성되었는지에 관계없이 Cloud Backup은 볼륨을 검색하고 선택한 백업 정책을 기본 정책으로 적용합니다.</block>
   <block id="b702b8a648700d54afccce0b8de7766a" category="paragraph">이 옵션은 새 작업 환경에서 백업을 설정하거나 기존 작업 환경의 _Manage Volumes_페이지에서 백업을 설정할 때 사용할 수 있습니다.</block>
   <block id="af23ae909dc3d2f5bf75a94a7fd9a901" category="section-title">새 작업 모니터를 사용하여 모든 백업 및 복원 작업의 진행 상태를 확인할 수 있습니다.</block>
   <block id="7a99d9487fc9540fa7bee7c2eb717413" category="inline-link-macro">작업 모니터 사용 방법을 참조하십시오</block>
-  <block id="9d20a5735dc25af92271eea8fa797bf7" category="paragraph">백업 정책 변경 또는 백업 삭제와 같이 여러 볼륨에 대해 작업을 시작한 경우 작업 모니터를 사용하면 모든 볼륨에서 작업이 완료된 시점을 확인할 수 있습니다. <block ref="41d368101275ff882313a6db3fc29812" category="inline-link-macro-rx"></block>.</block>
   <block id="586301717819197e24001cac47efdaaa" category="section-title">2022년 1월 2일</block>
   <block id="8037b7835bd266869a4758e906fad109" category="section-title">AKS Kubernetes 클러스터에서 Azure Blob 스토리지로 영구 볼륨을 백업할 수 있습니다.</block>
   <block id="8b0675f2bcc5bb7f00dbceec71509372" category="paragraph">AKS 클러스터에 NetApp Astra Trident가 설치되어 있고 Azure용 Cloud Volumes ONTAP를 클러스터용 백엔드 스토리지로 사용하는 경우, Azure Blob 스토리지간에 볼륨을 백업 및 복원할 수 있습니다. <block ref="dedf276821ed6d29dbf4b6c6ac7e23c3" category="inline-link-macro-rx"></block>.</block>
   <block id="bd91087a6508bbacf0f61cfbc8b246a8" category="section-title">업계 표준에 더욱 부합하도록 이번 릴리스에서 Cloud Backup Service 요금이 변경되었습니다.</block>
   <block id="8f26fba202051bdab8552c6642789714" category="paragraph">백업 파일의 크기에 따라 NetApp의 용량을 지불하는 대신, 현재 백업 중인 소스 ONTAP 볼륨의 논리적 사용 용량(ONTAP 효율성 이전)을 기준으로 계산한, 보호하는 데이터에 대해서만 비용을 지불하면 됩니다. 이 용량을 FETB(Front-End Terabytes)라고도 합니다.</block>
-  <block id="e7c5ad171298e38494ee7665c2b581e3" category="section-title">2021년 11월 28일</block>
   <block id="1153be6d2aedc11a67ca9b99cae2751e" category="section-title">EKS Kubernetes 클러스터에서 Amazon S3로 영구 볼륨을 백업하는 기능</block>
   <block id="14311cc96cac23e1709c359110a5b7f1" category="paragraph">EKS 클러스터에 NetApp Astra Trident가 설치되어 있고 Cloud Volumes ONTAP for AWS를 클러스터의 백엔드 스토리지로 사용하는 경우 Amazon S3로 볼륨을 백업 및 복원할 수 있습니다. <block ref="c1364db2c360144190c55a3c78bff6b7" category="inline-link-macro-rx"></block>.</block>
   <block id="4ff3f3683da36a44bf2336e409a3a2b4" category="section-title">DP 볼륨을 백업하는 향상된 기능</block>
   <block id="91b001577242864121cd5bc710161e53" category="inline-link-macro">제한 사항</block>
   <block id="c3952b163e8769f9c892f1921127899a" category="paragraph">Cloud Backup은 이제 SVM-DR 관계의 타겟 ONTAP 시스템에 있는 DP 볼륨의 백업을 생성할 수 있도록 지원합니다. 몇 가지 제한 사항이 있습니다. 을 참조하십시오 <block ref="06a75d4d3a3c786253d04f8ea1e7ee58" category="inline-link-macro-rx"></block> 를 참조하십시오.</block>
-  <block id="eb893b956cd84a842afbad951c555cbd" category="section-title">2021년 11월 5일</block>
   <block id="7748314bccd2a9b204371d47a13049f7" category="section-title">온프레미스 ONTAP 시스템으로 볼륨을 복원할 때 개인 엔드포인트를 선택할 수 있습니다.</block>
   <block id="30ba5fd5ccdd0c02bffa75b47be23a3b" category="paragraph">Amazon S3 또는 Azure Blob에 있는 백업 파일에서 온프레미스 ONTAP 시스템으로 볼륨을 복원할 때 온프레미스 시스템에 안전하게 비공개로 연결하는 프라이빗 끝점을 선택할 수 있습니다.</block>
   <block id="2569d20656d01d1eb21ae2ad2fd09fe3" category="section-title">이제 며칠 후 오래된 백업 파일을 아카이브 스토리지에 계층화하여 비용을 절감할 수 있습니다.</block>
@@ -750,7 +739,6 @@
   <block id="d1ddbe1a2b846fcb593cc918a3e89011" category="paragraph">클러스터에서 ONTAP 9.10.1 이상이 실행 중이고 AWS 또는 Azure 클라우드 스토리지를 사용 중인 경우 백업을 아카이브 스토리지에 계층화할 수 있습니다. 에 대한 자세한 내용을 참조하십시오 <block ref="81a47028e5300e8284480e386f5c858b" category="inline-link-macro-rx"></block> 및 <block ref="dcf621b23bcce9bd9dd0dcef7d3820cf" category="inline-link-macro-rx"></block>.</block>
   <block id="22be192cad53cace936d73c283cf2f7e" category="section-title">Cloud Backup BYOL 라이센스는 Digital Wallet의 Data Services Licenses 탭으로 이동했습니다.</block>
   <block id="6ce8a3f44b004fcf6550446a48ff963f" category="paragraph">Cloud Backup에 대한 BYOL 라이센스는 Cloud Backup Licenses 탭에서 Cloud Manager Digital Wallet의 Data Services Licenses 탭으로 이동했습니다.</block>
-  <block id="1d9b19895587e0b25381eb63ed0a09b9" category="section-title">2021년 10월 4일</block>
   <block id="ba6ad29a4438fcb9af2cc9ea1fb5bf0b" category="section-title">이제 볼륨 또는 파일 복원을 수행할 때 백업 페이지에서 백업 파일 크기를 사용할 수 있습니다.</block>
   <block id="ab2ccc498a90c5f6b10b5303b9c5aeb0" category="paragraph">불필요한 대용량 백업 파일을 삭제하거나 백업 파일 크기를 비교하여 악성 소프트웨어 공격으로 인해 발생할 수 있는 비정상적인 백업 파일을 확인할 수 있는 경우에 유용합니다.</block>
   <block id="34feaa240a5540ed421b3802310321a6" category="section-title">TCO 계산기를 사용하여 클라우드 백업 비용을 비교할 수 있습니다.</block>
@@ -838,9 +826,7 @@
   <block id="7f7aa67e8e982d398b5f4be602378263" category="list-text">기본적으로 백업은 Cloud Volumes ONTAP 시스템에 사용되는 계정과 동일한 계정을 사용하여 생성됩니다. 백업에 다른 AWS 계정을 사용하려면 다음을 수행해야 합니다 <block ref="0d6748bbdbbf88fa0ba7b6606f1de25f" category="inline-link-macro-rx"></block>.</block>
   <block id="ce648319d45a9a1e763cf027842a0260" category="list-text">기본 Amazon S3 암호화 키를 사용하는 대신 활성화 마법사에서 데이터 암호화에 대해 고객이 관리하는 키를 직접 선택할 수 있습니다. 이 경우 암호화 관리 키가 이미 설정되어 있어야 합니다.<block ref="cec2a2aa7c177fd504439377209f1e4a" category="inline-link-rx"></block>.</block>
   <block id="02c17660d0f6b51d0aeadd6bfd390921" category="paragraph">다음은 정책의 특정 사용 권한입니다.</block>
-  <block id="cb331a766b18dd50036837a4700cb03b" category="paragraph">버전 3.9.15 이상을 사용하여 Connector를 배포한 경우 이러한 권한은 이미 IAM 역할의 일부여야 합니다. 그렇지 않으면 누락된 권한을 추가해야 합니다.</block>
   <block id="81db035f5a5e6c5293eadeb3e395e79f" category="list-text">AWS 복구 권한이 필요합니다</block>
-  <block id="6c7350d75fb2cc0f9a776efd525e9b96" category="list-text">Cloud Manager가 Cloud Restore 인스턴스를 시작, 중지 및 종료할 수 있도록 권한을 제공하는 IAM 역할에는 다음과 같은 EC2 권한이 필요합니다.</block>
   <block id="48b0e91edc840d9f4e5a2c26360fcf4e" category="list-text">AWS 구축에 필요한 아웃바운드 인터넷 액세스</block>
   <block id="ad8d960ed8a770a28c14f108482c2074" category="list-text">클라우드 복원 인스턴스에는 아웃바운드 인터넷 액세스가 필요합니다. 가상 또는 물리적 네트워크에서 인터넷 액세스에 프록시 서버를 사용하는 경우 인스턴스에 다음 끝점에 연결할 수 있는 아웃바운드 인터넷 액세스 권한이 있는지 확인합니다.</block>
   <block id="abd528273c052b18efee9184372ad0c4" category="cell">http://amazonlinux.us-east-1.amazonaws.com/2/extras/docker/stable/x86_64/4bf88ee77c395ffe1e0c3ca68530dfb3a683ec65a4a1ce9c0ff394be50e922b2/ 으로 문의하십시오</block>
@@ -938,7 +924,6 @@
   <block id="f0f056157e94a487e92f86eae3d2b423" category="section-title">백업을 위해 Amazon S3를 준비 중입니다</block>
   <block id="97198096ce6980ecffa6d593f70b7295" category="paragraph">Amazon S3를 사용하는 경우 커넥터 에서 S3 버킷을 생성 및 관리하기 위한 권한을 구성해야 하며, 사내 ONTAP 클러스터에서 S3 버킷을 읽고 쓸 수 있도록 권한을 구성해야 합니다.</block>
   <block id="024bcd810b3401adba3bc1d4a4bd6c05" category="list-text">다음 S3 권한(최신 버전)이 있는지 확인합니다<block ref="0dc063d42cd9e31c0e2c7df9df595c9f" category="inline-link-rx"></block>)는 Connector에 권한을 제공하는 IAM 역할의 일부입니다.</block>
-  <block id="9ec7c7f1ef92d270ccbe0d977011e354" category="list-text">Cloud Restore 인스턴스를 시작, 중지 및 종료할 수 있도록 Connector에 권한을 제공하는 IAM 역할에 다음 EC2 권한을 추가합니다.</block>
   <block id="b42dca64a9c4c239b82a8753cea8daca" category="list-text">서비스를 활성화하면 백업 마법사에서 액세스 키와 암호 키를 입력하라는 메시지가 표시됩니다. 이를 위해서는 다음과 같은 권한을 가진 IAM 사용자를 생성해야 합니다. 클라우드 백업은 이러한 자격 증명을 ONTAP 클러스터에 전달하므로 ONTAP는 데이터를 S3 버킷으로 백업 및 복원할 수 있습니다.</block>
   <block id="b539613501183cf10b8570ed60939fea" category="inline-link">AWS 설명서: IAM 사용자에게 권한을 위임하기 위한 역할 생성</block>
   <block id="5d6d3c39001c5518d516e9053e5363e3" category="paragraph">를 참조하십시오<block ref="eb8d2636cc0b0f2875b50c1561ec0060" category="inline-link-rx"></block> 를 참조하십시오.</block>
@@ -1186,10 +1171,7 @@
   <block id="10529b4a25e9696c4ba72d76e2fdc25d" category="paragraph"><block ref="10529b4a25e9696c4ba72d76e2fdc25d" category="inline-image-macro-rx" type="image"></block></block>
   <block id="5cf322cefc810d29bf6edaec8079e4f8" category="paragraph">백업 파일은 Cloud Volumes ONTAP 시스템과 동일한 Azure 가입 및 지역을 사용하는 Blob 컨테이너에 저장됩니다.</block>
   <block id="e8ac4ce23b2d4fe22e4e10c89ec20a37" category="paragraph">가능합니다 <block ref="e06ea2dd8b89d4e56ea2375f93158021" category="inline-link-macro-rx"></block>. 또한 가능합니다 <block ref="340341f5c0d376f606645c931d11e3ae" category="inline-link-macro-rx"></block> Azure(동일한 지역)의 동일한 또는 다른 Kubernetes 클러스터에서 새 볼륨으로.</block>
-  <block id="ccbbcefa9fe212847b4a769dfadb9f62" category="summary">백업은 클라우드 계정의 오브젝트 저장소에 저장되므로 특정 시점에서 데이터를 복원할 수 있습니다. 백업 파일에서 전체 볼륨을 복원하거나 몇 개의 파일만 복원해야 하는 경우 백업 파일에서 개별 파일을 복원할 수 있습니다.</block>
   <block id="8bc63442b5976f212bf0d3c259bcb851" category="doc">백업 파일에서 ONTAP 데이터를 복원하는 중입니다</block>
-  <block id="b8b70e23ebfafd2286dfe2c76afda4fd" category="paragraph">동일한 작업 환경, 동일한 클라우드 계정을 사용하는 다른 작업 환경 또는 온프레미스 ONTAP 시스템으로 * 볼륨 * (새 볼륨으로)을 복원할 수 있습니다.</block>
-  <block id="8b0259491104615d2480b30940ccbe34" category="paragraph">동일한 작업 환경의 볼륨, 동일한 클라우드 계정을 사용하는 다른 작업 환경의 볼륨 또는 온프레미스 ONTAP 시스템의 볼륨으로 * 파일 * 을 복원할 수 있습니다.</block>
   <block id="65fba989fe7e3d4f06e7b1a4c8b66ff0" category="section-title">복구 대시보드</block>
   <block id="024205acf9405311336c02bbd2193b70" category="inline-image-macro">자세히 단추</block>
   <block id="bb266de26a47a35a97254f296ab860ed" category="paragraph">복구 대시보드를 사용하여 볼륨 및 파일 복원 작업을 수행합니다. Cloud Manager 상단에 있는 * Backup &amp; Restore * 를 클릭한 다음 * Restore * 탭을 클릭하여 Restore Dashboard에 액세스합니다. 을 클릭할 수도 있습니다 <block ref="c01b692574fda287c7455bfbcec2709c" category="inline-image-macro-rx" type="image"></block> &gt; * 서비스 패널의 백업 및 복원 서비스에서 복원 대시보드 보기 * 를 선택합니다.</block>
@@ -1198,24 +1180,19 @@
   <block id="0926cc88101f4f93d295f001c8d31d31" category="paragraph"><block ref="d456723a7b2b287ea97734b5600ab596" category="inline-image-macro-rx" type="image"></block></block>
   <block id="d879bbb4f68f76e08e2778efe314b107" category="paragraph">보시다시피, 복원 대시보드는 백업 파일에서 데이터를 복원하는 두 가지 다른 방법을 제공합니다. * 찾아보기 및 복원 * 및 * 검색 및 복원 *.</block>
   <block id="6b0b2f1ade447e93ec60561aec84daae" category="section-title">Browse &amp; Restore와 Search &amp; Restore 비교</block>
-  <block id="27f1c153d6dbf37f15e9da9dba1b99be" category="paragraph">일반적으로, 지난 주, 월 또는 연도가 특정 볼륨이나 파일이 필요한 경우, 파일의 이름과 위치, 파일의 마지막 상태가 양호한 날짜를 알면 _Browse &amp; Restore_가 더 좋습니다. _Search &amp; Restore_ 는 일반적으로 볼륨이나 파일이 필요할 때 더 낫지만 정확한 이름, 해당 볼륨 또는 마지막 상태가 양호한 날짜를 기억하지 못합니다.</block>
   <block id="2acfaf00d1f43b0bc630fdcf43c20bb3" category="paragraph">이 표에서는 두 가지 방법을 비교합니다.</block>
   <block id="1181e345cf6d2eaef5900c975d430d7d" category="cell">찾아보기 및 복원</block>
   <block id="7d0014a7ab187c6931fc2183a6074420" category="cell">검색 및 복원</block>
   <block id="0cae191277fac89f0e42bbc0ac65e85d" category="cell">폴더 스타일 구조를 탐색하여 단일 백업 파일 내에서 볼륨이나 파일을 찾습니다</block>
   <block id="d8bfe71b250180e0bed0dd3556bc2e5b" category="cell">일부 또는 전체 볼륨 이름, 일부 또는 전체 파일 이름, 크기 범위 및 추가 검색 필터를 사용하여 * 모든 백업 파일 * 에서 볼륨 또는 파일을 검색합니다</block>
-  <block id="9d44b18466e2a5326a11fe2e48bc84a7" category="cell">볼륨 복원은 Amazon S3, Azure Blob, Google Cloud Storage 및 NetApp StorageGRID에 저장된 백업 파일과 함께 작동합니다. 파일 복원은 Amazon S3 및 Azure Blob에 저장된 백업 파일과 함께 작동합니다</block>
   <block id="5563fd3c4b6041b3f631546b2ef49734" category="cell">볼륨 및 파일 복원은 Amazon S3에 저장된 백업 파일과 함께 작동합니다</block>
   <block id="fa6009564cbbb803ab9e939ec7396236" category="cell">이름이 바뀌거나 삭제된 파일은 처리하지 않습니다</block>
   <block id="609c9e9bd29468f2ba84839f3741b886" category="cell">새로 생성/삭제/이름 변경된 디렉토리와 새로 생성/삭제/이름 변경된 파일을 처리합니다</block>
   <block id="31415ba37b5edee7aba09d3fde0352e2" category="cell">퍼블릭 또는 프라이빗 클라우드 전체에서 결과 검색</block>
-  <block id="b819274a9c447150205d76b47347e6df" category="cell">프라이빗 클라우드와 로컬 스냅샷 복사본 전반에서 퍼블릭 클라우드 및 미래의 결과를 찾아보십시오</block>
   <block id="41fabcd0633ee21cc8817616beb7441f" category="cell">파일 복원에 별도의 클라우드 복원 인스턴스가 필요합니다</block>
   <block id="67df1ec38e03c69b2d9b22ff27f89b98" category="cell">클라우드 복원 인스턴스가 필요하지 않습니다</block>
-  <block id="db93d2b74e46a12c98c6295b9e8057d0" category="cell">추가 아마존 리소스가 필요하지 않습니다</block>
   <block id="e1e9d038f553090ab4fe8905d190ba18" category="cell">계정당 새로운 버킷 및 Amazon Athena 및 AWS Glue 리소스가 필요합니다</block>
   <block id="aa9743708ff9c566eb64a6d1efeaa9b5" category="cell">파일을 복원할 때 클라우드 복원 인스턴스와 관련된 비용입니다</block>
-  <block id="dd02855438d52817e8d07b0d3f4ffb94" category="cell">볼륨 및 파일을 복원할 때 Amazon Athena 및 AWS Glue 리소스와 관련된 비용입니다</block>
   <block id="b0f7e64bd25e3b690aab9e20a3f7fc57" category="cell">표준 및 아카이브 계층에서 볼륨 복원 표준 계층에서만 파일 복원</block>
   <block id="1e4be39e44e4c696c4ab1fc02e732c1b" category="cell">표준 및 아카이브 계층에서 볼륨 및 파일 복원</block>
   <block id="8425d41c6f9d3b6f077b56c4d49651a4" category="paragraph">두 복원 방법을 모두 사용하려면 먼저 고유한 리소스 요구 사항에 맞게 환경을 구성해야 합니다. 이러한 요구 사항은 아래 섹션에 설명되어 있습니다.</block>
@@ -1227,7 +1204,6 @@
   <block id="d08ca3094836aa46649fef00f2bd8721" category="inline-xref">검색 및 amp;Restore를 사용하여 볼륨 및 파일을 복원합니다</block>
   <block id="4a004f1075f4bc7f4174e142c73348e7" category="list-text"><block ref="d90a3cee47716ccf76cc7618cda7d58d" category="inline-xref-macro-rx"></block></block>
   <block id="603d72dccb888dcc907e3f3437dabf42" category="section-title">찾아보기 및 복원을 사용하여 ONTAP 데이터를 복원합니다</block>
-  <block id="a7205bd833df39f5be9d880afa541711" category="paragraph">볼륨 또는 파일 복원을 시작하기 전에 복원할 볼륨 또는 파일의 이름과 볼륨이 있는 백업 파일의 대략적인 날짜를 알아야 합니다.</block>
   <block id="3f23c2e3558a095de0fd0b3c0b291ead" category="paragraph">* 참고: * 복원하려는 볼륨의 백업 파일이 아카이브 스토리지(ONTAP 9.10.1부터 AWS 및 Azure에서 사용 가능)에 있는 경우 복원 작업에 더 많은 시간이 소요되고 비용이 발생합니다. 또한 대상 클러스터에서 ONTAP 9.10.1 이상이 실행되고 있어야 합니다.</block>
   <block id="f0a32293e7110abfd30f9402fa924815" category="inline-link-macro">Azure 아카이브 스토리지에서 복원에 대해 자세히 알아보십시오</block>
   <block id="b23bca1a2a7f2ec270c7be93eb3d5720" category="inline-link-macro">AWS 아카이브 스토리지에서 복원하는 방법에 대해 자세히 알아보십시오</block>
@@ -1235,7 +1211,6 @@
   <block id="3137db9876bc57bceab513dbed918445" category="section-title">Browse &amp; Restore 지원되는 작업 환경 및 객체 스토리지 공급자</block>
   <block id="a56368bdfe1c12e155e1b5736efd5b34" category="admonition">백업 파일이 아카이브 스토리지에 있는 경우 볼륨 복원만 지원됩니다. Browse &amp; Restore를 사용하는 경우 현재 아카이브 스토리지에서 파일 복원이 지원되지 않습니다.</block>
   <block id="515ab291ab79ec8cfa9e1523b5a9a8ef" category="section-title">Browse &amp; Restore를 사용하여 볼륨을 복원합니다</block>
-  <block id="fe3848679db96ae69de9c3f71d6450a5" category="paragraph">백업 파일에서 볼륨을 복구할 때 Cloud Manager는 백업의 데이터를 사용하여 _new_volume을 생성합니다. 동일한 작업 환경의 볼륨에 데이터를 복원하거나 소스 작업 환경과 동일한 클라우드 계정에 있는 다른 작업 환경에 데이터를 복원할 수 있습니다. 또한, 볼륨을 온프레미스 ONTAP 시스템으로 복원할 수 있습니다.</block>
   <block id="9336df9a96bed9adb0f67170b2dad2b3" category="inline-image-macro">Browse &amp; amp; Restore를 사용하여 볼륨 복원 작업을 수행하는 흐름을 보여 주는 다이어그램</block>
   <block id="38aad7ac8bd6898064d142472e3e7624" category="paragraph"><block ref="7d27a3070fb1dce60f7cb72cb7d60b55" category="inline-image-macro-rx" type="image"></block></block>
   <block id="af292b8b1888fe5e6fd1aa517772208a" category="paragraph">보시다시피 볼륨 복구를 수행하려면 작업 환경 이름, 볼륨 이름 및 백업 파일 날짜를 알아야 합니다.</block>
@@ -1263,19 +1238,11 @@
   <block id="15c25e27b550e844257a7920d4c7a5ea" category="paragraph">아카이브 스토리지 계층에 있는 백업 파일(ONTAP 9.10.1부터 사용 가능)에서 볼륨을 복원하는 경우 복원 우선 순위를 선택할 수 있습니다.</block>
   <block id="52814911bd19ee58ffd2088fab3261ee" category="paragraph"><block ref="e84408fa2ad67b16ce499fc31f7f4f81" category="inline-link-macro-rx"></block>.<block ref="cacf15576b46da141d22ed2be2ccc0c6" category="inline-link-macro-rx"></block>.</block>
   <block id="331e823e611c54b97405788cbceb2421" category="list-text">복원 * 을 클릭하면 복원 작업의 진행률을 검토할 수 있도록 복원 대시보드로 돌아갑니다.</block>
-  <block id="52728eb0074474332d4da538b13a222f" category="paragraph">Cloud Manager는 선택한 백업을 기반으로 새 볼륨을 생성합니다. 가능합니다 <block ref="62168a5d0f839a246ab4456ea89ba04c" category="inline-link-macro-rx"></block> 필요에 따라.</block>
   <block id="ca83adebc55f88d6dccac68b18bcad1a" category="paragraph">아카이브 스토리지에 있는 백업 파일에서 볼륨을 복원하는 데는 아카이브 계층 및 복원 우선 순위에 따라 몇 분 또는 몇 시간이 걸릴 수 있습니다. Job Monitor* 탭을 클릭하여 복원 진행률을 확인할 수 있습니다.</block>
   <block id="bed4e5c461e028397bd33a3f2ac09eac" category="section-title">찾아보기 및 복원을 사용하여 ONTAP 파일을 복원합니다</block>
-  <block id="bfb245672cc00033a675b6f5ca918acc" category="paragraph">볼륨에서 몇 개의 파일만 복원해야 하는 경우 전체 볼륨을 복원하는 대신 개별 파일을 복원하도록 선택할 수 있습니다. 동일한 작업 환경의 기존 볼륨이나 동일한 클라우드 계정을 사용하는 다른 작업 환경에 파일을 복원할 수 있습니다. 또한 온프레미스 ONTAP 시스템의 볼륨에 파일을 복원할 수도 있습니다.</block>
-  <block id="deb8999828b96163ca0bb8254acc8c34" category="paragraph">여러 파일을 선택하면 모든 파일이 선택한 동일한 대상 볼륨으로 복원됩니다. 파일을 다른 볼륨으로 복원하려면 복원 프로세스를 여러 번 실행해야 합니다.</block>
-  <block id="4b61beb77053023847ea7a115ffc1711" category="admonition">백업 파일이 아카이브 스토리지에 있는 경우 개별 파일을 복원할 수 없습니다. 이 경우 보관되지 않은 최신 백업 파일에서 파일을 복원하거나, 검색 및 복원을 사용하여 파일을 복원하거나, 아카이빙된 백업에서 전체 볼륨을 복원한 다음 필요한 파일에 액세스할 수 있습니다.</block>
   <block id="ee68e5b99222bbc29a480fcb0d1d6ee2" category="section-title">필수 구성 요소</block>
   <block id="115846a48fcd206b32685cf5b3b0de39" category="list-text">파일 복원 작업을 수행하려면 Cloud Volumes ONTAP 또는 온프레미스 ONTAP 시스템에서 ONTAP 버전이 9.6 이상이어야 합니다.</block>
-  <block id="224e02a96c0a18e9289ce76336ad1626" category="inline-link-macro">AWS 요구사항</block>
-  <block id="bf42a0066a5ef2b35b598820d6538893" category="inline-link-macro">Azure 요구사항</block>
-  <block id="d5fc8b1c0d9eff137f1c870e4c8174f6" category="list-text">백업 파일에서 개별 파일을 복원하는 경우 별도의 복구 인스턴스/가상 시스템이 사용됩니다. 를 참조하십시오 <block ref="31df579cd28bd8f677a5578f548c9d64" category="inline-link-macro-rx"></block> 또는 <block ref="7933b6d1b3377ae0bf4aa90313194b61" category="inline-link-macro-rx"></block> 환경을 준비합니다.</block>
   <block id="69822c6d3eec5c2a5b83f578217d08ce" category="inline-link-macro">모든 권한이 올바르게 구성되었는지 확인합니다</block>
-  <block id="c43ff304c70d1b103c2a8dc1c4adbcf3" category="list-text">파일을 복원하려면 Cloud Manager에 사용 권한을 제공하는 사용자 역할에 특정 AWS EC2 권한을 추가해야 합니다. <block ref="1fd545f26468487b13b3ba3332e65af7" category="inline-link-macro-rx"></block>.</block>
   <block id="b978081c22feaffda24639e4c4c63fa1" category="inline-link">교차 계정 버킷 권한 부여</block>
   <block id="5670162f015f137df3f918df6c2c1fcb" category="list-text">AWS 교차 계정 복원에는 AWS 콘솔에서 수동으로 수행해야 합니다. AWS 항목을 참조하십시오<block ref="ac4c75b2db0b6ef32843c3980cc0815d" category="inline-link-rx"></block> 를 참조하십시오.</block>
   <block id="c7c8552e901417195541087cc58cacbc" category="section-title">파일 복원 프로세스</block>
@@ -1285,12 +1252,10 @@
   <block id="9c963e83113a07eeaf1d82065f433a42" category="paragraph">* 참고: * 복원 인스턴스는 파일을 처음 복원할 때 클라우드 공급자의 환경에 배포됩니다.</block>
   <block id="6676184bc154f348d5794457f2ad2f6d" category="list-text">해당 백업에서 복원할 파일(또는 파일)을 선택합니다.</block>
   <block id="dfa6a50b10edbdf8a3ed1ba311814487" category="list-text">파일을 복원할 위치(작업 환경, 볼륨 및 폴더)를 선택하고 * 복원 * 을 클릭합니다.</block>
-  <block id="f080b4cea39ca650313b423134071bb7" category="list-text">파일이 복원되고 일정 기간 동안 사용하지 않으면 비용을 절약하기 위해 복구 인스턴스가 종료됩니다.</block>
   <block id="983985e7b5c6473861f79292288f8649" category="inline-image-macro">Browse &amp; amp; Restore를 사용하여 파일 복원 작업을 수행하는 흐름을 보여 주는 다이어그램</block>
   <block id="a86b95296a5e8660c2661d4c0fdd6403" category="paragraph"><block ref="b8616ef8bcb9351aff887ce7eb6910c4" category="inline-image-macro-rx" type="image"></block></block>
   <block id="301dca6570b0674e62e36cd9584538ff" category="paragraph">보시다시피 파일 복원을 수행하려면 작업 환경 이름, 볼륨 이름, 백업 파일 날짜 및 파일 이름을 알아야 합니다.</block>
   <block id="7ebdcfdd3b7703da3487d8438e842713" category="section-title">찾아보기 및 복원을 사용하여 파일을 복원합니다</block>
-  <block id="9fd1e09d83ef921cb9d8f3ed60fc9225" category="paragraph">다음 단계에 따라 볼륨 백업에서 볼륨에 파일을 복원합니다. 파일 또는 파일을 복원하는 데 사용할 백업 파일의 날짜와 볼륨의 이름을 알아야 합니다. 이 기능은 Live Browsing을 사용하여 각 백업 파일 내의 디렉터리 및 파일 목록을 볼 수 있습니다.</block>
   <block id="f50bc81f344069aa50965b6a99f47c72" category="paragraph">다음 비디오에서는 단일 파일 복원에 대한 간단한 단계별 안내를 보여 줍니다.</block>
   <block id="9008c9564d0e14b5c1b3ecf87e40e3c2" category="list-text">Browse &amp; Restore _ 섹션에서 * Restore Files * 를 클릭합니다.</block>
   <block id="da70da04c7b312337ec4fa5057cf0a47" category="inline-image-macro">Restore Dashboard에서 Restore Files 버튼을 선택하는 스크린샷</block>
@@ -1298,7 +1263,6 @@
   <block id="1268343ed55a914755648aeb28283201" category="list-text">Select Source_페이지에서 복원하려는 파일이 포함된 볼륨의 백업 파일을 찾습니다. 파일을 복원할 날짜/시간 스탬프가 있는 * Working Environment *, * Volume * 및 * Backup * 을 선택합니다.</block>
   <block id="294de02a01f018eddaca4f1722710ed4" category="inline-image-macro">복원할 파일의 볼륨 및 백업 선택 스크린샷.</block>
   <block id="17f463b982b788d27adf5ed39c7de8a9" category="paragraph"><block ref="17f463b982b788d27adf5ed39c7de8a9" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="3281366cc16023a296ded0df5968a83a" category="list-text">Continue * 를 클릭하면 Restore 인스턴스가 시작됩니다. 몇 분 후 Restore 인스턴스는 볼륨 백업의 폴더 및 파일 목록을 표시합니다.</block>
   <block id="fd0d479ff0135e407a463fe915b4a8d0" category="paragraph">* 참고: * 파일을 처음 복원할 때 복원 인스턴스가 클라우드 공급자의 환경에 배포되므로 이 단계를 처음 수행할 때 몇 분 정도 더 걸릴 수 있습니다.</block>
   <block id="abd0505d3f4d78afa169d1521e472dbd" category="inline-image-macro">복원할 파일을 탐색할 수 있는 파일 선택 페이지의 스크린 샷</block>
   <block id="0d5da4345b644e5ab72058eaf1cbc7c3" category="paragraph"><block ref="0d5da4345b644e5ab72058eaf1cbc7c3" category="inline-image-macro-rx" type="image"></block></block>
@@ -1324,14 +1288,11 @@
   <block id="1416ed4c9545330801c21cba765ded61" category="list-text">복원 * 을 클릭하면 복원 작업의 진행률을 검토할 수 있도록 복원 대시보드로 돌아갑니다. 또한 * Job Monitor * 탭을 클릭하여 복원 진행률을 확인할 수도 있습니다.</block>
   <block id="156338817692a044f95ba61acd72b727" category="paragraph">특정 기간 동안 사용하지 않으면 복원 인스턴스가 종료되므로 비용이 절약되므로 활성 상태일 때만 비용이 발생합니다.</block>
   <block id="1c60eafb2bcc4dfa9a04abebcbb62b4e" category="section-title">검색 및 복원을 사용하여 ONTAP 데이터를 복원합니다</block>
-  <block id="648d622c79ef3b6a8eb7d0a99bab849b" category="paragraph">검색 및 복원을 사용하여 백업 파일에서 볼륨이나 개별 파일을 복원할 수 있습니다. 검색 및 복원을 사용하면 특정 공급자에 대해 클라우드 스토리지에 저장된 모든 백업에서 특정 볼륨이나 파일을 검색한 다음 복구를 수행할 수 있습니다. 정확한 작업 환경 이름 또는 볼륨 이름을 알 필요가 없습니다. 모든 볼륨 백업 파일을 검색합니다.</block>
-  <block id="27d5af1e1c0e818b5fd4b0db74ce47ef" category="paragraph">백업 파일에서 볼륨을 복구할 때 Cloud Manager는 백업의 데이터를 사용하여 _new_volume을 생성합니다. 동일한 작업 환경에서 데이터를 볼륨으로 복원하거나 소스 작업 환경과 동일한 클라우드 계정에 있는 다른 작업 환경으로 복원할 수 있습니다. 또한, 볼륨을 온프레미스 ONTAP 시스템으로 복원할 수 있습니다.</block>
   <block id="9132930f60be96e86f4380dfc1386bf3" category="paragraph">파일을 원래 볼륨 위치, 동일한 작업 환경의 다른 볼륨 또는 동일한 클라우드 계정을 사용하는 다른 작업 환경으로 복원할 수 있습니다. 또한 온프레미스 ONTAP 시스템의 볼륨에 파일을 복원할 수도 있습니다.</block>
   <block id="6182c3b43fe5b349213c1748ebd0bef2" category="paragraph">복원하려는 볼륨의 백업 파일이 아카이브 스토리지(ONTAP 9.10.1부터 AWS에서 사용 가능)에 있는 경우 복원 작업에 더 많은 시간이 소요되고 추가 비용이 발생합니다. 대상 클러스터는 ONTAP 9.10.1 이상도 실행해야 합니다.</block>
   <block id="87e12bc1b54923f05d8d8365d473b744" category="paragraph"><block ref="ca127c5e9bec15815ed41459177c241d" category="inline-link-macro-rx"></block>.</block>
   <block id="42c4ab8961cdba5beaf8c8b46bfb4bc4" category="paragraph">시작하기 전에 복원하려는 볼륨이나 파일의 이름이나 위치를 알고 있어야 합니다.</block>
   <block id="08f59a930621019b7b2d289b74ed3bf2" category="section-title">검색 및 복원 지원되는 작업 환경 및 오브젝트 스토리지 공급자</block>
-  <block id="7fb830e0c2df8037ecd47df6aff5f120" category="paragraph">향후 릴리스에서는 더 많은 클라우드 공급자가 지원될 예정입니다.</block>
   <block id="7c9a067ed7fc3d318d415405ab0cb349" category="list-text">클러스터 요구 사항:</block>
   <block id="042e2868bd27cf0f2d07239f80a976dd" category="list-text">ONTAP 버전은 9.8 이상이어야 합니다.</block>
   <block id="6f0cd96277bd61a1a3f4c2504033ded7" category="list-text">볼륨이 상주하는 스토리지 VM(SVM)에는 데이터 LIF가 구성되어 있어야 합니다.</block>
@@ -1345,24 +1306,19 @@
   <block id="556b2ea942e370ecaeb7b473759f7791" category="list-text">검색 및 복원을 사용하려면 볼륨이나 파일을 복원할 각 소스 작업 환경에서 "인덱싱"을 활성화해야 합니다. 따라서 인덱싱된 카탈로그를 통해 모든 볼륨의 백업 파일을 추적할 수 있습니다. 이를 통해 데이터 제공 SVM에서 SnapDiff v3를 활성화하고 새로운 S3 버킷과 를 프로비저닝합니다<block ref="d5a117e0ffd0e43cc6657792905f20d6" category="inline-link-rx"></block> 및<block ref="101f211ea2a04b6a9a7d1de9342390c3" category="inline-link-rx"></block>.</block>
   <block id="0848cf03c413f3904ce1aede12f02101" category="list-text">볼륨 백업에서 볼륨이나 파일을 복원하려면 _Search &amp; Restore_ 아래에서 * 검색 및 복원 * 을 클릭합니다.</block>
   <block id="cb84b037572af2dc4822519afb96f153" category="list-text">볼륨 또는 파일의 검색 기준을 전체 또는 일부 볼륨 이름, 전체 파일 이름, 크기 범위, 생성 날짜 범위, 기타 검색 필터로 입력하고 * 검색 * 을 클릭합니다.</block>
-  <block id="1057ba469ff3440c61a7f24972579634" category="paragraph">검색 결과 페이지에는 검색 기준과 일치하는 파일 또는 볼륨이 있는 모든 백업 파일이 표시됩니다.</block>
-  <block id="f34f0f51f58a576e9cc7d35070aaead2" category="list-text">볼륨 또는 파일을 복원하는 데 사용할 백업 파일의 모든 백업 보기 * 를 클릭한 다음 사용할 실제 백업 파일의 * 복원 * 을 클릭합니다.</block>
   <block id="fa1ec988d377e7abe5509addb77f5285" category="list-text">볼륨이나 파일을 복원할 위치를 선택하고 * 복원 * 을 클릭합니다.</block>
   <block id="a6285e595baded97225736819dec9f86" category="list-text">볼륨 또는 파일이 복원됩니다.</block>
   <block id="53c2284a5c5cad0268fd21a2f3f5be0b" category="inline-image-macro">검색 및 앰프, 복원을 사용하여 볼륨 또는 파일 복원 작업을 수행하는 흐름을 보여 주는 다이어그램</block>
   <block id="fb3a59b0276a68880db85882bb070213" category="paragraph"><block ref="8ea93c2a419908ba35bd3b1be423db72" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="6c82f5f5a4aa1601163e62202d5c6f00" category="paragraph">보시다시피, 부분 볼륨 또는 파일 이름만 알면 되며 클라우드 백업은 검색과 일치하는 모든 백업 파일을 검색합니다.</block>
   <block id="6bfb19e1af6eb70029da765ce1dd9a05" category="section-title">각 작업 환경에 대해 인덱싱된 카탈로그 활성화</block>
   <block id="721f0292b89494d52fd3ab7655e44491" category="paragraph">검색 및 복원을 사용하려면 볼륨 또는 파일을 복원할 각 소스 작업 환경에서 "인덱싱"을 활성화해야 합니다. 따라서 인덱싱된 카탈로그를 통해 모든 볼륨과 모든 백업 파일을 추적할 수 있어 검색이 매우 빠르고 효율적입니다.</block>
   <block id="aad8d5d5c76ce4e9d69aae36967d747a" category="paragraph">이 기능을 활성화하면 Cloud Backup은 SVM에서 볼륨에 대해 SnapDiff v3를 활성화하고 Amazon Athena 대화형 쿼리 서비스 및 AWS Glue 서버리스 데이터 통합 서비스를 프로비저닝하는 새로운 버킷을 생성합니다.</block>
-  <block id="49e09469c76dc8dca9465deb408f0662" category="paragraph">작업 환경에 이미 인덱싱이 활성화되어 있는 경우 다음 섹션으로 이동하여 데이터를 복원합니다.</block>
   <block id="8c3d8e8290011affd1cc36d8fb6ca3a8" category="paragraph">작업 환경의 인덱싱 활성화하기:</block>
   <block id="77b424e494cba30c234da205f975c6ba" category="list-text">작업 환경이 인덱싱되지 않은 경우, 복구 대시보드의 _Search &amp; Restore_ 아래에서 * 작업 환경에 대한 인덱싱 사용 * 을 클릭하고 작업 환경에 대해 * 인덱싱 사용 * 을 클릭합니다.</block>
   <block id="3c672ca6b1c8663911932efdc7cb9761" category="list-text">하나 이상의 작업 환경이 이미 인덱싱된 경우, 복구 대시보드의 _Search &amp; Restore_ 아래에서 * 인덱싱 설정 * 을 클릭하고 작업 환경에 대해 * 인덱싱 사용 * 을 클릭합니다.</block>
   <block id="d76950a27877cc1b2fad2a533be5bd70" category="paragraph">모든 서비스가 프로비저닝되고 인덱싱된 카탈로그가 활성화되면 작업 환경이 "활성"으로 표시됩니다.</block>
   <block id="22a8553a7fcf088b4624bfb22aca2c00" category="inline-image-macro">인덱싱된 카탈로그를 활성화한 작업 환경을 보여 주는 스크린샷</block>
   <block id="2e6096622065e7d9092ff099425f8bf0" category="paragraph"><block ref="2e6096622065e7d9092ff099425f8bf0" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="96de694c4bf78a5e284456961fcfafe0" category="paragraph">작업 환경의 볼륨 크기와 클라우드의 백업 파일 수에 따라 초기 인덱싱 프로세스에 최대 1시간이 걸릴 수 있습니다. 그 후에는 최신 상태를 유지하기 위해 증분 변경 내용으로 매시간 업데이트됩니다.</block>
   <block id="049776cc014fd67448e0df9e5632894b" category="section-title">검색 및 복원을 사용하여 볼륨 및 파일을 복원합니다</block>
   <block id="525771ad8c8d45a1f0506d1712926a4f" category="inline-xref">작업 환경에 대한 인덱싱 기능을 활성화했습니다</block>
   <block id="ff3e4dbc133954ac1d36af2f114c0fcc" category="paragraph">먼저 해 <block ref="9314b8a97cab98202a58ea7476f5d80f" category="inline-xref-macro-rx"></block>, 검색 및 복원을 사용하여 볼륨이나 파일을 복원할 수 있습니다. 이를 통해 광범위한 필터를 사용하여 모든 백업 파일에서 복원하려는 정확한 파일 또는 볼륨을 찾을 수 있습니다.</block>
@@ -1378,7 +1334,6 @@
   <block id="27d6d3d9521f6da24c698fb393a4d694" category="list-text">복원하려는 데이터가 있는 위치에 대해 * 모든 백업 보기 * 를 클릭하면 볼륨 또는 파일이 포함된 모든 백업 파일이 표시됩니다.</block>
   <block id="e09cd23a3f64c40b39bba1a2fb22c7fd" category="inline-image-macro">검색 기준과 일치하는 모든 백업을 보는 방법을 보여 주는 스크린샷</block>
   <block id="f13515ea414632814764890822fe8887" category="paragraph"><block ref="f13515ea414632814764890822fe8887" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="aa7a723dd151aa5803823b4b54bc094b" category="list-text">볼륨 또는 파일을 복원하는 데 사용할 백업 파일에 대해 * 복원 * 을 클릭합니다.</block>
   <block id="34cd87a8000db831ead6ec4ce833362c" category="list-text">파일의 경우 원래 위치로 복원하거나 대체 위치를 선택할 수 있습니다</block>
   <block id="159e14f7a65515e0215fc5c4507c33fd" category="list-text">볼륨의 경우 위치를 선택할 수 있습니다.</block>
   <block id="5d03519eba4e93d7e8c1c51eb845995e" category="paragraph">볼륨 또는 파일이 복원되고 복구 작업의 진행률을 검토할 수 있도록 복구 대시보드로 돌아갑니다. 또한 * Job Monitor * 탭을 클릭하여 복원 진행률을 확인할 수도 있습니다.</block>
@@ -1536,7 +1491,6 @@
   <block id="70af97100aa32faf0090b5c729f50df0" category="paragraph">NetApp에서 제공하는 자체 라이센스는 1년, 2년 또는 3년간 제공됩니다. 백업 중인 소스 ONTAP 볼륨의 논리적 사용 용량(_before_any 효율성)으로 계산되어 보호하는 데이터에 대해서만 비용을 지불하면 됩니다. 이 용량을 FETB(Front-End Terabytes)라고도 합니다.</block>
   <block id="bf7e6f30b15da1dd2b68006a3cbeb0ec" category="paragraph">BYOL Cloud Backup 라이센스는 Cloud Manager 계정과 연결된 모든 시스템에서 전체 용량을 공유하는 부동 라이센스입니다. ONTAP 시스템의 경우 백업하려는 볼륨에 대해 ONTAP 명령 'volume show-space-logical-used'를 실행하여 필요한 용량을 대략적으로 추정할 수 있습니다.</block>
   <block id="1bdb5964b1e1151098850bdd005ded43" category="paragraph">Cloud Backup BYOL 라이센스가 없는 경우 Cloud Manager 오른쪽 아래에 있는 채팅 아이콘을 클릭하여 라이센스를 구입하십시오.</block>
-  <block id="cd15208b3c7213079ff6ceb05581ca82" category="paragraph">선택적으로 사용하지 않을 Cloud Volumes ONTAP에 대해 할당되지 않은 노드 기반 라이센스가 있는 경우 동일한 달러 당량 및 만료 날짜가 있는 클라우드 백업 라이센스로 전환할 수 있습니다.<block ref="eba792cc4ea762abf667ddd327a7fe89" category="inline-link-rx"></block>.</block>
   <block id="b2791cca971216c964d32d50e88dc692" category="paragraph">Cloud Manager의 Digital Wallet 페이지를 사용하여 Cloud Backup의 BYOL 라이센스를 관리할 수 있습니다. 새 라이센스를 추가하고 기존 라이센스를 업데이트할 수 있습니다.</block>
   <block id="583571647e284c9fed0a15301f155dba" category="section-title">Cloud Backup 라이센스 파일을 얻습니다</block>
   <block id="67552b54e54ab2c194b5b6d9e183595d" category="paragraph">Cloud Backup 라이센스를 구입한 후에는 Cloud Backup 일련 번호 및 NSS 계정을 입력하거나 NLF 라이센스 파일을 업로드하여 Cloud Manager에서 라이센스를 활성화합니다. 아래 단계에서는 NLF 라이센스 파일을 가져오는 방법을 보여 줍니다(해당 방법을 사용하려는 경우).</block>
@@ -1698,17 +1652,67 @@
   <block id="5bf0ca4cfe23ac32e3d45a286b91b311" category="list-text">Canvas에서 작업 환경을 선택하고 오른쪽 패널의 백업 및 복원 서비스 옆에 있는 * 활성화 &gt; 볼륨 백업 * 을 클릭합니다.</block>
   <block id="3e75e13e53d4c5c1d22207efcaa0e783" category="list-text">AWS에서 복구 인스턴스는 에서 실행됩니다<block ref="8efb36ee1f35235cb34f37f01f8da8f8" category="inline-link-rx"></block> CPU 4개, 16GB 메모리 및 EBS 전용 인스턴스 스토리지 포함. 운영 체제 이미지는 Amazon Linux 2입니다.</block>
   <block id="9cd257410791914582184188f35f06ac" category="list-text">Azure에서 Restore virtual machine은 에서 실행됩니다<block ref="3981131e21f656c2a3a7a1cc6f16dc5b" category="inline-link-rx"></block> CPU 4개, 16GB 메모리 및 32GiB 디스크 운영 체제 이미지는 CentOS 7.5)입니다.</block>
-  <block id="b6c807b6705175334b42f88a1227e051" category="list-text">아카이브 스토리지로 이동한 백업 파일(ONTAP 9.10.1 이상을 사용하는 경우 AWS 및 Azure에서 지원)에서 볼륨 데이터를 복원해야 하는 경우 클라우드 공급자로부터 추가 Per-GiB 검색 비용 및 요청당 수수료가 부과됩니다.</block>
   <block id="ecc9f3e43779256709f6205768b035dc" category="paragraph">Cloud Backup은 용량제 모델로 소비 기반 라이센스를 제공합니다. 클라우드 공급자의 마켓플레이스를 구독한 후, 백업된 데이터의 경우 GiB당 비용을 지불하면 됩니다. 이러한 데이터를 미리 지불할 필요가 없습니다. 클라우드 공급자가 월별 요금을 청구합니다.</block>
   <block id="8fbd59a133dcfda8cee282a5de58e452" category="paragraph">예를 들어, 10TiB BYOL 라이센스가 있는 경우 PAYGO 구독을 통해 10TiB를 초과하는 모든 용량이 충전됩니다.</block>
   <block id="cedae03e22c7bb2c103685dfa74cddab" category="paragraph">BYOL은 1TiB 단위로 기간 기반(12, 24 또는 36개월) _ 및 _ 용량 기반 예를 들어, 1년, 최대 용량(10TiB)에 대해 서비스 사용을 위해 NetApp에 비용을 지불합니다.</block>
   <block id="ea002f9386d9cd059f69c6d59dbea06c" category="list-text">Kubernetes 영구 볼륨의 백업 및 복원 <block ref="03139d1d874301f535e307718cfea817" category="inline-link-macro-rx"></block>.</block>
   <block id="7a6c8511ba9b6f1392c7f34fbd81508d" category="list-text">클라우드 백업 for Applications를 사용하여 사내 ONTAP에서 클라우드로 애플리케이션 정합성을 보장하는 스냅샷을 백업합니다. <block ref="0cae341dd31c4bfca67f66dd24fe06e1" category="inline-link-macro-rx"></block>.</block>
-  <block id="41cb49a16b097520a48e2141982170fe" category="paragraph">이제 일부 또는 전체 볼륨 이름, 일부 또는 전체 파일 이름, 크기 범위 및 추가 검색 필터를 통해 * 모든 ONTAP 백업 파일 * 에서 볼륨 또는 파일을 검색할 수 있습니다. 이 방법은 어떤 클러스터나 볼륨이 데이터의 소스인지 잘 모르면 복원하려는 데이터를 찾을 수 있는 새로운 방법입니다. <block ref="3e575c236f27ae49c244d24621c1b57f" category="inline-link-macro-rx"></block>.</block>
   <block id="ac86595022f65016dc11614e68c43e81" category="paragraph">데이터를 StorageGRID에 백업할 때 Connector를 사내에서 사용할 수 있어야 합니다. 새 커넥터를 설치하거나 현재 선택한 커넥터가 내부에 있는지 확인해야 합니다.</block>
   <block id="d9ce11866c3fab16840b61275d2a674e" category="list-text">포트 443을 통해 클라우드 백업으로 아웃바운드 인터넷 연결</block>
   <block id="286fb390ea5475a1fa125d5aade554a0" category="list-text">Canvas에서 온-프레미스 작업 환경을 선택하고 오른쪽 패널의 백업 및 복원 서비스 옆에 있는 * 활성화 &gt; 볼륨 백업 * 을 클릭합니다.</block>
   <block id="bcf00598aacf0d8030dd1f084ae30cd3" category="list-text">백업 라이센스 파일이 있는 경우 * 라이센스 파일 업로드 * 옵션을 선택하고 표시되는 메시지에 따라 파일을 첨부합니다.</block>
   <block id="5cd8f01849080c583021a91f23942914" category="list-text">Cloud Manager에서 라이센스를 자동으로 업데이트할 수 없는 경우 라이센스 파일을 수동으로 업로드해야 합니다.</block>
   <block id="2aa12d91295f6d6d741cb49e313806e2" category="paragraph">BYOL 구독을 갱신하면 Cloud Manager에서 라이센스를 자동으로 업데이트합니다. Cloud Manager가 보안 인터넷 연결을 통해 라이센스 파일에 액세스할 수 없는 경우 직접 파일을 얻고 Cloud Manager에 수동으로 업로드할 수 있습니다. 자세한 내용은 을 참조하십시오 <block ref="797e48816191a5b3cd21a6c146b072f1" category="inline-link-macro-rx"></block>.</block>
+  <block id="5ec0e34db1f9e57ce343263019c9c2b0" category="list-text">단일 파일 복원을 위한 개별 파일을 선택할 수 있는 탐색 가능한 검색 가능한 파일 카탈로그</block>
+  <block id="7c50c77e0fa6a4acce1dd964575cf0da" category="paragraph">인스턴스는 복원할 개별 파일을 찾기 위해 백업 파일을 검색할 때만 실행됩니다. 비용 절감을 위해 사용하지 않을 때는 인스턴스가 해제됩니다.</block>
+  <block id="3c25948daf6b068e9940f710d20f46d4" category="list-text">검색 및 복원을 사용한 볼륨 또는 파일 복원의 경우 Amazon Athena 및 AWS Glue 리소스를 사용하여 볼륨 및 백업 파일을 검색할 수 있습니다. TiB 비용은 검색 요청에 의해 스캔된 데이터 양과 연관됩니다. 검색 및 복원은 현재 Amazon S3의 백업 파일에서 데이터를 복원할 때만 지원됩니다.</block>
+  <block id="bde4d0ddf68f7065595bc86f18ad90af" category="list-text">아카이브 스토리지로 이동한 백업 파일(ONTAP 9.10.1 이상을 사용하는 경우 AWS 및 Azure에서 지원)에서 볼륨 데이터를 복구해야 하는 경우 클라우드 공급자로부터 추가 Per-GiB 검색 비용 및 요청당 요금이 부과됩니다.</block>
+  <block id="5e16db4c47abe8cb1c5bd746df2fd94a" category="section-title">2022년 4월 3일</block>
+  <block id="eda2e5118f80ed23863efd871fe97b1e" category="paragraph"><block ref="4c415cce11b2e607b8fde97291a59b9c" category="inline-link-rx"></block>.</block>
+  <block id="9a4fc48ebf3077bde35f83be2ee84cc8" category="paragraph">이제 일부 또는 전체 볼륨 이름, 일부 또는 전체 파일 이름, 크기 범위 및 추가 검색 필터를 통해 * 모든 ONTAP 백업 파일 * 에서 볼륨 또는 파일을 검색할 수 있습니다. 이 방법은 어떤 클러스터나 볼륨이 데이터의 소스인지 잘 모르면 복원하려는 데이터를 찾을 수 있는 새로운 방법입니다.<block ref="f28ab8501300af6839923f7181e075ab" category="inline-link-rx"></block>.</block>
+  <block id="983a4e7f5913304ec713a249baf7be47" category="section-title">2022년 3월 3일</block>
+  <block id="387cd7ab52bc5fa4b28d5ab54360a48f" category="paragraph">GKE 클러스터에 NetApp Astra Trident가 설치되어 있고 Cloud Volumes ONTAP for GCP를 클러스터의 백엔드 스토리지로 사용하는 경우, Google Cloud 스토리지와 영구 볼륨을 백업 및 복원할 수 있습니다.<block ref="39d25c9214775db10710eba772faa6a0" category="inline-link-rx"></block>.</block>
+  <block id="a6c59f277ff2cb475761f97d26b64235" category="paragraph">과거에는 클러스터의 모든 볼륨에 단일 백업 정책만 할당할 수 있었습니다. 이제 단일 클러스터에 대해 여러 백업 정책을 생성하고 여러 볼륨에 서로 다른 정책을 적용할 수 있습니다.<block ref="e99bb7175535747ba1edf9d862ac2f3f" category="inline-link-rx"></block>.</block>
+  <block id="3c51dbbafedd7bc1b145a88fc5e7e77e" category="paragraph">백업 정책 변경 또는 백업 삭제와 같이 여러 볼륨에 대해 작업을 시작한 경우 작업 모니터를 사용하면 모든 볼륨에서 작업이 완료된 시점을 확인할 수 있습니다.<block ref="9521382be7155a87eb6763729a99c134" category="inline-link-rx"></block>.</block>
+  <block id="f61163b681442ac500a8018c87241770" category="section-title">2021년 11월 28일</block>
+  <block id="efaa7c999dedec2704fc2db580ad4967" category="section-title">2021년 11월 5일</block>
+  <block id="d1c47d8bf748c203ff983262e6c108cb" category="section-title">2021년 10월 4일</block>
+  <block id="94144629a142bf78b4252a00351a8862" category="paragraph">버전 3.9.15 이상을 사용하여 Connector를 배포한 경우 이러한 권한은 이미 IAM 역할의 일부여야 합니다. 그렇지 않으면 누락된 권한을 추가해야 합니다. 특히 검색 및 복원에 필요하므로 "Athena" 및 "GLUE" 권한이 필요합니다.</block>
+  <block id="e0458b8253a5a9360f13731ee3855136" category="list-text">Cloud Manager가 Browse &amp; Restore 작업을 위해 Cloud Restore 인스턴스를 시작, 중지 및 종료할 수 있도록 권한을 제공하는 IAM 역할에 필요한 EC2 권한은 다음과 같습니다.</block>
+  <block id="17bc81342559cb663f4a2d8ce0019c77" category="list-text">찾아보기 및 복원 작업을 위해 Cloud Restore 인스턴스를 시작, 중지 및 종료할 수 있도록 Connector에 권한을 제공하는 IAM 역할에 다음 EC2 권한을 추가합니다.</block>
+  <block id="11ce5891710552c1e865ae4676df2879" category="summary">백업은 클라우드 계정의 오브젝트 저장소에 저장되므로 특정 시점에서 데이터를 복원할 수 있습니다. 백업 파일에서 전체 ONTAP 볼륨을 복원하거나 몇 개의 파일만 복원해야 하는 경우 백업 파일에서 개별 파일을 복원할 수 있습니다.</block>
+  <block id="2af55e36133bee199e6856aa4e468486" category="paragraph">볼륨 * (새 볼륨으로)을 원래 작업 환경, 동일한 클라우드 계정을 사용하는 다른 작업 환경 또는 온프레미스 ONTAP 시스템으로 복원할 수 있습니다.</block>
+  <block id="49b3fb49db06a6317743033ac39be690" category="paragraph">원래 작업 환경의 볼륨, 동일한 클라우드 계정을 사용하는 다른 작업 환경의 볼륨 또는 온프레미스 ONTAP 시스템의 볼륨으로 * 파일 * 을 복원할 수 있습니다.</block>
+  <block id="fc9da4a32e8272d9816ffe0aa5970592" category="paragraph">일반적으로, 최근 주나 월로부터 특정 볼륨이나 파일을 복원해야 할 때 _Browse &amp; Restore_가 더 낫습니다. 파일의 이름과 위치, 파일의 마지막 날짜를 알고 있어야 합니다. _Search &amp; Restore_ 는 일반적으로 볼륨이나 파일을 복원해야 할 때 더 좋지만 정확한 이름, 해당 볼륨이 있는 볼륨 또는 마지막으로 양호한 상태의 날짜를 기억하지 못합니다.</block>
+  <block id="95b053a527e7cc21aea66df63760c8dd" category="cell">볼륨 복원은 Amazon S3, Azure Blob, Google Cloud 및 NetApp StorageGRID에 저장된 백업 파일과 함께 작동합니다. 파일 복원은 Amazon S3 및 Azure Blob에 저장된 백업 파일과 함께 작동합니다</block>
+  <block id="b90414086a82bcbc5bd43c8732fd1408" category="cell">프라이빗 클라우드 전반에서 퍼블릭 클라우드와 로컬 스냅샷 복사본, 그리고 향후 결과를 찾아보십시오</block>
+  <block id="5bafe041e0de9e07b9efb4f64b2de571" category="cell">추가 아마존 리소스가 필요하지 않습니다</block>
+  <block id="d0d972400028f5e4ece41a0521604447" category="cell">검색 결과를 위해 백업 파일 및 볼륨을 스캔할 때 Amazon Athena 및 AWS Glue 리소스와 관련된 비용입니다</block>
+  <block id="0252629b615d666988e90a14fcf4deec" category="paragraph">볼륨 또는 파일 복원을 시작하기 전에 복원할 볼륨 또는 파일의 이름, 볼륨이 있는 작업 환경의 이름 및 복원할 백업 파일의 대략적인 날짜를 알아야 합니다.</block>
+  <block id="91c3ddf19f416d0a8c7658b15c646d42" category="paragraph">백업 파일에서 볼륨을 복원하면 Cloud Backup은 백업의 데이터를 사용하여 _new_volume을 생성합니다. 원래 작업 환경의 볼륨이나 소스 작업 환경과 동일한 클라우드 계정에 있는 다른 작업 환경으로 데이터를 복원할 수 있습니다. 또한, 볼륨을 온프레미스 ONTAP 시스템으로 복원할 수 있습니다.</block>
+  <block id="f69b765af6afabfc9faf4bcb989c85e7" category="paragraph">Cloud Backup은 선택한 백업을 기반으로 새 볼륨을 생성합니다. 가능합니다 <block ref="62168a5d0f839a246ab4456ea89ba04c" category="inline-link-macro-rx"></block> 필요에 따라.</block>
+  <block id="de390d962a903ec8ccc52b638f497114" category="paragraph">ONTAP 볼륨 백업에서 일부 파일만 복원해야 하는 경우 전체 볼륨을 복원하는 대신 개별 파일을 복원하도록 선택할 수 있습니다. 원래 작업 환경의 기존 볼륨이나 동일한 클라우드 계정을 사용하는 다른 작업 환경으로 파일을 복원할 수 있습니다. 또한 온프레미스 ONTAP 시스템의 볼륨에 파일을 복원할 수도 있습니다.</block>
+  <block id="2cfe9659cdef6b61005a35e5ad1c7305" category="paragraph">여러 파일을 선택하면 모든 파일이 선택한 동일한 대상 볼륨으로 복원됩니다. 따라서 파일을 다른 볼륨으로 복원하려면 복원 프로세스를 여러 번 실행해야 합니다.</block>
+  <block id="56117adb607ac3f106c0bbef47e34bdc" category="admonition">백업 파일이 아카이브 스토리지에 있는 경우 개별 파일을 복원할 수 없습니다. 이 경우 보관되지 않은 최신 백업 파일에서 파일을 복원하거나, 아카이빙된 백업에서 전체 볼륨을 복원한 다음 필요한 파일에 액세스하거나, 검색 및 복원을 사용하여 파일을 복원할 수 있습니다.</block>
+  <block id="4cff09715eb850dd75d9ffb61cd7126e" category="inline-link-macro">파일 복원 작업에 배포될 인스턴스 유형입니다</block>
+  <block id="70ab4b01412ca8f78f38d5e6fcddb3a0" category="list-text">백업 파일에서 개별 파일을 복원하는 경우 별도의 복구 인스턴스/가상 시스템이 사용됩니다. 를 참조하십시오 <block ref="888bbc8761b09bd3d9fa09b9ad08942e" category="inline-link-macro-rx"></block> 또한 환경이 준비되어 있는지 확인합니다.</block>
+  <block id="bd256beae5b23a5a166057d79fd16d89" category="inline-link-macro">구성이 파일을 복원할 준비가 되었는지 확인합니다</block>
+  <block id="f2f4c2b67f9024f567ad60e0a34f77a5" category="list-text">Amazon S3의 백업에서 파일을 복원하려면 Cloud Manager에 사용 권한을 제공하는 사용자 역할에 특정 AWS EC2 권한을 추가해야 합니다. 또한 아웃바운드 인터넷 액세스를 허용하여 특정 엔드포인트에 연결해야 합니다. <block ref="f0b7a77fce17fc030034600052420c1d" category="inline-link-macro-rx"></block>.</block>
+  <block id="da148b1501f1acb945b431209385495f" category="list-text">Azure Blob의 백업에서 파일을 복원하려면 특정 엔드포인트에 연결할 수 있는 아웃바운드 인터넷 액세스를 사용할 수 있어야 합니다. <block ref="6c6a7508bd839fd3dc4d77e76bc043b3" category="inline-link-macro-rx"></block>.</block>
+  <block id="0be0883d639da8a73049672529f55c34" category="list-text">파일이 복원되고 일정 시간 동안 사용하지 않으면 복원 인스턴스가 종료되어 비용이 절감됩니다.</block>
+  <block id="0689108de18135e4dd390fe62d7027d6" category="paragraph">다음 단계에 따라 ONTAP 볼륨 백업에서 볼륨에 파일을 복원합니다. 파일 또는 파일을 복원하는 데 사용할 백업 파일의 날짜와 볼륨의 이름을 알아야 합니다. 이 기능은 Live Browsing을 사용하여 각 백업 파일 내의 디렉터리 및 파일 목록을 볼 수 있습니다.</block>
+  <block id="0b6c73e03f53d01f1c938ab1589db4b7" category="list-text">Continue * 를 클릭하면 Restore 인스턴스가 시작됩니다. 몇 분 후 볼륨 백업의 폴더 및 파일 목록이 표시됩니다.</block>
+  <block id="ec20735efd036ef56f709e9a07587140" category="paragraph">검색 및 복원을 사용하여 ONTAP 백업 파일에서 볼륨이나 개별 파일을 복원할 수 있습니다. 검색 및 복원을 사용하면 특정 공급자에 대해 클라우드 스토리지에 저장된 모든 백업에서 특정 볼륨이나 파일을 검색한 다음 복구를 수행할 수 있습니다. 정확한 작업 환경 이름 또는 볼륨 이름을 알 필요가 없습니다. 모든 볼륨 백업 파일을 검색합니다.</block>
+  <block id="c87406bc7afbf4c1491aba5c6a89782b" category="paragraph">또한 검색 작업을 통해 ONTAP 볼륨에 대한 모든 로컬 스냅샷 복사본을 확인합니다. 로컬 스냅샷 복사본에서 데이터를 복원하는 것이 백업 파일에서 복원하는 것보다 빠르고 비용이 적게 들 수 있으므로 스냅샷에서 데이터를 복원할 수 있습니다. Canvas의 볼륨 세부 정보 페이지에서 스냅샷을 새 볼륨으로 복원할 수 있습니다.</block>
+  <block id="bd0f4c161a252516fc5ca2f8121fe5d5" category="paragraph">백업 파일에서 볼륨을 복원하면 Cloud Backup은 백업의 데이터를 사용하여 _new_volume을 생성합니다. 원래 작업 환경에서 데이터를 볼륨으로 복원하거나 소스 작업 환경과 동일한 클라우드 계정에 있는 다른 작업 환경으로 복원할 수 있습니다. 또한, 볼륨을 온프레미스 ONTAP 시스템으로 복원할 수 있습니다.</block>
+  <block id="a13e26069c8d5e22e8f7be262e98077f" category="paragraph">향후 릴리스에서는 추가 클라우드 공급자가 지원될 예정입니다.</block>
+  <block id="304d9d83f13c0db0869bfb712e405713" category="paragraph">이전에 구성한 Connector와 함께 Cloud Backup을 이미 사용하고 있는 경우, 이제 Athena 및 Glue 권한을 Cloud Manager 사용자 역할에 추가해야 합니다. 새로운 항목이므로 검색 및 복원에 필요합니다.</block>
+  <block id="dea8c22fb34052b0f4a9a5e32405ef9a" category="paragraph">검색 결과 페이지에는 검색 기준과 일치하는 파일 또는 볼륨이 있는 모든 위치가 표시됩니다.</block>
+  <block id="dd69890bcf98aded30cef2070bda977a" category="list-text">볼륨 또는 파일을 복원하는 데 사용할 위치에 대한 모든 백업 보기 * 를 클릭한 다음 사용할 실제 백업 파일에서 * 복원 * 을 클릭합니다.</block>
+  <block id="a2e54fc91f9af995fe7d13a8e083ee57" category="paragraph">보시다시피, 부분 볼륨 또는 파일 이름만 알면 되며 Cloud Backup은 검색과 일치하는 모든 백업 파일을 검색합니다.</block>
+  <block id="ad13cab5dd920f50df05b097ac6ce5f3" category="paragraph">작업 환경에 대해 인덱싱이 이미 활성화되어 있는 경우 다음 섹션으로 이동하여 데이터를 복원합니다.</block>
+  <block id="a5f3075b4c4502f059b907dc8ace2fb6" category="paragraph">작업 환경의 볼륨 크기와 클라우드의 백업 파일 수에 따라 초기 인덱싱 프로세스에 최대 1시간이 걸릴 수 있습니다. 그 이후에는 운영 환경에 영향을 미치지 않고 매시간 업데이트되며, 지속적으로 변경될 수 있습니다.</block>
+  <block id="d400864a550275b34b5036473c8c5d7f" category="list-text">클라우드에서 볼륨 또는 파일을 복원하는 데 사용할 백업 파일에 대해 * 복원 * 을 클릭합니다.</block>
+  <block id="d6b457fc25a9021d5d9f3ccafd9e4049" category="paragraph">검색 결과에 파일이 포함된 로컬 볼륨 스냅샷 복사본도 포함됩니다. 현재 스냅샷에 대해 * 복원 * 버튼이 작동하지 않지만 백업 파일 대신 스냅샷 복사본에서 데이터를 복원하려면 볼륨의 이름과 위치를 적어 두고 Canvas에서 볼륨 세부 정보 페이지를 엽니다. 및 * 스냅샷 복사본에서 복원 * 옵션을 사용합니다.</block>
+  <block id="55204488774c56d81410f328e9486976" category="paragraph">선택적으로 사용하지 않을 Cloud Volumes ONTAP에 대해 할당되지 않은 노드 기반 라이센스가 있는 경우 동일한 달러 당량 및 만료 날짜가 있는 클라우드 백업 라이센스로 전환할 수 있습니다.<block ref="c110e5a4a66d7429a8ced7dc2264a8f5" category="inline-link-rx"></block>.</block>
 </blocks>
