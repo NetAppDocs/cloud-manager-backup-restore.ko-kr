@@ -1660,7 +1660,6 @@
   <block id="4a746b0a727e0ade1ea06ab02a265e09" category="paragraph">Cloud Backup BYOL 라이센스의 경우, 라이센스 기간 및 용량 동안 서비스를 사용할 수 있도록 지원하는 NetApp의 일련 번호가 필요합니다. <block ref="47744e5312ce42ad8130a5365d7fb0d0" category="inline-link-macro-rx"></block>.</block>
   <block id="88a02dc2d0f86fd4395dc4542805e76b" category="list-text">에 가입했습니다<block ref="f210bc7c758e9ef0d000392aaf5a4cb5" category="inline-link-rx"></block>, 및<block ref="564c46d47e4fef703ab2a0ee02042ed6" category="inline-link-rx"></block>또는 을(를) 구입한 경우 <block ref="ae025f92701c4e4e5ee318b9155a4737" category="inline-link-macro-rx"></block> Cloud Backup BYOL 라이센스는 NetApp에서 제공</block>
   <block id="08d651ca7cc9bcb3df90e453cb9cee53" category="list-text">Kubernetes 클러스터를 Cloud Manager 작업 환경으로 발견했습니다.<block ref="b008743209457997d1cdda737bb04357" category="inline-link-rx"></block>.</block>
-  <block id="d0a051fff12e19e3e01da61720c1dbd9" category="list-text">Trident는 클러스터에 설치해야 하며 Trident 버전은 21.1 이상이어야 합니다. 을 참조하십시오 <block ref="22901f3bcc9ac777a79ed087c67a0976" category="inline-link-macro-rx"></block> 또는<block ref="05cf6547a678977d7fb0e7e0c31cb936" category="inline-link-rx"></block>.</block>
   <block id="6b0c75410e611c90f61766c508b79740" category="paragraph">가능합니다 <block ref="aa20de8329f0af2f510902910d29f0be" category="inline-link-macro-rx"></block>. 또한 가능합니다 <block ref="091cc4395662354f7a5868ee2318ef97" category="inline-link-macro-rx"></block> 같은 지역(AWS)의 동일한 또는 다른 Kubernetes 클러스터에서 새 볼륨으로.</block>
   <block id="13f4833f14110af4cb2943f6ee04ec0c" category="inline-link">아마존 애써나</block>
   <block id="d27c79824b42388962acf60cbd3cac6a" category="inline-link">AWS 글루</block>
@@ -1720,4 +1719,6 @@
   <block id="e0413a89d4f4e5f20e8ebe8fa7f79026" category="paragraph">클러스터에서 ONTAP 9.10.1 이상이 실행 중이고 클라우드 스토리지에 AWS 또는 Azure를 사용하는 경우 일정 일 후에 아카이브 스토리지에 대한 백업 계층화를 활성화 또는 비활성화할 수도 있습니다.</block>
   <block id="550dc506285db04f092b52843f119230" category="paragraph"><block ref="00d667b43393b5baa7f260d36e9ea7c9" category="inline-link-macro-rx"></block>.<block ref="b55a4bc37138995257f41826650c3872" category="inline-link-macro-rx"></block>.</block>
   <block id="15541295bd26cb0dbcc3c3b8b86b0ea9" category="admonition">작업 환경 세부 정보가 업데이트될 때까지 진행해서는 안 됩니다. 작업 환경 세부 정보를 업데이트하는 데 최대 30분이 걸릴 수 있습니다. 30분 후 마법사를 닫고 1단계에서 다시 시도하여 작업 환경 세부 정보를 확인해야 합니다. 작업 환경 세부 정보가 업데이트되지 않은 경우 다시 시도한 후 올바른 작업 환경을 추가했는지 확인하십시오.</block>
+  <block id="a7aea8698166f2ca86f6eca652031639" category="list-text">Trident는 클러스터에 설치해야 하며 Trident 버전은 21.1 이상이어야 합니다. 을 참조하십시오<block ref="efafd7c7be663b6b746c03d24d88023f" category="inline-link-rx"></block> 또는<block ref="23a633d2f31911781b4c35e0d8f7c8b9" category="inline-link-rx"></block>.</block>
+  <block id="40ff48613d00df6a5c5543aa0140c38b" category="paragraph"><block ref="40ff48613d00df6a5c5543aa0140c38b" category="inline-image-macro-rx" type="image"></block></block>
 </blocks>
