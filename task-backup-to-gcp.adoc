@@ -25,7 +25,7 @@ Cloud Volumes ONTAP에서 Google 클라우드 스토리지로 데이터 백업�
 * GCP에서 Cloud Volumes ONTAP 9.7P5 이상을 실행하고 있습니다.
 * 백업이 위치할 스토리지 공간에 대한 유효한 GCP 구독이 있습니다.
 * Google Cloud Project에는 사전 정의된 스토리지 관리자 역할이 있는 서비스 계정이 있습니다.
-* 에 가입했습니다 https://console.cloud.google.com/marketplace/details/netapp-cloudmanager/cloud-manager?supportedpurview=project&rif_reserved["Cloud Manager Marketplace 백업 오퍼링"^]또는 을(를) 구입한 경우 link:task-licensing-cloud-backup.html#use-cloud-backup-byol-licenses["활성화합니다"^] Cloud Backup BYOL 라이센스는 NetApp에서 제공
+* 에 가입했습니다 https://console.cloud.google.com/marketplace/details/netapp-cloudmanager/cloud-manager?supportedpurview=project&rif_reserved["Cloud Manager Marketplace 백업 오퍼링"^]또는 을(를) 구입한 경우 link:task-licensing-cloud-backup.html#use-a-cloud-backup-byol-license["활성화합니다"^] Cloud Backup BYOL 라이센스는 NetApp에서 제공
 
 
 .span class="image"><img src="https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png"[] Alt="Two"></span>새 시스템이나 기존 시스템에서 클라우드 백업 사용
@@ -63,10 +63,10 @@ image:diagram_cloud_backup_cvo_google.png["Cloud Backup이 소스 시스템의 �
 
 지원되는 ONTAP 버전:: Cloud Volumes ONTAP 9.7P5 이상
 지원되는 GCP 지역:: Cloud Backup은 모든 GCP 지역에서 지원됩니다 https://cloud.netapp.com/cloud-volumes-global-regions["Cloud Volumes ONTAP가 지원되는 경우"^].
-라이센스 요구 사항:: Cloud Backup PAYGO 라이센스의 경우, 를 통한 구독 https://console.cloud.google.com/marketplace/details/netapp-cloudmanager/cloud-manager?supportedpurview=project&rif_reserved["GCP 마켓플레이스"] Cloud Backup을 활성화하기 전에 가 필요합니다. Cloud Backup에 대한 청구는 이 구독을 통해 이루어집니다. https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-deploying-gcp.html["작업 환경 마법사의 세부 정보 및 자격 증명 페이지에서 구독할 수 있습니다"^].
+라이센스 요구 사항:: Cloud Backup PAYGO 라이센스의 경우, 를 통한 구독 https://console.cloud.google.com/marketplace/details/netapp-cloudmanager/cloud-manager?supportedpurview=project&rif_reserved["GCP 마켓플레이스"^] Cloud Backup을 활성화하기 전에 가 필요합니다. Cloud Backup에 대한 청구는 이 구독을 통해 이루어집니다. https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-deploying-gcp.html["작업 환경 마법사의 세부 정보 및 자격 증명 페이지에서 구독할 수 있습니다"^].
 +
 --
-Cloud Backup BYOL 라이센스의 경우, 라이센스 기간 및 용량 동안 서비스를 사용할 수 있도록 지원하는 NetApp의 일련 번호가 필요합니다. link:task-licensing-cloud-backup.html#use-cloud-backup-byol-licenses["BYOL 라이센스 관리 방법에 대해 알아보십시오"].
+Cloud Backup BYOL 라이센스의 경우, 라이센스 기간 및 용량 동안 서비스를 사용할 수 있도록 지원하는 NetApp의 일련 번호가 필요합니다. link:task-licensing-cloud-backup.html#use-a-cloud-backup-byol-license["BYOL 라이센스 관리 방법에 대해 알아보십시오"].
 
 그리고 백업을 찾을 저장소 공간에 대한 Google 구독이 있어야 합니다.
 

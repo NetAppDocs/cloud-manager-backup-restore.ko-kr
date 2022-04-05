@@ -31,7 +31,7 @@ summary: 몇 가지 단계를 완료하여 AKS Kubernetes 클러스터의 영구
 
 
 * 백업이 위치할 스토리지 공간에 대한 유효한 클라우드 공급자 가입이 있습니다.
-* 에 가입했습니다 https://azuremarketplace.microsoft.com/en-us/marketplace/apps/netapp.cloud-manager?tab=Overview["Cloud Manager Marketplace 백업 오퍼링"^]또는 을(를) 구입한 경우 link:task-licensing-cloud-backup.html#use-cloud-backup-byol-licenses["활성화합니다"^] Cloud Backup BYOL 라이센스는 NetApp에서 제공
+* 에 가입했습니다 https://azuremarketplace.microsoft.com/en-us/marketplace/apps/netapp.cloud-manager?tab=Overview["Cloud Manager Marketplace 백업 오퍼링"^]또는 을(를) 구입한 경우 link:task-licensing-cloud-backup.html#use-a-cloud-backup-byol-license["활성화합니다"^] Cloud Backup BYOL 라이센스는 NetApp에서 제공
 
 
 [role="quick-margin-para"]
@@ -64,8 +64,8 @@ image:diagram_cloud_backup_k8s_cvo_azure.png["Cloud Backup이 소스 시스템 �
 Kubernetes 클러스터 요구사항::
 +
 --
-* Kubernetes 클러스터를 Cloud Manager 작업 환경으로 발견했습니다. https://docs.netapp.com/us-en/cloud-manager-kubernetes/task-kubernetes-discover-azure.html["Kubernetes 클러스터를 검색하는 방법을 알아보십시오"^].
-* Trident는 클러스터에 설치해야 하며 Trident 버전은 21.1 이상이어야 합니다. 을 참조하십시오 link:https://netapp-trident.readthedocs.io/en/latest/kubernetes/deploying/index.html["Trident 설치 방법"] 또는 https://netapp-trident.readthedocs.io/en/latest/kubernetes/upgrades/index.html["Trident 버전을 업그레이드하는 방법"].
+* Kubernetes 클러스터를 Cloud Manager 작업 환경으로 발견했습니다. https://docs.netapp.com/us-en/cloud-manager-kubernetes/task/task-kubernetes-discover-azure.html["Kubernetes 클러스터를 검색하는 방법을 알아보십시오"^].
+* Trident는 클러스터에 설치해야 하며 Trident 버전은 21.1 이상이어야 합니다. 을 참조하십시오 link:https://netapp-trident.readthedocs.io/en/latest/kubernetes/deploying/index.html["Trident 설치 방법"^] 또는 https://netapp-trident.readthedocs.io/en/latest/kubernetes/upgrades/index.html["Trident 버전을 업그레이드하는 방법"^].
 * 클러스터는 '백엔드 스토리지'를 위해 Azure에서 Cloud Volumes ONTAP를 사용해야 합니다.
 * Cloud Volumes ONTAP 시스템은 Kubernetes 클러스터와 같은 Azure 지역에 있어야 하며 ONTAP 9.7P5 이상을 실행해야 합니다.
 +
@@ -127,7 +127,7 @@ spec:
 라이센스 요구 사항:: Cloud Backup PAYGO 라이센스의 경우 Cloud Backup을 활성화하기 전에 Azure Marketplace를 통해 가입해야 합니다. Cloud Backup에 대한 청구는 이 구독을 통해 이루어집니다. https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-deploying-otc-azure.html["작업 환경 마법사의 세부 정보 및 자격 증명 페이지에서 구독할 수 있습니다"^].
 +
 --
-Cloud Backup BYOL 라이센스의 경우, 라이센스 기간 및 용량 동안 서비스를 사용할 수 있도록 지원하는 NetApp의 일련 번호가 필요합니다. link:task-licensing-cloud-backup.html#use-cloud-backup-byol-licenses["BYOL 라이센스 관리 방법에 대해 알아보십시오"].
+Cloud Backup BYOL 라이센스의 경우, 라이센스 기간 및 용량 동안 서비스를 사용할 수 있도록 지원하는 NetApp의 일련 번호가 필요합니다. link:task-licensing-cloud-backup.html#use-a-cloud-backup-byol-license["BYOL 라이센스 관리 방법에 대해 알아보십시오"].
 
 그리고 백업이 위치할 스토리지 공간에 대한 Microsoft Azure 구독이 있어야 합니다.
 
@@ -169,4 +169,4 @@ image:screenshot_backup_select_volumes_k8s.png["백업할 볼륨을 선택하는
 
 Kubernetes 대시보드가 표시되므로 백업 상태를 모니터링할 수 있습니다.
 
-가능합니다 link:task-managing-backups.html["볼륨에 대한 백업을 시작 및 중지하거나 백업 일정을 변경합니다"^]. 또한 가능합니다 link:task-restore-backups.html#restoring-volumes-from-a-kubernetes-backup-file["백업 파일에서 전체 볼륨을 복원합니다"^] Azure(동일한 지역)의 동일한 또는 다른 Kubernetes 클러스터에서 새 볼륨으로.
+가능합니다 link:task-managing-backups-kubernetes.html["볼륨에 대한 백업을 시작 및 중지하거나 백업 일정을 변경합니다"^]. 또한 가능합니다 link:task-restore-backups-kubernetes.html#restoring-volumes-from-a-kubernetes-backup-file["백업 파일에서 전체 볼륨을 복원합니다"^] Azure(동일한 지역)의 동일한 또는 다른 Kubernetes 클러스터에서 새 볼륨으로.

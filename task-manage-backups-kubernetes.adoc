@@ -200,7 +200,7 @@ image:screenshot_delete_all_backups.png["작업 환경의 모든 백업을 삭�
 
 볼륨에 대한 모든 백업을 삭제하면 해당 볼륨에 대한 이후의 백업도 비활성화됩니다.
 
-가능합니다 <<Starting and stopping backups of volumes,볼륨에 대한 백업을 다시 시작합니다>> 언제든지 백업 관리 페이지에서 수행할 수 있습니다.
+가능합니다 <<Enabling and disabling backups of volumes,볼륨에 대한 백업을 다시 시작합니다>> 언제든지 백업 관리 페이지에서 수행할 수 있습니다.
 
 .단계
 . Kubernetes * 탭에서 를 클릭합니다 image:screenshot_horizontal_more_button.gif["추가 아이콘"] 소스 볼륨에 대해 * Details & Backup List * 를 선택합니다.
