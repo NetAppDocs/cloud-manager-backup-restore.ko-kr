@@ -1721,4 +1721,9 @@
   <block id="15541295bd26cb0dbcc3c3b8b86b0ea9" category="admonition">작업 환경 세부 정보가 업데이트될 때까지 진행해서는 안 됩니다. 작업 환경 세부 정보를 업데이트하는 데 최대 30분이 걸릴 수 있습니다. 30분 후 마법사를 닫고 1단계에서 다시 시도하여 작업 환경 세부 정보를 확인해야 합니다. 작업 환경 세부 정보가 업데이트되지 않은 경우 다시 시도한 후 올바른 작업 환경을 추가했는지 확인하십시오.</block>
   <block id="a7aea8698166f2ca86f6eca652031639" category="list-text">Trident는 클러스터에 설치해야 하며 Trident 버전은 21.1 이상이어야 합니다. 을 참조하십시오<block ref="efafd7c7be663b6b746c03d24d88023f" category="inline-link-rx"></block> 또는<block ref="23a633d2f31911781b4c35e0d8f7c8b9" category="inline-link-rx"></block>.</block>
   <block id="40ff48613d00df6a5c5543aa0140c38b" category="paragraph"><block ref="40ff48613d00df6a5c5543aa0140c38b" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="14f3ef2e312755e7942bb9d424acba3a" category="paragraph">Cloud Backup for Applications에 대한 자세한 내용은 다음을 참조하십시오.</block>
+  <block id="ca6aeed84517a7133f1abaebed19854e" category="inline-link">클라우드 백업 및 SnapCenter를 통한 애플리케이션 인식 백업</block>
+  <block id="ef3b2f715336b2a637c8e6704ee4bf21" category="list-text"><block ref="ef3b2f715336b2a637c8e6704ee4bf21" category="inline-link-rx"></block></block>
+  <block id="02f724fd5f12a11414bbb1d866d83955" category="inline-link">애플리케이션을 위한 클라우드 백업</block>
+  <block id="c1838894b610d8946ffa3203fa32c67c" category="list-text"><block ref="c1838894b610d8946ffa3203fa32c67c" category="inline-link-rx"></block></block>
 </blocks>
