@@ -414,10 +414,7 @@
   <block id="09c7ee4be0db4e9240de27e931212553" category="inline-link-macro">선불 종량제 구독을 설정하는 방법을 알아보십시오</block>
   <block id="13dbf2396212f27f4ed228794c13aab3" category="paragraph"><block ref="18ef702a22368a8691d9e75de2c9af13" category="inline-link-macro-rx"></block>.</block>
   <block id="2697e73e9503f3ae28e1059e98f62bef" category="section-title">연간 계약(AWS만 해당)</block>
-  <block id="f944771935068f42db88ca0e64d3d74d" category="paragraph">AWS Marketplace에서 2개의 연간 계약을 사용할 수 있습니다.</block>
-  <block id="dd3d43cf48ca2a873fab7de5be5f9fcf" category="list-text">Cloud Volumes ONTAP 데이터 및 사내 ONTAP 데이터를 백업할 수 있는 연간 계약입니다.</block>
   <block id="df2d3b1b1e3fe2bf22dcfe6d521cc76f" category="paragraph">Cloud Manager에서 AWS 자격 증명에 활성 서브스크립션이 하나만 할당할 수 있으므로 이 연간 계약 가입을 통해 Cloud Volumes ONTAP 시스템에 대한 비용을 지불해야 합니다.</block>
-  <block id="81dbbd5cba34a211ced4ddf70051b731" category="list-text">12, 24 또는 36개월 간의 연간 계약을 사용하여 Cloud Volumes ONTAP 및 클라우드 백업을 번들로 제공할 수 있는 프로페셔널 패키지 이 옵션을 사용하면 온프레미스 데이터를 백업할 수 없습니다.</block>
   <block id="f9ba37f9cf410c5a37313ec92800bf8b" category="paragraph">Cloud Volumes ONTAP 작업 환경을 생성할 때 연간 계약을 설정할 수 있으며, Cloud Manager에서 AWS 마켓플레이스를 구독하라는 메시지를 표시합니다.</block>
   <block id="8e155f8961f122c438c0a9d2c3cd06cf" category="inline-link-macro">연간 AWS 계약을 설정하는 방법에 대해 알아보십시오</block>
   <block id="89b33222aaf7ca5c202beb8e5f2178a8" category="paragraph"><block ref="cbf33a87dffdf2d824930f7597f518f2" category="inline-link-macro-rx"></block>.</block>
@@ -1412,31 +1409,19 @@
   <block id="438d3dd7620068789776c4fbc687ceda" category="list-text">새 자원 그룹을 만들거나 기존 자원 그룹을 사용합니다.</block>
   <block id="937fe6f3b88e5f7efd348b6104efe90c" category="list-text">정책 할당 페이지에서 정책을 선택하고 * 다음 * 을 클릭합니다.</block>
   <block id="b683b107618e7bb3827713f6892f7a58" category="list-text">세부 정보를 검토하고 * 백업 활성화 * 를 클릭합니다.</block>
-  <block id="8ff86bde879a859aeab71854dd06a37e" category="summary">Cloud Backup Service를 활성화하면 30일 무료 클라우드 백업 평가판이 시작됩니다. 무료 평가판이 끝나면 클라우드 공급자를 통해 PAYGO(Pay-as-you-Go) 구독을 사용하거나 NetApp에서 BYOL(Bring-Your-Own License)을 구매하여 Cloud Backup에 대한 비용을 지불해야 합니다.</block>
   <block id="854a5b181af5166b0412d0786c77db0b" category="doc">Cloud Backup에 대한 라이센스 설정</block>
   <block id="80186f1230af2267e2c2e4d2ab8c030e" category="paragraph">추가 내용을 읽기 전에 몇 가지 참고 사항을 확인하십시오.</block>
-  <block id="65f4ddcd695bd5300faeeb1d7f5eb78f" category="list-text">클라우드 공급자의 마켓플레이스에서 이미 PAYGO(Cloud Manager Pay-as-you-Go) 구독을 구독한 경우 Cloud Backup도 자동으로 구독됩니다. 다시 가입하지 않아도 됩니다.</block>
-  <block id="36b4d092c664f0e685cc03a9b033868e" category="list-text">Cloud Backup BYOL(Bring-Your-Own-License)은 Cloud Manager 계정과 연결된 모든 시스템에서 사용할 수 있는 부동 라이센스입니다.</block>
-  <block id="dfbbcbf9dd95c5cbfdfc48a45006ab89" category="list-text">ONTAP 데이터를 StorageGRID에 백업할 경우 BYOL 라이센스가 필요하지만 클라우드 공급자의 스토리지 공간에는 비용이 들지 않습니다.</block>
   <block id="bd8ba81f6cbd021258afb9564995cf0b" category="inline-link-macro">Cloud Backup과 관련된 라이센스 및 비용에 대해 자세히 알아보십시오.</block>
   <block id="cd4e5fd8548757589f2cee2372b34c2e" category="paragraph"><block ref="cd4e5fd8548757589f2cee2372b34c2e" category="inline-link-macro-rx"></block></block>
   <block id="7c65a55c90995187c476141fe12aa591" category="section-title">Cloud Backup PAYGO 구독 사용</block>
-  <block id="ac4393a5c53f1f82372407eb5e074670" category="paragraph">사용한 만큼만 지불하는 용량제 방식을 사용하면 클라우드 공급자에게 오브젝트 스토리지 비용과 NetApp 백업 라이센스 비용을 지불할 수 있습니다. 다음 링크를 사용하여 클라우드 공급자 마켓플레이스에서 Cloud Backup을 구독하십시오.</block>
   <block id="b0137435ab1e749e6671cc7b4442746b" category="inline-link">가격 세부 정보는 Cloud Manager Marketplace 오퍼링을 참조하십시오</block>
   <block id="fbc4dcdcbcf0da9900a5e2aee88197c9" category="list-text">AWS:<block ref="2958bbf3239ebfcd2df7adc813da750e" category="inline-link-rx"></block>.</block>
   <block id="669ab104fde662cae95c3d512827defe" category="list-text">Azure(Azure):<block ref="d72981df84ff531bf20e612d5459f673" category="inline-link-rx"></block>.</block>
   <block id="c57ec98129cb7b961be880916bf8fa53" category="list-text">GCP:<block ref="4863db4abfd00b3312d9241bbfc20ef5" category="inline-link-rx"></block>.</block>
   <block id="d32283208440b3b746c6d310c2b57731" category="section-title">AWS를 통해 연간 계약을 구독하십시오</block>
-  <block id="58262bbed2c2914933d306a55e2eff12" category="paragraph">Cloud Volumes ONTAP 및 사내 ONTAP 시스템에 대한 AWS Marketplace에서 2개의 연간 계약을 체결할 수 있습니다.</block>
-  <block id="a2cb9dd630c17c1483928c4ecf380d8e" category="paragraph">로 이동합니다<block ref="7e9391e5068ba3345180f0de3723960c" category="inline-link-rx"></block> 가격 세부 정보를 봅니다.</block>
-  <block id="a34b68e0f7784377a3acbda8f5516f94" category="paragraph">이 옵션을 사용하려면 마켓플레이스 페이지에서 구독을 설정한 다음<block ref="5b8e6a3cc3aa95595ccde9be22e093ee" category="inline-link-rx"></block>. Cloud Manager에서 AWS 자격 증명에 활성 구독을 하나만 할당할 수 있으므로 이 연간 계약 가입을 통해 Cloud Volumes ONTAP 시스템에 대한 비용을 지불해야 합니다.</block>
-  <block id="79a6d9122ddcfbf32cb48ca7e07d04a8" category="list-text">1, 2 또는 3년 간의 연간 계약을 사용하여 Cloud Volumes ONTAP 및 클라우드 백업을 번들로 제공할 수 있는 프로페셔널 패키지 지급은 TiB당. 이 옵션을 사용하면 사내 ONTAP 데이터를 백업할 수 없습니다.</block>
-  <block id="bc2d1afe4b7b88784be36363245bd652" category="inline-link">Cloud Volumes ONTAP 릴리즈 노트</block>
-  <block id="1b6a828fae54ac29e6e3f56099099045" category="paragraph">로 이동합니다<block ref="85c21eb306ec4bcbda7252ca6117fc5c" category="inline-link-rx"></block> 가격 세부 정보를 보려면 로 이동하십시오<block ref="4206a207f40395f23f9807d9276bfff9" category="inline-link-rx"></block> 이 라이센스 옵션에 대해 자세히 알아보십시오.</block>
   <block id="aa6e381a2e925e1ef4225ff8af689116" category="paragraph">이 옵션을 사용하려면 Cloud Volumes ONTAP 작업 환경을 생성할 때 연간 계약을 설정하고 Cloud Manager에서 AWS 마켓플레이스를 구독하라는 메시지를 표시합니다.</block>
   <block id="289fa4183a5f21ffa309508c3b1534c5" category="section-title">Cloud Backup BYOL 라이센스 사용</block>
   <block id="70af97100aa32faf0090b5c729f50df0" category="paragraph">NetApp에서 제공하는 자체 라이센스는 1년, 2년 또는 3년간 제공됩니다. 백업 중인 소스 ONTAP 볼륨의 논리적 사용 용량(_before_any 효율성)으로 계산되어 보호하는 데이터에 대해서만 비용을 지불하면 됩니다. 이 용량을 FETB(Front-End Terabytes)라고도 합니다.</block>
-  <block id="bf7e6f30b15da1dd2b68006a3cbeb0ec" category="paragraph">BYOL Cloud Backup 라이센스는 Cloud Manager 계정과 연결된 모든 시스템에서 전체 용량을 공유하는 부동 라이센스입니다. ONTAP 시스템의 경우 백업하려는 볼륨에 대해 ONTAP 명령 'volume show-space-logical-used'를 실행하여 필요한 용량을 대략적으로 추정할 수 있습니다.</block>
   <block id="1bdb5964b1e1151098850bdd005ded43" category="paragraph">Cloud Backup BYOL 라이센스가 없는 경우 Cloud Manager 오른쪽 아래에 있는 채팅 아이콘을 클릭하여 라이센스를 구입하십시오.</block>
   <block id="b2791cca971216c964d32d50e88dc692" category="paragraph">Cloud Manager의 Digital Wallet 페이지를 사용하여 Cloud Backup의 BYOL 라이센스를 관리할 수 있습니다. 새 라이센스를 추가하고 기존 라이센스를 업데이트할 수 있습니다.</block>
   <block id="583571647e284c9fed0a15301f155dba" category="section-title">Cloud Backup 라이센스 파일을 얻습니다</block>
@@ -1726,4 +1711,18 @@
   <block id="ef3b2f715336b2a637c8e6704ee4bf21" category="list-text"><block ref="ef3b2f715336b2a637c8e6704ee4bf21" category="inline-link-rx"></block></block>
   <block id="02f724fd5f12a11414bbb1d866d83955" category="inline-link">애플리케이션을 위한 클라우드 백업</block>
   <block id="c1838894b610d8946ffa3203fa32c67c" category="list-text"><block ref="c1838894b610d8946ffa3203fa32c67c" category="inline-link-rx"></block></block>
+  <block id="c08b5ef68c093a2a43920147af1bd8ec" category="summary">클라우드 백업 30일 무료 평가판은 Cloud Backup Service이 귀사의 클라우드 공급자 마켓플레이스를 활성화하면 시작됩니다. 무료 평가판이 끝나면 PAYGO(Pay-as-you-Go) 마켓플레이스 구독을 사용하거나 NetApp에서 BYOL(Bring-Your-Own License)을 구입하여 Cloud Backup에 대한 비용을 지불하게 됩니다.</block>
+  <block id="9c7b811f2948c46d550484ab6f6ea2bf" category="list-text">클라우드 공급자의 Cloud Volumes ONTAP 시스템 시장에서 PAYGO(Pay-as-you-Go) 구독을 이미 구독한 경우 클라우드 백업도 자동으로 구독됩니다. 다시 가입하지 않아도 됩니다.</block>
+  <block id="a3ec87111f092c053e225dd5d828007b" category="list-text">Cloud Backup BYOL(Bring-Your-Own-License)은 Cloud Manager 계정과 연결된 모든 시스템에서 사용할 수 있는 부동 라이센스입니다. 따라서 기존 라이센스에서 충분한 백업 용량이 있는 경우 다른 BYOL 라이센스를 구입할 필요가 없습니다.</block>
+  <block id="31f730de563a8876975a231ee55bc4d7" category="list-text">온프레미스 ONTAP 데이터를 StorageGRID에 백업할 경우 BYOL 라이센스가 필요하지만 클라우드 공급자의 스토리지 공간에는 비용이 들지 않습니다.</block>
+  <block id="c95dbf27a6d38e18e0658fd12b3c3ded" category="paragraph">사용한 만큼만 지불하는 용량제 방식을 사용하면 클라우드 공급업체에 오브젝트 스토리지 비용을 지불하고, NetApp 백업 라이센스 비용을 단일 기준으로 1시간 단위로 지불할 수 있습니다. 다음 링크를 사용하여 클라우드 공급자 마켓플레이스에서 Cloud Backup을 구독하십시오.</block>
+  <block id="28636fa6e8c01dc0677bb906a6ab4f92" category="paragraph">에서 2개의 연간 계약을 사용할 수 있습니다<block ref="7e9391e5068ba3345180f0de3723960c" category="inline-link-rx"></block> Cloud Volumes ONTAP 및 사내 ONTAP 시스템: 1년, 2년 또는 3년 조건으로 제공됩니다.</block>
+  <block id="c776759ca58ab152a9abc5e0b4f7ae66" category="list-text">Cloud Volumes ONTAP 데이터와 사내 ONTAP 데이터를 백업할 수 있는 '클라우드 백업' 계획</block>
+  <block id="f3ec604659866873c6f12a7b82b426c9" category="paragraph">이 옵션을 사용하려면 마켓플레이스 페이지에서 구독을 설정한 다음<block ref="f1f7c973fce685b876017d26d677c721" category="inline-link-rx"></block>. Cloud Manager에서 AWS 자격 증명에 활성 구독을 하나만 할당할 수 있으므로 이 연간 계약 가입을 통해 Cloud Volumes ONTAP 시스템에 대한 비용을 지불해야 합니다.</block>
+  <block id="f2ece9cc094a050d5d94b2d9c8142c27" category="list-text">Cloud Volumes ONTAP와 클라우드 백업을 번들로 제공할 수 있는 "CVO Professional" 계획. 여기에는 이 라이센스에 대해 청구된 Cloud Volumes ONTAP 볼륨에 대한 무제한 백업이 포함됩니다(백업 용량은 라이센스에 포함되지 않음). 이 옵션을 사용하면 사내 ONTAP 데이터를 백업할 수 없습니다.</block>
+  <block id="5f0364e373bcb99c02ad1b8359683908" category="inline-link">Cloud Volumes ONTAP 라이센스 항목을 참조하십시오</block>
+  <block id="52d956d90b5780ee300f362720b19a91" category="paragraph">를 참조하십시오<block ref="db4ae6dbaa659af690ca7b28a2621090" category="inline-link-rx"></block> 이 라이센스 옵션에 대해 자세히 알아보십시오.</block>
+  <block id="6025aba67376a090dc2ca42bb5ef2182" category="paragraph">BYOL Cloud Backup 라이센스는 Cloud Manager 계정과 연결된 모든 시스템에서 전체 용량을 공유하는 부동 라이센스입니다. ONTAP 시스템의 경우 백업하려는 볼륨에 대해 CLI 명령 'volume show-space-logical-used'를 실행하여 필요한 용량을 대략적으로 추정할 수 있습니다.</block>
+  <block id="24d74be1960242a6818d266296df5af4" category="paragraph">AWS Marketplace에서 12개월, 24개월 또는 36개월 조건에 두 가지 연간 계약을 사용할 수 있습니다.</block>
+  <block id="277d325469c77a8ce02855d7ea5c8b1a" category="list-text">Cloud Volumes ONTAP와 클라우드 백업을 번들로 제공할 수 있는 "CVO Professional" 계획. 여기에는 이 라이센스에 대해 청구된 Cloud Volumes ONTAP 볼륨에 대한 무제한 백업이 포함됩니다(백업 용량은 라이센스에 포함되지 않음).</block>
 </blocks>
