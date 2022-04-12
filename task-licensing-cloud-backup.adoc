@@ -47,7 +47,7 @@ link:concept-backup-to-cloud.html#licensing["Cloud Backup과 관련된 라이센
 
 * Cloud Volumes ONTAP와 클라우드 백업을 번들로 제공할 수 있는 "CVO Professional" 계획. 여기에는 이 라이센스에 대해 청구된 Cloud Volumes ONTAP 볼륨에 대한 무제한 백업이 포함됩니다(백업 용량은 라이센스에 포함되지 않음). 이 옵션을 사용하면 사내 ONTAP 데이터를 백업할 수 없습니다.
 +
-를 참조하십시오 https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/concept-licensing.html["Cloud Volumes ONTAP 라이센스 항목을 참조하십시오"^] 이 라이센스 옵션에 대해 자세히 알아보십시오.
+를 참조하십시오 https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/concept-licensing.html["Cloud Volumes ONTAP 라이센스 항목을 참조하십시오"^] 이 라이센스 옵션에 대해 자세히 알아보십시오.
 
 +
 이 옵션을 사용하려면 Cloud Volumes ONTAP 작업 환경을 생성할 때 연간 계약을 설정하고 Cloud Manager에서 AWS 마켓플레이스를 구독하라는 메시지를 표시합니다.

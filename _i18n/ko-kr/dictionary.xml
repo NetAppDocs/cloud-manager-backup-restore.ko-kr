@@ -743,10 +743,8 @@
   <block id="848525ead1cee2ce7d0e88b45eff615b" category="list-text">백업 파일에 대한 클라우드 대상을 구성할 때 이제 Cloud Volumes ONTAP 시스템이 상주하는 지역이 아닌 다른 영역을 선택할 수 있습니다.</block>
   <block id="352bd947543507d8ea621ff97c97e05e" category="list-text">단일 볼륨에 대해 생성할 수 있는 백업 파일 수가 1,019에서 4,000개로 증가했습니다.</block>
   <block id="942a3551be2a21b1724268665a2bcc93" category="list-text">단일 볼륨에 대한 모든 백업 파일을 삭제하는 이전 기능 외에도 볼륨에 대해 하나의 백업 파일만 삭제하거나, 필요한 경우 전체 작업 환경에 대한 모든 백업 파일을 삭제할 수 있습니다.</block>
-  <block id="fca32b9485a57083406de6293a2a97d7" category="summary">작업 환경에서 시작된 백업 및 복원 작업의 상태를 모니터링할 수 있습니다. 이렇게 하면 성공적으로 완료된 작업, 현재 진행 중인 작업 및 실패한 작업을 볼 수 있으므로 문제를 진단하고 해결할 수 있습니다.</block>
   <block id="ee0db59fec59c2b3e6c6583a61bf12b6" category="doc">백업 및 복원 작업의 상태를 모니터링합니다</block>
   <block id="b6cd8759a4f3461dea504f0e0a873597" category="section-title">백업 및 복원 작업의 상태 보기</block>
-  <block id="df0393bee9cb930c017fd73a17ee79f1" category="paragraph">모든 백업 및 복원 작업 목록과 현재 상태를 볼 수 있습니다. 여기에는 Cloud Volumes ONTAP, 온프레미스 ONTAP 및 Kubernetes 시스템 운영이 포함됩니다. 각 작업 또는 작업에는 고유한 ID와 상태가 있습니다. 상태는 다음과 같습니다.</block>
   <block id="30ae8fff8898dc197acd49d9c0797d20" category="list-text">성공했습니다</block>
   <block id="c9413dd7682a45da9ecc9efa8cea47d7" category="list-text">진행 중</block>
   <block id="7b2f31b90fe1c2cc33a52233c1925df3" category="list-text">대기열에 있습니다</block>
@@ -1721,8 +1719,11 @@
   <block id="f3ec604659866873c6f12a7b82b426c9" category="paragraph">이 옵션을 사용하려면 마켓플레이스 페이지에서 구독을 설정한 다음<block ref="f1f7c973fce685b876017d26d677c721" category="inline-link-rx"></block>. Cloud Manager에서 AWS 자격 증명에 활성 구독을 하나만 할당할 수 있으므로 이 연간 계약 가입을 통해 Cloud Volumes ONTAP 시스템에 대한 비용을 지불해야 합니다.</block>
   <block id="f2ece9cc094a050d5d94b2d9c8142c27" category="list-text">Cloud Volumes ONTAP와 클라우드 백업을 번들로 제공할 수 있는 "CVO Professional" 계획. 여기에는 이 라이센스에 대해 청구된 Cloud Volumes ONTAP 볼륨에 대한 무제한 백업이 포함됩니다(백업 용량은 라이센스에 포함되지 않음). 이 옵션을 사용하면 사내 ONTAP 데이터를 백업할 수 없습니다.</block>
   <block id="5f0364e373bcb99c02ad1b8359683908" category="inline-link">Cloud Volumes ONTAP 라이센스 항목을 참조하십시오</block>
-  <block id="52d956d90b5780ee300f362720b19a91" category="paragraph">를 참조하십시오<block ref="db4ae6dbaa659af690ca7b28a2621090" category="inline-link-rx"></block> 이 라이센스 옵션에 대해 자세히 알아보십시오.</block>
   <block id="6025aba67376a090dc2ca42bb5ef2182" category="paragraph">BYOL Cloud Backup 라이센스는 Cloud Manager 계정과 연결된 모든 시스템에서 전체 용량을 공유하는 부동 라이센스입니다. ONTAP 시스템의 경우 백업하려는 볼륨에 대해 CLI 명령 'volume show-space-logical-used'를 실행하여 필요한 용량을 대략적으로 추정할 수 있습니다.</block>
   <block id="24d74be1960242a6818d266296df5af4" category="paragraph">AWS Marketplace에서 12개월, 24개월 또는 36개월 조건에 두 가지 연간 계약을 사용할 수 있습니다.</block>
   <block id="277d325469c77a8ce02855d7ea5c8b1a" category="list-text">Cloud Volumes ONTAP와 클라우드 백업을 번들로 제공할 수 있는 "CVO Professional" 계획. 여기에는 이 라이센스에 대해 청구된 Cloud Volumes ONTAP 볼륨에 대한 무제한 백업이 포함됩니다(백업 용량은 라이센스에 포함되지 않음).</block>
+  <block id="798aac57a47adfaf930d9def9b4bbe02" category="paragraph">를 참조하십시오<block ref="d58b2dbf2a4616ceca06f8773ed8f738" category="inline-link-rx"></block> 이 라이센스 옵션에 대해 자세히 알아보십시오.</block>
+  <block id="74cc281b8e4c7e949e92e69bf209421f" category="summary">작업 환경에서 시작한 백업 및 복원 작업의 상태를 모니터링할 수 있습니다. 이렇게 하면 성공적으로 완료된 작업, 현재 진행 중인 작업 및 실패한 작업을 볼 수 있으므로 문제를 진단하고 해결할 수 있습니다.</block>
+  <block id="5fd6f798208daa9906f9880884735da2" category="paragraph">지속적인 백업 작업과 같은 시스템 시작 작업은 * 작업 모니터링 * 탭에 반영되지 않습니다. 사용자 시작 작업만 표시됩니다.</block>
+  <block id="7a48560852ec8ed04802b3b0c1192f24" category="paragraph">모든 백업 및 복원 작업 목록과 현재 상태를 볼 수 있습니다. 여기에는 Cloud Volumes ONTAP, 온프레미스 ONTAP, 애플리케이션 및 Kubernetes 시스템 운영이 포함됩니다. 각 작업 또는 작업에는 고유한 ID와 상태가 있습니다. 상태는 다음과 같습니다.</block>
 </blocks>
