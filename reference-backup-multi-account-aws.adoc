@@ -6,6 +6,7 @@ summary: Cloud Backup을 사용하면 소스 Cloud Volumes ONTAP 볼륨이 상�
 ---
 = AWS에서 다중 계정 액세스를 위한 백업을 구성합니다
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

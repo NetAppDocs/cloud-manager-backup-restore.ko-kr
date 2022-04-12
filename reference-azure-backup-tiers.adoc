@@ -6,6 +6,7 @@ summary: Cloud Backup은 하나의 Azure 아카이브 액세스 계층 및 대�
 ---
 = Azure 아카이브 계층 및 복원 검색 시간
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

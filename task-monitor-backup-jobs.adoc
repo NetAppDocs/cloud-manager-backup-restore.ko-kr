@@ -6,6 +6,7 @@ summary: 작업 환경에서 시작한 백업 및 복원 작업의 상태를 모
 ---
 = 백업 및 복원 작업의 상태를 모니터링합니다
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

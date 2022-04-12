@@ -7,6 +7,7 @@ summary: Cloud Backup은 데이터의 보호 및 장기 아카이브를 위한 �
 ---
 = Cloud Backup 설명서
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

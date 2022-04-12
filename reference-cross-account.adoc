@@ -6,6 +6,7 @@ summary: 이 항목에서는 여러 클라우드 공급자를 사용할 때 계�
 ---
 = 교차 계정 및 교차 지역 구성
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

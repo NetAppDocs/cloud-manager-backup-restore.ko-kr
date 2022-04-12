@@ -6,6 +6,7 @@ summary: Cloud Backup for Applications를 Cloud Manager 및 사내 SnapCenter와
 ---
 = 온프레미스 애플리케이션 데이터를 보호합니다
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

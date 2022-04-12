@@ -6,6 +6,7 @@ summary: Cloud Backup은 2개의 S3 아카이브 스토리지 클래스와 대�
 ---
 = AWS S3 아카이브 스토리지 클래스 및 복원 검색 시간
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

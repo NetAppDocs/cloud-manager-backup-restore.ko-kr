@@ -6,6 +6,7 @@ summary: 몇 가지 단계를 완료하여 AKS Kubernetes 클러스터의 영구
 ---
 = Kubernetes 영구 볼륨 데이터를 Azure Blob 스토리지에 백업
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

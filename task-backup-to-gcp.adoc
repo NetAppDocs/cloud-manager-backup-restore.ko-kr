@@ -6,6 +6,7 @@ summary: 몇 가지 단계를 완료하여 Cloud Volumes ONTAP에서 Google Clou
 ---
 = Cloud Volumes ONTAP 데이터를 Google 클라우드 스토리지에 백업
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

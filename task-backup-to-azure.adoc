@@ -6,6 +6,7 @@ summary: Cloud Volumes ONTAP에서 Azure Blob 저장소로 데이터 백업을 �
 ---
 = Azure Blob 저장소에 Cloud Volumes ONTAP 데이터 백업
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

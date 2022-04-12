@@ -6,6 +6,7 @@ summary: SQL Server 데이터베이스를 클라우드에서 사내 SnapCenter �
 ---
 = SQL Server 데이터베이스를 복원합니다
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

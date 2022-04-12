@@ -6,6 +6,7 @@ summary: 백업 일정을 변경하고, 볼륨 백업을 활성화/비활성화�
 ---
 = Kubernetes 시스템 백업 관리
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

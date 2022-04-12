@@ -6,6 +6,7 @@ summary: 몇 가지 단계를 완료하여 사내 ONTAP 시스템에서 Azure Bl
 ---
 = 온프레미스 ONTAP 데이터를 Azure Blob 저장소에 백업
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

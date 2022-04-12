@@ -6,6 +6,7 @@ summary: '클라우드 백업 30일 무료 평가판은 Cloud Backup Service이 
 ---
 = Cloud Backup에 대한 라이센스 설정
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

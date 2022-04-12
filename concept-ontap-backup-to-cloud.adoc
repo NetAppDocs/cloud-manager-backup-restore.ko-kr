@@ -6,6 +6,7 @@ summary: Cloud Backup은 ONTAP 클러스터 데이터의 보호 및 장기 아�
 ---
 = 클라우드 백업을 사용하여 ONTAP 클러스터 데이터를 보호합니다
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 
