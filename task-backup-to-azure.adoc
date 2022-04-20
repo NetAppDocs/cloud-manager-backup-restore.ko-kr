@@ -89,6 +89,9 @@ Azure 배포를 위한 아웃바운드 인터넷 액세스가 필요합니다:: 
 | http://olcentgbl.trafficmanager.net \https://olcentgbl.trafficmanager.net 으로 문의하십시오 | 클라우드 복원 가상 머신용 CentOS 패키지를 제공합니다. 
 
 
+| https://download.docker.com/linux/centos/docker-ce.repo 으로 문의하십시오 | Docker Engine 패키지를 제공합니다. 
+
+
 | http://cloudmanagerinfraprod.azurecr.io \https://cloudmanagerinfraprod.azurecr.io 으로 문의하십시오 | 클라우드 복원 가상 머신 이미지 리포지토리. 
 |===
 

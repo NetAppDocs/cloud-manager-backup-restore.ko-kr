@@ -64,11 +64,19 @@ Select Volumes(볼륨 선택) 페이지의 기본 백업 정책을 사용하여 
 
 온프레미스 볼륨을 Google Cloud 스토리지에 백업하기 전에 다음 요구 사항을 읽고 지원되는 구성이 있는지 확인합니다.
 
-다음 이미지는 각 구성 요소와 이러한 구성 요소 간에 준비해야 하는 연결을 보여 줍니다.
+사내 ONTAP 시스템에서 Google 클라우드 스토리지로 백업을 구성할 때 두 가지 연결 방법을 사용할 수 있습니다.
+
+* 공용 연결 - 공용 Google 엔드포인트를 사용하여 ONTAP 시스템을 Google 클라우드 스토리지에 직접 연결합니다.
+* 비공개 연결 - VPN 또는 개인 서비스 연결을 사용하여 개인 IP 주소를 사용하는 개인 Google 액세스 인터페이스를 통해 트래픽을 라우팅합니다.
+
+
+다음 그림에서는 공용 연결 방법과 구성 요소 간에 준비해야 하는 연결을 보여 줍니다.
 
 image:diagram_cloud_backup_onprem_google.png["Cloud Backup이 소스 시스템 및 백업 파일이 있는 대상 스토리지의 볼륨과 통신하는 방법을 보여주는 다이어그램입니다."]
 
-현재 GCP에서 단일 파일 복원이 지원되지 않으므로 클라우드 복원 인스턴스는 이 다이어그램에 표시되지 않습니다.
+다음 그림에서는 전용 연결 방법과 구성 요소 간에 준비해야 하는 연결을 보여 줍니다.
+
+image:diagram_cloud_backup_onprem_google_vpc.png["Cloud Backup이 소스 시스템 및 백업 파일이 있는 대상 스토리지의 볼륨과 통신하는 방법을 보여주는 다이어그램입니다."]
 
 
 
@@ -160,7 +168,7 @@ Private Google Access는 내부(전용) IP 주소(외부 IP 주소 없음)만 �
 
 Cloud Backup의 30일 무료 평가판 기간이 만료되기 전에 Google의 PAYGO(Pay-as-you-Go) Cloud Manager Marketplace 오퍼링을 구독하거나 NetApp에서 Cloud Backup BYOL 라이센스를 구입하여 활성화해야 합니다. 이러한 라이센스는 계정에 사용되며 여러 시스템에서 사용할 수 있습니다.
 
-* Cloud Backup PAYGO 라이센스의 경우 에 대한 구독이 필요합니다 https://console.cloud.google.com/marketplace/details/netapp-cloudmanager/cloud-manager?supportedpurview=project&rif_reserved["구글"^] Cloud Manager Marketplace 오퍼링을 지속적으로 사용하여 Cloud Backup을 사용합니다. Cloud Backup에 대한 청구는 이 구독을 통해 이루어집니다.
+* Cloud Backup PAYGO 라이센스의 경우 에 대한 구독이 필요합니다 https://console.cloud.google.com/marketplace/details/netapp-cloudmanager/cloud-manager?supportedpurview=project["구글"^] Cloud Manager Marketplace 오퍼링을 지속적으로 사용하여 Cloud Backup을 사용합니다. Cloud Backup에 대한 청구는 이 구독을 통해 이루어집니다.
 * Cloud Backup BYOL 라이센스의 경우, 가입이 필요하지 않습니다. 라이센스 기간 및 용량 동안 서비스를 사용할 수 있도록 NetApp의 일련 번호가 필요합니다. link:task-licensing-cloud-backup.html#use-a-cloud-backup-byol-license["BYOL 라이센스 관리 방법에 대해 알아보십시오"].
 
 

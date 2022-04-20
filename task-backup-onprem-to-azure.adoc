@@ -75,9 +75,19 @@ Select Volumes(볼륨 선택) 페이지의 기본 백업 정책을 사용하여 
 
 온프레미스 볼륨을 Azure Blob 저장소에 백업하기 전에 다음 요구 사항을 읽고 지원되는 구성이 있는지 확인합니다.
 
-다음 이미지는 각 구성 요소와 이러한 구성 요소 간에 준비해야 하는 연결을 보여 줍니다.
+사내 ONTAP 시스템에서 Azure Blob으로 백업을 구성할 때 사용할 수 있는 두 가지 연결 방법이 있습니다.
+
+* 공용 연결 - 공용 Azure 끝점을 사용하여 ONTAP 시스템을 Azure Blob 저장소에 직접 연결합니다.
+* 비공개 연결 - VPN 또는 ExpressRoute를 사용하여 전용 IP 주소를 사용하는 VNET 전용 엔드포인트를 통해 트래픽을 라우팅합니다.
+
+
+다음 그림에서는 공용 연결 방법과 구성 요소 간에 준비해야 하는 연결을 보여 줍니다.
 
 image:diagram_cloud_backup_onprem_azure.png["Cloud Backup이 소스 시스템 및 백업 파일이 있는 대상 스토리지의 볼륨과 통신하는 방법을 보여주는 다이어그램입니다."]
+
+다음 그림에서는 전용 연결 방법과 구성 요소 간에 준비해야 하는 연결을 보여 줍니다.
+
+image:diagram_cloud_backup_onprem_azure_vnet.png["Cloud Backup이 소스 시스템 및 백업 파일이 있는 대상 스토리지의 볼륨과 통신하는 방법을 보여주는 다이어그램입니다."]
 
 Cloud Restore 인스턴스가 클라우드에 배포되면 Connector와 동일한 서브넷에 위치합니다.
 
@@ -188,6 +198,9 @@ Cloud Backup의 30일 무료 평가판 기간이 만료되기 전에 Azure에서
 
 
 | http://olcentgbl.trafficmanager.net \https://olcentgbl.trafficmanager.net 으로 문의하십시오 | 클라우드 복원 가상 머신용 CentOS 패키지를 제공합니다. 
+
+
+| https://download.docker.com/linux/centos/docker-ce.repo 으로 문의하십시오 | Docker Engine 패키지를 제공합니다. 
 
 
 | http://cloudmanagerinfraprod.azurecr.io \https://cloudmanagerinfraprod.azurecr.io 으로 문의하십시오 | 클라우드 복원 가상 머신 이미지 리포지토리. 

@@ -312,7 +312,6 @@
   <block id="2e1115d39f7972f9468b4f2ab39cff31" category="paragraph"><block ref="2e1115d39f7972f9468b4f2ab39cff31" category="inline-image-macro-rx" type="image"></block></block>
   <block id="be956322a93c4a7bc2b8c8b049f7496e" category="paragraph">온프레미스 볼륨을 Google Cloud 스토리지에 백업하기 전에 다음 요구 사항을 읽고 지원되는 구성이 있는지 확인합니다.</block>
   <block id="e8ab6f6e04e79dc5df01bb98ecc3bf49" category="paragraph"><block ref="e8ab6f6e04e79dc5df01bb98ecc3bf49" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="b4f043aed8f9d2f0141b7a90f189fb9b" category="paragraph">현재 GCP에서 단일 파일 복원이 지원되지 않으므로 클라우드 복원 인스턴스는 이 다이어그램에 표시되지 않습니다.</block>
   <block id="0ee205b9a66364b8bd529d4a5a68568a" category="list-text">ONTAP 클러스터는 백업 및 복원 작업을 위해 인터클러스터 LIF에서 Google Cloud 스토리지에 대한 포트 443을 통한 HTTPS 연결을 시작합니다.</block>
   <block id="a45a0d78412f96d4e0612c2263af5042" category="list-text">ONTAP를 사용하려면 Connector에서 클러스터 관리 LIF로 인바운드 연결이 필요합니다. Connector는 Google Cloud Platform VPC에 상주할 수 있습니다.</block>
   <block id="8bdfdad72ee7298056198e1b5d8fb704" category="list-text">노드의 인터클러스터 LIF는 오브젝트 저장소에 액세스할 수 있습니다.</block>
@@ -326,7 +325,6 @@
   <block id="8484f6ffd6459d9020b1222c3f5e6b0d" category="paragraph">모든 지역의 사내 시스템에서 Google Cloud 스토리지로 백업을 생성할 수 있습니다<block ref="6bd619c4d649497ad0b6da421785c6ae" category="inline-link-rx"></block>. 서비스를 설정할 때 백업을 저장할 지역을 지정합니다.</block>
   <block id="2cce7fe3f720ce7d62a9b599273fba08" category="paragraph">Cloud Backup의 30일 무료 평가판 기간이 만료되기 전에 Google의 PAYGO(Pay-as-you-Go) Cloud Manager Marketplace 오퍼링을 구독하거나 NetApp에서 Cloud Backup BYOL 라이센스를 구입하여 활성화해야 합니다. 이러한 라이센스는 계정에 사용되며 여러 시스템에서 사용할 수 있습니다.</block>
   <block id="8b36e9207c24c76e6719268e49201d94" category="inline-link">구글</block>
-  <block id="8a629a07ded01d5fb3cb1c1d027275dd" category="list-text">Cloud Backup PAYGO 라이센스의 경우 에 대한 구독이 필요합니다<block ref="0146f992c0e88d0c8acefd21050b263d" category="inline-link-rx"></block> Cloud Manager Marketplace 오퍼링을 지속적으로 사용하여 Cloud Backup을 사용합니다. Cloud Backup에 대한 청구는 이 구독을 통해 이루어집니다.</block>
   <block id="a6dcd23c3ac238175abaf161ac1ebec0" category="paragraph">백업을 찾을 오브젝트 스토리지 공간에 Google에 가입해야 합니다.</block>
   <block id="22d599494fb27c8f85e36d489a5fe77d" category="section-title">백업을 위해 Google Cloud Storage 준비 중</block>
   <block id="dfa2ebc2c5048f9486fe3dbffbc52438" category="paragraph">백업을 설정할 때는 스토리지 관리자 권한이 있는 서비스 계정에 대한 스토리지 액세스 키를 제공해야 합니다. 서비스 계정을 사용하면 Cloud Backup에서 백업을 저장하는 데 사용되는 Cloud Storage 버킷을 인증하고 액세스할 수 있습니다. Google Cloud Storage가 누가 요청을 하는지 알 수 있도록 키가 필요합니다.</block>
@@ -841,54 +839,25 @@
   <block id="865c712e84080e3a8a2a2e9f3ced5e13" category="paragraph"><block ref="865c712e84080e3a8a2a2e9f3ced5e13" category="inline-image-macro-rx" type="image"></block></block>
   <block id="547e2a5eac8fbdbb2c8f7a56f61c8cbe" category="paragraph">이제 스토리지 계정(서브스크립션 1)은 서브스크립션 2에서 실행 중인 Cloud Volumes ONTAP 시스템에 액세스할 수 있습니다.</block>
   <block id="6c1ad99d058e5f7bd2ca1d2080dbc7ee" category="list-text">Cloud Volumes ONTAP 시스템에서 클라우드 백업을 다시 활성화해 보십시오. 이번에는 성공적으로 완료되어야 합니다.</block>
-  <block id="fa6cdd7e237fc87dcc06b7f36554b370" category="summary">몇 가지 단계를 완료하여 사내 ONTAP 시스템에서 Amazon S3로 데이터 백업을 시작하십시오.</block>
   <block id="e4eb771c510e3febaca5aa81f1155f85" category="doc">사내 ONTAP 데이터를 Amazon S3에 백업</block>
   <block id="180e97e259921e464d68cd76825f9337" category="paragraph">몇 가지 단계를 완료하여 사내 ONTAP 시스템에서 Amazon S3 스토리지로의 데이터 백업을 시작하십시오.</block>
-  <block id="14c2f5f5eb5186525c1b7c5ffe98ce60" category="list-text">클러스터에는 S3 스토리지와 커넥터에 연결하는 데 필요한 네트워크 연결이 있어야 합니다.</block>
-  <block id="af42c412b14ab165401821d5e82c9c8f" category="list-text">커넥터 에 S3 스토리지와 클러스터에 대한 필수 네트워크 연결 및 필수 권한이 있어야 합니다.</block>
-  <block id="95ca32ea3d44f95ebf09b6b4059dc201" category="list-text">백업이 위치할 오브젝트 스토리지 공간에 대한 유효한 AWS 가입이 있습니다.</block>
-  <block id="21c199e82e474a9a5607a2b9ccb8e66f" category="inline-link-macro">필수 권한</block>
-  <block id="07f898af26de192c7c94146b034626ae" category="list-text">액세스 키와 암호 키를 사용하는 AWS 계정이 있고, 을(를) 가지고 있습니다 <block ref="129a3abe6591342f9b36ca2fba69df9e" category="inline-link-macro-rx"></block> 따라서 ONTAP 클러스터는 데이터를 백업 및 복원할 수 있습니다.</block>
-  <block id="aea428c5aad208f8de4195c3ee30f3ae" category="paragraph">공급자로서 Amazon Web Services를 선택한 다음 공급자 세부 정보를 입력합니다. AWS 계정 및 백업을 생성할 지역을 선택해야 합니다. 기본 Amazon S3 암호화 키를 사용하는 대신 데이터 암호화에 대해 자체 고객 관리 키를 선택할 수도 있습니다.</block>
   <block id="b8752d8344f0777b3df39705ebfca22f" category="inline-image-macro">ONTAP 시스템에서 AWS S3로 볼륨을 백업할 때의 클라우드 공급자 세부 정보를 보여 주는 스크린샷</block>
   <block id="5ada387e6bdf51389cbc58e3a326ec69" category="paragraph"><block ref="5ada387e6bdf51389cbc58e3a326ec69" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="cf53fc9074d7928a3a89fe77080027e1" category="paragraph">볼륨이 상주하는 ONTAP 클러스터에서 IPspace를 선택합니다. 또한 기존 AWS PrivateLink 구성을 사용하여 사내 데이터 센터에서 VPC에 보다 안전하게 연결할 수 있습니다.</block>
   <block id="9e140440889c757014a9bc2eabbf0f85" category="inline-image-macro">ONTAP 시스템에서 AWS S3로 볼륨을 백업할 때의 네트워킹 세부 정보를 보여 주는 스크린샷</block>
   <block id="2c4a72cdb0fff2addedf37dea946cf88" category="paragraph"><block ref="2c4a72cdb0fff2addedf37dea946cf88" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="e87cd26726977634b111eacbf49506be" category="paragraph">기본적으로 백업은 S3 Standard 스토리지에 저장됩니다. 클러스터에서 ONTAP 9.10.1 이상을 사용하는 경우 추가 비용 최적화를 위해 일정 일 후에 S3 Glacier 또는 S3 Glacier Deep Archive 스토리지에 백업을 계층화하도록 선택할 수 있습니다.</block>
-  <block id="ae94b6fe35f3025fb50b135c0499130e" category="paragraph"><block ref="ae94b6fe35f3025fb50b135c0499130e" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="b0a0bef777154ee92e343d1a6ee10f8a" category="paragraph">사내 볼륨을 S3 스토리지로 백업하기 전에 다음 요구사항을 읽고 지원되는 구성이 있는지 확인합니다.</block>
   <block id="2a12eb134c1a7bf9323eeb868060f734" category="paragraph"><block ref="2a12eb134c1a7bf9323eeb868060f734" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="8bbe4c3b889b3196e7780ad1a517755a" category="list-text">ONTAP 클러스터는 백업 및 복원 작업을 위해 인터클러스터 LIF에서 Amazon S3 스토리지로의 포트 443을 통한 HTTPS 연결을 시작합니다.</block>
-  <block id="8d13cfa545053b3223ebd90aed6f49a1" category="list-text">ONTAP를 사용하려면 Connector에서 클러스터 관리 LIF로 인바운드 연결이 필요합니다. 커넥터는 AWS VPC에 상주할 수 있습니다.</block>
-  <block id="f7bae23f0b86c9ff40fa830e39ef2804" category="paragraph">데이터를 클라우드에 백업하려면 커넥터가 필요하며, AWS S3 스토리지에 데이터를 백업할 때는 커넥터가 AWS VPC에 있어야 합니다. 온-프레미스에 배포된 Connector는 사용할 수 없습니다. 새 커넥터를 만들거나 현재 선택한 커넥터가 올바른 공급자에 있는지 확인해야 합니다.</block>
-  <block id="3982c5bc27c7b1cc13f2ac6e75957dfb" category="inline-link">AWS에서 커넥터 생성</block>
-  <block id="44dda9fbdb9d6851ed05303bdd1606d1" category="list-text"><block ref="44dda9fbdb9d6851ed05303bdd1606d1" category="inline-link-rx"></block></block>
   <block id="1a431e8fb608c4c81fa7e72da6aba7c7" category="list-text">포트 443을 통해 S3 오브젝트 스토리지에 HTTPS로 연결합니다</block>
-  <block id="21ca2106edd76d8abef01a983e5b5dff" category="list-text">VPC 엔드포인트를 S3로 설정합니다. 이 기능은 ONTAP 클러스터에서 VPC로 직접 연결 또는 VPN 연결이 있고 커넥터와 S3 사이의 통신을 AWS 내부 네트워크에 유지하고자 하는 경우에 필요합니다.</block>
-  <block id="57babe581067cdd3c0b8e0ccf4871552" category="paragraph">모든 지역의 사내 시스템에서 Amazon S3로 백업을 생성할 수 있습니다<block ref="6bd619c4d649497ad0b6da421785c6ae" category="inline-link-rx"></block>AWS GovCloud 지역 포함. 서비스를 설정할 때 백업을 저장할 지역을 지정합니다.</block>
-  <block id="2b09304f2b6178dcbb25886398878bdb" category="paragraph">Cloud Backup의 30일 무료 평가판 기간이 만료되기 전에 AWS의 PAYGO(Pay-as-you-Go) Cloud Manager Marketplace 오퍼링을 구독하거나 NetApp에서 Cloud Backup BYOL 라이센스를 구입하여 활성화해야 합니다. 이러한 라이센스는 사용자 계정용이며 여러 시스템에서 사용할 수 있습니다.</block>
-  <block id="4847e034bb0a55fcbc8a3380d6a3ab80" category="inline-link">설치하고</block>
-  <block id="3676de56d7d78047a45b13cb8e71ad45" category="list-text">Cloud Backup PAYGO 라이센스의 경우 에 대한 구독이 필요합니다<block ref="eae2b02318302d6f86ce3df672e14e91" category="inline-link-rx"></block> Cloud Manager Marketplace 오퍼링을 지속적으로 사용하여 Cloud Backup을 사용합니다. Cloud Backup에 대한 청구는 이 구독을 통해 이루어집니다.</block>
   <block id="ae9c838ce5564e10aa34395e48e9527e" category="paragraph">백업이 위치할 오브젝트 스토리지 공간에 대한 AWS 서브스크립션을 보유하고 있어야 합니다.</block>
-  <block id="f0f056157e94a487e92f86eae3d2b423" category="section-title">백업을 위해 Amazon S3를 준비 중입니다</block>
-  <block id="97198096ce6980ecffa6d593f70b7295" category="paragraph">Amazon S3를 사용하는 경우 커넥터 에서 S3 버킷을 생성 및 관리하기 위한 권한을 구성해야 하며, 사내 ONTAP 클러스터에서 S3 버킷을 읽고 쓸 수 있도록 권한을 구성해야 합니다.</block>
   <block id="024bcd810b3401adba3bc1d4a4bd6c05" category="list-text">다음 S3 권한(최신 버전)이 있는지 확인합니다<block ref="0dc063d42cd9e31c0e2c7df9df595c9f" category="inline-link-rx"></block>)는 Connector에 권한을 제공하는 IAM 역할의 일부입니다.</block>
-  <block id="b42dca64a9c4c239b82a8753cea8daca" category="list-text">서비스를 활성화하면 백업 마법사에서 액세스 키와 암호 키를 입력하라는 메시지가 표시됩니다. 이를 위해서는 다음과 같은 권한을 가진 IAM 사용자를 생성해야 합니다. 클라우드 백업은 이러한 자격 증명을 ONTAP 클러스터에 전달하므로 ONTAP는 데이터를 S3 버킷으로 백업 및 복원할 수 있습니다.</block>
   <block id="b539613501183cf10b8570ed60939fea" category="inline-link">AWS 설명서: IAM 사용자에게 권한을 위임하기 위한 역할 생성</block>
   <block id="5d6d3c39001c5518d516e9053e5363e3" category="paragraph">를 참조하십시오<block ref="eb8d2636cc0b0f2875b50c1561ec0060" category="inline-link-rx"></block> 를 참조하십시오.</block>
   <block id="57dd5e8e540a82827fb8416885daba44" category="list-text">가상 또는 물리적 네트워크에서 인터넷 액세스에 프록시 서버를 사용하는 경우 클라우드 복원 인스턴스에 다음 끝점에 연결할 수 있는 아웃바운드 인터넷 액세스 권한이 있는지 확인합니다.</block>
-  <block id="8a6049633e9f8a1b555de04f9729cbc7" category="list-text">기본 Amazon S3 암호화 키를 사용하는 대신 활성화 마법사에서 데이터 암호화에 대해 고유한 사용자 지정 관리 키를 선택할 수 있습니다. 이 경우 암호화 관리 키가 이미 설정되어 있어야 합니다.<block ref="cec2a2aa7c177fd504439377209f1e4a" category="inline-link-rx"></block>.</block>
   <block id="a08b285fd78cf03936887841fbc87805" category="inline-link">Amazon S3에 AWS PrivateLink를 사용하는 방법에 대한 자세한 정보를 확인하십시오</block>
-  <block id="71654de99983d4bfb8883f717a8b26ef" category="list-text">사내 데이터 센터에서 VPC로 공용 인터넷을 통해 보다 안전하게 연결하려면 활성화 마법사에서 AWS PrivateLink 연결을 선택하는 옵션이 있습니다. VPN/DirectConnect를 통해 온-프레미스 시스템을 연결하는 경우 필요합니다. 이 경우 Amazon VPC 콘솔 또는 명령줄을 사용하여 인터페이스 엔드포인트 구성을 생성해야 합니다.<block ref="4b288ecb11624923e7ee69f96a59c546" category="inline-link-rx"></block>.</block>
-  <block id="9fdfcd99aad8bdc4e98e728ad11453f4" category="paragraph">Cloud Manager Connector와 연결된 보안 그룹 구성도 수정해야 합니다. 정책을 "사용자 지정"("전체 액세스"에서)으로 변경해야 하며 앞에서 설명한 대로 백업 정책의 권한을 추가해야 합니다.</block>
   <block id="54979ba354582c6f2824abc12558cf5a" category="inline-image-macro">Connector와 연결된 AWS 보안 그룹의 스크린샷</block>
   <block id="9fffc2ed11f6ca99ac2677ff1c97fd9a" category="paragraph"><block ref="9fffc2ed11f6ca99ac2677ff1c97fd9a" category="inline-image-macro-rx" type="image"></block></block>
   <block id="8f82dfb3773e898b75b2c02a7384ef07" category="list-text">공급자로서 Amazon Web Services를 선택하고 * 다음 * 을 클릭합니다.</block>
   <block id="6a214193b7d4e0d357a02a60f0b08db3" category="list-text">백업을 저장하는 데 사용되는 AWS 계정, AWS 액세스 키 및 비밀 키</block>
-  <block id="dcbc25cc465b9549adcce973442d2b9b" category="paragraph">액세스 키와 암호 키는 ONTAP 클러스터에서 S3 버킷에 액세스할 수 있도록 하기 위해 생성한 사용자를 위한 것입니다.</block>
   <block id="747f0efebd1dba208c83630552f97a6d" category="list-text">백업이 저장될 AWS 영역입니다.</block>
-  <block id="35c8f7e6715a99d522c739778107478a" category="list-text">기본 Amazon S3 암호화 키를 사용하거나 AWS 계정에서 직접 고객 관리 키를 선택하여 데이터 암호화를 관리할지 여부를 결정합니다. <block ref="69a8af80d8bd7de755d81b7e7b4942df" category="inline-link-rx"></block>)를 클릭합니다.</block>
   <block id="da6211c797a89720b6883bacdc774e98" category="list-text">필요에 따라 이전에 구성한 AWS PrivateLink를 사용할지 여부를 선택합니다.<block ref="4b288ecb11624923e7ee69f96a59c546" category="inline-link-rx"></block>.</block>
   <block id="dd94e6d5951947f0eff3b1955e4083ad" category="summary">Cloud Backup을 사용하면 소스 Cloud Volumes ONTAP 볼륨이 상주하는 위치와 Cloud Manager Connector가 상주하는 계정이 아닌 AWS 계정에서 백업 파일을 생성할 수 있습니다.</block>
   <block id="8e751a9486c9dfca33d698d89e8735cc" category="doc">AWS에서 다중 계정 액세스를 위한 백업을 구성합니다</block>
@@ -1412,7 +1381,6 @@
   <block id="b0137435ab1e749e6671cc7b4442746b" category="inline-link">가격 세부 정보는 Cloud Manager Marketplace 오퍼링을 참조하십시오</block>
   <block id="fbc4dcdcbcf0da9900a5e2aee88197c9" category="list-text">AWS:<block ref="2958bbf3239ebfcd2df7adc813da750e" category="inline-link-rx"></block>.</block>
   <block id="669ab104fde662cae95c3d512827defe" category="list-text">Azure(Azure):<block ref="d72981df84ff531bf20e612d5459f673" category="inline-link-rx"></block>.</block>
-  <block id="c57ec98129cb7b961be880916bf8fa53" category="list-text">GCP:<block ref="4863db4abfd00b3312d9241bbfc20ef5" category="inline-link-rx"></block>.</block>
   <block id="d32283208440b3b746c6d310c2b57731" category="section-title">AWS를 통해 연간 계약을 구독하십시오</block>
   <block id="aa6e381a2e925e1ef4225ff8af689116" category="paragraph">이 옵션을 사용하려면 Cloud Volumes ONTAP 작업 환경을 생성할 때 연간 계약을 설정하고 Cloud Manager에서 AWS 마켓플레이스를 구독하라는 메시지를 표시합니다.</block>
   <block id="289fa4183a5f21ffa309508c3b1534c5" category="section-title">Cloud Backup BYOL 라이센스 사용</block>
@@ -1773,4 +1741,97 @@
   <block id="bece28b158ab337d9ed24b00d7d02cc7" category="list-text">NetApp 기술 지원을 위한 전화 번호를 찾으려면 * 문의하다</block>
   <block id="efe81cff8e6f47ec59ef94167b76bf5a" category="list-text">문제 열기 * 를 클릭하고 옵션 중 하나를 선택한 다음 * 보내기 * 를 클릭합니다.</block>
   <block id="cbb1040836732e478409dacf7e45171a" category="paragraph">NetApp 담당자가 귀하의 케이스를 검토하고 곧 다시 귀하에 연락을 드릴 것입니다.</block>
+  <block id="81969fba3b1e12a70534522b9022414a" category="list-text">GCP:<block ref="147346444c5c295040eb98e543f1f294" category="inline-link-rx"></block>.</block>
+  <block id="2d0d225e73f16b3d6a3fd87e23385c8e" category="paragraph">사내 ONTAP 시스템에서 Google 클라우드 스토리지로 백업을 구성할 때 두 가지 연결 방법을 사용할 수 있습니다.</block>
+  <block id="9a5f1a8ca0c47b2989eff1e34ffce9a2" category="list-text">공용 연결 - 공용 Google 엔드포인트를 사용하여 ONTAP 시스템을 Google 클라우드 스토리지에 직접 연결합니다.</block>
+  <block id="bb34fe147704098832eaf972d37eaa4e" category="list-text">비공개 연결 - VPN 또는 개인 서비스 연결을 사용하여 개인 IP 주소를 사용하는 개인 Google 액세스 인터페이스를 통해 트래픽을 라우팅합니다.</block>
+  <block id="c0b38ac1651b4a4c818cb5bf53f05730" category="paragraph">다음 그림에서는 공용 연결 방법과 구성 요소 간에 준비해야 하는 연결을 보여 줍니다.</block>
+  <block id="ad6390bd2fbe7e30262456cfc385f70e" category="paragraph">다음 그림에서는 전용 연결 방법과 구성 요소 간에 준비해야 하는 연결을 보여 줍니다.</block>
+  <block id="34271c6e72f8115075291b8b40a514a6" category="paragraph"><block ref="34271c6e72f8115075291b8b40a514a6" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="432b765cc8c8726b5164155629d49653" category="list-text">Cloud Backup PAYGO 라이센스의 경우 에 대한 구독이 필요합니다<block ref="a0a9170cc6528463a8f251e1db25dd88" category="inline-link-rx"></block> Cloud Manager Marketplace 오퍼링을 지속적으로 사용하여 Cloud Backup을 사용합니다. Cloud Backup에 대한 청구는 이 구독을 통해 이루어집니다.</block>
+  <block id="9d420cf71a5b9a71abf46456eb58f8ed" category="cell">https://download.docker.com/linux/centos/docker-ce.repo 으로 문의하십시오</block>
+  <block id="756d8723023e48c330841a5fab0f9e6f" category="cell">Docker Engine 패키지를 제공합니다.</block>
+  <block id="5c37edf1ec718afd1ab9a5a51043e0ce" category="paragraph">다음 단계를 수행하여 빠르게 시작하십시오. 각 단계에 대한 자세한 내용은 이 항목의 다음 섹션을 참조하십시오.</block>
+  <block id="cdc60ee7ffa2e1ee87520360a9985da9" category="paragraph">퍼블릭 S3 엔드포인트를 사용하여 사내 ONTAP 클러스터를 AWS S3에 직접 연결할지, VPN 또는 AWS Direct Connect를 사용할지 아니면 프라이빗 VPC 엔드 포인트 인터페이스를 통해 트래픽을 AWS S3에 연결할지 선택합니다.</block>
+  <block id="2095d7a797c25bb28e0630e6f0234176" category="inline-xref">사용 가능한 연결 방법을 참조하십시오.</block>
+  <block id="6faac2bde2c603b5020744e34c3b1561" category="paragraph"><block ref="d9d72c889e6f6edab2e44fef9632d7d0" category="inline-xref-macro-rx"></block></block>
+  <block id="81d8bb87e59af8b8bc57eaf5d2b911c4" category="paragraph">AWS VPC에 이미 Connector가 구축되어 있는 경우 모두 설정됩니다. 그렇지 않은 경우, ONTAP 데이터를 AWS S3 스토리지에 백업하기 위해 AWS에서 커넥터를 생성해야 합니다. 또한 AWS S3에 연결할 수 있도록 커넥터의 네트워크 설정을 사용자 지정해야 합니다.</block>
+  <block id="e4f1f56a3ef3efdb69f573c54e373407" category="inline-xref">Connector를 생성하는 방법과 필요한 네트워크 설정을 정의하는 방법을 참조하십시오.</block>
+  <block id="547ff9b6a5e6f25a471ff36aabad9172" category="paragraph"><block ref="955ce6b96fd48d62c162b65277148f6a" category="inline-xref-macro-rx"></block></block>
+  <block id="aba3af0142718cdcd318e58a13cac0e0" category="paragraph">Cloud Manager에서 ONTAP 클러스터를 검색하고, 클러스터가 최소 요구사항을 충족하는지 확인하고, 클러스터가 AWS S3에 연결할 수 있도록 네트워크 설정을 사용자 지정합니다.</block>
+  <block id="6ac7a4162c2e3c973c8dcb8ad3493ff7" category="inline-xref">사내 ONTAP 클러스터를 준비하는 방법을 알아보십시오.</block>
+  <block id="499fc037a59ef7c075fdde4e7b0311d1" category="paragraph"><block ref="0293805a32fb419ae9403f81b2c4ce54" category="inline-xref-macro-rx"></block></block>
+  <block id="9dad53cc3eddc452d0abe23bd13dc183" category="paragraph">Connector에 대한 권한을 설정하여 S3 버킷을 생성 및 관리하고 Restore 인스턴스를 사용하여 데이터를 복원합니다. 또한 S3 버킷에서 데이터를 읽고 쓸 수 있도록 사내 ONTAP 클러스터에 대한 권한을 설정합니다.</block>
+  <block id="ec5fd71f14fddb1ee3f48a5fd3a21922" category="inline-xref">AWS S3 환경을 ONTAP 백업 수신 준비 상태로 만드는 방법을 알아보십시오.</block>
+  <block id="94ef8c88d53d721a37930e0ad90fc657" category="paragraph">선택적으로 기본 Amazon S3 암호화 키를 사용하는 대신 데이터 암호화에 대해 자체적인 사용자 정의 관리 키를 설정할 수 있습니다. <block ref="7cfd3dfde247971381059dc97a351faf" category="inline-xref-macro-rx"></block></block>
+  <block id="79b318611bba9affb629965e88dcf62b" category="paragraph">작업 환경을 선택하고 오른쪽 패널에서 백업 및 복원 서비스 옆에 있는 * 활성화 &gt; 볼륨 백업 * 을 클릭합니다. 그런 다음 설정 마법사를 따라 기본 백업 정책 및 유지할 백업 수를 정의하고 백업할 볼륨을 선택합니다.</block>
+  <block id="ba9093635f6e9d60bbff09735ad72b6e" category="inline-xref">볼륨에서 Cloud Backup을 활성화하는 방법을 확인하십시오.</block>
+  <block id="ad7a6cf32a5461024f14972d798a688b" category="paragraph"><block ref="5d35df220f587f652680125ea9a857c6" category="inline-xref-macro-rx"></block></block>
+  <block id="75cd84ee546dcf1d1f4a18d8b35fef23" category="section-title">연결 옵션에 대한 네트워크 다이어그램</block>
+  <block id="f764b94a0b4a8b2e8da17ee285d14147" category="paragraph">사내 ONTAP 시스템에서 AWS S3로 백업을 구성할 때 두 가지 연결 방법을 사용할 수 있습니다.</block>
+  <block id="e0e3556797f60e28e9764edb1e90829b" category="list-text">공용 연결 - 공용 S3 끝점을 사용하여 ONTAP 시스템을 AWS S3에 직접 연결합니다.</block>
+  <block id="c00f71153c1c02168311396c4ac129f0" category="list-text">비공개 연결 - VPN 또는 AWS Direct Connect를 사용하여 전용 IP 주소를 사용하는 VPC 엔드포인트 인터페이스를 통해 트래픽을 라우팅합니다.</block>
+  <block id="efe861e5b853e6ac375256164208dc09" category="paragraph"><block ref="efe861e5b853e6ac375256164208dc09" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="ea97cc2428a460eae122a94c68a8b16a" category="section-title">커넥터를 준비합니다</block>
+  <block id="54f5743f88e60d1c4f6d28ddce6523c9" category="paragraph">Cloud Manager Connector는 Cloud Manager 기능을 위한 기본 소프트웨어입니다. ONTAP 데이터를 백업하고 복원하려면 커넥터가 필요합니다.</block>
+  <block id="1b0ffad6683da5341fb4aef28a59963a" category="paragraph">AWS VPC에 이미 Connector를 구축한 경우 모든 준비가 된 것입니다. 그렇지 않은 경우, ONTAP 데이터를 AWS S3 스토리지에 백업하기 위해 AWS에서 새 커넥터를 생성해야 합니다. 온-프레미스에 배포되었거나 다른 클라우드 공급자에 배포된 Connector는 사용할 수 없습니다.</block>
+  <block id="9b740c2dda97a2c23cd8f8cf0fc5aac6" category="inline-link">AWS에서 커넥터를 생성합니다</block>
+  <block id="37ddae853fabb564f9fc3c5ab06062ee" category="list-text"><block ref="37ddae853fabb564f9fc3c5ab06062ee" category="inline-link-rx"></block></block>
+  <block id="f86faf1862caeed3f6dccfce3a669edf" category="inline-link">커넥터 사이를 전환합니다</block>
+  <block id="536d81ee151729245ef15564ad0455b4" category="list-text"><block ref="536d81ee151729245ef15564ad0455b4" category="inline-link-rx"></block></block>
+  <block id="929d25665bc92d22cf4a79265248dd36" category="section-title">커넥터 네트워킹 요구 사항</block>
+  <block id="d21941843d3f51f6d91597bbc6f2fe96" category="list-text">포트 443을 통해 Cloud Backup Service에 HTTPS로 연결합니다</block>
+  <block id="db41e7a8de9567fec002e93320c428ad" category="inline-xref">VPC 엔드포인트 인터페이스를 설정하는 방법을 확인하십시오.</block>
+  <block id="fa5aa396756a091429ff95b88b2cb91f" category="list-text">(선택 사항) S3에 VPC 엔드 포인트 인터페이스를 사용하도록 설정합니다. 이 기능은 ONTAP 클러스터에서 VPC로 직접 연결 또는 VPN 연결이 있고 커넥터와 S3 사이의 통신을 AWS 내부 네트워크에 유지하고자 하는 경우에 필요합니다. <block ref="96349a58af3e05e4441faa6bbc02f81a" category="inline-xref-macro-rx"></block></block>
+  <block id="aa8387a4bff8defdb2d4c5777a1bf540" category="section-title">ONTAP 클러스터를 준비합니다</block>
+  <block id="c5fe798394fdf9d90bcf14b0e01b5dda" category="section-title">Cloud Manager에서 ONTAP 클러스터를 검색합니다</block>
+  <block id="7e7c991226da8981bccabf973fe2eba0" category="paragraph">볼륨 데이터 백업을 시작하려면 Cloud Manager에서 사내 ONTAP 클러스터를 검색해야 합니다. 클러스터를 추가하려면 클러스터 관리 IP 주소와 admin 사용자 계정의 암호를 알아야 합니다.</block>
+  <block id="66aa360897a3e9eeca6d5cd1ad876df5" category="list-text">클러스터는 Connector에서 클러스터 관리 LIF로 인바운드 HTTPS 연결을 필요로 합니다.</block>
+  <block id="b3351de0bd12665c9ae1483f66b4c092" category="list-text">인터클러스터 LIF는 백업할 볼륨을 호스팅하는 각 ONTAP 노드에 필요합니다. 이러한 인터클러스터 LIF는 오브젝트 저장소에 액세스할 수 있어야 합니다.</block>
+  <block id="ba19de110cf302cad348741e35238b97" category="paragraph">클러스터는 백업 및 복원 작업을 위해 클러스터 간 LIF에서 Amazon S3 스토리지로의 포트 443을 통한 아웃바운드 HTTPS 연결을 시작합니다. ONTAP는 오브젝트 스토리지 간에 데이터를 읽고 씁니다. 오브젝트 스토리지는 결코 시작할 수 없으며 단지 반응합니다.</block>
+  <block id="c96f0b5929f61d63c7ae3512d00fb22b" category="list-text">인터클러스터 LIF는 ONTAP가 오브젝트 스토리지에 연결하는 데 사용해야 하는 _IPspace_와 연결되어야 합니다.<block ref="0edb32ced43734581c082142ee8a87a9" category="inline-link-rx"></block>.</block>
+  <block id="6dcfb4f6ae63bde98b820c20004bea31" category="paragraph">클라우드 백업을 설정하면 사용할 IPspace를 묻는 메시지가 표시됩니다. 이러한 LIF와 연결되는 IPspace를 선택해야 합니다. 이는 여러분이 생성한 "기본" IPspace 또는 사용자 지정 IPspace가 될 수 있습니다.</block>
+  <block id="f2d23bc0f0e4ec1066fdf58d41ab19ab" category="paragraph">사용 중인 IPspace가 "기본값"과 다른 경우 오브젝트 스토리지에 액세스하려면 정적 라우트를 생성해야 할 수 있습니다.</block>
+  <block id="e30347a67bfdcb246f056cfd9aa4efbd" category="list-text">볼륨이 있는 스토리지 VM에 대해 DNS 서버가 구성되어 있어야 합니다. 자세한 내용은 를 참조하십시오<block ref="f1c08d303d78e879204468f0ff96d977" category="inline-link-rx"></block>.</block>
+  <block id="ac4f47e577f8d7771d01f8331c6f4736" category="list-text">필요한 경우, 포트 443을 통해 ONTAP에서 오브젝트 스토리지로 클라우드 백업 연결을 허용하고 포트 53(TCP/UDP)을 통해 스토리지 VM에서 DNS 서버로 이름 확인 트래픽을 허용하도록 방화벽 규칙을 업데이트합니다.</block>
+  <block id="3389249695ca8c10d31bf35b73b0c94e" category="inline-xref">VPC 엔드포인트 인터페이스를 설정하고 S3 인증서를 로드하는 방법을 알아보십시오.</block>
+  <block id="5c124f6cf2bfcfbf94279be52b0632d2" category="list-text">(선택 사항) AWS에서 S3 연결을 위해 프라이빗 VPC 인터페이스 엔드포인트를 사용하는 경우 HTTPS/443을 사용하려면 S3 엔드포인트 인증서를 ONTAP 클러스터로 로드해야 합니다. <block ref="53258c6a820319d399112ef2849fb9e8" category="inline-xref-macro-rx"></block></block>
+  <block id="9433d8064a183eecdc4dfa1b31b38834" category="section-title">라이센스 요구 사항을 확인합니다</block>
+  <block id="5f7712612467b421c1ea3b21150ea7b6" category="list-text">Cloud Backup의 30일 무료 평가판 기간이 만료되기 전에 AWS의 PAYGO(Pay-as-you-Go) Cloud Manager Marketplace 오퍼링을 구독하거나 NetApp에서 Cloud Backup BYOL 라이센스를 구입하여 활성화해야 합니다. 이러한 라이센스는 사용자 계정용이며 여러 시스템에서 사용할 수 있습니다.</block>
+  <block id="22340c7eefb94e5f665f788bc6c331ce" category="inline-link">AWS Cloud Manager Marketplace 오퍼링</block>
+  <block id="7b37288bc3faf5a5cfa19351eb8f3d4e" category="list-text">Cloud Backup PAYGO 라이센스의 경우 에 대한 구독이 필요합니다<block ref="779a1c8f04c765f369d1b47694f2c2f0" category="inline-link-rx"></block> 를 눌러 Cloud Backup을 계속 사용합니다. Cloud Backup에 대한 청구는 이 구독을 통해 이루어집니다.</block>
+  <block id="ae026b849c4275f68e7902a73ecf0632" category="paragraph">모든 지역의 사내 시스템에서 Amazon S3로 백업을 생성할 수 있습니다<block ref="6bd619c4d649497ad0b6da421785c6ae" category="inline-link-rx"></block>AWS GovCloud 지역 포함. 서비스를 설정할 때 백업을 저장할 지역을 지정합니다.</block>
+  <block id="aa82b0633ff8ba724f265336515caa95" category="section-title">AWS 환경을 준비하십시오</block>
+  <block id="95be42e50b8072b622c23cf84099c7b8" category="section-title">S3 권한 설정</block>
+  <block id="0d0602824136f714807f54069c6d5a89" category="paragraph">두 가지 권한 집합을 구성해야 합니다.</block>
+  <block id="636d1743c2626211e893636c33846551" category="list-text">Connector에서 S3 버킷을 생성 및 관리하고 Restore 인스턴스를 사용하여 데이터를 복원할 수 있는 권한</block>
+  <block id="e1e27de3274b6be648bacdf85d89a282" category="list-text">S3 버킷에서 데이터를 읽고 쓸 수 있도록 사내 ONTAP 클러스터에 대한 권한.</block>
+  <block id="a6e42fec71384a3a5d77eba684fba2c9" category="inline-link">AWS 설명서: IAM 정책 편집</block>
+  <block id="7a181e2f5ba5c59c2121d5b286238585" category="paragraph">버전 3.9.15 이상을 사용하여 Connector를 배포한 경우 이러한 권한은 이미 IAM 역할의 일부여야 합니다. 그렇지 않으면 누락된 권한을 추가해야 합니다. 특히 검색 및 복원에 필요한 "Athena" 및 "GLUE" 사용 권한이 있습니다. 를 참조하십시오<block ref="484fb6182b52563a51349e6fb7cb2cb6" category="inline-link-rx"></block>.</block>
+  <block id="e4ba209f1e83c31c97d006aab1897e1d" category="list-text">서비스를 활성화하면 백업 마법사에서 액세스 키와 암호 키를 입력하라는 메시지가 표시됩니다. 이러한 자격 증명은 ONTAP 클러스터에 전달되므로 ONTAP는 S3 버킷으로 데이터를 백업 및 복원할 수 있습니다. 이를 위해서는 다음과 같은 권한을 가진 IAM 사용자를 생성해야 합니다.</block>
+  <block id="b8471833713b205fce6b0c37afe7c220" category="section-title">클라우드 복원 인터넷 액세스를 확인합니다</block>
+  <block id="4f0f8734b8eb262313537f384daa2aad" category="cell">http://amazonlinux.us-east-1.amazonaws.com/2/extras/docker/stable/ x86_64/4bf88ee77c395ffe1e0c3ca68530dfb3a683ec65a4a1ce9c0ff394be50e922b2/</block>
+  <block id="68ff90feee01d7ff9f80cbfc1edd7eb9" category="section-title">Amazon S3 암호화 설정(선택 사항)</block>
+  <block id="acda78b900d86834702d7cf022c5c307" category="paragraph">기본 Amazon S3 암호화 키를 사용하는 대신 백업 활성화 마법사에서 데이터 암호화에 대해 고유한 사용자 지정 관리 키를 선택할 수 있습니다. 이 경우 암호화 관리 키가 이미 설정되어 있어야 합니다.<block ref="cec2a2aa7c177fd504439377209f1e4a" category="inline-link-rx"></block>.</block>
+  <block id="eadf50bb3952a4b3b149df1a7616cede" category="section-title">VPC 엔드포인트 인터페이스 설정(옵션)</block>
+  <block id="4e1fc0c572b0fc7c8464dc57aa414942" category="paragraph">사내 데이터 센터에서 VPC로 공용 인터넷을 통해 보다 안전하게 연결하려면 백업 활성화 마법사에서 AWS PrivateLink 연결을 선택하는 옵션이 있습니다. VPN 또는 AWS Direct Connect를 통해 사내 시스템을 연결하는 경우 필요합니다.</block>
+  <block id="c2217bd93d297ddc08ba3a9c93fb29aa" category="list-text">Amazon VPC 콘솔 또는 명령줄을 사용하여 인터페이스 엔드포인트 구성을 생성합니다.<block ref="4b288ecb11624923e7ee69f96a59c546" category="inline-link-rx"></block>.</block>
+  <block id="4adab5b6b391c43cf0cfd73c09d5bdf8" category="inline-xref">백업 정책에서 S3 권한을 추가합니다</block>
+  <block id="c68e08ee2b5be8ff44e713441b6aa84d" category="list-text">Cloud Manager Connector와 연결된 보안 그룹 구성을 수정합니다. 정책을 "사용자 지정"("전체 액세스"에서)으로 변경해야 하며 반드시 다음을 수행해야 합니다 <block ref="52cd24ecfd99d5b16a10d03c54f9d16b" category="inline-xref-macro-rx"></block> 앞서 설명한 것처럼.</block>
+  <block id="0779f8ec0f01d3d713051f10c0f5269a" category="paragraph">개인 엔드포인트와의 통신에 포트 80(HTTP)을 사용하는 경우 모두 설정됩니다. 지금 클러스터에서 Cloud Backup을 활성화할 수 있습니다.</block>
+  <block id="209e22c3253a318498527950bcbd07d9" category="paragraph">개인 엔드포인트와 통신하는 데 포트 443(HTTPS)을 사용하는 경우 다음 4단계에 나와 있는 것처럼 VPC S3 엔드포인트에서 인증서를 복사하여 ONTAP 클러스터에 추가해야 합니다.</block>
+  <block id="39bab378d876d4ae9f917360ff7b633a" category="list-text">AWS 콘솔에서 엔드포인트의 DNS 이름을 가져옵니다.</block>
+  <block id="51cca00855dd27ddbb729c64d6988680" category="inline-image-macro">AWS 콘솔에서 VPC 엔드포인트의 DNS 이름 스크린샷</block>
+  <block id="63c7ff1056127bdaee465b05c7c83d3c" category="paragraph"><block ref="63c7ff1056127bdaee465b05c7c83d3c" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="31b738479d7d16ff849ac312f5649e77" category="inline-link">Cloud Manager Connector를 호스팅하는 VM에 로그인합니다</block>
+  <block id="8d8e3b0bb1a13ecfbdfdb5a14b2e2618" category="list-text">VPC S3 엔드포인트에서 인증서를 가져옵니다. 당신은 이렇게 합니다<block ref="da3c83ae0d03d7e43a4d87fed2f5f3ba" category="inline-link-rx"></block> 다음 명령을 실행합니다. 엔드포인트의 DNS 이름을 입력할 때 "*"를 대체하여 "bucket"을 앞에 추가합니다.</block>
+  <block id="b11703e578eba56af91d25ee75ec1594" category="list-text">이 명령의 출력에서 S3 인증서(BEGIN /end certificate 태그 사이에 있는 모든 데이터)를 복사합니다.</block>
+  <block id="042284b067b431d7d21168a5ada6e448" category="list-text">ONTAP 클러스터 CLI에 로그인하여 다음 명령을 사용하여 복사한 인증서를 적용합니다(자체 스토리지 VM 이름 대체).</block>
+  <block id="d0285b972453920d44e9bfc537f86825" category="section-title">클라우드 백업 활성화</block>
+  <block id="e087799545278f981b56959838c52762" category="paragraph">액세스 키 및 비밀 키는 ONTAP 클러스터에 S3 버킷을 액세스할 수 있도록 생성한 IAM 사용자를 위한 것입니다.</block>
+  <block id="4f31b10ac849af9ac0f7dfb88a23d059" category="list-text">기본 Amazon S3 암호화 키를 사용할지, AWS 계정에서 고객이 직접 관리하는 키를 선택할지 상관없이 데이터 암호화를 관리하게 됩니다. <block ref="69a8af80d8bd7de755d81b7e7b4942df" category="inline-link-rx"></block>)를 클릭합니다.</block>
+  <block id="8dd3e6a31b8a75eeb45e98712fe43de2" category="paragraph">사내 ONTAP 시스템에서 Azure Blob으로 백업을 구성할 때 사용할 수 있는 두 가지 연결 방법이 있습니다.</block>
+  <block id="f5600159597876145df0a17b2fda758a" category="list-text">공용 연결 - 공용 Azure 끝점을 사용하여 ONTAP 시스템을 Azure Blob 저장소에 직접 연결합니다.</block>
+  <block id="425a7bc4b6c89f92d2181e801ef73c3f" category="list-text">비공개 연결 - VPN 또는 ExpressRoute를 사용하여 전용 IP 주소를 사용하는 VNET 전용 엔드포인트를 통해 트래픽을 라우팅합니다.</block>
+  <block id="95fed8e8e89cebef0228fbad327d5470" category="paragraph"><block ref="95fed8e8e89cebef0228fbad327d5470" category="inline-image-macro-rx" type="image"></block></block>
 </blocks>
