@@ -292,11 +292,11 @@
           <ul class="n-menu__list">
             <li class="n-menu__list-column">
               <ul class="n-menu__list"><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/ko-kr/cloud-manager-backup-restore/task-backup-onprem-to-aws.html" class="n-menu__header-text"><span translate="no" class="notranslate">한국어</span></a>
-                </li><li class="n-menu__list-item n-menu__list-item--level-1">
                   <a href="https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-backup-onprem-to-aws.html" class="n-menu__header-text"><span translate="no" class="notranslate">English</span></a>
                 </li><li class="n-menu__list-item n-menu__list-item--level-1">
                   <a href="https://docs.netapp.com/ja-jp/cloud-manager-backup-restore/task-backup-onprem-to-aws.html" class="n-menu__header-text"><span translate="no" class="notranslate">日本語</span></a>
+                </li><li class="n-menu__list-item n-menu__list-item--level-1">
+                  <a href="https://docs.netapp.com/ko-kr/cloud-manager-backup-restore/task-backup-onprem-to-aws.html" class="n-menu__header-text"><span translate="no" class="notranslate">한국어</span></a>
                 </li><li class="n-menu__list-item n-menu__list-item--level-1">
                   <a href="https://docs.netapp.com/zh-cn/cloud-manager-backup-restore/task-backup-onprem-to-aws.html" class="n-menu__header-text"><span translate="no" class="notranslate">简体中文</span></a>
                 </li></ul>
@@ -829,7 +829,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-04-20 20:50:07 +0000">04/20/2022</time>
+    <time datetime="2022-05-02 14:42:32 +0000">05/02/2022</time>
     
   
 
@@ -1061,11 +1061,11 @@
 <div class="ulist">
 <ul>
 <li>
-<p>Cloud Backup의 30일 무료 평가판 기간이 만료되기 전에 AWS의 PAYGO(Pay-as-you-Go) Cloud Manager Marketplace 오퍼링을 구독하거나 NetApp에서 Cloud Backup BYOL 라이센스를 구입하여 활성화해야 합니다. 이러한 라이센스는 사용자 계정용이며 여러 시스템에서 사용할 수 있습니다.</p>
+<p>클러스터에 Cloud Backup을 활성화하려면 먼저 AWS에서 PAYGO(Pay-as-you-Go) Cloud Manager Marketplace 오퍼링을 구독하거나 NetApp에서 Cloud Backup BYOL 라이센스를 구입하여 활성화해야 합니다. 이러한 라이센스는 사용자 계정용이며 여러 시스템에서 사용할 수 있습니다.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Cloud Backup PAYGO 라이센스의 경우 에 대한 구독이 필요합니다 <a href="https://aws.amazon.com/marketplace/pp/prodview-oorxakq6lq7m4?sr=0-8&amp;ref_=beagle&amp;applicationId=AWSMPContessa" target="_blank" rel="noopener">"AWS Cloud Manager Marketplace 오퍼링"</a> 를 눌러 Cloud Backup을 계속 사용합니다. Cloud Backup에 대한 청구는 이 구독을 통해 이루어집니다.</p>
+<p>Cloud Backup PAYGO 라이센스의 경우 에 대한 구독이 필요합니다 <a href="https://aws.amazon.com/marketplace/pp/prodview-oorxakq6lq7m4?sr=0-8&amp;ref_=beagle&amp;applicationId=AWSMPContessa" target="_blank" rel="noopener">"AWS Cloud Manager Marketplace 오퍼링"</a> 를 사용하여 Cloud Backup을 선택합니다. Cloud Backup에 대한 청구는 이 구독을 통해 이루어집니다.</p>
 </li>
 <li>
 <p>Cloud Backup BYOL 라이센스의 경우, 라이센스 기간 및 용량 동안 서비스를 사용할 수 있도록 지원하는 NetApp의 일련 번호가 필요합니다. <a href="task-licensing-cloud-backup.html#use-a-cloud-backup-byol-license">"BYOL 라이센스 관리 방법에 대해 알아보십시오"</a>.</p>
@@ -1218,6 +1218,10 @@
 <td class="tableblock halign-left valign-top"><p class="tableblock">클라우드 복원 인스턴스 AMI용 CentOS 패키지.</p></td>
 </tr>
 <tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://download.docker.com/linux/centos/docker-ce.repo" class="bare">https://download.docker.com/linux/centos/docker-ce.repo</a> 으로 문의하십시오</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Docker Engine 패키지를 제공합니다.</p></td>
+</tr>
+<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://cloudmanagerinfraprod.azurecr.io" class="bare">http://cloudmanagerinfraprod.azurecr.io</a> https://cloudmanagerinfraprod.azurecr.io 으로 문의하십시오</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">클라우드 복원 인스턴스 이미지 리포지토리.</p></td>
 </tr>
@@ -1335,6 +1339,9 @@ Please enter Certificate: Press &lt;Enter&gt; when done</code></pre>
 </li>
 </ol>
 </div>
+</li>
+<li>
+<p>계정에 대한 기존 Cloud Backup 라이센스가 없는 경우 이 시점에서 사용할 충전 방법 유형을 선택하라는 메시지가 표시됩니다. AWS에서 PAYGO(Pay-as-you-Go) Cloud Manager Marketplace 오퍼링을 구독하거나(또는 구독을 여러 개 선택한 경우) NetApp에서 Cloud Backup BYOL 라이센스를 구입하여 활성화할 수 있습니다. <a href="task-licensing-cloud-backup.html">"Cloud Backup 라이센스를 설정하는 방법에 대해 알아보십시오."</a></p>
 </li>
 <li>
 <p>네트워킹 세부 정보를 입력하고 * 다음 * 을 클릭합니다.</p>

@@ -292,11 +292,11 @@
           <ul class="n-menu__list">
             <li class="n-menu__list-column">
               <ul class="n-menu__list"><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/ko-kr/cloud-manager-backup-restore/task-backup-onprem-to-azure.html" class="n-menu__header-text"><span translate="no" class="notranslate">한국어</span></a>
-                </li><li class="n-menu__list-item n-menu__list-item--level-1">
                   <a href="https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-backup-onprem-to-azure.html" class="n-menu__header-text"><span translate="no" class="notranslate">English</span></a>
                 </li><li class="n-menu__list-item n-menu__list-item--level-1">
                   <a href="https://docs.netapp.com/ja-jp/cloud-manager-backup-restore/task-backup-onprem-to-azure.html" class="n-menu__header-text"><span translate="no" class="notranslate">日本語</span></a>
+                </li><li class="n-menu__list-item n-menu__list-item--level-1">
+                  <a href="https://docs.netapp.com/ko-kr/cloud-manager-backup-restore/task-backup-onprem-to-azure.html" class="n-menu__header-text"><span translate="no" class="notranslate">한국어</span></a>
                 </li><li class="n-menu__list-item n-menu__list-item--level-1">
                   <a href="https://docs.netapp.com/zh-cn/cloud-manager-backup-restore/task-backup-onprem-to-azure.html" class="n-menu__header-text"><span translate="no" class="notranslate">简体中文</span></a>
                 </li></ul>
@@ -829,7 +829,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-04-20 20:50:07 +0000">04/20/2022</time>
+    <time datetime="2022-05-02 14:42:32 +0000">05/02/2022</time>
     
   
 
@@ -1093,25 +1093,29 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="라이센스-요구-사항">라이센스 요구 사항</h3>
-<div class="paragraph">
-<p>Cloud Backup의 30일 무료 평가판 기간이 만료되기 전에 Azure에서 PAYGO(Pay-as-you-Go) Cloud Manager Marketplace 오퍼링을 구독하거나 NetApp에서 Cloud Backup BYOL 라이센스를 구입하여 활성화해야 합니다. 이러한 라이센스는 계정에 사용되며 여러 시스템에서 사용할 수 있습니다.</p>
-</div>
+<h3 id="라이센스-요구-사항을-확인합니다">라이센스 요구 사항을 확인합니다</h3>
 <div class="ulist">
 <ul>
 <li>
-<p>Cloud Backup PAYGO 라이센스의 경우 에 대한 구독이 필요합니다 <a href="https://azuremarketplace.microsoft.com/en-us/marketplace/apps/netapp.cloud-manager?tab=Overview" target="_blank" rel="noopener">"Azure를 지원합니다"</a> Cloud Manager Marketplace 오퍼링을 지속적으로 사용하여 Cloud Backup을 사용합니다. Cloud Backup에 대한 청구는 이 구독을 통해 이루어집니다.</p>
+<p>클러스터에 대한 Cloud Backup을 활성화하려면 먼저 Azure에서 PAYGO(Pay-as-you-Go) Cloud Manager Marketplace 오퍼링을 구독하거나 NetApp에서 Cloud Backup BYOL 라이센스를 구입하여 활성화해야 합니다. 이러한 라이센스는 사용자 계정용이며 여러 시스템에서 사용할 수 있습니다.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Cloud Backup PAYGO 라이센스의 경우 에 대한 구독이 필요합니다 <a href="https://azuremarketplace.microsoft.com/en-us/marketplace/apps/netapp.cloud-manager?tab=Overview" target="_blank" rel="noopener">"Azure를 지원합니다"</a> Cloud Backup을 사용하는 Cloud Manager Marketplace 오퍼링 Cloud Backup에 대한 청구는 이 구독을 통해 이루어집니다.</p>
 </li>
 <li>
-<p>Cloud Backup BYOL 라이센스의 경우, 가입이 필요하지 않습니다. 라이센스 기간 및 용량 동안 서비스를 사용할 수 있도록 NetApp의 일련 번호가 필요합니다. <a href="task-licensing-cloud-backup.html#use-a-cloud-backup-byol-license">"BYOL 라이센스 관리 방법에 대해 알아보십시오"</a>.</p>
+<p>Cloud Backup BYOL 라이센스의 경우, 라이센스 기간 및 용량 동안 서비스를 사용할 수 있도록 지원하는 NetApp의 일련 번호가 필요합니다. <a href="task-licensing-cloud-backup.html#use-a-cloud-backup-byol-license">"BYOL 라이센스 관리 방법에 대해 알아보십시오"</a>.</p>
 </li>
 </ul>
 </div>
-<div class="paragraph">
+</li>
+<li>
 <p>백업이 위치할 오브젝트 스토리지 공간에 Azure를 구독해야 합니다.</p>
-</div>
 <div class="paragraph">
-<p>클러스터에 SnapMirror 라이센스가 필요합니다. Cloud Backup을 사용할 때는 "하이브리드 클라우드 번들"이 필요하지 않습니다.</p>
+<p>모든 지역의 온프레미스 시스템에서 Azure Blob으로 백업을 생성할 수 있습니다 <a href="https://cloud.netapp.com/cloud-volumes-global-regions" target="_blank" rel="noopener">"Cloud Volumes ONTAP가 지원되는 경우"</a>Azure Government 지역을 비롯한 모든 지역에서 사용할 수 있습니다. 서비스를 설정할 때 백업을 저장할 지역을 지정합니다.</p>
+</div>
+</li>
+</ul>
 </div>
 </div>
 <div class="sect2">
@@ -1194,6 +1198,9 @@
 </li>
 </ol>
 </div>
+</li>
+<li>
+<p>계정에 대한 기존 Cloud Backup 라이센스가 없는 경우 이 시점에서 사용할 충전 방법 유형을 선택하라는 메시지가 표시됩니다. Azure에서 PAYGO(Pay-as-you-Go) Cloud Manager Marketplace 오퍼링을 구독하거나(또는 구독을 여러 개 선택한 경우) NetApp에서 Cloud Backup BYOL 라이센스를 구입하여 활성화할 수 있습니다. <a href="task-licensing-cloud-backup.html">"Cloud Backup 라이센스를 설정하는 방법에 대해 알아보십시오."</a></p>
 </li>
 <li>
 <p>네트워킹 세부 정보를 입력하고 * 다음 * 을 클릭합니다.</p>

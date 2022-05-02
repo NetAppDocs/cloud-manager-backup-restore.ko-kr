@@ -292,11 +292,11 @@
           <ul class="n-menu__list">
             <li class="n-menu__list-column">
               <ul class="n-menu__list"><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/ko-kr/cloud-manager-backup-restore/task-backup-to-gcp.html" class="n-menu__header-text"><span translate="no" class="notranslate">한국어</span></a>
-                </li><li class="n-menu__list-item n-menu__list-item--level-1">
                   <a href="https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-backup-to-gcp.html" class="n-menu__header-text"><span translate="no" class="notranslate">English</span></a>
                 </li><li class="n-menu__list-item n-menu__list-item--level-1">
                   <a href="https://docs.netapp.com/ja-jp/cloud-manager-backup-restore/task-backup-to-gcp.html" class="n-menu__header-text"><span translate="no" class="notranslate">日本語</span></a>
+                </li><li class="n-menu__list-item n-menu__list-item--level-1">
+                  <a href="https://docs.netapp.com/ko-kr/cloud-manager-backup-restore/task-backup-to-gcp.html" class="n-menu__header-text"><span translate="no" class="notranslate">한국어</span></a>
                 </li><li class="n-menu__list-item n-menu__list-item--level-1">
                   <a href="https://docs.netapp.com/zh-cn/cloud-manager-backup-restore/task-backup-to-gcp.html" class="n-menu__header-text"><span translate="no" class="notranslate">简体中文</span></a>
                 </li></ul>
@@ -829,7 +829,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-04-18 07:43:33 +0000">04/18/2022</time>
+    <time datetime="2022-05-02 14:42:32 +0000">05/02/2022</time>
     
   
 
@@ -937,7 +937,48 @@
 <dd>
 <p>Google Cloud Project에는 사전 정의된 스토리지 관리자 역할이 있는 서비스 계정이 있어야 합니다. <a href="https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-creating-gcp-service-account.html" target="_blank" rel="noopener">"서비스 계정을 만드는 방법에 대해 알아봅니다"</a>.</p>
 </dd>
+<dt class="hdlist1">Connector에 권한을 확인하거나 추가합니다</dt>
+<dd>
+<p>Cloud Backup Search &amp; Restore 기능을 사용하려면 Connector 역할에 특정 권한이 있어야 Google Cloud BigQuery 서비스에 액세스할 수 있습니다. 아래 사용 권한을 확인하고 정책을 수정해야 하는 경우 단계를 따릅니다.</p>
+</dd>
 </dl>
+</div>
+<div class="olist arabic">
+<div class="title">단계</div>
+<ol class="arabic">
+<li>
+<p>인치 <a href="https://console.cloud.google.com" target="_blank" rel="noopener">"클라우드 콘솔"</a>에서 * 역할 * 페이지로 이동합니다.</p>
+</li>
+<li>
+<p>페이지 맨 위에 있는 드롭다운 목록을 사용하여 편집할 역할이 포함된 프로젝트나 조직을 선택합니다.</p>
+</li>
+<li>
+<p>사용자 지정 역할을 클릭합니다.</p>
+</li>
+<li>
+<p>역할 편집 * 을 클릭하여 역할의 권한을 업데이트합니다.</p>
+</li>
+<li>
+<p>역할에 다음과 같은 새 권한을 추가하려면 * 권한 추가 * 를 클릭합니다.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">bigquery.jobs.get
+bigquery.jobs.list
+bigquery.jobs.listAll
+bigquery.datasets.create
+bigquery.datasets.get
+bigquery.jobs.create
+bigquery.tables.get
+bigquery.tables.getData
+bigquery.tables.list
+bigquery.tables.create</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Update * 를 클릭하여 편집된 역할을 저장합니다.</p>
+</li>
+</ol>
 </div>
 </div>
 </div>
@@ -1070,7 +1111,7 @@
 <p>Cloud Backup은 선택한 각 볼륨의 초기 백업을 시작하고, 백업 상태를 모니터링할 수 있도록 Volume Backup Dashboard가 표시됩니다.</p>
 </div>
 <div class="paragraph">
-<p>가능합니다 <a href="task-manage-backups-ontap.html" target="_blank" rel="noopener">"볼륨에 대한 백업을 시작 및 중지하거나 백업 일정을 변경합니다"</a>. 또한 가능합니다 <a href="task-restore-backups-ontap.html" target="_blank" rel="noopener">"백업 파일에서 전체 볼륨을 복원합니다"</a> Google의 Cloud Volumes ONTAP 시스템 또는 온프레미스 ONTAP 시스템으로.</p>
+<p>가능합니다 <a href="task-manage-backups-ontap.html" target="_blank" rel="noopener">"볼륨에 대한 백업을 시작 및 중지하거나 백업 일정을 변경합니다"</a>. 또한 가능합니다 <a href="task-restore-backups-ontap.html" target="_blank" rel="noopener">"백업 파일에서 볼륨 또는 파일을 복원합니다"</a> Google의 Cloud Volumes ONTAP 시스템 또는 온프레미스 ONTAP 시스템으로.</p>
 </div>
 </div>
 </div>

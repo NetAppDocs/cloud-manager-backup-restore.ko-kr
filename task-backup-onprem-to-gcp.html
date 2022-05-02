@@ -292,11 +292,11 @@
           <ul class="n-menu__list">
             <li class="n-menu__list-column">
               <ul class="n-menu__list"><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/ko-kr/cloud-manager-backup-restore/task-backup-onprem-to-gcp.html" class="n-menu__header-text"><span translate="no" class="notranslate">한국어</span></a>
-                </li><li class="n-menu__list-item n-menu__list-item--level-1">
                   <a href="https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-backup-onprem-to-gcp.html" class="n-menu__header-text"><span translate="no" class="notranslate">English</span></a>
                 </li><li class="n-menu__list-item n-menu__list-item--level-1">
                   <a href="https://docs.netapp.com/ja-jp/cloud-manager-backup-restore/task-backup-onprem-to-gcp.html" class="n-menu__header-text"><span translate="no" class="notranslate">日本語</span></a>
+                </li><li class="n-menu__list-item n-menu__list-item--level-1">
+                  <a href="https://docs.netapp.com/ko-kr/cloud-manager-backup-restore/task-backup-onprem-to-gcp.html" class="n-menu__header-text"><span translate="no" class="notranslate">한국어</span></a>
                 </li><li class="n-menu__list-item n-menu__list-item--level-1">
                   <a href="https://docs.netapp.com/zh-cn/cloud-manager-backup-restore/task-backup-onprem-to-gcp.html" class="n-menu__header-text"><span translate="no" class="notranslate">简体中文</span></a>
                 </li></ul>
@@ -829,7 +829,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-04-20 20:50:07 +0000">04/20/2022</time>
+    <time datetime="2022-05-02 14:42:32 +0000">05/02/2022</time>
     
   
 
@@ -1078,31 +1078,72 @@
 </div>
 </div>
 <div class="sect2">
-<h3 id="지원-지역">지원 지역</h3>
+<h3 id="connector에-권한을-확인하거나-추가합니다">Connector에 권한을 확인하거나 추가합니다</h3>
 <div class="paragraph">
-<p>모든 지역의 사내 시스템에서 Google Cloud 스토리지로 백업을 생성할 수 있습니다 <a href="https://cloud.netapp.com/cloud-volumes-global-regions" target="_blank" rel="noopener">"Cloud Volumes ONTAP가 지원되는 경우"</a>. 서비스를 설정할 때 백업을 저장할 지역을 지정합니다.</p>
+<p>Cloud Backup Search &amp; Restore 기능을 사용하려면 Connector 역할에 특정 권한이 있어야 Google Cloud BigQuery 서비스에 액세스할 수 있습니다. 아래 사용 권한을 확인하고 정책을 수정해야 하는 경우 단계를 따릅니다.</p>
+</div>
+<div class="olist arabic">
+<div class="title">단계</div>
+<ol class="arabic">
+<li>
+<p>인치 <a href="https://console.cloud.google.com" target="_blank" rel="noopener">"클라우드 콘솔"</a>에서 * 역할 * 페이지로 이동합니다.</p>
+</li>
+<li>
+<p>페이지 맨 위에 있는 드롭다운 목록을 사용하여 편집할 역할이 포함된 프로젝트나 조직을 선택합니다.</p>
+</li>
+<li>
+<p>사용자 지정 역할을 클릭합니다.</p>
+</li>
+<li>
+<p>역할 편집 * 을 클릭하여 역할의 권한을 업데이트합니다.</p>
+</li>
+<li>
+<p>역할에 다음과 같은 새 권한을 추가하려면 * 권한 추가 * 를 클릭합니다.</p>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">bigquery.jobs.get
+bigquery.jobs.list
+bigquery.jobs.listAll
+bigquery.datasets.create
+bigquery.datasets.get
+bigquery.jobs.create
+bigquery.tables.get
+bigquery.tables.getData
+bigquery.tables.list
+bigquery.tables.create</code></pre>
+</div>
+</div>
+</li>
+<li>
+<p>Update * 를 클릭하여 편집된 역할을 저장합니다.</p>
+</li>
+</ol>
 </div>
 </div>
 <div class="sect2">
-<h3 id="라이센스-요구-사항">라이센스 요구 사항</h3>
-<div class="paragraph">
-<p>Cloud Backup의 30일 무료 평가판 기간이 만료되기 전에 Google의 PAYGO(Pay-as-you-Go) Cloud Manager Marketplace 오퍼링을 구독하거나 NetApp에서 Cloud Backup BYOL 라이센스를 구입하여 활성화해야 합니다. 이러한 라이센스는 계정에 사용되며 여러 시스템에서 사용할 수 있습니다.</p>
-</div>
+<h3 id="라이센스-요구-사항을-확인합니다">라이센스 요구 사항을 확인합니다</h3>
 <div class="ulist">
 <ul>
 <li>
-<p>Cloud Backup PAYGO 라이센스의 경우 에 대한 구독이 필요합니다 <a href="https://console.cloud.google.com/marketplace/details/netapp-cloudmanager/cloud-manager?supportedpurview=project" target="_blank" rel="noopener">"구글"</a> Cloud Manager Marketplace 오퍼링을 지속적으로 사용하여 Cloud Backup을 사용합니다. Cloud Backup에 대한 청구는 이 구독을 통해 이루어집니다.</p>
+<p>클러스터에 Cloud Backup을 활성화하려면 먼저 Google에서 PAYGO(Pay-as-you-Go) Cloud Manager Marketplace 오퍼링을 구독하거나 NetApp에서 Cloud Backup BYOL 라이센스를 구입하여 활성화해야 합니다. 이러한 라이센스는 사용자 계정용이며 여러 시스템에서 사용할 수 있습니다.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Cloud Backup PAYGO 라이센스의 경우 에 대한 구독이 필요합니다 <a href="https://console.cloud.google.com/marketplace/details/netapp-cloudmanager/cloud-manager?supportedpurview=project" target="_blank" rel="noopener">"구글"</a> Cloud Backup을 사용하는 Cloud Manager Marketplace 오퍼링 Cloud Backup에 대한 청구는 이 구독을 통해 이루어집니다.</p>
 </li>
 <li>
-<p>Cloud Backup BYOL 라이센스의 경우, 가입이 필요하지 않습니다. 라이센스 기간 및 용량 동안 서비스를 사용할 수 있도록 NetApp의 일련 번호가 필요합니다. <a href="task-licensing-cloud-backup.html#use-a-cloud-backup-byol-license">"BYOL 라이센스 관리 방법에 대해 알아보십시오"</a>.</p>
+<p>Cloud Backup BYOL 라이센스의 경우, 라이센스 기간 및 용량 동안 서비스를 사용할 수 있도록 지원하는 NetApp의 일련 번호가 필요합니다. <a href="task-licensing-cloud-backup.html#use-a-cloud-backup-byol-license">"BYOL 라이센스 관리 방법에 대해 알아보십시오"</a>.</p>
 </li>
 </ul>
 </div>
-<div class="paragraph">
+</li>
+<li>
 <p>백업을 찾을 오브젝트 스토리지 공간에 Google에 가입해야 합니다.</p>
-</div>
 <div class="paragraph">
-<p>클러스터에 SnapMirror 라이센스가 필요합니다. Cloud Backup을 사용할 때는 "하이브리드 클라우드 번들"이 필요하지 않습니다.</p>
+<p>모든 지역의 사내 시스템에서 Google Cloud 스토리지로 백업을 생성할 수 있습니다 <a href="https://cloud.netapp.com/cloud-volumes-global-regions" target="_blank" rel="noopener">"Cloud Volumes ONTAP가 지원되는 경우"</a>. 서비스를 설정할 때 백업을 저장할 지역을 지정합니다.</p>
+</div>
+</li>
+</ul>
 </div>
 </div>
 <div class="sect2">
@@ -1178,6 +1219,9 @@
 </div>
 </li>
 <li>
+<p>계정에 대한 기존 Cloud Backup 라이센스가 없는 경우 이 시점에서 사용할 충전 방법 유형을 선택하라는 메시지가 표시됩니다. Google에서 PAYGO(pay-as-you-go) Cloud Manager Marketplace 오퍼링을 구독하거나(또는 여러 구독을 선택한 경우) NetApp에서 Cloud Backup BYOL 라이센스를 구입하여 활성화할 수 있습니다. <a href="task-licensing-cloud-backup.html">"Cloud Backup 라이센스를 설정하는 방법에 대해 알아보십시오."</a></p>
+</li>
+<li>
 <p>Define Policy_페이지에서 기존 백업 스케줄과 보존 값을 선택하거나 새 기본 백업 정책을 정의하고 * Next * 를 클릭합니다.</p>
 <div class="paragraph">
 <p><span class="image"><img src="./media/screenshot_backup_policy_gcp.png" alt="백업 스케줄 및 보존 기간을 선택할 수 있는 Cloud Backup 설정을 보여 주는 스크린샷"></span></p>
@@ -1214,7 +1258,7 @@
 <p>Cloud Backup은 선택한 각 볼륨의 초기 백업을 시작하고, 백업 상태를 모니터링할 수 있도록 Volume Backup Dashboard가 표시됩니다.</p>
 </div>
 <div class="paragraph">
-<p>가능합니다 <a href="task-manage-backups-ontap.html" target="_blank" rel="noopener">"볼륨에 대한 백업을 시작 및 중지하거나 백업 일정을 변경합니다"</a>. 또한 가능합니다 <a href="task-restore-backups-ontap.html" target="_blank" rel="noopener">"백업 파일에서 전체 볼륨을 복원합니다"</a> Google의 Cloud Volumes ONTAP 시스템 또는 온프레미스 ONTAP 시스템으로.</p>
+<p>가능합니다 <a href="task-manage-backups-ontap.html" target="_blank" rel="noopener">"볼륨에 대한 백업을 시작 및 중지하거나 백업 일정을 변경합니다"</a>. 또한 가능합니다 <a href="task-restore-backups-ontap.html" target="_blank" rel="noopener">"백업 파일에서 볼륨 또는 파일을 복원합니다"</a> Google의 Cloud Volumes ONTAP 시스템 또는 온프레미스 ONTAP 시스템으로.</p>
 </div>
 </div>
 </div>

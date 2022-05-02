@@ -292,11 +292,11 @@
           <ul class="n-menu__list">
             <li class="n-menu__list-column">
               <ul class="n-menu__list"><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/ko-kr/cloud-manager-backup-restore/task-backup-kubernetes-to-azure.html" class="n-menu__header-text"><span translate="no" class="notranslate">한국어</span></a>
-                </li><li class="n-menu__list-item n-menu__list-item--level-1">
                   <a href="https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-backup-kubernetes-to-azure.html" class="n-menu__header-text"><span translate="no" class="notranslate">English</span></a>
                 </li><li class="n-menu__list-item n-menu__list-item--level-1">
                   <a href="https://docs.netapp.com/ja-jp/cloud-manager-backup-restore/task-backup-kubernetes-to-azure.html" class="n-menu__header-text"><span translate="no" class="notranslate">日本語</span></a>
+                </li><li class="n-menu__list-item n-menu__list-item--level-1">
+                  <a href="https://docs.netapp.com/ko-kr/cloud-manager-backup-restore/task-backup-kubernetes-to-azure.html" class="n-menu__header-text"><span translate="no" class="notranslate">한국어</span></a>
                 </li><li class="n-menu__list-item n-menu__list-item--level-1">
                   <a href="https://docs.netapp.com/zh-cn/cloud-manager-backup-restore/task-backup-kubernetes-to-azure.html" class="n-menu__header-text"><span translate="no" class="notranslate">简体中文</span></a>
                 </li></ul>
@@ -829,7 +829,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-04-18 07:43:33 +0000">04/18/2022</time>
+    <time datetime="2022-05-02 14:42:32 +0000">05/02/2022</time>
     
   
 
@@ -1014,10 +1014,10 @@ spec:
 </div>
 </div>
 <div class="sect1">
-<h2 id="기존-시스템에서-cloud-backup-활성화">기존 시스템에서 Cloud Backup 활성화</h2>
+<h2 id="클라우드-백업-활성화">클라우드 백업 활성화</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>작업 환경에서 바로 언제든지 Cloud Backup을 사용할 수 있습니다.</p>
+<p>Kubernetes 작업 환경에서 Cloud Backup을 바로 사용할 수 있습니다.</p>
 </div>
 <div class="olist arabic">
 <div class="title">단계</div>
@@ -1047,11 +1047,14 @@ spec:
 <li>
 <p>개별 볼륨을 백업하려면 각 볼륨에 대한 확인란을 선택합니다(<span class="image"><img src="./media/button_backup_1_volume.png" alt=""></span>)를 클릭합니다.</p>
 <div class="paragraph">
-<p><span class="image"><img src="./media/screenshot_backup_select_volumes_k8s.png" alt="백업할 볼륨을 선택하는 스크린샷"></span></p>
+<p><span class="image"><img src="./media/screenshot_backup_select_volumes_k8s.png" alt="백업할 영구 볼륨을 선택하는 스크린샷"></span></p>
 </div>
 </li>
 </ul>
 </div>
+</li>
+<li>
+<p>나중에 추가된 모든 볼륨에 백업을 사용하도록 설정하려면 "Automatically back up future volumes…" 확인란을 선택한 상태로 둡니다. 이 설정을 비활성화하면 이후 볼륨에 대해 백업을 수동으로 활성화해야 합니다.</p>
 </li>
 <li>
 <p>백업 활성화 * 를 클릭하면 선택한 각 볼륨의 초기 백업이 시작됩니다.</p>
