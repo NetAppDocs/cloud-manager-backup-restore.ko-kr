@@ -158,23 +158,48 @@ Private Google Access는 내부(전용) IP 주소(외부 IP 주소 없음)만 �
 
 
 
-=== 지원 지역
+=== Connector에 권한을 확인하거나 추가합니다
 
+Cloud Backup Search & Restore 기능을 사용하려면 Connector 역할에 특정 권한이 있어야 Google Cloud BigQuery 서비스에 액세스할 수 있습니다. 아래 사용 권한을 확인하고 정책을 수정해야 하는 경우 단계를 따릅니다.
+
+.단계
+. 인치 link:https://console.cloud.google.com["클라우드 콘솔"^]에서 * 역할 * 페이지로 이동합니다.
+. 페이지 맨 위에 있는 드롭다운 목록을 사용하여 편집할 역할이 포함된 프로젝트나 조직을 선택합니다.
+. 사용자 지정 역할을 클릭합니다.
+. 역할 편집 * 을 클릭하여 역할의 권한을 업데이트합니다.
+. 역할에 다음과 같은 새 권한을 추가하려면 * 권한 추가 * 를 클릭합니다.
++
+[source, json]
+----
+bigquery.jobs.get
+bigquery.jobs.list
+bigquery.jobs.listAll
+bigquery.datasets.create
+bigquery.datasets.get
+bigquery.jobs.create
+bigquery.tables.get
+bigquery.tables.getData
+bigquery.tables.list
+bigquery.tables.create
+----
+. Update * 를 클릭하여 편집된 역할을 저장합니다.
+
+
+
+
+=== 라이센스 요구 사항을 확인합니다
+
+* 클러스터에 Cloud Backup을 활성화하려면 먼저 Google에서 PAYGO(Pay-as-you-Go) Cloud Manager Marketplace 오퍼링을 구독하거나 NetApp에서 Cloud Backup BYOL 라이센스를 구입하여 활성화해야 합니다. 이러한 라이센스는 사용자 계정용이며 여러 시스템에서 사용할 수 있습니다.
++
+** Cloud Backup PAYGO 라이센스의 경우 에 대한 구독이 필요합니다 https://console.cloud.google.com/marketplace/details/netapp-cloudmanager/cloud-manager?supportedpurview=project["구글"^] Cloud Backup을 사용하는 Cloud Manager Marketplace 오퍼링 Cloud Backup에 대한 청구는 이 구독을 통해 이루어집니다.
+** Cloud Backup BYOL 라이센스의 경우, 라이센스 기간 및 용량 동안 서비스를 사용할 수 있도록 지원하는 NetApp의 일련 번호가 필요합니다. link:task-licensing-cloud-backup.html#use-a-cloud-backup-byol-license["BYOL 라이센스 관리 방법에 대해 알아보십시오"].
+
+
+* 백업을 찾을 오브젝트 스토리지 공간에 Google에 가입해야 합니다.
++
 모든 지역의 사내 시스템에서 Google Cloud 스토리지로 백업을 생성할 수 있습니다 https://cloud.netapp.com/cloud-volumes-global-regions["Cloud Volumes ONTAP가 지원되는 경우"^]. 서비스를 설정할 때 백업을 저장할 지역을 지정합니다.
 
 
-
-=== 라이센스 요구 사항
-
-Cloud Backup의 30일 무료 평가판 기간이 만료되기 전에 Google의 PAYGO(Pay-as-you-Go) Cloud Manager Marketplace 오퍼링을 구독하거나 NetApp에서 Cloud Backup BYOL 라이센스를 구입하여 활성화해야 합니다. 이러한 라이센스는 계정에 사용되며 여러 시스템에서 사용할 수 있습니다.
-
-* Cloud Backup PAYGO 라이센스의 경우 에 대한 구독이 필요합니다 https://console.cloud.google.com/marketplace/details/netapp-cloudmanager/cloud-manager?supportedpurview=project["구글"^] Cloud Manager Marketplace 오퍼링을 지속적으로 사용하여 Cloud Backup을 사용합니다. Cloud Backup에 대한 청구는 이 구독을 통해 이루어집니다.
-* Cloud Backup BYOL 라이센스의 경우, 가입이 필요하지 않습니다. 라이센스 기간 및 용량 동안 서비스를 사용할 수 있도록 NetApp의 일련 번호가 필요합니다. link:task-licensing-cloud-backup.html#use-a-cloud-backup-byol-license["BYOL 라이센스 관리 방법에 대해 알아보십시오"].
-
-
-백업을 찾을 오브젝트 스토리지 공간에 Google에 가입해야 합니다.
-
-클러스터에 SnapMirror 라이센스가 필요합니다. Cloud Backup을 사용할 때는 "하이브리드 클라우드 번들"이 필요하지 않습니다.
 
 
 
@@ -218,6 +243,7 @@ image:screenshot_backup_onprem_to_google.png["온프레미스 클러스터에서
 
 
 
+. 계정에 대한 기존 Cloud Backup 라이센스가 없는 경우 이 시점에서 사용할 충전 방법 유형을 선택하라는 메시지가 표시됩니다. Google에서 PAYGO(pay-as-you-go) Cloud Manager Marketplace 오퍼링을 구독하거나(또는 여러 구독을 선택한 경우) NetApp에서 Cloud Backup BYOL 라이센스를 구입하여 활성화할 수 있습니다. link:task-licensing-cloud-backup.html["Cloud Backup 라이센스를 설정하는 방법에 대해 알아보십시오."]
 . Define Policy_페이지에서 기존 백업 스케줄과 보존 값을 선택하거나 새 기본 백업 정책을 정의하고 * Next * 를 클릭합니다.
 +
 image:screenshot_backup_policy_gcp.png["백업 스케줄 및 보존 기간을 선택할 수 있는 Cloud Backup 설정을 보여 주는 스크린샷"]
@@ -242,4 +268,4 @@ image:screenshot_backup_select_volumes.png["백업할 볼륨을 선택하는 스
 
 Cloud Backup은 선택한 각 볼륨의 초기 백업을 시작하고, 백업 상태를 모니터링할 수 있도록 Volume Backup Dashboard가 표시됩니다.
 
-가능합니다 link:task-manage-backups-ontap.html["볼륨에 대한 백업을 시작 및 중지하거나 백업 일정을 변경합니다"^]. 또한 가능합니다 link:task-restore-backups-ontap.html["백업 파일에서 전체 볼륨을 복원합니다"^] Google의 Cloud Volumes ONTAP 시스템 또는 온프레미스 ONTAP 시스템으로.
+가능합니다 link:task-manage-backups-ontap.html["볼륨에 대한 백업을 시작 및 중지하거나 백업 일정을 변경합니다"^]. 또한 가능합니다 link:task-restore-backups-ontap.html["백업 파일에서 볼륨 또는 파일을 복원합니다"^] Google의 Cloud Volumes ONTAP 시스템 또는 온프레미스 ONTAP 시스템으로.

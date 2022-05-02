@@ -73,6 +73,30 @@ Cloud Backup BYOL 라이센스의 경우, 라이센스 기간 및 용량 동안 
 
 --
 GCP 서비스 계정:: Google Cloud Project에는 사전 정의된 스토리지 관리자 역할이 있는 서비스 계정이 있어야 합니다. https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-creating-gcp-service-account.html["서비스 계정을 만드는 방법에 대해 알아봅니다"^].
+Connector에 권한을 확인하거나 추가합니다:: Cloud Backup Search & Restore 기능을 사용하려면 Connector 역할에 특정 권한이 있어야 Google Cloud BigQuery 서비스에 액세스할 수 있습니다. 아래 사용 권한을 확인하고 정책을 수정해야 하는 경우 단계를 따릅니다.
+
+
+.단계
+. 인치 link:https://console.cloud.google.com["클라우드 콘솔"^]에서 * 역할 * 페이지로 이동합니다.
+. 페이지 맨 위에 있는 드롭다운 목록을 사용하여 편집할 역할이 포함된 프로젝트나 조직을 선택합니다.
+. 사용자 지정 역할을 클릭합니다.
+. 역할 편집 * 을 클릭하여 역할의 권한을 업데이트합니다.
+. 역할에 다음과 같은 새 권한을 추가하려면 * 권한 추가 * 를 클릭합니다.
++
+[source, json]
+----
+bigquery.jobs.get
+bigquery.jobs.list
+bigquery.jobs.listAll
+bigquery.datasets.create
+bigquery.datasets.get
+bigquery.jobs.create
+bigquery.tables.get
+bigquery.tables.getData
+bigquery.tables.list
+bigquery.tables.create
+----
+. Update * 를 클릭하여 편집된 역할을 저장합니다.
 
 
 
@@ -154,4 +178,4 @@ image:screenshot_backup_select_volumes.png["백업할 볼륨을 선택하는 스
 
 Cloud Backup은 선택한 각 볼륨의 초기 백업을 시작하고, 백업 상태를 모니터링할 수 있도록 Volume Backup Dashboard가 표시됩니다.
 
-가능합니다 link:task-manage-backups-ontap.html["볼륨에 대한 백업을 시작 및 중지하거나 백업 일정을 변경합니다"^]. 또한 가능합니다 link:task-restore-backups-ontap.html["백업 파일에서 전체 볼륨을 복원합니다"^] Google의 Cloud Volumes ONTAP 시스템 또는 온프레미스 ONTAP 시스템으로.
+가능합니다 link:task-manage-backups-ontap.html["볼륨에 대한 백업을 시작 및 중지하거나 백업 일정을 변경합니다"^]. 또한 가능합니다 link:task-restore-backups-ontap.html["백업 파일에서 볼륨 또는 파일을 복원합니다"^] Google의 Cloud Volumes ONTAP 시스템 또는 온프레미스 ONTAP 시스템으로.

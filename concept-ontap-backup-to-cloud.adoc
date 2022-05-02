@@ -67,7 +67,7 @@ Cloud Backup을 사용하면 다음과 같은 작업 환경에서 ONTAP 볼륨�
 |===
 ONTAP 백업 파일에서 다음 작업 환경으로 볼륨 또는 개별 파일을 복원할 수 있습니다.
 
-[cols="25,33,33"]
+[cols="25,33,37"]
 |===
 | 백업 파일 2+| 대상 작업 환경 
 
@@ -81,7 +81,7 @@ ONTAP 백업 파일에서 다음 작업 환경으로 볼륨 또는 개별 파일
 | Azure Blob | Azure 사내 ONTAP 시스템의 Cloud Volumes ONTAP | Azure 사내 ONTAP 시스템의 Cloud Volumes ONTAP 
 
 
-| Google 클라우드 스토리지 | Google 사내 ONTAP 시스템의 Cloud Volumes ONTAP |  
+| Google 클라우드 스토리지 | Google 사내 ONTAP 시스템의 Cloud Volumes ONTAP | Google 사내 ONTAP 시스템의 Cloud Volumes ONTAP 
 
 
 | NetApp StorageGRID를 참조하십시오 | 사내 ONTAP 시스템 |  
@@ -118,8 +118,13 @@ m5n.xlarge 인스턴스를 사용할 수 없는 지역에서는 대신 M5.xlarge
 
 
 * Browse & Restore를 사용한 볼륨 복원의 경우 별도의 인스턴스 또는 가상 머신이 필요하지 않으므로 비용이 들지 않습니다.
-* 검색 및 복원을 사용한 볼륨 또는 파일 복원의 경우 를 참조하십시오 https://aws.amazon.com/athena/faqs/["아마존 애써나"^] 및 https://aws.amazon.com/glue/faqs/["AWS 글루"^] 리소스는 볼륨 및 백업 파일을 검색하는 데 사용됩니다. TiB 비용은 검색 요청에 의해 스캔된 데이터 양과 연관됩니다. 검색 및 복원은 현재 Amazon S3의 백업 파일에서 데이터를 복원할 때만 지원됩니다.
-* 아카이브 스토리지로 이동한 백업 파일(ONTAP 9.10.1 이상을 사용하는 경우 AWS 및 Azure에서 지원)에서 볼륨 데이터를 복구해야 하는 경우 클라우드 공급자로부터 추가 Per-GiB 검색 비용 및 요청당 요금이 부과됩니다.
+* 검색 및 복원을 사용한 볼륨 또는 파일 복원의 경우, 클라우드 공급자가 특정 리소스를 프로비저닝하며 검색 요청에 의해 스캔된 데이터 양과 관련된 TiB 비용이 있습니다.
++
+** AWS에서는 https://aws.amazon.com/athena/faqs/["아마존 애써나"^] 및 https://aws.amazon.com/glue/faqs/["AWS 글루"^] 리소스가 새로운 S3 버킷에 구축됩니다.
+** Google에서는 새로운 버킷이 배포되고 https://cloud.google.com/bigquery["Google Cloud BigQuery 서비스"^] 계정/프로젝트 수준에서 프로비저닝됩니다.
+
+
+* 아카이브 스토리지로 이동한 백업 파일(ONTAP 9.10.1 이상을 사용하는 경우 AWS에서 지원)에서 볼륨 데이터를 복구해야 하는 경우 클라우드 공급자로부터 추가 Per-GiB 검색 비용 및 요청당 요금이 부과됩니다.
 
 
 * 서비스 요금 *
@@ -132,35 +137,13 @@ m5n.xlarge 인스턴스를 사용할 수 없는 지역에서는 대신 M5.xlarge
 
 == 라이센싱
 
-Cloud Backup은 AWS Marketplace에서 연간 계약인 PAYGO(Pay As You Go), BYOL(Bring Your Own License)의 3가지 라이센스 옵션으로 제공됩니다. 라이센스가 없는 경우 30일 무료 평가판을 사용할 수 있습니다.
-
-
-
-=== 무료 평가판
-
-30일 무료 평가판을 사용하는 경우 남은 무료 평가판 사용 일수에 대한 알림이 표시됩니다. 무료 평가판이 끝나면 백업이 생성되지 않습니다. 서비스를 계속 사용하려면 서비스에 가입하거나 라이센스를 구입해야 합니다.
-
-서비스가 비활성화되면 백업 파일이 삭제되지 않습니다. 백업을 삭제하지 않을 경우 클라우드 공급자가 백업 용량에 대한 오브젝트 스토리지 비용을 계속 청구합니다.
+Cloud Backup은 세 가지 라이센스 옵션, 즉 PAYGO(Pay As You Go) 구독, AWS Marketplace의 연간 계약, BYOL(Bring Your Own License) 옵션으로 제공됩니다. PAYGO에 가입하면 30일 무료 평가판을 사용할 수 있습니다.
 
 
 
 === 용량제 구독
 
 Cloud Backup은 용량제 모델로 소비 기반 라이센스를 제공합니다. 클라우드 공급자의 마켓플레이스를 구독한 후, 백업된 데이터의 경우 GiB당 비용을 지불하면 됩니다. 이러한 데이터를 미리 지불할 필요가 없습니다. 클라우드 공급자가 월별 요금을 청구합니다.
-
-무료 평가판을 가지고 있거나 BYOL(Bring Your Own License)을 사용하는 경우에도 가입해야 합니다.
-
-* 구독하면 무료 평가판이 종료된 후에도 서비스가 중단되지 않습니다.
-+
-평가판이 종료되면 백업하는 데이터의 양에 따라 매시간 요금이 부과됩니다.
-
-* BYOL 라이센스에서 허용하는 것보다 더 많은 데이터를 백업하는 경우 용량제 가입형 모델을 통해 데이터 백업을 계속 수행할 수 있습니다.
-+
-예를 들어, 10TiB BYOL 라이센스가 있는 경우 PAYGO 구독을 통해 10TiB를 초과하는 모든 용량이 충전됩니다.
-
-
-
-무료 평가판 사용 중 또는 BYOL 라이센스를 초과하지 않은 경우 용량제 구독을 통해 비용을 지불할 필요가 없습니다.
 
 link:task-licensing-cloud-backup.html#use-a-cloud-backup-paygo-subscription["선불 종량제 구독을 설정하는 방법을 알아보십시오"].
 
@@ -171,13 +154,7 @@ link:task-licensing-cloud-backup.html#use-a-cloud-backup-paygo-subscription["선
 AWS Marketplace에서 12개월, 24개월 또는 36개월 조건에 두 가지 연간 계약을 사용할 수 있습니다.
 
 * Cloud Volumes ONTAP 데이터와 사내 ONTAP 데이터를 백업할 수 있는 '클라우드 백업' 계획
-+
-Cloud Manager에서 AWS 자격 증명에 활성 서브스크립션이 하나만 할당할 수 있으므로 이 연간 계약 가입을 통해 Cloud Volumes ONTAP 시스템에 대한 비용을 지불해야 합니다.
-
 * Cloud Volumes ONTAP와 클라우드 백업을 번들로 제공할 수 있는 "CVO Professional" 계획. 여기에는 이 라이센스에 대해 청구된 Cloud Volumes ONTAP 볼륨에 대한 무제한 백업이 포함됩니다(백업 용량은 라이센스에 포함되지 않음).
-+
-Cloud Volumes ONTAP 작업 환경을 생성할 때 연간 계약을 설정할 수 있으며, Cloud Manager에서 AWS 마켓플레이스를 구독하라는 메시지를 표시합니다.
-
 
 
 link:task-licensing-cloud-backup.html#subscribe-to-yearly-contracts-through-aws["연간 AWS 계약을 설정하는 방법에 대해 알아보십시오"].

@@ -1,8 +1,8 @@
 ---
 sidebar: sidebar 
 permalink: task-licensing-cloud-backup.html 
-keywords: license, licensing, install, updating license, byol license, nlf, license generator, backup license, add backup license, update backup license 
-summary: '클라우드 백업 30일 무료 평가판은 Cloud Backup Service이 귀사의 클라우드 공급자 마켓플레이스를 활성화하면 시작됩니다. 무료 평가판이 끝나면 PAYGO(Pay-as-you-Go) 마켓플레이스 구독을 사용하거나 NetApp에서 BYOL(Bring-Your-Own License)을 구입하여 Cloud Backup에 대한 비용을 지불하게 됩니다.' 
+keywords: license, licensing, install, updating license, paygo license, byol license, nlf, license generator, backup license, add backup license, update backup license 
+summary: '클라우드 공급자로부터 PAYGO(Pay-as-you-Go) 마켓플레이스 구독을 구입하거나 NetApp에서 BYOL(Bring-Your-Own-License)을 구입하여 Cloud Backup의 라이센스를 부여할 수 있습니다. 작업 환경에서 Cloud Backup을 활성화하고, 운영 데이터의 백업을 생성하고, 백업 데이터를 운영 시스템에 복원하려면 유효한 라이센스가 필요합니다.' 
 ---
 = Cloud Backup에 대한 라이센스 설정
 :hardbreaks:
@@ -14,22 +14,44 @@ summary: '클라우드 백업 30일 무료 평가판은 Cloud Backup Service이 
 
 
 [role="lead"]
-클라우드 백업 30일 무료 평가판은 Cloud Backup Service이 귀사의 클라우드 공급자 마켓플레이스를 활성화하면 시작됩니다. 무료 평가판이 끝나면 PAYGO(Pay-as-you-Go) 마켓플레이스 구독을 사용하거나 NetApp에서 BYOL(Bring-Your-Own License)을 구입하여 Cloud Backup에 대한 비용을 지불하게 됩니다.
+클라우드 공급자로부터 PAYGO(Pay-as-you-Go) 마켓플레이스 구독을 구입하거나 NetApp에서 BYOL(Bring-Your-Own-License)을 구입하여 Cloud Backup의 라이센스를 부여할 수 있습니다. 작업 환경에서 Cloud Backup을 활성화하고, 운영 데이터의 백업을 생성하고, 백업 데이터를 운영 시스템에 복원하려면 유효한 라이센스가 필요합니다.
 
 추가 내용을 읽기 전에 몇 가지 참고 사항을 확인하십시오.
 
 * 클라우드 공급자의 Cloud Volumes ONTAP 시스템 시장에서 PAYGO(Pay-as-you-Go) 구독을 이미 구독한 경우 클라우드 백업도 자동으로 구독됩니다. 다시 가입하지 않아도 됩니다.
-* Cloud Backup BYOL(Bring-Your-Own-License)은 Cloud Manager 계정과 연결된 모든 시스템에서 사용할 수 있는 부동 라이센스입니다. 따라서 기존 라이센스에서 충분한 백업 용량이 있는 경우 다른 BYOL 라이센스를 구입할 필요가 없습니다.
+* Cloud Backup BYOL(Bring-Your-Own-License)은 Cloud Manager 계정과 연결된 모든 시스템에서 사용할 수 있는 부동 라이센스입니다. 따라서 기존 BYOL 라이센스에서 충분한 백업 용량을 제공하는 경우 다른 BYOL 라이센스를 구입할 필요가 없습니다.
 * 온프레미스 ONTAP 데이터를 StorageGRID에 백업할 경우 BYOL 라이센스가 필요하지만 클라우드 공급자의 스토리지 공간에는 비용이 들지 않습니다.
 
 
-link:concept-backup-to-cloud.html#licensing["Cloud Backup과 관련된 라이센스 및 비용에 대해 자세히 알아보십시오."]
+link:concept-ontap-backup-to-cloud.html#cost["Cloud Backup 사용과 관련된 비용에 대해 자세히 알아보십시오."]
+
+
+
+== 30일 무료 평가판
+
+Cloud Backup 30일 무료 평가판은 클라우드 공급자 마켓플레이스의 선불 종량제 구독에서 제공됩니다. 무료 평가판은 마켓플레이스 목록에 등록할 때 시작됩니다. Cloud Volumes ONTAP 시스템을 구축할 때 Marketplace 구독에 대한 비용을 지불하고 Cloud Backup 무료 평가판 을 10일 후에 시작하면 20일 동안 무료 평가판을 사용할 수 있습니다.
+
+무료 평가판이 종료되면 중단 없이 PAYGO 구독으로 자동 전환됩니다. Cloud Backup을 계속 사용하지 않기로 결정한 경우 link:task-manage-backups-ontap.html#unregistering-cloud-backup-for-a-working-environment["작업 환경에서 클라우드 백업 등록을 취소합니다"] 평가판 사용 기간이 끝나기 전에는 요금이 부과되지 않습니다.
 
 
 
 == Cloud Backup PAYGO 구독 사용
 
-사용한 만큼만 지불하는 용량제 방식을 사용하면 클라우드 공급업체에 오브젝트 스토리지 비용을 지불하고, NetApp 백업 라이센스 비용을 단일 기준으로 1시간 단위로 지불할 수 있습니다. 다음 링크를 사용하여 클라우드 공급자 마켓플레이스에서 Cloud Backup을 구독하십시오.
+사용한 만큼만 지불하는 용량제 방식을 사용하면 클라우드 공급업체에 오브젝트 스토리지 비용을 지불하고, NetApp 백업 라이센스 비용을 단일 정액제로 지불할 수 있습니다. 무료 평가판을 가지고 있거나 BYOL(Bring Your Own License)을 사용하는 경우에도 가입해야 합니다.
+
+* 구독하면 무료 평가판이 종료된 후에도 서비스가 중단되지 않습니다.
++
+평가판이 종료되면 백업하는 데이터의 양에 따라 매시간 요금이 부과됩니다.
+
+* BYOL 라이센스에서 허용하는 것보다 더 많은 데이터를 백업하는 경우 용량제 가입형 모델을 통해 데이터 백업을 계속 수행할 수 있습니다.
++
+예를 들어, 10TiB BYOL 라이센스가 있는 경우 PAYGO 구독을 통해 10TiB를 초과하는 모든 용량이 충전됩니다.
+
+
+
+무료 평가판 사용 중 또는 BYOL 라이센스를 초과하지 않은 경우 용량제 구독을 통해 비용을 지불할 필요가 없습니다.
+
+다음 링크를 사용하여 클라우드 공급자 마켓플레이스에서 Cloud Backup을 구독하십시오.
 
 * AWS: https://aws.amazon.com/marketplace/pp/prodview-oorxakq6lq7m4?sr=0-8&ref_=beagle&applicationId=AWSMPContessa["가격 세부 정보는 Cloud Manager Marketplace 오퍼링을 참조하십시오"^].
 * Azure(Azure): https://azuremarketplace.microsoft.com/en-us/marketplace/apps/netapp.cloud-manager?tab=Overview["가격 세부 정보는 Cloud Manager Marketplace 오퍼링을 참조하십시오"^].
@@ -61,13 +83,13 @@ link:concept-backup-to-cloud.html#licensing["Cloud Backup과 관련된 라이센
 
 NetApp에서 제공하는 자체 라이센스는 1년, 2년 또는 3년간 제공됩니다. 백업 중인 소스 ONTAP 볼륨의 논리적 사용 용량(_before_any 효율성)으로 계산되어 보호하는 데이터에 대해서만 비용을 지불하면 됩니다. 이 용량을 FETB(Front-End Terabytes)라고도 합니다.
 
-BYOL Cloud Backup 라이센스는 Cloud Manager 계정과 연결된 모든 시스템에서 전체 용량을 공유하는 부동 라이센스입니다. ONTAP 시스템의 경우 백업하려는 볼륨에 대해 CLI 명령 'volume show-space-logical-used'를 실행하여 필요한 용량을 대략적으로 추정할 수 있습니다.
+BYOL Cloud Backup 라이센스는 Cloud Manager 계정과 연결된 모든 시스템에서 전체 용량을 공유하는 부동 라이센스입니다. ONTAP 시스템의 경우 백업하려는 볼륨에 대해 CLI 명령 'volume show-space-logical-used'를 실행하여 필요한 용량을 대략적으로 계산할 수 있습니다.
 
 Cloud Backup BYOL 라이센스가 없는 경우 Cloud Manager 오른쪽 아래에 있는 채팅 아이콘을 클릭하여 라이센스를 구입하십시오.
 
 선택적으로 사용하지 않을 Cloud Volumes ONTAP에 대해 할당되지 않은 노드 기반 라이센스가 있는 경우 동일한 달러 당량 및 만료 날짜가 있는 클라우드 백업 라이센스로 전환할 수 있습니다. https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-manage-node-licenses.html#exchange-unassigned-node-based-licenses["자세한 내용을 보려면 여기를 클릭하십시오"^].
 
-Cloud Manager의 Digital Wallet 페이지를 사용하여 Cloud Backup의 BYOL 라이센스를 관리할 수 있습니다. 새 라이센스를 추가하고 기존 라이센스를 업데이트할 수 있습니다.
+Cloud Manager의 Digital Wallet 페이지를 사용하여 BYOL 라이센스를 관리할 수 있습니다. Digital Wallet에서 새 라이센스를 추가하고, 기존 라이센스를 업데이트하고, 라이센스 상태를 볼 수 있습니다.
 
 
 
@@ -157,12 +179,12 @@ Cloud Backup BYOL 라이센스를 사용하는 경우, 백업하는 모든 데�
 
 이러한 경고가 표시되면 Cloud Manager 인터페이스 오른쪽 아래에 있는 채팅 아이콘을 사용하여 라이센스를 갱신하십시오.
 
-라이센스가 만료되면 다음 두 가지 상황이 발생할 수 있습니다.
+BYOL 라이센스가 만료되면 다음 두 가지 상황이 발생할 수 있습니다.
 
 * 사용 중인 계정에 마켓플레이스 계정이 있는 경우 백업 서비스가 계속 실행되지만 PAYGO 라이센스 모델로 이전됩니다. 백업이 사용 중인 용량에 대한 비용이 청구됩니다.
-* 현재 계정에 마켓플레이스 계정이 없는 경우 백업 서비스가 계속 실행되지만 경고가 계속 표시됩니다.
+* 사용 중인 계정에 마켓플레이스 계정이 없는 경우 백업 서비스가 계속 실행되지만 경고가 계속 표시됩니다.
 
 
 BYOL 구독을 갱신하면 Cloud Manager에서 라이센스를 자동으로 업데이트합니다. Cloud Manager가 보안 인터넷 연결을 통해 라이센스 파일에 액세스할 수 없는 경우 직접 파일을 얻고 Cloud Manager에 수동으로 업로드할 수 있습니다. 자세한 내용은 을 참조하십시오 link:task-licensing-cloud-backup.html#update-a-cloud-backup-byol-license["Cloud Backup 라이센스를 업데이트하는 방법"].
 
-PAYGO 라이센스로 전환된 시스템은 자동으로 BYOL 라이센스로 돌아갑니다. 라이센스 없이 실행 중인 시스템은 경고 표시를 중지하고 라이센스가 만료된 동안 발생한 백업 작업에 대해 비용이 청구됩니다.
+PAYGO 라이센스로 전환된 시스템은 자동으로 BYOL 라이센스로 돌아갑니다. 라이센스 없이 실행 중이던 시스템에서는 경고가 표시되지 않습니다.

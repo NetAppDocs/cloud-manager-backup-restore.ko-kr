@@ -180,14 +180,12 @@ S3 자격 증명:: StorageGRID에 백업을 설정하면 백업 마법사에서 
 
 === 라이센스 요구 사항
 
-Cloud Backup의 30일 무료 평가판을 만료되기 전에 NetApp에서 Cloud Backup BYOL 라이센스를 구매하고 활성화해야 합니다. 이 라이센스는 계정에 사용되며 여러 시스템에서 사용할 수 있습니다.
+클러스터에서 Cloud Backup을 활성화하려면 NetApp에서 Cloud Backup BYOL 라이센스를 구입하여 활성화해야 합니다. 이 라이센스는 계정에 사용되며 여러 시스템에서 사용할 수 있습니다.
 
 라이센스 기간 및 용량 동안 서비스를 사용할 수 있도록 NetApp의 일련 번호가 필요합니다. link:task-licensing-cloud-backup.html#use-a-cloud-backup-byol-license["BYOL 라이센스 관리 방법에 대해 알아보십시오"].
 
 
 TIP: StorageGRID에 파일을 백업할 때는 PAYGO 라이센스가 지원되지 않습니다.
-
-클러스터에 SnapMirror 라이센스가 필요합니다. Cloud Backup을 사용할 때는 "하이브리드 클라우드 번들"이 필요하지 않습니다.
 
 
 

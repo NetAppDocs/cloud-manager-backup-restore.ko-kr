@@ -177,12 +177,15 @@ AWS 백업 권한이 필요합니다:: Cloud Manager에 사용 권한을 제공�
 
 
 
-== 기존 시스템에서 Cloud Backup 활성화
+== 클라우드 백업 활성화
 
-작업 환경에서 바로 언제든지 Cloud Backup을 사용할 수 있습니다.
+Kubernetes 작업 환경에서 Cloud Backup을 바로 사용할 수 있습니다.
 
 .단계
 . 작업 환경을 선택하고 오른쪽 패널에서 백업 및 복원 서비스 옆에 있는 * 활성화 * 를 클릭합니다.
++
+백업에 대한 Amazon S3 대상이 Canvas에서 작업 환경으로 존재하는 경우 Kubernetes 클러스터를 Amazon S3 작업 환경으로 끌어서 설정 마법사를 시작할 수 있습니다.
+
 +
 image:screenshot_backup_cvo_enable.png["작업 환경을 선택한 후 사용할 수 있는 Cloud Backup Settings(클라우드 백업 설정) 버튼을 보여 주는 스크린샷"]
 
@@ -198,10 +201,11 @@ image:screenshot_backup_policy_k8s_aws.png["스케줄 및 백업 보존을 선�
 ** 모든 볼륨을 백업하려면 제목 행(image:button_backup_all_volumes.png[""])를 클릭합니다.
 ** 개별 볼륨을 백업하려면 각 볼륨에 대한 확인란을 선택합니다(image:button_backup_1_volume.png[""])를 클릭합니다.
 +
-image:screenshot_backup_select_volumes_k8s.png["백업할 볼륨을 선택하는 스크린샷"]
+image:screenshot_backup_select_volumes_k8s.png["백업할 영구 볼륨을 선택하는 스크린샷"]
 
 
 
+. 나중에 추가된 모든 볼륨에 백업을 사용하도록 설정하려면 "Automatically back up future volumes…" 확인란을 선택한 상태로 둡니다. 이 설정을 비활성화하면 이후 볼륨에 대해 백업을 수동으로 활성화해야 합니다.
 . 백업 활성화 * 를 클릭하면 선택한 각 볼륨의 초기 백업이 시작됩니다.
 
 

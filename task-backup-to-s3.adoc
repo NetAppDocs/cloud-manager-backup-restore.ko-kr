@@ -154,7 +154,10 @@ AWS 구축에 필요한 아웃바운드 인터넷 액세스:: 클라우드 복�
 | 엔드포인트 | 목적 
 
 
-| http://amazonlinux.us-east-1.amazonaws.com/2/extras/docker/stable/x86_64/4bf88ee77c395ffe1e0c3ca68530dfb3a683ec65a4a1ce9c0ff394be50e922b2/ 으로 문의하십시오 | 클라우드 복원 인스턴스 AMI용 CentOS 패키지. 
+| http://amazonlinux.us-east-1.amazonaws.com/2/extras/docker/stable/ x86_64/4bf88ee77c395ffe1e0c3ca68530dfb3a683ec65a4a1ce9c0ff394be50e922b2/ | 클라우드 복원 인스턴스 AMI용 CentOS 패키지. 
+
+
+| https://download.docker.com/linux/centos/docker-ce.repo 으로 문의하십시오 | Docker Engine 패키지를 제공합니다. 
 
 
 | http://cloudmanagerinfraprod.azurecr.io \https://cloudmanagerinfraprod.azurecr.io 으로 문의하십시오 | 클라우드 복원 인스턴스 이미지 리포지토리. 

@@ -37,18 +37,42 @@ image:screenshot_backup_dashboard.png["백업 파일이 있는 모든 작업 환
 
 
 
+== 볼륨 백업 활성화 및 비활성화
+
+해당 볼륨의 백업 복사본이 필요하지 않고 백업 저장 비용을 지불하지 않으려는 경우 볼륨 백업을 중지할 수 있습니다. 현재 백업 중이 아닌 경우 백업 목록에 새 볼륨을 추가할 수도 있습니다.
+
+.단계
+. Kubernetes * 탭에서 * 백업 설정 * 을 선택합니다.
++
+image:screenshot_backup_settings_button_k8s.png["작업 환경을 선택한 후 사용할 수 있는 백업 설정 단추를 보여 주는 스크린샷"]
+
+. 백업 설정 페이지에서 _ 을(를) 클릭합니다 image:screenshot_horizontal_more_button.gif["추가 아이콘"] Kubernetes 클러스터의 경우 * 영구 볼륨 관리 * 를 선택합니다.
++
+image:screenshot_backup_manage_volumes_k8s.png["백업 설정 페이지의 영구 볼륨 관리 단추를 보여 주는 스크린샷"]
+
+. 변경할 볼륨 또는 볼륨의 확인란을 선택한 다음 볼륨의 백업을 시작 또는 중지할지 여부에 따라 * 활성화 * 또는 * 비활성화 * 를 클릭합니다.
++
+image:screenshot_backup_manage_volumes_page_k8s.png["볼륨 관리 페이지에서 볼륨을 선택하거나 선택 취소할 수 있습니다."]
+
+. 변경 사항을 적용하려면 * 저장 * 을 클릭합니다.
+
+
+* 참고: * 볼륨이 백업되지 않도록 하는 경우 클라우드 공급자가 백업이 사용하는 용량에 대한 객체 스토리지 비용을 계속 청구합니다 <<Deleting backups,백업을 삭제합니다>>.
+
+
+
 == 기존 백업 정책 편집
 
 작업 환경의 볼륨에 현재 적용된 백업 정책의 속성을 변경할 수 있습니다. 백업 정책을 변경하면 정책을 사용하는 모든 기존 볼륨에 영향을 줍니다.
 
 .단계
-. 볼륨 * 탭에서 * 백업 설정 * 을 선택합니다.
+. Kubernetes * 탭에서 * 백업 설정 * 을 선택합니다.
 +
-image:screenshot_backup_settings_button.png["볼륨 탭의 백업 설정 단추를 보여 주는 스크린샷"]
+image:screenshot_backup_settings_button_k8s.png["볼륨 탭의 백업 설정 단추를 보여 주는 스크린샷"]
 
 . 백업 설정 페이지에서 을 클릭합니다 image:screenshot_horizontal_more_button.gif["추가 아이콘"] 설정을 변경하려는 작업 환경의 경우 * 정책 관리 * 를 선택합니다.
 +
-image:screenshot_backup_modify_policy.png["백업 설정 페이지의 정책 관리 옵션을 보여 주는 스크린샷"]
+image:screenshot_backup_modify_policy_k8s.png["백업 설정 페이지의 정책 관리 옵션을 보여 주는 스크린샷"]
 
 . Manage Policies_ 페이지에서 해당 작업 환경에서 변경할 백업 정책에 대해 * Edit Policy * 를 클릭합니다.
 +
@@ -62,33 +86,6 @@ image:screenshot_backup_edit_policy.png["백업 스케줄 및 백업 보존 설�
 
 
 
-== 볼륨 백업 활성화 및 비활성화
-
-해당 볼륨의 백업 복사본이 필요하지 않고 백업 저장 비용을 지불하지 않으려는 경우 볼륨 백업을 중지할 수 있습니다. 현재 백업 중이 아닌 경우 백업 목록에 새 볼륨을 추가할 수도 있습니다.
-
-.단계
-. Kubernetes * 탭에서 * 백업 설정 * 을 선택합니다.
-+
-image:screenshot_backup_settings_button.png["작업 환경을 선택한 후 사용할 수 있는 백업 설정 단추를 보여 주는 스크린샷"]
-
-. 백업 설정 페이지에서 _ 을(를) 클릭합니다 image:screenshot_horizontal_more_button.gif["추가 아이콘"] Kubernetes 클러스터의 경우 * 볼륨 관리 * 를 선택합니다.
-+
-image:screenshot_backup_manage_volumes.png["백업 설정 페이지의 볼륨 관리 단추를 보여 주는 스크린샷"]
-
-. 변경할 볼륨 또는 볼륨의 확인란을 선택한 다음 볼륨의 백업을 시작 또는 중지할지 여부에 따라 * 활성화 * 또는 * 비활성화 * 를 클릭합니다.
-+
-image:screenshot_backup_manage_volumes_page.png["볼륨 관리 페이지에서 볼륨을 선택하거나 선택 취소할 수 있습니다."]
-
-+
-"Automatically back up future volumes..." 확인란을 사용하여 나중에 모든 볼륨을 추가하여 백업을 활성화할지 여부를 선택할 수 있습니다. 이 설정을 비활성화하면 나중에 추가된 볼륨에 대해 백업을 수동으로 활성화해야 합니다.
-
-. 변경 사항을 적용하려면 * 저장 * 을 클릭합니다.
-
-
-* 참고: * 볼륨이 백업되지 않도록 하는 경우 클라우드 공급자가 백업이 사용하는 용량에 대한 객체 스토리지 비용을 계속 청구합니다 <<Deleting backups,백업을 삭제합니다>>.
-
-
-
 == 새 백업 정책 추가
 
 작업 환경에 Cloud Backup을 활성화하면 처음에 선택한 모든 볼륨이 사용자가 정의한 기본 백업 정책을 사용하여 백업됩니다. RPO(복구 지점 목표)가 다른 특정 볼륨에 서로 다른 백업 정책을 할당하려면 해당 클러스터에 대한 추가 정책을 생성한 다음 해당 정책을 다른 볼륨에 할당할 수 있습니다.
@@ -96,13 +93,13 @@ image:screenshot_backup_manage_volumes_page.png["볼륨 관리 페이지에서 �
 작업 환경의 특정 볼륨에 새 백업 정책을 적용하려면 먼저 작업 환경에 백업 정책을 추가해야 합니다. 그러면 됩니다 <<Changing the policy assigned to existing volumes,해당 작업 환경의 볼륨에 정책을 적용합니다>>.
 
 .단계
-. 볼륨 * 탭에서 * 백업 설정 * 을 선택합니다.
+. Kubernetes * 탭에서 * 백업 설정 * 을 선택합니다.
 +
-image:screenshot_backup_settings_button.png["볼륨 탭의 백업 설정 단추를 보여 주는 스크린샷"]
+image:screenshot_backup_settings_button_k8s.png["볼륨 탭의 백업 설정 단추를 보여 주는 스크린샷"]
 
 . 백업 설정 페이지에서 을 클릭합니다 image:screenshot_horizontal_more_button.gif["추가 아이콘"] 새 정책을 추가할 작업 환경의 경우 * 정책 관리 * 를 선택합니다.
 +
-image:screenshot_backup_modify_policy.png["백업 설정 페이지의 정책 관리 옵션을 보여 주는 스크린샷"]
+image:screenshot_backup_modify_policy_k8s.png["백업 설정 페이지의 정책 관리 옵션을 보여 주는 스크린샷"]
 
 . Manage Policies_ 페이지에서 * Add New Policy * 를 클릭합니다.
 +
@@ -116,6 +113,31 @@ image:screenshot_backup_add_new_policy.png["백업 스케줄 및 백업 보존 �
 
 
 
+== 새 볼륨에 할당할 백업 정책 설정
+
+Kubernetes 클러스터에서 Cloud Backup을 처음 활성화할 때 새로 생성된 볼륨에 백업 정책을 자동으로 할당하는 옵션을 선택하지 않은 경우, 나중에 _Backup Settings_ 페이지에서 이 옵션을 선택할 수 있습니다. 새로 생성된 볼륨에 백업 정책을 할당하면 모든 데이터가 보호됩니다.
+
+볼륨에 적용할 정책이 이미 있어야 합니다. <<Adding a new backup policy,작업 환경에 대한 새 백업 정책을 추가하는 방법에 대해 알아봅니다>>.
+
+새로 생성된 볼륨이 자동으로 백업되지 않도록 이 설정을 비활성화할 수도 있습니다. 이 경우 나중에 백업하려는 특정 볼륨에 대해 백업을 수동으로 설정해야 합니다.
+
+.단계
+. Kubernetes * 탭에서 * 백업 설정 * 을 선택합니다.
++
+image:screenshot_backup_settings_button_k8s.png["작업 환경을 선택한 후 사용할 수 있는 백업 설정 단추를 보여 주는 스크린샷"]
+
+. 백업 설정 페이지에서 _ 을(를) 클릭합니다 image:screenshot_horizontal_more_button.gif["추가 아이콘"] 볼륨이 있는 작업 환경의 경우 * Auto Backup New Volumes * 를 선택합니다.
++
+image:screenshot_auto_backup_new_volumes_k8s.png["백업 설정 페이지에서 새 볼륨 자동 백업 옵션을 선택하는 스크린샷"]
+
+. "Automatically back up future persistent volumes..." 확인란을 선택하고 새 볼륨에 적용할 백업 정책을 선택한 다음 * Save * 를 클릭합니다.
++
+image:screenshot_auto_backup_k8s.png["클러스터의 모든 향후 볼륨에 할당할 백업 정책을 선택하는 방법을 보여 주는 스크린샷"]
+
+
+
+
+
 == 기존 볼륨에 할당된 정책을 변경합니다
 
 백업 빈도를 변경하거나 보존 값을 변경하려는 경우 기존 볼륨에 할당된 백업 정책을 변경할 수 있습니다.
@@ -123,13 +145,13 @@ image:screenshot_backup_add_new_policy.png["백업 스케줄 및 백업 보존 �
 볼륨에 적용할 정책이 이미 있어야 합니다. <<Adding a new backup policy,작업 환경에 대한 새 백업 정책을 추가하는 방법에 대해 알아봅니다>>.
 
 .단계
-. 볼륨 * 탭에서 * 백업 설정 * 을 선택합니다.
+. Kubernetes * 탭에서 * 백업 설정 * 을 선택합니다.
 +
-image:screenshot_backup_settings_button.png["작업 환경을 선택한 후 사용할 수 있는 백업 설정 단추를 보여 주는 스크린샷"]
+image:screenshot_backup_settings_button_k8s.png["작업 환경을 선택한 후 사용할 수 있는 백업 설정 단추를 보여 주는 스크린샷"]
 
-. 백업 설정 페이지에서 _ 을(를) 클릭합니다 image:screenshot_horizontal_more_button.gif["추가 아이콘"] 볼륨이 있는 작업 환경의 경우 * 볼륨 관리 * 를 선택합니다.
+. 백업 설정 페이지에서 _ 을(를) 클릭합니다 image:screenshot_horizontal_more_button.gif["추가 아이콘"] 볼륨이 있는 작업 환경의 경우 * 영구 볼륨 관리 * 를 선택합니다.
 +
-image:screenshot_backup_manage_volumes.png["백업 설정 페이지의 볼륨 관리 단추를 보여 주는 스크린샷"]
+image:screenshot_backup_manage_volumes_k8s.png["백업 설정 페이지의 영구 볼륨 관리 단추를 보여 주는 스크린샷"]
 
 . 정책을 변경할 볼륨 또는 볼륨의 확인란을 선택한 다음 * 정책 변경 * 을 클릭합니다.
 +
@@ -186,11 +208,11 @@ CAUTION: 백업이 있는 작업 환경 또는 클러스터를 삭제하려면 *
 .단계
 . Kubernetes * 탭에서 * 백업 설정 * 을 선택합니다.
 +
-image:screenshot_backup_settings_button.png["작업 환경을 선택한 후 사용할 수 있는 백업 설정 단추를 보여 주는 스크린샷"]
+image:screenshot_backup_settings_button_k8s.png["작업 환경을 선택한 후 사용할 수 있는 백업 설정 단추를 보여 주는 스크린샷"]
 
 . 을 클릭합니다 image:screenshot_horizontal_more_button.gif["추가 아이콘"] 모든 백업을 삭제할 Kubernetes 클러스터의 경우 * Delete all backups * 를 선택합니다.
 +
-image:screenshot_delete_all_backups.png["작업 환경의 모든 백업을 삭제하기 위해 모든 백업 삭제 버튼을 선택하는 스크린샷"]
+image:screenshot_delete_all_backups_k8s.png["작업 환경의 모든 백업을 삭제하기 위해 모든 백업 삭제 버튼을 선택하는 스크린샷"]
 
 . 확인 대화 상자에서 작업 환경의 이름을 입력하고 * 삭제 * 를 클릭합니다.
 
@@ -256,11 +278,11 @@ image:screenshot_delete_one_backup.png["단일 백업 파일을 삭제하는 방
 .단계
 . Kubernetes * 탭에서 * 백업 설정 * 을 선택합니다.
 +
-image:screenshot_backup_settings_button.png["작업 환경을 선택한 후 사용할 수 있는 백업 설정 단추를 보여 주는 스크린샷"]
+image:screenshot_backup_settings_button_k8s.png["작업 환경을 선택한 후 사용할 수 있는 백업 설정 단추를 보여 주는 스크린샷"]
 
 . 백업 설정 페이지에서 _ 을(를) 클릭합니다 image:screenshot_horizontal_more_button.gif["추가 아이콘"] 작업 환경 또는 Kubernetes 클러스터의 경우 백업을 비활성화하고 * 백업 비활성화 * 를 선택합니다.
 +
-image:screenshot_disable_backups.png["작업 환경의 백업 비활성화 단추 스크린샷"]
+image:screenshot_disable_backups_k8s.png["작업 환경의 백업 비활성화 단추 스크린샷"]
 
 . 확인 대화 상자에서 * 비활성화 * 를 클릭합니다.
 
@@ -287,7 +309,7 @@ NOTE: 백업이 비활성화된 동안 해당 작업 환경에 대해 * 백업 �
 .단계
 . Kubernetes * 탭에서 * 백업 설정 * 을 선택합니다.
 +
-image:screenshot_backup_settings_button.png["작업 환경을 선택한 후 사용할 수 있는 백업 설정 단추를 보여 주는 스크린샷"]
+image:screenshot_backup_settings_button_k8s.png["작업 환경을 선택한 후 사용할 수 있는 백업 설정 단추를 보여 주는 스크린샷"]
 
 . 백업 설정 페이지에서 _ 을(를) 클릭합니다 image:screenshot_horizontal_more_button.gif["추가 아이콘"] 백업 서비스의 등록을 취소하려는 Kubernetes 클러스터의 경우 * 등록 취소 * 를 선택합니다.
 +
