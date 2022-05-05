@@ -490,7 +490,6 @@
   <block id="6488e4b9eef53ffd6c9cc6103d98e9fa" category="list-text">ONTAP는 단일 볼륨에서 여러 오브젝트 저장소로 이루어진 SnapMirror 관계를 지원하지 않습니다. 따라서 Cloud Backup에서는 이 구성을 지원하지 않습니다.</block>
   <block id="c382be8ae1c203d850c1fd82ccc1f638" category="list-text">오브젝트 저장소의 WORM/Compliance 모드는 지원되지 않습니다.</block>
   <block id="595d0bcf55189d5a7852a255d268db51" category="section-title">단일 파일 복구 제한 사항</block>
-  <block id="61d2fb70c854276ebc3e16296f86d0cd" category="list-text">단일 파일 복원으로 한 번에 최대 100개의 개별 파일을 복원할 수 있습니다. 현재 폴더/디렉토리 복원을 지원하지 않습니다.</block>
   <block id="5f5966e9da5716290dfc2b88ceeb2217" category="list-text">복원 중인 파일은 대상 볼륨의 언어와 동일한 언어를 사용해야 합니다. 언어가 동일하지 않으면 오류 메시지가 나타납니다.</block>
   <block id="1553a2b337f69cb4e2878126a9158d14" category="list-text">서로 다른 서브넷에서 서로 다른 클라우드 관리자와 동일한 계정을 사용하는 경우 파일 레벨 복원이 지원되지 않습니다.</block>
   <block id="45905824646346222e779ba345f6254b" category="summary">Cloud Backup은 데이터의 보호 및 장기 아카이브를 위한 백업 및 복원 기능을 제공하는 Cloud Manager 작업 환경을 위한 서비스입니다. 백업은 자동으로 생성되어 퍼블릭 또는 프라이빗 클라우드 계정의 오브젝트 저장소에 저장됩니다.</block>
@@ -600,7 +599,6 @@
   <block id="f3f9bf3f7291a5ed0552bbb7de61f88d" category="list-text">변경할 볼륨 또는 볼륨의 확인란을 선택한 다음 볼륨의 백업을 시작 또는 중지할지 여부에 따라 * 활성화 * 또는 * 비활성화 * 를 클릭합니다.</block>
   <block id="8e074e924c73e9c00480607c80481d60" category="inline-image-macro">볼륨 관리 페이지에서 볼륨을 선택하거나 선택 취소할 수 있습니다.</block>
   <block id="2bfa980473a5e104b4ba06a383a064c8" category="paragraph"><block ref="2bfa980473a5e104b4ba06a383a064c8" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="0f749ecebfa90be5ad345938fe0206ec" category="paragraph">"Automatically back up future volumes..." 확인란을 사용하여 나중에 모든 볼륨을 추가하여 백업을 활성화할지 여부를 선택할 수 있습니다. 이 설정을 비활성화하면 나중에 추가된 볼륨에 대해 백업을 수동으로 활성화해야 합니다.</block>
   <block id="c7a220fc58ccea879a68f706ca98ac0c" category="list-text">변경 사항을 적용하려면 * 저장 * 을 클릭합니다.</block>
   <block id="8764d766d622ae40812776b15d742a79" category="inline-xref">백업을 삭제합니다</block>
   <block id="1cdf12d909faca3295263dc58dc5d4b8" category="paragraph">* 참고: * 볼륨이 백업되지 않도록 하는 경우 클라우드 공급자가 백업이 사용하는 용량에 대한 객체 스토리지 비용을 계속 청구합니다 <block ref="e2e48247dd6dcee2daca407937463dc9" category="inline-xref-macro-rx"></block>.</block>
@@ -1805,7 +1803,6 @@
   <block id="949b473773535ea19f7817cd4c272bc1" category="paragraph"><block ref="949b473773535ea19f7817cd4c272bc1" category="inline-image-macro-rx" type="image"></block></block>
   <block id="f3e4b6c3b2f014829f853146224b7663" category="list-text">"Automatically back up future persistent volumes..." 확인란을 선택하고 새 볼륨에 적용할 백업 정책을 선택한 다음 * Save * 를 클릭합니다.</block>
   <block id="e0d65bcc987fbf0e0395ea11d741cc4c" category="inline-image-macro">클러스터의 모든 향후 볼륨에 할당할 백업 정책을 선택하는 방법을 보여 주는 스크린샷</block>
-  <block id="e1a8bb8592ca3edece2f7672e90295ff" category="paragraph"><block ref="e1a8bb8592ca3edece2f7672e90295ff" category="inline-image-macro-rx" type="image"></block></block>
   <block id="9bfd7698cd685594f5f96180cc0f6ed9" category="list-text">백업 설정 페이지에서 _ 을(를) 클릭합니다 <block ref="50acd719b1954eb4890c002b3b5e71a6" category="inline-image-macro-rx" type="image"></block> 볼륨이 있는 작업 환경의 경우 * 영구 볼륨 관리 * 를 선택합니다.</block>
   <block id="749877571899cdb524c800a67b079f94" category="paragraph"><block ref="749877571899cdb524c800a67b079f94" category="inline-image-macro-rx" type="image"></block></block>
   <block id="28b1e5b15add5c8ab1001a76115ac105" category="paragraph"><block ref="28b1e5b15add5c8ab1001a76115ac105" category="inline-image-macro-rx" type="image"></block></block>
@@ -1816,8 +1813,6 @@
   <block id="b2e1e47df118b4fe3823a0ac91876736" category="list-text">계정에 대한 기존 Cloud Backup 라이센스가 없는 경우 이 시점에서 사용할 충전 방법 유형을 선택하라는 메시지가 표시됩니다. Azure에서 PAYGO(Pay-as-you-Go) Cloud Manager Marketplace 오퍼링을 구독하거나(또는 구독을 여러 개 선택한 경우) NetApp에서 Cloud Backup BYOL 라이센스를 구입하여 활성화할 수 있습니다. <block ref="36493bbba79c7c4eddc07ad75acbe470" category="inline-link-macro-rx"></block></block>
   <block id="eb9411915f253c6cdf360afa2be4b4f0" category="paragraph">Cloud Backup을 사용하면 작업 환경에서 단일 백업 파일을 삭제하거나, 볼륨의 모든 백업을 삭제하거나, 모든 볼륨 백업을 삭제할 수 있습니다. 백업이 더 이상 필요하지 않거나 소스 볼륨을 삭제하고 모든 백업을 제거하려는 경우 모든 백업을 삭제할 수 있습니다.</block>
   <block id="c4760350a0bd1b742a79bce7d3174928" category="list-text">을 클릭합니다 <block ref="50acd719b1954eb4890c002b3b5e71a6" category="inline-image-macro-rx" type="image"></block> 모든 백업을 삭제할 작업 환경의 경우 * Delete all backups * 를 선택합니다.</block>
-  <block id="5a58de0e84e5db9ac743167d182029a5" category="section-title">작업 환경에 대한 클라우드 백업 비활성화 중</block>
-  <block id="7d74a85f6ca999dc566f13bea483a788" category="paragraph">작업 환경에서 Cloud Backup을 비활성화하면 시스템의 각 볼륨에 대한 백업이 비활성화되고 볼륨을 복구하는 기능도 비활성화됩니다. 기존 백업은 삭제되지 않습니다. 이 작업 환경에서 백업 서비스의 등록을 취소하지 않습니다. 기본적으로 모든 백업 및 복원 작업을 일정 기간 동안 일시 중지할 수 있습니다.</block>
   <block id="a9805696126ef48bc68224dc06136bbd" category="list-text">백업 설정 페이지에서 _ 을(를) 클릭합니다 <block ref="50acd719b1954eb4890c002b3b5e71a6" category="inline-image-macro-rx" type="image"></block> 백업을 비활성화하려는 작업 환경에서 * 백업 비활성화 * 를 선택합니다.</block>
   <block id="49cbaef969d427f74417618eaa641c54" category="paragraph">Kubernetes 작업 환경에서 Cloud Backup을 바로 사용할 수 있습니다.</block>
   <block id="a1eb634b81be113bee0e21e6a20c118c" category="inline-image-macro">백업할 영구 볼륨을 선택하는 스크린샷</block>
@@ -1896,4 +1891,21 @@
   <block id="7f55f1ead15a67b08eea9e732f6ed59d" category="list-text">AWS에 저장된 백업의 경우 새로운 S3 버킷과 을 프로비저닝합니다<block ref="d5a117e0ffd0e43cc6657792905f20d6" category="inline-link-rx"></block> 및<block ref="101f211ea2a04b6a9a7d1de9342390c3" category="inline-link-rx"></block>.</block>
   <block id="c44278ad43fbe360e4ca928f671f88b9" category="list-text">Google Cloud에 저장된 백업의 경우 IT 부서는 새로운 버킷과 을 프로비저닝합니다<block ref="7c8e47e4f5e61b3b1d7f7769baa8100f" category="inline-link-rx"></block> 계정/프로젝트 수준에서 프로비저닝됩니다. 작업 환경에 대해 인덱싱이 이미 활성화되어 있는 경우 다음 섹션으로 이동하여 데이터를 복원합니다.</block>
   <block id="1febcfde465ce9cfbf21c08aa17b6a2b" category="paragraph">백업에 대한 Amazon S3 대상이 Canvas에서 작업 환경으로 존재하는 경우 Kubernetes 클러스터를 Amazon S3 작업 환경으로 끌어서 설정 마법사를 시작할 수 있습니다.</block>
+  <block id="1c161354c6da9cce8d6d66c83e6117e3" category="inline-image-macro">Kubernetes 클러스터를 선택한 후 사용할 수 있는 백업 설정 버튼이 표시된 스크린샷</block>
+  <block id="81362333b4667057105418e2c797fb4d" category="paragraph"><block ref="81362333b4667057105418e2c797fb4d" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="d611fbcee8116241337f06ec4995ff9c" category="list-text">백업 설정 페이지에서 _ 을(를) 클릭합니다 <block ref="50acd719b1954eb4890c002b3b5e71a6" category="inline-image-macro-rx" type="image"></block> 볼륨이 있는 Kubernetes 클러스터의 경우 * Auto Backup New Volumes * 를 선택합니다.</block>
+  <block id="014386141b63dc0c43377cb37936b250" category="inline-image-macro">Kubernetes 클러스터의 향후 모든 볼륨에 할당할 백업 정책을 선택하는 방법을 보여 주는 스크린샷</block>
+  <block id="891b6416962c7710069b6bd6d9d86a07" category="paragraph"><block ref="891b6416962c7710069b6bd6d9d86a07" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="3877a9846e783c8af0a4e454f688cc19" category="paragraph">이제 이 백업 정책이 이 Kubernetes 클러스터에서 생성된 모든 새 볼륨에 적용됩니다.</block>
+  <block id="73454754c1af733fbae3cb63539996ef" category="paragraph">ONTAP 클러스터에서 클라우드 백업을 처음 활성화할 때 새로 생성된 볼륨에 백업 정책을 자동으로 할당하는 옵션을 선택하지 않은 경우 나중에 _백업 설정_ 페이지에서 이 옵션을 선택할 수 있습니다. 새로 생성된 볼륨에 백업 정책을 할당하면 모든 데이터가 보호됩니다.</block>
+  <block id="152ce4fa26eb65e8e96a262e60518c22" category="paragraph"><block ref="152ce4fa26eb65e8e96a262e60518c22" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="b0484e1bec383e6b588abfcbce01d8a7" category="list-text">"새 볼륨 자동 백업..." 확인란을 선택하고 새 볼륨에 적용할 백업 정책을 선택한 다음 * 저장 * 을 클릭합니다.</block>
+  <block id="66aafc10059faefcfba7f2cfc427bba5" category="paragraph"><block ref="66aafc10059faefcfba7f2cfc427bba5" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="7c393b904fd78ca1a97c1c3d93e8427f" category="paragraph">이제 이 백업 정책은 Cloud Manager, System Manager 또는 ONTAP CLI를 사용하여 이 작업 환경에서 생성된 모든 새 볼륨에 적용됩니다.</block>
+  <block id="34654042ecfc4226d89a0eec5901d43e" category="inline-link">ONTAP CLI를 사용하여 스냅샷을 삭제하는 방법을 알아봅니다</block>
+  <block id="9ad3e0546cb45c95b651ec5649490c7d" category="paragraph">임시 백업을 생성할 때 소스 볼륨에 스냅샷이 생성됩니다. 이 스냅샷은 일반 스냅샷 스케줄의 일부가 아니므로 회전되지 않습니다. 백업이 완료되면 소스 볼륨에서 이 스냅샷을 수동으로 삭제할 수 있습니다. 이렇게 하면 이 스냅샷과 관련된 블록을 해제할 수 있습니다. 스냅샷의 이름은 CBS-SNSHOT-adhoc 으로 시작됩니다.<block ref="f1f70532768ec75f9b065af279b58c4c" category="inline-link-rx"></block>.</block>
+  <block id="104f191bacc12db075c772f4dbbcec2e" category="paragraph">이러한 제한 사항은 특별히 호출되지 않는 한 검색 및 복원 및 찾아보기 및 복원 방법 모두에 적용됩니다.</block>
+  <block id="03a5b9815bb473e6f4be8d24abee633a" category="list-text">Browse &amp; Restore는 한 번에 최대 100개의 개별 파일을 복원할 수 있습니다.</block>
+  <block id="83e93965854a9ee03d55a2d15f2e8dc7" category="list-text">Search &amp; Restore는 한 번에 하나의 파일을 복원할 수 있습니다.</block>
+  <block id="45597398aa8f6969af8d1f8b4beca231" category="list-text">현재 폴더/디렉토리 복원을 지원하지 않습니다.</block>
 </blocks>
