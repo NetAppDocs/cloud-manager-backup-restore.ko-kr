@@ -831,7 +831,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-05-10 20:50:58 +0000">05/10/2022</time>
+    <time datetime="2022-05-13 17:49:14 +0000">05/13/2022</time>
     
   
 
@@ -855,7 +855,7 @@
 <p>다음 단계를 수행하여 빠르게 시작하십시오. 각 단계에 대한 자세한 내용은 이 항목의 다음 섹션을 참조하십시오.</p>
 </div>
 <div class="paragraph quick-margin-para">
-<p>퍼블릭 S3 엔드포인트를 사용하여 사내 ONTAP 클러스터를 AWS S3에 직접 연결할지, VPN 또는 AWS Direct Connect를 사용할지 아니면 프라이빗 VPC 엔드 포인트 인터페이스를 통해 트래픽을 AWS S3에 연결할지 선택합니다.</p>
+<p>사내 ONTAP 클러스터를 퍼블릭 인터넷을 통해 AWS S3에 직접 연결할지, VPN 또는 AWS 직접 연결을 사용할지, 프라이빗 VPC 엔드 포인트 인터페이스를 통해 트래픽을 AWS S3에 연결할지 선택합니다.</p>
 </div>
 <div class="paragraph quick-margin-para">
 <p><a href="#Network diagrams for connection options">사용 가능한 연결 방법을 참조하십시오.</a></p>
@@ -903,13 +903,13 @@
 </ul>
 </div>
 <div class="paragraph">
-<p>다음 그림에서는 공용 연결 방법과 구성 요소 간에 준비해야 하는 연결을 보여 줍니다.</p>
+<p>다음 다이어그램에서는 * public connection * 메서드와 구성 요소 간에 준비해야 하는 연결을 보여 줍니다.</p>
 </div>
 <div class="paragraph">
 <p><span class="image"><img src="./media/diagram_cloud_backup_onprem_aws.png" alt="Cloud Backup이 소스 시스템 및 백업 파일이 있는 대상 스토리지의 볼륨과 통신하는 방법을 보여주는 다이어그램입니다."></span></p>
 </div>
 <div class="paragraph">
-<p>다음 그림에서는 전용 연결 방법과 구성 요소 간에 준비해야 하는 연결을 보여 줍니다.</p>
+<p>다음 다이어그램에서는 * private connection * 메서드와 구성 요소 간에 준비해야 하는 연결을 보여 줍니다.</p>
 </div>
 <div class="paragraph">
 <p><span class="image"><img src="./media/diagram_cloud_backup_onprem_aws_vpc.png" alt="Cloud Backup이 소스 시스템 및 백업 파일이 있는 대상 스토리지의 볼륨과 통신하는 방법을 보여주는 다이어그램입니다."></span></p>
@@ -936,10 +936,10 @@
 <p><a href="https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-connectors.html" target="_blank" rel="noopener">"커넥터에 대해 자세히 알아보십시오"</a></p>
 </li>
 <li>
-<p><a href="https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-creating-connectors-aws.html" target="_blank" rel="noopener">"AWS에서 커넥터를 생성합니다"</a></p>
+<p><a href="https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-checklist-cm.html" target="_blank" rel="noopener">"커넥터 시작하기"</a></p>
 </li>
 <li>
-<p><a href="https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-managing-connectors.html" target="_blank" rel="noopener">"커넥터 사이를 전환합니다"</a></p>
+<p><a href="https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-creating-connectors-aws.html" target="_blank" rel="noopener">"AWS에서 커넥터를 생성합니다"</a></p>
 </li>
 </ul>
 </div>
@@ -953,10 +953,7 @@
 <div class="ulist">
 <ul>
 <li>
-<p>포트 443을 통해 Cloud Backup Service에 HTTPS로 연결합니다</p>
-</li>
-<li>
-<p>포트 443을 통해 S3 오브젝트 스토리지에 HTTPS로 연결합니다</p>
+<p>포트 443을 통해 Cloud Backup Service 및 S3 오브젝트 스토리지에 HTTPS 연결(엔드포인트 목록 참조 <a href="https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-checklist-cm.html" target="_blank" rel="noopener">"여기"</a>)</p>
 </li>
 <li>
 <p>포트 443을 통해 ONTAP 클러스터 관리 LIF에 HTTPS로 연결합니다</p>
@@ -965,7 +962,10 @@
 </div>
 </li>
 <li>
-<p>(선택 사항) S3에 VPC 엔드 포인트 인터페이스를 사용하도록 설정합니다. 이 기능은 ONTAP 클러스터에서 VPC로 직접 연결 또는 VPN 연결이 있고 커넥터와 S3 사이의 통신을 AWS 내부 네트워크에 유지하고자 하는 경우에 필요합니다. <a href="#Set up a VPC endpoint interface (optional)">VPC 엔드포인트 인터페이스를 설정하는 방법을 확인하십시오.</a></p>
+<p><a href="task-backup-onprem-to-aws.html#set-up-s3-permissions">"커넥터에 S3 버킷을 관리할 수 있는 권한이 있는지 확인합니다"</a>.</p>
+</li>
+<li>
+<p>ONTAP 클러스터에서 VPC로의 직접 연결 또는 VPN 연결이 있고 커넥터와 S3 간의 통신을 AWS 내부 네트워크에 계속 사용하려면 S3에 VPC 엔드포인트 인터페이스를 활성화해야 합니다. <a href="#Configure your system for a private connection using a VPC endpoint interface">VPC 엔드포인트 인터페이스를 설정하는 방법을 확인하십시오.</a></p>
 </li>
 </ul>
 </div>
@@ -989,7 +989,7 @@
 <div class="ulist">
 <ul>
 <li>
-<p>ONTAP 9.7P5 이상</p>
+<p>최소 ONTAP 9.7P5, ONTAP 9.8P11 이상을 사용하는 것이 좋습니다.</p>
 </li>
 <li>
 <p>SnapMirror 라이센스(프리미엄 번들 또는 데이터 보호 번들의 일부로 포함)</p>
@@ -1030,6 +1030,9 @@
 <div class="paragraph">
 <p>사용 중인 IPspace가 "기본값"과 다른 경우 오브젝트 스토리지에 액세스하려면 정적 라우트를 생성해야 할 수 있습니다.</p>
 </div>
+<div class="paragraph">
+<p>IPspace 내의 모든 인터클러스터 LIF는 오브젝트 저장소에 대한 액세스 권한이 있어야 합니다. 현재 IPspace에 대해 이 기능을 구성할 수 없는 경우 모든 인터클러스터 LIF가 오브젝트 저장소에 액세스할 수 있는 전용 IPspace를 만들어야 합니다.</p>
+</div>
 </li>
 <li>
 <p>볼륨이 있는 스토리지 VM에 대해 DNS 서버가 구성되어 있어야 합니다. 자세한 내용은 를 참조하십시오 <a href="https://docs.netapp.com/us-en/ontap/networking/configure_dns_services_auto.html" target="_blank" rel="noopener">"SVM을 위한 DNS 서비스 구성"</a>.</p>
@@ -1038,7 +1041,10 @@
 <p>필요한 경우, 포트 443을 통해 ONTAP에서 오브젝트 스토리지로 클라우드 백업 연결을 허용하고 포트 53(TCP/UDP)을 통해 스토리지 VM에서 DNS 서버로 이름 확인 트래픽을 허용하도록 방화벽 규칙을 업데이트합니다.</p>
 </li>
 <li>
-<p>(선택 사항) AWS에서 S3 연결을 위해 프라이빗 VPC 인터페이스 엔드포인트를 사용하는 경우 HTTPS/443을 사용하려면 S3 엔드포인트 인증서를 ONTAP 클러스터로 로드해야 합니다. <a href="#Set up a VPC endpoint interface (optional)">VPC 엔드포인트 인터페이스를 설정하고 S3 인증서를 로드하는 방법을 알아보십시오.</a></p>
+<p>AWS에서 S3 연결을 위해 전용 VPC 인터페이스 엔드포인트를 사용하는 경우 HTTPS/443을 사용하려면 S3 엔드포인트 인증서를 ONTAP 클러스터로 로드해야 합니다. <a href="#Configure your system for a private connection using a VPC endpoint interface">VPC 엔드포인트 인터페이스를 설정하고 S3 인증서를 로드하는 방법을 알아보십시오.</a></p>
+</li>
+<li>
+<p><a href="task-backup-onprem-to-aws.html#set-up-s3-permissions">"ONTAP 클러스터에 S3 버킷을 액세스할 수 있는 권한이 있는지 확인합니다"</a>.</p>
 </li>
 </ul>
 </div>
@@ -1219,15 +1225,21 @@
 </table>
 </div>
 <div class="sect2">
-<h3 id="amazon-s3-암호화-설정선택-사항">Amazon S3 암호화 설정(선택 사항)</h3>
+<h3 id="데이터-암호화를-위해-고객이-관리하는-aws-키-설정">데이터 암호화를 위해 고객이 관리하는 AWS 키 설정</h3>
 <div class="paragraph">
-<p>기본 Amazon S3 암호화 키를 사용하는 대신 백업 활성화 마법사에서 데이터 암호화에 대해 고유한 사용자 지정 관리 키를 선택할 수 있습니다. 이 경우 암호화 관리 키가 이미 설정되어 있어야 합니다. <a href="https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-setting-up-kms.html" target="_blank" rel="noopener">"자신의 키를 사용하는 방법을 확인하십시오"</a>.</p>
+<p>기본 Amazon S3 암호화 키를 사용하여 온프레미스 클러스터와 S3 버킷 사이에 전달된 데이터를 암호화하려는 경우 기본 설치에 해당 암호화 유형이 사용되기 때문에 모두 설정됩니다.</p>
+</div>
+<div class="paragraph">
+<p>기본 키를 사용하는 대신 고객이 관리하는 키를 데이터 암호화에 사용하려면 Cloud Backup 마법사를 시작하기 전에 암호화 관리 키를 이미 설정해야 합니다. <a href="https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-setting-up-kms.html" target="_blank" rel="noopener">"자신의 키를 사용하는 방법을 확인하십시오"</a>.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="vpc-엔드포인트-인터페이스-설정옵션">VPC 엔드포인트 인터페이스 설정(옵션)</h3>
+<h3 id="vpc-엔드포인트-인터페이스를-사용하여-전용-연결을-위해-시스템을-구성합니다">VPC 엔드포인트 인터페이스를 사용하여 전용 연결을 위해 시스템을 구성합니다</h3>
 <div class="paragraph">
-<p>사내 데이터 센터에서 VPC로 공용 인터넷을 통해 보다 안전하게 연결하려면 백업 활성화 마법사에서 AWS PrivateLink 연결을 선택하는 옵션이 있습니다. VPN 또는 AWS Direct Connect를 통해 사내 시스템을 연결하는 경우 필요합니다.</p>
+<p>표준 공용 인터넷 연결을 사용하려는 경우 모든 권한은 Connector에 의해 설정되며 다른 작업은 필요하지 않습니다. 이 연결 유형은 에 나와 있습니다 <a href="task-backup-onprem-to-aws.html#network-diagrams-for-connection-options">"첫 번째 다이어그램"</a>.</p>
+</div>
+<div class="paragraph">
+<p>사내 데이터 센터에서 VPC로 인터넷을 통해 보다 안전하게 연결하려면 백업 활성화 마법사에서 AWS PrivateLink 연결을 선택하는 옵션이 있습니다. VPN 또는 AWS Direct Connect를 사용하여 프라이빗 IP 주소를 사용하는 VPC 엔드포인트 인터페이스를 통해 사내 시스템을 연결하려는 경우 필요합니다. 이 연결 유형은 에 나와 있습니다 <a href="task-backup-onprem-to-aws.html#network-diagrams-for-connection-options">"두 번째 다이어그램"</a>.</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -1240,7 +1252,7 @@
 <p><span class="image"><img src="./media/screenshot_backup_aws_sec_group.png" alt="Connector와 연결된 AWS 보안 그룹의 스크린샷"></span></p>
 </div>
 <div class="paragraph">
-<p>개인 엔드포인트와의 통신에 포트 80(HTTP)을 사용하는 경우 모두 설정됩니다. 지금 클러스터에서 Cloud Backup을 활성화할 수 있습니다.</p>
+<p>개인 엔드포인트와 통신하는 데 포트 80(HTTP)을 사용하는 경우 모두 설정됩니다. 지금 클러스터에서 Cloud Backup을 활성화할 수 있습니다.</p>
 </div>
 <div class="paragraph">
 <p>개인 엔드포인트와 통신하는 데 포트 443(HTTPS)을 사용하는 경우 다음 4단계에 나와 있는 것처럼 VPC S3 엔드포인트에서 인증서를 복사하여 ONTAP 클러스터에 추가해야 합니다.</p>
@@ -1253,7 +1265,7 @@
 </div>
 </li>
 <li>
-<p>VPC S3 엔드포인트에서 인증서를 가져옵니다. 당신은 이렇게 합니다 <a href="https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-managing-connectors.html#connect-to-the-linux-vm">"Cloud Manager Connector를 호스팅하는 VM에 로그인합니다"</a> 다음 명령을 실행합니다. 엔드포인트의 DNS 이름을 입력할 때 "*"를 대체하여 "bucket"을 앞에 추가합니다.</p>
+<p>VPC S3 엔드포인트에서 인증서를 가져옵니다. 당신은 이렇게 합니다 <a href="https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-managing-connectors.html#connect-to-the-linux-vm" target="_blank" rel="noopener">"Cloud Manager Connector를 호스팅하는 VM에 로그인합니다"</a> 다음 명령을 실행합니다. 엔드포인트의 DNS 이름을 입력할 때 "*"를 대체하여 "bucket"을 앞에 추가합니다.</p>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-text" data-lang="text">[ec2-user@ip-10-160-4-68 ~]$ openssl s_client -connect bucket.vpce-0ff5c15df7e00fbab-yxs7lt8v.s3.us-west-2.vpce.amazonaws.com:443 -showcerts</code></pre>
