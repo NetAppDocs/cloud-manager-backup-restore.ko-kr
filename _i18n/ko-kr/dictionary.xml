@@ -44,7 +44,6 @@
   <block id="3d6e948defef3e67a438f4f7819ed82e" category="doc">온프레미스 ONTAP 데이터를 Azure Blob 저장소에 백업</block>
   <block id="447d2fd8f5815390c0a99de97b857ccb" category="paragraph">"사내 ONTAP 시스템"에는 FAS, AFF 및 ONTAP Select 시스템이 포함됩니다.</block>
   <block id="fee59c74a156abe8a410a85ba51f5956" category="inline-link">System Manager를 사용하여 Cloud Backup을 사용하여 볼륨을 클라우드에 백업하는 방법을 알아보십시오.</block>
-  <block id="f3a66b671251dc0a25cfc24ab6952930" category="admonition">대부분의 경우 Cloud Manager를 사용하여 모든 백업 및 복원 작업을 수행할 수 있습니다. 그러나 ONTAP 9.9.1부터 ONTAP 시스템 관리자를 사용하여 사내 ONTAP 클러스터의 볼륨 백업 작업을 시작할 수 있습니다.<block ref="b4b04e1b4b3140ad1e0e3c0a94c9c848" category="inline-link-rx"></block></block>
   <block id="06ad314b340900d226b1196e1fe289e9" category="section-title">빠른 시작</block>
   <block id="91e06e9a9ef97681b798e2e5e007ba97" category="paragraph">다음 단계를 따라 빠르게 시작하거나 나머지 섹션을 아래로 스크롤하여 자세한 내용을 확인하십시오.</block>
   <block id="9637543697c707cfc64db2a64d650753" category="list-title">span class="image"&gt;&lt;img src=<block ref="0c3becc25d95e48b9ca863002a042824" category="inline-link-rx"></block> Alt="One"&gt;&lt;/span&gt; 구성에 대한 지원을 확인합니다</block>
@@ -833,7 +832,6 @@
   <block id="9e140440889c757014a9bc2eabbf0f85" category="inline-image-macro">ONTAP 시스템에서 AWS S3로 볼륨을 백업할 때의 네트워킹 세부 정보를 보여 주는 스크린샷</block>
   <block id="2c4a72cdb0fff2addedf37dea946cf88" category="paragraph"><block ref="2c4a72cdb0fff2addedf37dea946cf88" category="inline-image-macro-rx" type="image"></block></block>
   <block id="2a12eb134c1a7bf9323eeb868060f734" category="paragraph"><block ref="2a12eb134c1a7bf9323eeb868060f734" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="1a431e8fb608c4c81fa7e72da6aba7c7" category="list-text">포트 443을 통해 S3 오브젝트 스토리지에 HTTPS로 연결합니다</block>
   <block id="ae9c838ce5564e10aa34395e48e9527e" category="paragraph">백업이 위치할 오브젝트 스토리지 공간에 대한 AWS 서브스크립션을 보유하고 있어야 합니다.</block>
   <block id="024bcd810b3401adba3bc1d4a4bd6c05" category="list-text">다음 S3 권한(최신 버전)이 있는지 확인합니다<block ref="0dc063d42cd9e31c0e2c7df9df595c9f" category="inline-link-rx"></block>)는 Connector에 권한을 제공하는 IAM 역할의 일부입니다.</block>
   <block id="b539613501183cf10b8570ed60939fea" category="inline-link">AWS 설명서: IAM 사용자에게 권한을 위임하기 위한 역할 생성</block>
@@ -1707,7 +1705,6 @@
   <block id="9d420cf71a5b9a71abf46456eb58f8ed" category="cell">https://download.docker.com/linux/centos/docker-ce.repo 으로 문의하십시오</block>
   <block id="756d8723023e48c330841a5fab0f9e6f" category="cell">Docker Engine 패키지를 제공합니다.</block>
   <block id="5c37edf1ec718afd1ab9a5a51043e0ce" category="paragraph">다음 단계를 수행하여 빠르게 시작하십시오. 각 단계에 대한 자세한 내용은 이 항목의 다음 섹션을 참조하십시오.</block>
-  <block id="cdc60ee7ffa2e1ee87520360a9985da9" category="paragraph">퍼블릭 S3 엔드포인트를 사용하여 사내 ONTAP 클러스터를 AWS S3에 직접 연결할지, VPN 또는 AWS Direct Connect를 사용할지 아니면 프라이빗 VPC 엔드 포인트 인터페이스를 통해 트래픽을 AWS S3에 연결할지 선택합니다.</block>
   <block id="2095d7a797c25bb28e0630e6f0234176" category="inline-xref">사용 가능한 연결 방법을 참조하십시오.</block>
   <block id="6faac2bde2c603b5020744e34c3b1561" category="paragraph"><block ref="d9d72c889e6f6edab2e44fef9632d7d0" category="inline-xref-macro-rx"></block></block>
   <block id="81d8bb87e59af8b8bc57eaf5d2b911c4" category="paragraph">AWS VPC에 이미 Connector가 구축되어 있는 경우 모두 설정됩니다. 그렇지 않은 경우, ONTAP 데이터를 AWS S3 스토리지에 백업하기 위해 AWS에서 커넥터를 생성해야 합니다. 또한 AWS S3에 연결할 수 있도록 커넥터의 네트워크 설정을 사용자 지정해야 합니다.</block>
@@ -1732,12 +1729,8 @@
   <block id="1b0ffad6683da5341fb4aef28a59963a" category="paragraph">AWS VPC에 이미 Connector를 구축한 경우 모든 준비가 된 것입니다. 그렇지 않은 경우, ONTAP 데이터를 AWS S3 스토리지에 백업하기 위해 AWS에서 새 커넥터를 생성해야 합니다. 온-프레미스에 배포되었거나 다른 클라우드 공급자에 배포된 Connector는 사용할 수 없습니다.</block>
   <block id="9b740c2dda97a2c23cd8f8cf0fc5aac6" category="inline-link">AWS에서 커넥터를 생성합니다</block>
   <block id="37ddae853fabb564f9fc3c5ab06062ee" category="list-text"><block ref="37ddae853fabb564f9fc3c5ab06062ee" category="inline-link-rx"></block></block>
-  <block id="f86faf1862caeed3f6dccfce3a669edf" category="inline-link">커넥터 사이를 전환합니다</block>
-  <block id="536d81ee151729245ef15564ad0455b4" category="list-text"><block ref="536d81ee151729245ef15564ad0455b4" category="inline-link-rx"></block></block>
   <block id="929d25665bc92d22cf4a79265248dd36" category="section-title">커넥터 네트워킹 요구 사항</block>
-  <block id="d21941843d3f51f6d91597bbc6f2fe96" category="list-text">포트 443을 통해 Cloud Backup Service에 HTTPS로 연결합니다</block>
   <block id="db41e7a8de9567fec002e93320c428ad" category="inline-xref">VPC 엔드포인트 인터페이스를 설정하는 방법을 확인하십시오.</block>
-  <block id="fa5aa396756a091429ff95b88b2cb91f" category="list-text">(선택 사항) S3에 VPC 엔드 포인트 인터페이스를 사용하도록 설정합니다. 이 기능은 ONTAP 클러스터에서 VPC로 직접 연결 또는 VPN 연결이 있고 커넥터와 S3 사이의 통신을 AWS 내부 네트워크에 유지하고자 하는 경우에 필요합니다. <block ref="96349a58af3e05e4441faa6bbc02f81a" category="inline-xref-macro-rx"></block></block>
   <block id="aa8387a4bff8defdb2d4c5777a1bf540" category="section-title">ONTAP 클러스터를 준비합니다</block>
   <block id="c5fe798394fdf9d90bcf14b0e01b5dda" category="section-title">Cloud Manager에서 ONTAP 클러스터를 검색합니다</block>
   <block id="7e7c991226da8981bccabf973fe2eba0" category="paragraph">볼륨 데이터 백업을 시작하려면 Cloud Manager에서 사내 ONTAP 클러스터를 검색해야 합니다. 클러스터를 추가하려면 클러스터 관리 IP 주소와 admin 사용자 계정의 암호를 알아야 합니다.</block>
@@ -1750,7 +1743,6 @@
   <block id="e30347a67bfdcb246f056cfd9aa4efbd" category="list-text">볼륨이 있는 스토리지 VM에 대해 DNS 서버가 구성되어 있어야 합니다. 자세한 내용은 를 참조하십시오<block ref="f1c08d303d78e879204468f0ff96d977" category="inline-link-rx"></block>.</block>
   <block id="ac4f47e577f8d7771d01f8331c6f4736" category="list-text">필요한 경우, 포트 443을 통해 ONTAP에서 오브젝트 스토리지로 클라우드 백업 연결을 허용하고 포트 53(TCP/UDP)을 통해 스토리지 VM에서 DNS 서버로 이름 확인 트래픽을 허용하도록 방화벽 규칙을 업데이트합니다.</block>
   <block id="3389249695ca8c10d31bf35b73b0c94e" category="inline-xref">VPC 엔드포인트 인터페이스를 설정하고 S3 인증서를 로드하는 방법을 알아보십시오.</block>
-  <block id="5c124f6cf2bfcfbf94279be52b0632d2" category="list-text">(선택 사항) AWS에서 S3 연결을 위해 프라이빗 VPC 인터페이스 엔드포인트를 사용하는 경우 HTTPS/443을 사용하려면 S3 엔드포인트 인증서를 ONTAP 클러스터로 로드해야 합니다. <block ref="53258c6a820319d399112ef2849fb9e8" category="inline-xref-macro-rx"></block></block>
   <block id="9433d8064a183eecdc4dfa1b31b38834" category="section-title">라이센스 요구 사항을 확인합니다</block>
   <block id="22340c7eefb94e5f665f788bc6c331ce" category="inline-link">AWS Cloud Manager Marketplace 오퍼링</block>
   <block id="ae026b849c4275f68e7902a73ecf0632" category="paragraph">모든 지역의 사내 시스템에서 Amazon S3로 백업을 생성할 수 있습니다<block ref="6bd619c4d649497ad0b6da421785c6ae" category="inline-link-rx"></block>AWS GovCloud 지역 포함. 서비스를 설정할 때 백업을 저장할 지역을 지정합니다.</block>
@@ -1764,20 +1756,13 @@
   <block id="e4ba209f1e83c31c97d006aab1897e1d" category="list-text">서비스를 활성화하면 백업 마법사에서 액세스 키와 암호 키를 입력하라는 메시지가 표시됩니다. 이러한 자격 증명은 ONTAP 클러스터에 전달되므로 ONTAP는 S3 버킷으로 데이터를 백업 및 복원할 수 있습니다. 이를 위해서는 다음과 같은 권한을 가진 IAM 사용자를 생성해야 합니다.</block>
   <block id="b8471833713b205fce6b0c37afe7c220" category="section-title">클라우드 복원 인터넷 액세스를 확인합니다</block>
   <block id="4f0f8734b8eb262313537f384daa2aad" category="cell">http://amazonlinux.us-east-1.amazonaws.com/2/extras/docker/stable/ x86_64/4bf88ee77c395ffe1e0c3ca68530dfb3a683ec65a4a1ce9c0ff394be50e922b2/</block>
-  <block id="68ff90feee01d7ff9f80cbfc1edd7eb9" category="section-title">Amazon S3 암호화 설정(선택 사항)</block>
-  <block id="acda78b900d86834702d7cf022c5c307" category="paragraph">기본 Amazon S3 암호화 키를 사용하는 대신 백업 활성화 마법사에서 데이터 암호화에 대해 고유한 사용자 지정 관리 키를 선택할 수 있습니다. 이 경우 암호화 관리 키가 이미 설정되어 있어야 합니다.<block ref="cec2a2aa7c177fd504439377209f1e4a" category="inline-link-rx"></block>.</block>
-  <block id="eadf50bb3952a4b3b149df1a7616cede" category="section-title">VPC 엔드포인트 인터페이스 설정(옵션)</block>
-  <block id="4e1fc0c572b0fc7c8464dc57aa414942" category="paragraph">사내 데이터 센터에서 VPC로 공용 인터넷을 통해 보다 안전하게 연결하려면 백업 활성화 마법사에서 AWS PrivateLink 연결을 선택하는 옵션이 있습니다. VPN 또는 AWS Direct Connect를 통해 사내 시스템을 연결하는 경우 필요합니다.</block>
   <block id="c2217bd93d297ddc08ba3a9c93fb29aa" category="list-text">Amazon VPC 콘솔 또는 명령줄을 사용하여 인터페이스 엔드포인트 구성을 생성합니다.<block ref="4b288ecb11624923e7ee69f96a59c546" category="inline-link-rx"></block>.</block>
   <block id="4adab5b6b391c43cf0cfd73c09d5bdf8" category="inline-xref">백업 정책에서 S3 권한을 추가합니다</block>
   <block id="c68e08ee2b5be8ff44e713441b6aa84d" category="list-text">Cloud Manager Connector와 연결된 보안 그룹 구성을 수정합니다. 정책을 "사용자 지정"("전체 액세스"에서)으로 변경해야 하며 반드시 다음을 수행해야 합니다 <block ref="52cd24ecfd99d5b16a10d03c54f9d16b" category="inline-xref-macro-rx"></block> 앞서 설명한 것처럼.</block>
-  <block id="0779f8ec0f01d3d713051f10c0f5269a" category="paragraph">개인 엔드포인트와의 통신에 포트 80(HTTP)을 사용하는 경우 모두 설정됩니다. 지금 클러스터에서 Cloud Backup을 활성화할 수 있습니다.</block>
-  <block id="209e22c3253a318498527950bcbd07d9" category="paragraph">개인 엔드포인트와 통신하는 데 포트 443(HTTPS)을 사용하는 경우 다음 4단계에 나와 있는 것처럼 VPC S3 엔드포인트에서 인증서를 복사하여 ONTAP 클러스터에 추가해야 합니다.</block>
   <block id="39bab378d876d4ae9f917360ff7b633a" category="list-text">AWS 콘솔에서 엔드포인트의 DNS 이름을 가져옵니다.</block>
   <block id="51cca00855dd27ddbb729c64d6988680" category="inline-image-macro">AWS 콘솔에서 VPC 엔드포인트의 DNS 이름 스크린샷</block>
   <block id="63c7ff1056127bdaee465b05c7c83d3c" category="paragraph"><block ref="63c7ff1056127bdaee465b05c7c83d3c" category="inline-image-macro-rx" type="image"></block></block>
   <block id="31b738479d7d16ff849ac312f5649e77" category="inline-link">Cloud Manager Connector를 호스팅하는 VM에 로그인합니다</block>
-  <block id="8d8e3b0bb1a13ecfbdfdb5a14b2e2618" category="list-text">VPC S3 엔드포인트에서 인증서를 가져옵니다. 당신은 이렇게 합니다<block ref="da3c83ae0d03d7e43a4d87fed2f5f3ba" category="inline-link-rx"></block> 다음 명령을 실행합니다. 엔드포인트의 DNS 이름을 입력할 때 "*"를 대체하여 "bucket"을 앞에 추가합니다.</block>
   <block id="b11703e578eba56af91d25ee75ec1594" category="list-text">이 명령의 출력에서 S3 인증서(BEGIN /end certificate 태그 사이에 있는 모든 데이터)를 복사합니다.</block>
   <block id="042284b067b431d7d21168a5ada6e448" category="list-text">ONTAP 클러스터 CLI에 로그인하여 다음 명령을 사용하여 복사한 인증서를 적용합니다(자체 스토리지 VM 이름 대체).</block>
   <block id="d0285b972453920d44e9bfc537f86825" category="section-title">클라우드 백업 활성화</block>
@@ -1908,4 +1893,29 @@
   <block id="03a5b9815bb473e6f4be8d24abee633a" category="list-text">Browse &amp; Restore는 한 번에 최대 100개의 개별 파일을 복원할 수 있습니다.</block>
   <block id="83e93965854a9ee03d55a2d15f2e8dc7" category="list-text">Search &amp; Restore는 한 번에 하나의 파일을 복원할 수 있습니다.</block>
   <block id="45597398aa8f6969af8d1f8b4beca231" category="list-text">현재 폴더/디렉토리 복원을 지원하지 않습니다.</block>
+  <block id="e41af01898aa01f20e528d19fdda2ec8" category="paragraph">사내 ONTAP 클러스터를 퍼블릭 인터넷을 통해 AWS S3에 직접 연결할지, VPN 또는 AWS 직접 연결을 사용할지, 프라이빗 VPC 엔드 포인트 인터페이스를 통해 트래픽을 AWS S3에 연결할지 선택합니다.</block>
+  <block id="c97ea7350518d38329c34d289bc4771e" category="paragraph">다음 다이어그램에서는 * public connection * 메서드와 구성 요소 간에 준비해야 하는 연결을 보여 줍니다.</block>
+  <block id="ce894cc2b182c2b6d47f70da3e6e4fb3" category="paragraph">다음 다이어그램에서는 * private connection * 메서드와 구성 요소 간에 준비해야 하는 연결을 보여 줍니다.</block>
+  <block id="d41b031ef25fff764808749edcc2cd28" category="inline-link">커넥터 시작하기</block>
+  <block id="b37ed402641ff6f2d1b0b55061547f2d" category="list-text"><block ref="b37ed402641ff6f2d1b0b55061547f2d" category="inline-link-rx"></block></block>
+  <block id="0dae4177288fa87563dc166ad6dad9d7" category="list-text">포트 443을 통해 Cloud Backup Service 및 S3 오브젝트 스토리지에 HTTPS 연결(엔드포인트 목록 참조 <block ref="ebd49d7903d0a4bb2b6ed64e3736bb95" category="inline-link-macro-rx"></block>)</block>
+  <block id="76e709935c290dea4c7b1c0de4918211" category="inline-link-macro">커넥터에 S3 버킷을 관리할 수 있는 권한이 있는지 확인합니다</block>
+  <block id="834f26d80b9784d547a441b2c02d3ad5" category="list-text"><block ref="7eb7d4d5a2ffca3aec2449e14ed03205" category="inline-link-macro-rx"></block>.</block>
+  <block id="a4af58b20c3303b39e56dee8ca99e1a3" category="list-text">ONTAP 클러스터에서 VPC로의 직접 연결 또는 VPN 연결이 있고 커넥터와 S3 간의 통신을 AWS 내부 네트워크에 계속 사용하려면 S3에 VPC 엔드포인트 인터페이스를 활성화해야 합니다. <block ref="038eee040120b4244a9c2b9d19ca5787" category="inline-xref-macro-rx"></block></block>
+  <block id="ce59fdd3e4f02ba3606e4e3cf3dde6c9" category="list-text">최소 ONTAP 9.7P5, ONTAP 9.8P11 이상을 사용하는 것이 좋습니다.</block>
+  <block id="187b50ee8f2351a69b8fa6b8b42687d5" category="paragraph">IPspace 내의 모든 인터클러스터 LIF는 오브젝트 저장소에 대한 액세스 권한이 있어야 합니다. 현재 IPspace에 대해 이 기능을 구성할 수 없는 경우 모든 인터클러스터 LIF가 오브젝트 저장소에 액세스할 수 있는 전용 IPspace를 만들어야 합니다.</block>
+  <block id="e3cb89ec96389280988a5bc1aab122d8" category="list-text">AWS에서 S3 연결을 위해 전용 VPC 인터페이스 엔드포인트를 사용하는 경우 HTTPS/443을 사용하려면 S3 엔드포인트 인증서를 ONTAP 클러스터로 로드해야 합니다. <block ref="1dbd4fd842a70fbdf055f03b19c52e23" category="inline-xref-macro-rx"></block></block>
+  <block id="99c8c5b6a1c2808dc952ab4207702a72" category="inline-link-macro">ONTAP 클러스터에 S3 버킷을 액세스할 수 있는 권한이 있는지 확인합니다</block>
+  <block id="b670b978b055bbffbc3ac15528f4ae84" category="list-text"><block ref="38941058629b01cbe2eac550f126312e" category="inline-link-macro-rx"></block>.</block>
+  <block id="868fb9c55d4ddac7523d9c4697eb9d9f" category="section-title">데이터 암호화를 위해 고객이 관리하는 AWS 키 설정</block>
+  <block id="72828ef5ab3d5aa027bfcdd1a9224f67" category="paragraph">기본 Amazon S3 암호화 키를 사용하여 온프레미스 클러스터와 S3 버킷 사이에 전달된 데이터를 암호화하려는 경우 기본 설치에 해당 암호화 유형이 사용되기 때문에 모두 설정됩니다.</block>
+  <block id="d19ad4a91ccc5af70a541d99c6ad6d99" category="paragraph">기본 키를 사용하는 대신 고객이 관리하는 키를 데이터 암호화에 사용하려면 Cloud Backup 마법사를 시작하기 전에 암호화 관리 키를 이미 설정해야 합니다.<block ref="cec2a2aa7c177fd504439377209f1e4a" category="inline-link-rx"></block>.</block>
+  <block id="486567bdd60f21beefa59174661f6d52" category="section-title">VPC 엔드포인트 인터페이스를 사용하여 전용 연결을 위해 시스템을 구성합니다</block>
+  <block id="d37ada70a820c5c84f992a48e05045cf" category="inline-link-macro">첫 번째 다이어그램</block>
+  <block id="55082684c888abf218793c0bd2f3b5e4" category="paragraph">표준 공용 인터넷 연결을 사용하려는 경우 모든 권한은 Connector에 의해 설정되며 다른 작업은 필요하지 않습니다. 이 연결 유형은 에 나와 있습니다 <block ref="b1224f75874af139b1e7a51a1da970e9" category="inline-link-macro-rx"></block>.</block>
+  <block id="7cb65d7424b08922f4902800ae6b79d0" category="inline-link-macro">두 번째 다이어그램</block>
+  <block id="ca301c03d4c5ce91946df8b15f3dbe5f" category="paragraph">사내 데이터 센터에서 VPC로 인터넷을 통해 보다 안전하게 연결하려면 백업 활성화 마법사에서 AWS PrivateLink 연결을 선택하는 옵션이 있습니다. VPN 또는 AWS Direct Connect를 사용하여 프라이빗 IP 주소를 사용하는 VPC 엔드포인트 인터페이스를 통해 사내 시스템을 연결하려는 경우 필요합니다. 이 연결 유형은 에 나와 있습니다 <block ref="0f7afb920fb200721cfd6111e33f99d4" category="inline-link-macro-rx"></block>.</block>
+  <block id="adba439901e690844020282dc0e87c32" category="paragraph">개인 엔드포인트와 통신하는 데 포트 80(HTTP)을 사용하는 경우 모두 설정됩니다. 지금 클러스터에서 Cloud Backup을 활성화할 수 있습니다.</block>
+  <block id="d58fcd28ca27643e7a41fc5c17398721" category="paragraph">개인 엔드포인트와 통신하는 데 포트 443(HTTPS)을 사용하는 경우 다음 4단계에 나와 있는 것처럼 VPC S3 엔드포인트에서 인증서를 복사하여 ONTAP 클러스터에 추가해야 합니다.</block>
+  <block id="9494561b819165d9f1e8e339562e316d" category="list-text">VPC S3 엔드포인트에서 인증서를 가져옵니다. 당신은 이렇게 합니다<block ref="0617c2fce5134dbc852516af04fe18ee" category="inline-link-rx"></block> 다음 명령을 실행합니다. 엔드포인트의 DNS 이름을 입력할 때 "*"를 대체하여 "bucket"을 앞에 추가합니다.</block>
 </blocks>
