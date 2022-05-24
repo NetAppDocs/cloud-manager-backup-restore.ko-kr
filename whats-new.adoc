@@ -30,7 +30,7 @@ Cloud Backup의 새로운 기능에 대해 알아보십시오.
 
 === Kubernetes 클러스터에서 새로 생성된 볼륨에 자동으로 적용할 백업 정책을 구성합니다
 
-Cloud Backup을 활성화한 후 Kubernetes 클러스터에 새로운 영구 볼륨을 추가한 경우에는 이전에 해당 볼륨에 대한 백업을 구성해야 했습니다. 이제 새로 생성된 볼륨에 자동으로 적용되는 정책을 선택할 수 있습니다. 이 옵션은 새 Kubernetes 클러스터에 대해 Cloud Backup을 활성화할 때 설정 마법사에서 사용할 수 있습니다. 또는 https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-manage-backups-kubernetes.html#setting-a-backup-policy-to-be-assigned-to-new-volumes["백업 설정 페이지에서"] 이미 Cloud Backup을 활성화한 클러스터의 경우
+Cloud Backup을 활성화한 후 Kubernetes 클러스터에 새로운 영구 볼륨을 추가한 경우에는 이전에 해당 볼륨에 대한 백업을 구성해야 했습니다. 이제 새로 생성된 볼륨에 자동으로 적용되는 정책을 선택할 수 있습니다. 이 옵션은 새 Kubernetes 클러스터에 대한 Cloud Backup을 활성화할 때 설정 마법사에서 사용할 수 있습니다.
 
 
 
