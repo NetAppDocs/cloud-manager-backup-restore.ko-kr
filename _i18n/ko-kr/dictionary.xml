@@ -1910,7 +1910,6 @@
   <block id="677e0bc1aa65f4ce3324deca0bcf87f0" category="section-title">2022년 6월 8일</block>
   <block id="afd87a86d8a5973d91f3fcc4e85c719f" category="section-title">Cloud Backup for Virtual Machines 1.1.0이 현재 GA로 제공됩니다</block>
   <block id="f1567e25bd3a491ec53134f59ea7cea7" category="paragraph">SnapCenter Plug-in for VMware vSphere를 Cloud Manager와 통합하면 가상 머신의 데이터를 보호할 수 있습니다. 데이터 저장소를 클라우드에 백업하고 VMware vSphere용 사내 SnapCenter 플러그인으로 가상 머신을 간편하게 복원할 수 있습니다.</block>
-  <block id="6717b62dda7e2cf5be6115ad2b4e21c0" category="paragraph"><block ref="5aaaed2bc5a1633b4c8e00ce27b6998a" category="inline-link-rx"></block>.</block>
   <block id="db46ba2f888d41e44da25c2d8c1f406d" category="summary">데이터 저장소와 가상 머신을 보고 VMware vSphere 인스턴스용 SnapCenter 플러그인을 편집할 수 있습니다.</block>
   <block id="880521c077c3d9130e51f737ddd86b15" category="doc">가상 시스템 보호 관리</block>
   <block id="3dea1ab8ef5c1f9d8be4e192694f4eda" category="paragraph">데이터를 백업 및 복원하기 전에 정책, 데이터 저장소 및 가상 시스템을 볼 수 있습니다. 데이터베이스, 정책 또는 리소스 그룹의 변경에 따라 Cloud Manager UI에서 업데이트를 새로 고칠 수 있습니다.</block>
@@ -1995,10 +1994,12 @@
   <block id="b8b6d4fc48cb996b1ca14cbf78ac8cae" category="paragraph">Cloud Backup for Virtual Machines에 정의된 정책 중 하나를 사용하여 데이터 저장소를 클라우드에 백업해야 합니다.</block>
   <block id="37a8959a214e35c525dec921ae5021bc" category="admonition">사용자 지정 정책은 지원되지 않습니다.</block>
   <block id="af84c6f32a8cf07ced1b300921376b2a" category="paragraph">Cloud Manager에서 * Backup &amp; Restore * &gt; * Virtual Machines * &gt; * Policies * 를 클릭하여 기본 정책을 볼 수 있습니다.</block>
-  <block id="870077b3f635684d7232d0a3608babd9" category="sidebar">가상 머신 데이터 백업 및 복원</block>
   <block id="4cfbdcb9aba741b123b3c46a8341bf59" category="sidebar">가상 머신 데이터 보호</block>
   <block id="b2736084b30c35472d74c3c29a818a95" category="sidebar">가상 머신 보호 관리</block>
   <block id="c2c86860cad5cd95ae9ef9c003e01d57" category="sidebar">가상 머신 데이터를 복구합니다</block>
   <block id="3eb97a71011fe0dae37080fd785e4db5" category="sidebar">가상 머신 데이터 백업 및 복원</block>
   <block id="b0105dd67bfb6e59c14b4606672bace7" category="sidebar">데이터 저장소를 클라우드에 백업합니다</block>
+  <block id="b418e05c847b656e4a8ac26f2f0cc045" category="inline-link">가상 시스템을 클라우드로 보호하는 방법에 대해 자세히 알아보십시오</block>
+  <block id="3a5ea6bb0616fe3f66bd74e5e18fd1b3" category="paragraph"><block ref="95fa49d8f0b9a0affedd5e0d4a52c2d2" category="inline-link-rx"></block>.</block>
+  <block id="7c8db0bef9b3c6a1335fe8f0a09bfdef" category="sidebar">가상 머신 데이터 백업 및 복원</block>
 </blocks>
