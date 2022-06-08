@@ -18,6 +18,18 @@ Cloud Backup의 새로운 기능에 대해 알아보십시오.
 
 
 
+== 2022년 6월 8일
+
+
+
+=== Cloud Backup for Virtual Machines 1.1.0이 현재 GA로 제공됩니다
+
+SnapCenter Plug-in for VMware vSphere를 Cloud Manager와 통합하면 가상 머신의 데이터를 보호할 수 있습니다. 데이터 저장소를 클라우드에 백업하고 VMware vSphere용 사내 SnapCenter 플러그인으로 가상 머신을 간편하게 복원할 수 있습니다.
+
+https://docs.netapp.com/us-en/cloud-manager-backup-restore/concept-protect-vm-data.html["사내 애플리케이션 데이터를 클라우드로 보호하는 방법에 대해 자세히 알아보십시오"].
+
+
+
 == 2022년 5월 2일
 
 

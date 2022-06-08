@@ -1,0 +1,104 @@
+---
+sidebar: sidebar 
+permalink: task-backup-vm-data-to-cloud.html 
+keywords: backing up, back up, backup, backup virtual machine data, back up vm, Azure, Amazon Web services, Cloud Backup, cloud backup service, backup datastores 
+summary: 사내 ONTAP에서 클라우드로 데이터 저장소를 백업합니다. 
+---
+= 데이터 저장소를 클라우드에 백업합니다
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+SnapCenter Plug-in for VMware vSphere를 Cloud Manager와 통합하여 데이터 저장소를 클라우드에 백업할 수 있습니다. VM 관리자는 이를 통해 스토리지 효율성을 위해 데이터를 쉽고 빠르게 백업 및 아카이브하고 클라우드 전환을 가속화할 수 있습니다.
+
+
+NOTE: 를 모두 충족했는지 확인합니다 link:concept-protect-vm-data.html#Requirements["요구 사항"] 클라우드에 데이터 저장소를 백업하기 전에.
+
+
+
+== VMware vSphere용 SnapCenter 플러그인을 등록합니다
+
+Cloud Manager에서 VMware vSphere용 SnapCenter 플러그인을 등록하여 데이터 저장소와 가상 머신을 Cloud Manager에 표시해야 합니다. 관리 액세스 권한이 있는 사용자만 VMware vSphere용 SnapCenter 플러그인을 등록할 수 있습니다.
+
+
+NOTE: VMware vSphere용 SnapCenter 플러그인을 여러 개 등록할 수 있습니다. 그러나 일단 등록하면 VMware vSphere용 SnapCenter 플러그인을 제거할 수 없습니다.
+
+.단계
+. Cloud Manager UI에서 * 백업 및 복원 * > * 가상 머신 * 을 클릭합니다.
+. 설정 * 드롭다운에서 * SnapCenter Plug-in for VMware vSphere * 를 클릭합니다.
+. VMware vSphere * 용 SnapCenter 플러그인 등록 을 클릭합니다.
+. 다음 세부 정보를 지정합니다.
++
+.. VMware vSphere용 SnapCenter 플러그인 필드에서 VMware vSphere용 SnapCenter 플러그인의 FQDN 또는 IP 주소를 지정합니다.
+.. 포트 필드에서 VMware vSphere용 SnapCenter 플러그인이 실행되고 있는 포트 번호를 지정합니다.
++
+VMware vSphere용 SnapCenter 플러그인과 애플리케이션용 클라우드 백업 간에 통신이 가능하도록 포트가 열려 있는지 확인해야 합니다.
+
+.. 사용자 이름 및 암호 필드에서 관리자 역할을 가진 사용자의 자격 증명을 지정합니다.
+
+
+. Register * 를 클릭합니다.
+
+
+* 완료 후 *
+
+등록된 VMware vSphere용 SnapCenter 플러그인을 사용하여 보호할 수 있는 모든 데이터 저장소와 가상 머신을 보려면 * 백업 및 복원 > 가상 머신 * 을 클릭합니다.
+
+
+
+== 데이터 저장소를 백업합니다
+
+단일 정책을 사용하여 하나 이상의 데이터 저장소를 클라우드에 동시에 백업할 수 있습니다. 기본 정책만 데이터 저장소에 할당할 수 있습니다.
+
+.단계
+. Cloud Manager UI에서 * 백업 및 복원 * > * 가상 머신 * 을 클릭합니다.
+. 을 클릭합니다 image:icon-action.png["조치"] 백업하려는 데이터 저장소에 대해 * Activate Backup * 를 클릭합니다.
+. 작업 환경을 추가합니다.
++
+Cloud Manager에서 검색할 ONTAP 클러스터를 구성하여 데이터 저장소를 백업합니다. 데이터 저장소 중 하나에 작업 환경을 추가한 후 동일한 ONTAP 클러스터에 상주하는 다른 모든 데이터 저장소에 다시 사용할 수 있습니다.
+
++
+.. SVM에 해당하는 * 작업 환경 추가 * 를 클릭합니다.
+.. 작업 환경 추가 마법사에서 다음을 수행합니다.
++
+... ONTAP 클러스터의 IP 주소를 지정합니다.
+... ONTAP 클러스터 사용자의 자격 증명을 지정합니다.
+
+
+.. 작업 환경 추가 * 를 클릭합니다.
+
+
+. 클라우드 공급자를 선택하고 구성합니다.
++
+[role="tabbed-block"]
+====
+.Amazon Web Services를 구성합니다
+--
+.. AWS 계정을 지정합니다.
+.. AWS 액세스 키 필드에서 데이터 암호화에 대한 키를 지정합니다.
+.. AWS 암호 키 필드에서 데이터 암호화에 대한 암호를 지정합니다.
+.. 백업을 생성할 영역을 선택합니다.
+.. 작업 환경으로 추가된 ONTAP 클러스터의 IP 주소를 지정합니다.
+
+
+--
+.Microsoft Azure를 구성합니다
+--
+.. Azure 구독 ID를 지정합니다.
+.. 백업을 생성할 영역을 선택합니다.
+.. 새 자원 그룹을 만들거나 기존 자원 그룹을 사용합니다.
+.. 작업 환경으로 추가된 ONTAP 클러스터의 IP 주소를 지정합니다.
+
+
+--
+====
+
+
+. 정책 할당 페이지에서 정책을 선택하고 * 다음 * 을 클릭합니다.
+. 세부 정보를 검토하고 * 백업 활성화 * 를 클릭합니다.
+

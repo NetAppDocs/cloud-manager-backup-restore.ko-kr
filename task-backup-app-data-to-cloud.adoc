@@ -138,4 +138,4 @@ NOTE: 작업 환경 세부 정보가 업데이트될 때까지 진행해서는 �
 
 다음 비디오에서는 데이터베이스 보호에 대한 간단한 단계별 안내를 보여 줍니다.
 
-video::bUwnE18qnag[youtube, width=848,height=480,end=164]
+video::bUwnE18qnag[youtube,width=848,height=480,end=164]

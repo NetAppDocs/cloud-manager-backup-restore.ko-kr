@@ -1,0 +1,93 @@
+---
+sidebar: sidebar 
+permalink: concept-protect-vm-data.html 
+keywords: protect virtual machines, vm, policy, policies, backup back up, restore, SnapCenter Plug-in 
+summary: 가상 시스템의 데이터 보호에 대해 자세히 알아보고 다양한 정책을 이해하십시오. 
+---
+= 가상 시스템 데이터 보호
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+SnapCenter Plug-in for VMware vSphere를 Cloud Manager와 통합하면 가상 머신의 데이터를 보호할 수 있습니다. 데이터 저장소를 클라우드에 백업하고 VMware vSphere용 사내 SnapCenter 플러그인으로 가상 머신을 간편하게 복원할 수 있습니다.
+
+데이터 저장소를 Amazon Web Services S3 또는 Microsoft Azure Blob에 백업할 수 있습니다.
+
+
+
+== 요구 사항
+
+클라우드 서비스에 데이터 저장소 및 가상 머신 백업을 시작하기 전에 다음 요구 사항을 읽고 지원되는 구성이 있는지 확인하십시오.
+
+* VMware vSphere 4.6P1 이상용 SnapCenter 플러그인
+* ONTAP 9.8 이상
+* Cloud Manager 3.9 이상
+* VMware vSphere 4.6P1용 SnapCenter 플러그인에서 하나 이상의 백업을 수행해야 합니다.
+* SnapCenter Plug-in for VMware vSphere에서 Cloud Manager의 Cloud Backup for Virtual Machines 정책에 대한 레이블 또는 레이블이 없는 상태로 최소 1일, 매주 또는 매월 정책을 구현합니다.
+* 사전 구성된 정책의 경우 VMware vSphere 및 클라우드용 SnapCenter 플러그인의 데이터 저장소에 대한 스케줄 계층이 동일해야 합니다.
+* FlexGroup 볼륨 백업 및 복구는 지원되지 않으므로 데이터 저장소에 FlexGroup 볼륨이 없는지 확인합니다.
+* 암호화된 볼륨 복원이 지원되지 않으므로 암호화된 볼륨이 없는지 확인합니다.
+* 필요한 리소스 그룹에서 " *_Recent * "를 비활성화합니다. 리소스 그룹에 대해 " *_Recent * "를 설정한 경우 해당 리소스 그룹의 백업을 클라우드의 데이터 보호에 사용할 수 없으며 이후에 복구 작업에 사용할 수 없습니다.
+* 가상 머신이 복구될 대상 데이터 저장소에 VMDK, VMX, VMSD 등과 같은 모든 가상 머신 파일의 복제본을 수용할 수 있는 공간이 충분한지 확인합니다.
+* 대상 데이터 저장소에 이전 복원 작업 실패의 restore_xxx_xxxxxx_filename 형식으로 오래된 가상 머신 파일이 없는지 확인합니다. 복구 작업을 트리거하기 전에 오래된 파일을 삭제해야 합니다.
+
+
+다음 이미지는 각 구성 요소와 이러한 구성 요소 간에 준비해야 하는 연결을 보여 줍니다.
+
+image:cloud_backup_vm.png["가상 머신에 대한 클라우드 백업의 아키텍처 다이어그램"]
+
+
+
+== 보호 정책
+
+Cloud Backup for Virtual Machines에 정의된 정책 중 하나를 사용하여 데이터 저장소를 클라우드에 백업해야 합니다.
+
+
+NOTE: 사용자 지정 정책은 지원되지 않습니다.
+
+Cloud Manager에서 * Backup & Restore * > * Virtual Machines * > * Policies * 를 클릭하여 기본 정책을 볼 수 있습니다.
+
+|===
+| 정책 이름 | 라벨 | 보존 값 
+
+
+ a| 
+1년 일일 LTR
+ a| 
+매일
+ a| 
+366
+
+
+
+ a| 
+5년 일일 LTR
+ a| 
+매일
+ a| 
+1830
+
+
+
+ a| 
+7년 주간 LTR
+ a| 
+매주
+ a| 
+370
+
+
+
+ a| 
+10년 월간 LTR
+ a| 
+매월
+ a| 
+120
+
+|===
