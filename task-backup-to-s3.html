@@ -169,7 +169,39 @@
   
   <!-- Start Page Toolbar -->
   
-  <div class="page-nav-toolbar"><div class="page-nav-contribute"><a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-backup-restore/issues/new?body=Page%3A%20[Cloud Volumes ONTAP 데이터를 Amazon S3에 백업](https://docs.netapp.com/ko-kr/cloud-manager-backup-restore/task-backup-to-s3.html)" class="page-nav-contribute-link" role="button"><img src="/ko-kr/cloud-manager-backup-restore/images/discuss-sm.svg" class="github-icon" />문서 변경 요청</a><a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-backup-restore/blob/main/task-backup-to-s3.adoc" class="page-nav-contribute-link" role="button"><img src="/ko-kr/cloud-manager-backup-restore/images/edit-sm.svg" class="github-icon" />이 페이지 편집</a><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/ko-kr/cloud-manager-backup-restore/images/article-sm.svg" class="github-icon" />기여하는 방법 자세히 알아보기</a></div>
+  <div class="page-nav-toolbar">
+<div id="flavor-dropdown" class="custom-dropdown" data-url="/ko-kr/cloud-manager-backup-restore/task-backup-to-s3.html">
+  
+  <div class="custom-dropdown-select unselected" title="모든 클라우드 공급자">
+    <label>클라우드 공급자</label>
+    <span>모든 클라우드 공급자</span>
+    <img src="/ko-kr/cloud-manager-backup-restore/images/filter.svg" class="custom-icon" alt="" />
+  </div>
+  
+
+  <ul class="custom-dropdown-menu">
+    
+    
+    <li data-value="aws" data-url="/ko-kr/cloud-manager-backup-restore/aws/task-backup-to-s3.html">
+      <img alt="" src="/ko-kr/cloud-manager-backup-restore/images/aws-ico.svg" onerror="this.src='/ko-kr/cloud-manager-backup-restore/images/blank-ico.png'" class="custom-icon" />Amazon Web Services에서 직접 지원합니다
+    </li>
+    
+    
+    
+    <li data-value="gcp" data-url="/ko-kr/cloud-manager-backup-restore/gcp">
+      <img alt="" src="/ko-kr/cloud-manager-backup-restore/images/gcp-ico.svg" onerror="this.src='/ko-kr/cloud-manager-backup-restore/images/blank-ico.png'" class="custom-icon" />Google 클라우드
+    </li>
+    
+    
+    
+    <li data-value="azure" data-url="/ko-kr/cloud-manager-backup-restore/azure">
+      <img alt="" src="/ko-kr/cloud-manager-backup-restore/images/azure-ico.svg" onerror="this.src='/ko-kr/cloud-manager-backup-restore/images/blank-ico.png'" class="custom-icon" />Microsoft Azure를 참조하십시오
+    </li>
+    
+    
+  </ul>
+</div>
+<div class="page-nav-contribute"><a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-backup-restore/issues/new?body=Page%3A%20[Cloud Volumes ONTAP 데이터를 Amazon S3에 백업](https://docs.netapp.com/ko-kr/cloud-manager-backup-restore/task-backup-to-s3.html)" class="page-nav-contribute-link" role="button"><img src="/ko-kr/cloud-manager-backup-restore/images/discuss-sm.svg" class="github-icon" />문서 변경 요청</a><a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-backup-restore/blob/main/task-backup-to-s3.adoc" class="page-nav-contribute-link" role="button"><img src="/ko-kr/cloud-manager-backup-restore/images/edit-sm.svg" class="github-icon" />이 페이지 편집</a><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/ko-kr/cloud-manager-backup-restore/images/article-sm.svg" class="github-icon" />기여하는 방법 자세히 알아보기</a></div>
     <div class="page-nav-container">
       <nav class="page-nav-fixed">
         <div class="page-nav-title">이 페이지의 내용</div>
@@ -352,8 +384,6 @@
         
         <a target="_blank" href="/ko-kr/cloud-manager-backup-restore/pdfs/fullsite-sidebar/Cloud_Backup_설명서.pdf" >
           <img src="/ko-kr/cloud-manager-backup-restore/images/pdf.png" width="16" height="16"/>이 문서 사이트의 PDF</a>
-
-
 
 
 
@@ -574,6 +604,8 @@
 
 
 
+
+
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
@@ -591,35 +623,6 @@
           
 
 
-
-
-
-    
-      <ul class="subfolders" style="display:none;">
-        <li class="pdf-ux-container">
-          
-          
-          
-          <a target="_blank" 
-            
-              href="/ko-kr/cloud-manager-backup-restore/pdfs/sidebar/교차_계정_및_교차_지역_구성.pdf" 
-            
-          >
-            <img src="/ko-kr/cloud-manager-backup-restore/images/pdf.png" width="16" height="16"/>
-            교차 계정 및 교차 지역 구성
-          </a>
-          
-
-
-
-
-
-          
-        </li>
-      </ul>
-    
-
-  
 
 
 
@@ -698,10 +701,10 @@
     $("#toggleContainerPdf").toggle('display');
     $(".n-pdf-body-container .zip-pdf-link-container").toggle('display');
   });
-</script><div class="sidebar-nav-container" id="mysidebardiv">
-  <ul id="mysidebar" class="nav"><li class=" "><a class="na-navbar-padding" href="https://docs.netapp.com/us-en/cloud-manager-family">
-        모든 Cloud Manager 설명서
-      </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/cloud-manager-backup-restore/index.html">
+</script><div class="prod-nav" id="product-nav">
+  <a target="_self" class="prod-fam-nav" href="https://docs.netapp.com/ko-kr/cloud-manager-family/"><img src="/ko-kr/cloud-manager-backup-restore/images/left_arrow.png" alt=""><pre>All Cloud Manager documentation</pre></a>
+</div><div class="sidebar-nav-container" id="mysidebardiv">
+  <ul id="mysidebar" class="nav"><li class=" "><a class="na-navbar-padding" href="/ko-kr/cloud-manager-backup-restore/index.html">
         Cloud Backup 문서
       </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/cloud-manager-backup-restore/whats-new.html">
         릴리스 정보
@@ -779,21 +782,16 @@
         가상 머신 보호 관리
       </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/cloud-manager-backup-restore/task-restore-vm-data.html">
         가상 머신 데이터를 복구합니다
-      </a></li></ul></li><li class="subfolders "><a href="#">
+      </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/cloud-manager-backup-restore/api-backup-restore.html">
+        REST API를 사용하여 자동화
+      </a></li><li class="subfolders "><a href="#">
         <div class="na-navbar-padding"> 참조하십시오</div>
       </a>
       <ul><li class=" "><a class="na-navbar-padding" href="/ko-kr/cloud-manager-backup-restore/reference-aws-backup-tiers.html">
         지원되는 AWS 아카이브 스토리지 계층
       </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/cloud-manager-backup-restore/reference-azure-backup-tiers.html">
         지원되는 Azure 아카이브 액세스 계층
-      </a></li><li class="subfolders "><a href="/ko-kr/cloud-manager-backup-restore/reference-cross-account.html">
-        <div class="na-navbar-padding"> 교차 계정 및 교차 지역 구성</div>
-      </a>
-      <ul><li class=" "><a class="na-navbar-padding" href="/ko-kr/cloud-manager-backup-restore/reference-backup-multi-account-aws.html">
-        AWS에서 다중 계정 액세스를 위해 백업을 구성합니다
-      </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/cloud-manager-backup-restore/reference-backup-multi-account-azure.html">
-        Azure에서 다중 계정 액세스를 위한 백업을 구성합니다
-      </a></li></ul></li></ul></li><li class="subfolders "><a href="#">
+      </a></li></ul></li><li class="subfolders "><a href="#">
         <div class="na-navbar-padding"> 지식 및 지원</div>
       </a>
       <ul><li class=" "><a class="na-navbar-padding" href="/ko-kr/cloud-manager-backup-restore/task-support-registration.html">
@@ -871,7 +869,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-05-02 14:42:32 +0000">05/02/2022</time>
+    <time datetime="2022-06-09 15:53:11 +0000">06/09/2022</time>
     
   
 
@@ -954,14 +952,11 @@
 <div class="paragraph">
 <p><span class="image"><img src="./media/diagram_cloud_backup_cvo_aws.png" alt="Cloud Backup이 소스 시스템 및 백업 파일이 있는 대상 스토리지의 볼륨과 통신하는 방법을 보여주는 다이어그램입니다."></span></p>
 </div>
-<div class="paragraph">
-<p>Cloud Restore 인스턴스가 클라우드에 배포되면 Connector와 동일한 서브넷에 위치합니다.</p>
-</div>
 <div class="dlist">
 <dl>
 <dt class="hdlist1">지원되는 ONTAP 버전</dt>
 <dd>
-<p>Cloud Volumes ONTAP 9.6 이상</p>
+<p>ONTAP 9.6 이상, ONTAP 9.8P11 이상 권장</p>
 </dd>
 <dt class="hdlist1">라이센스 요구 사항</dt>
 <dd>
@@ -986,10 +981,6 @@
 <dt class="hdlist1">지원되는 AWS 영역</dt>
 <dd>
 <p>Cloud Backup은 모든 AWS 지역에서 지원됩니다 <a href="https://cloud.netapp.com/cloud-volumes-global-regions" target="_blank" rel="noopener">"Cloud Volumes ONTAP가 지원되는 경우"</a>AWS GovCloud 지역 포함.</p>
-</dd>
-<dt class="hdlist1">다른 AWS 계정에서 백업을 생성하기 위해 필요한 설정</dt>
-<dd>
-<p>기본적으로 백업은 Cloud Volumes ONTAP 시스템에 사용되는 계정과 동일한 계정을 사용하여 생성됩니다. 백업에 다른 AWS 계정을 사용하려면 다음을 수행해야 합니다 <a href="reference-backup-multi-account-aws.html">"AWS 포털에 로그인하여 두 계정을 연결합니다"</a>.</p>
 </dd>
 <dt class="hdlist1">데이터 암호화에 대해 고객이 관리하는 키를 사용하는 데 필요한 정보입니다</dt>
 <dd>
@@ -1052,62 +1043,6 @@
 <div class="paragraph">
 <p>버전 3.9.15 이상을 사용하여 Connector를 배포한 경우 이러한 권한은 이미 IAM 역할의 일부여야 합니다. 그렇지 않으면 누락된 권한을 추가해야 합니다. 특히 검색 및 복원에 필요하므로 "Athena" 및 "GLUE" 권한이 필요합니다.</p>
 </div>
-<div class="dlist">
-<dl>
-<dt class="hdlist1">AWS 복구 권한이 필요합니다</dt>
-<dd>
-<p>Cloud Manager가 Browse &amp; Restore 작업을 위해 Cloud Restore 인스턴스를 시작, 중지 및 종료할 수 있도록 권한을 제공하는 IAM 역할에 필요한 EC2 권한은 다음과 같습니다.</p>
-<div class="openblock">
-<div class="content">
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-json" data-lang="json">          "Action": [
-              "ec2:DescribeInstanceTypeOfferings",
-              "ec2:StartInstances",
-              "ec2:StopInstances",
-              "ec2:TerminateInstances"
-          ],</code></pre>
-</div>
-</div>
-</div>
-</div>
-</dd>
-<dt class="hdlist1">AWS 구축에 필요한 아웃바운드 인터넷 액세스</dt>
-<dd>
-<p>클라우드 복원 인스턴스에는 아웃바운드 인터넷 액세스가 필요합니다. 가상 또는 물리적 네트워크에서 인터넷 액세스에 프록시 서버를 사용하는 경우 인스턴스에 다음 끝점에 연결할 수 있는 아웃바운드 인터넷 액세스 권한이 있는지 확인합니다.</p>
-<div class="openblock">
-<div class="content">
-<table class="tableblock frame-all grid-all stretch">
-<colgroup>
-<col style="width: 43%;">
-<col style="width: 57%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">엔드포인트</th>
-<th class="tableblock halign-left valign-top">목적</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://amazonlinux.us-east-1.amazonaws.com/2/extras/docker/stable/" class="bare">http://amazonlinux.us-east-1.amazonaws.com/2/extras/docker/stable/</a> x86_64/4bf88ee77c395ffe1e0c3ca68530dfb3a683ec65a4a1ce9c0ff394be50e922b2/</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">클라우드 복원 인스턴스 AMI용 CentOS 패키지.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="https://download.docker.com/linux/centos/docker-ce.repo" class="bare">https://download.docker.com/linux/centos/docker-ce.repo</a> 으로 문의하십시오</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Docker Engine 패키지를 제공합니다.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://cloudmanagerinfraprod.azurecr.io" class="bare">http://cloudmanagerinfraprod.azurecr.io</a> https://cloudmanagerinfraprod.azurecr.io 으로 문의하십시오</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">클라우드 복원 인스턴스 이미지 리포지토리.</p></td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-</dd>
-</dl>
-</div>
 </div>
 </div>
 <div class="sect1">
@@ -1162,7 +1097,10 @@
 <li>
 <p>작업 환경을 선택하고 오른쪽 패널에서 백업 및 복원 서비스 옆에 있는 * 활성화 * 를 클릭합니다.</p>
 <div class="paragraph">
-<p><span class="image"><img src="./media/screenshot_backup_cvo_enable.png" alt="작업 환경을 선택한 후 사용할 수 있는 Cloud Backup Settings(클라우드 백업 설정) 버튼을 보여 주는 스크린샷"></span></p>
+<p>백업에 대한 Amazon S3 대상이 Canvas에서 작업 환경으로 존재하는 경우 클러스터를 Amazon S3 작업 환경으로 끌어서 설정 마법사를 시작할 수 있습니다.</p>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./media/screenshot_backup_cvo_enable.png" alt="작업 환경을 선택한 후 사용할 수 있는 백업 및 앰프, 복원 활성화 버튼이 표시된 스크린샷"></span></p>
 </div>
 </li>
 <li>
@@ -1171,9 +1109,6 @@
 <ol class="loweralpha" type="a">
 <li>
 <p>백업을 저장하는 데 사용되는 AWS 계정입니다. 이 계정은 Cloud Volumes ONTAP 시스템이 상주하는 계정과 다를 수 있습니다.</p>
-<div class="paragraph">
-<p>백업에 다른 AWS 계정을 사용하려면 다음을 수행해야 합니다 <a href="reference-backup-multi-account-aws.html">"AWS 포털에 로그인하여 두 계정을 연결합니다"</a>.</p>
-</div>
 </li>
 <li>
 <p>백업이 저장될 영역입니다. 이 영역은 Cloud Volumes ONTAP 시스템이 있는 지역과 다를 수 있습니다.</p>

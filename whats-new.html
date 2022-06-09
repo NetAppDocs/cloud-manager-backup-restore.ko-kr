@@ -169,7 +169,39 @@
   
   <!-- Start Page Toolbar -->
   
-  <div class="page-nav-toolbar"><div class="page-nav-contribute"><a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-backup-restore/issues/new?body=Page%3A%20[클라우드 백업의 새로운 기능](https://docs.netapp.com/ko-kr/cloud-manager-backup-restore/whats-new.html)" class="page-nav-contribute-link" role="button"><img src="/ko-kr/cloud-manager-backup-restore/images/discuss-sm.svg" class="github-icon" />문서 변경 요청</a><a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-backup-restore/blob/main/whats-new.adoc" class="page-nav-contribute-link" role="button"><img src="/ko-kr/cloud-manager-backup-restore/images/edit-sm.svg" class="github-icon" />이 페이지 편집</a><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/ko-kr/cloud-manager-backup-restore/images/article-sm.svg" class="github-icon" />기여하는 방법 자세히 알아보기</a></div>
+  <div class="page-nav-toolbar">
+<div id="flavor-dropdown" class="custom-dropdown" data-url="/ko-kr/cloud-manager-backup-restore/whats-new.html">
+  
+  <div class="custom-dropdown-select unselected" title="모든 클라우드 공급자">
+    <label>클라우드 공급자</label>
+    <span>모든 클라우드 공급자</span>
+    <img src="/ko-kr/cloud-manager-backup-restore/images/filter.svg" class="custom-icon" alt="" />
+  </div>
+  
+
+  <ul class="custom-dropdown-menu">
+    
+    
+    <li data-value="aws" data-url="/ko-kr/cloud-manager-backup-restore/aws/whats-new.html">
+      <img alt="" src="/ko-kr/cloud-manager-backup-restore/images/aws-ico.svg" onerror="this.src='/ko-kr/cloud-manager-backup-restore/images/blank-ico.png'" class="custom-icon" />Amazon Web Services에서 직접 지원합니다
+    </li>
+    
+    
+    
+    <li data-value="gcp" data-url="/ko-kr/cloud-manager-backup-restore/gcp/whats-new.html">
+      <img alt="" src="/ko-kr/cloud-manager-backup-restore/images/gcp-ico.svg" onerror="this.src='/ko-kr/cloud-manager-backup-restore/images/blank-ico.png'" class="custom-icon" />Google 클라우드
+    </li>
+    
+    
+    
+    <li data-value="azure" data-url="/ko-kr/cloud-manager-backup-restore/azure/whats-new.html">
+      <img alt="" src="/ko-kr/cloud-manager-backup-restore/images/azure-ico.svg" onerror="this.src='/ko-kr/cloud-manager-backup-restore/images/blank-ico.png'" class="custom-icon" />Microsoft Azure를 참조하십시오
+    </li>
+    
+    
+  </ul>
+</div>
+<div class="page-nav-contribute"><a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-backup-restore/issues/new?body=Page%3A%20[클라우드 백업의 새로운 기능](https://docs.netapp.com/ko-kr/cloud-manager-backup-restore/whats-new.html)" class="page-nav-contribute-link" role="button"><img src="/ko-kr/cloud-manager-backup-restore/images/discuss-sm.svg" class="github-icon" />문서 변경 요청</a><a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-backup-restore/blob/main/whats-new.adoc" class="page-nav-contribute-link" role="button"><img src="/ko-kr/cloud-manager-backup-restore/images/edit-sm.svg" class="github-icon" />이 페이지 편집</a><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/ko-kr/cloud-manager-backup-restore/images/article-sm.svg" class="github-icon" />기여하는 방법 자세히 알아보기</a></div>
     <div class="page-nav-container">
       <nav class="page-nav-fixed">
         <div class="page-nav-title">이 페이지의 내용</div>
@@ -352,8 +384,6 @@
         
         <a target="_blank" href="/ko-kr/cloud-manager-backup-restore/pdfs/fullsite-sidebar/Cloud_Backup_설명서.pdf" >
           <img src="/ko-kr/cloud-manager-backup-restore/images/pdf.png" width="16" height="16"/>이 문서 사이트의 PDF</a>
-
-
 
 
     <ul class="subfolders" style="display:none;"><li class="active pdf-hide">
@@ -574,6 +604,8 @@
 
 
 
+
+
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
@@ -591,35 +623,6 @@
           
 
 
-
-
-
-    
-      <ul class="subfolders" style="display:none;">
-        <li class="pdf-ux-container">
-          
-          
-          
-          <a target="_blank" 
-            
-              href="/ko-kr/cloud-manager-backup-restore/pdfs/sidebar/교차_계정_및_교차_지역_구성.pdf" 
-            
-          >
-            <img src="/ko-kr/cloud-manager-backup-restore/images/pdf.png" width="16" height="16"/>
-            교차 계정 및 교차 지역 구성
-          </a>
-          
-
-
-
-
-
-          
-        </li>
-      </ul>
-    
-
-  
 
 
 
@@ -698,10 +701,10 @@
     $("#toggleContainerPdf").toggle('display');
     $(".n-pdf-body-container .zip-pdf-link-container").toggle('display');
   });
-</script><div class="sidebar-nav-container" id="mysidebardiv">
-  <ul id="mysidebar" class="nav"><li class=" "><a class="na-navbar-padding" href="https://docs.netapp.com/us-en/cloud-manager-family">
-        모든 Cloud Manager 설명서
-      </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/cloud-manager-backup-restore/index.html">
+</script><div class="prod-nav" id="product-nav">
+  <a target="_self" class="prod-fam-nav" href="https://docs.netapp.com/ko-kr/cloud-manager-family/"><img src="/ko-kr/cloud-manager-backup-restore/images/left_arrow.png" alt=""><pre>All Cloud Manager documentation</pre></a>
+</div><div class="sidebar-nav-container" id="mysidebardiv">
+  <ul id="mysidebar" class="nav"><li class=" "><a class="na-navbar-padding" href="/ko-kr/cloud-manager-backup-restore/index.html">
         Cloud Backup 문서
       </a></li><li class="  active "><a class="na-navbar-padding" href="/ko-kr/cloud-manager-backup-restore/whats-new.html">
         릴리스 정보
@@ -779,21 +782,16 @@
         가상 머신 보호 관리
       </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/cloud-manager-backup-restore/task-restore-vm-data.html">
         가상 머신 데이터를 복구합니다
-      </a></li></ul></li><li class="subfolders "><a href="#">
+      </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/cloud-manager-backup-restore/api-backup-restore.html">
+        REST API를 사용하여 자동화
+      </a></li><li class="subfolders "><a href="#">
         <div class="na-navbar-padding"> 참조하십시오</div>
       </a>
       <ul><li class=" "><a class="na-navbar-padding" href="/ko-kr/cloud-manager-backup-restore/reference-aws-backup-tiers.html">
         지원되는 AWS 아카이브 스토리지 계층
       </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/cloud-manager-backup-restore/reference-azure-backup-tiers.html">
         지원되는 Azure 아카이브 액세스 계층
-      </a></li><li class="subfolders "><a href="/ko-kr/cloud-manager-backup-restore/reference-cross-account.html">
-        <div class="na-navbar-padding"> 교차 계정 및 교차 지역 구성</div>
-      </a>
-      <ul><li class=" "><a class="na-navbar-padding" href="/ko-kr/cloud-manager-backup-restore/reference-backup-multi-account-aws.html">
-        AWS에서 다중 계정 액세스를 위해 백업을 구성합니다
-      </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/cloud-manager-backup-restore/reference-backup-multi-account-azure.html">
-        Azure에서 다중 계정 액세스를 위한 백업을 구성합니다
-      </a></li></ul></li></ul></li><li class="subfolders "><a href="#">
+      </a></li></ul></li><li class="subfolders "><a href="#">
         <div class="na-navbar-padding"> 지식 및 지원</div>
       </a>
       <ul><li class=" "><a class="na-navbar-padding" href="/ko-kr/cloud-manager-backup-restore/task-support-registration.html">
@@ -871,7 +869,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-06-08 14:07:57 +0000">06/08/2022</time>
+    <time datetime="2022-06-09 15:53:11 +0000">06/09/2022</time>
     
   
 
@@ -895,6 +893,52 @@
 </div>
 <div class="paragraph">
 <p><a href="https://docs.netapp.com/us-en/cloud-manager-backup-restore/concept-protect-vm-data.html">"가상 시스템을 클라우드로 보호하는 방법에 대해 자세히 알아보십시오"</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="ontap-찾아보기-및-복원-기능에는-클라우드-복원-인스턴스가-필요하지-않습니다">ONTAP 찾아보기 및 복원 기능에는 클라우드 복원 인스턴스가 필요하지 않습니다</h3>
+<div class="paragraph">
+<p>S3 및 Blob 스토리지에서 파일 레벨 찾아보기 및 복원 작업에 사용되는 별도의 클라우드 복원 인스턴스/가상 머신. 이 인스턴스는 사용하지 않을 때 종료되지만 파일을 복원할 때 약간의 시간과 비용이 추가되었습니다. 이 기능은 필요 시 Connector에 배포되는 무료 컨테이너로 대체되었습니다. 다음과 같은 이점을 제공합니다.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>파일 레벨 복구 작업에 대한 추가 비용 없음</p>
+</li>
+<li>
+<p>파일 레벨 복구 작업 속도 향상</p>
+</li>
+<li>
+<p>Connector가 사내에 설치된 경우 클라우드에서 파일에 대한 찾아보기 및 복원 작업 지원</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>이전에 클라우드 복원 인스턴스/VM을 사용한 경우 자동으로 제거됩니다.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="google-cloud-및-storagegrid-스토리지에서-파일에-대한-찾아보기-및-복원-지원">Google Cloud 및 StorageGRID 스토리지에서 파일에 대한 찾아보기 및 복원 지원</h3>
+<div class="paragraph">
+<p>위에서 설명한 대로 Browse &amp; Restore 작업에 대한 컨테이너가 추가되어 Google Cloud 및 StorageGRID 시스템에 저장된 백업 파일에서 파일 복원 작업을 수행할 수 있습니다. 이제 Browse &amp; Restore를 사용하여 모든 퍼블릭 클라우드 공급자 및 StorageGRID에서 파일을 복원할 수 있습니다. <a href="https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-restore-backups-ontap.html#restoring-ontap-data-using-browse-restore">"ONTAP 백업에서 볼륨 및 파일을 복원하기 위해 Browse &amp; amp; Restore를 사용하는 방법을 확인하십시오"</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="끌어서-놓기를-통해-cloud-backup을-s3-스토리지로-설정합니다">끌어서 놓기를 통해 Cloud Backup을 S3 스토리지로 설정합니다</h3>
+<div class="paragraph">
+<p>백업에 대한 Amazon S3 대상이 Canvas의 작업 환경으로 존재하는 경우, 온프레미스 ONTAP 클러스터 또는 Cloud Volumes ONTAP 시스템(AWS에 설치됨)을 Amazon S3 작업 환경으로 끌어서 설정 마법사를 시작할 수 있습니다.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="kubernetes-클러스터에서-새로-생성된-볼륨에-백업-정책을-자동으로-적용합니다">Kubernetes 클러스터에서 새로 생성된 볼륨에 백업 정책을 자동으로 적용합니다</h3>
+<div class="paragraph">
+<p>Cloud Backup을 활성화한 후 Kubernetes 클러스터에 새로운 영구 볼륨을 추가한 경우에는 이전에 해당 볼륨에 대한 백업을 구성해야 했습니다. 이제 새로 생성된 볼륨에 자동으로 적용되는 정책을 선택할 수 있습니다 <a href="https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-manage-backups-kubernetes.html#setting-a-backup-policy-to-be-assigned-to-new-volumes">"백업 설정 페이지에서"</a> 이미 Cloud Backup을 활성화한 클러스터의 경우</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="이제-cloud-backup-api를-사용하여-백업-및-복원-작업을-관리할-수-있습니다">이제 Cloud Backup API를 사용하여 백업 및 복원 작업을 관리할 수 있습니다</h3>
+<div class="paragraph">
+<p>API는 에서 사용할 수 있습니다 <a href="https://docs.netapp.com/us-en/cloud-manager-automation/cbs/overview.html" class="bare">https://docs.netapp.com/us-en/cloud-manager-automation/cbs/overview.html</a>. 을 참조하십시오 <a href="api-backup-restore.html">"이 페이지"</a> API에 대한 개요입니다.</p>
 </div>
 </div>
 </div>
@@ -944,7 +988,7 @@
 <div class="sect2">
 <h3 id="snapcenter에-기반을-둔-애플리케이션-클라우드-백업-1-1-0-이-현재-ga입니다">SnapCenter에 기반을 둔 애플리케이션 클라우드 백업 1.1.0 이 현재 GA입니다</h3>
 <div class="paragraph">
-<p>새로운 Cloud Backup for Applications 기능을 사용하면 Oracle 및 Microsoft SQL에 대한 기존 애플리케이션 정합성 보장 스냅샷(백업)을 사내 운영 스토리지에서 AWS S3 또는 Azure Blob의 클라우드 오브젝트 스토리지로 오프로드할 수 있습니다.</p>
+<p>새로운 Cloud Backup for Applications 기능을 사용하면 Oracle 및 Microsoft SQL에 대한 기존 애플리케이션 정합성 보장 스냅샷(백업)을 사내 운영 스토리지에서 Amazon S3 또는 Azure Blob의 클라우드 오브젝트 스토리지로 오프로드할 수 있습니다.</p>
 </div>
 <div class="paragraph">
 <p>필요한 경우 클라우드에서 사내로 데이터를 복원할 수 있습니다.</p>
@@ -967,7 +1011,7 @@
 <div class="sect2">
 <h3 id="gke-kubernetes-클러스터에서-google-cloud-스토리지로-영구-볼륨을-백업하는-기능">GKE Kubernetes 클러스터에서 Google Cloud 스토리지로 영구 볼륨을 백업하는 기능</h3>
 <div class="paragraph">
-<p>GKE 클러스터에 NetApp Astra Trident가 설치되어 있고 Cloud Volumes ONTAP for GCP를 클러스터의 백엔드 스토리지로 사용하는 경우, Google Cloud 스토리지와 영구 볼륨을 백업 및 복원할 수 있습니다. <a href="https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-backup-kubernetes-to-gcp.html">"자세한 내용을 보려면 여기를 클릭하십시오"</a>.</p>
+<p>GKE 클러스터에 NetApp Astra Trident가 설치되어 있고 Cloud Volumes ONTAP for GCP를 클러스터의 백엔드 스토리지로 사용하는 경우, Google Cloud 스토리지와 영구 볼륨을 백업 및 복원할 수 있습니다. <a href="task-backup-kubernetes-to-gcp.html">"자세한 내용을 보려면 여기를 클릭하십시오"</a>.</p>
 </div>
 </div>
 <div class="sect2">

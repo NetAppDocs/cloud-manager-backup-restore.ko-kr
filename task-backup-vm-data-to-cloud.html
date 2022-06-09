@@ -169,7 +169,39 @@
   
   <!-- Start Page Toolbar -->
   
-  <div class="page-nav-toolbar"><div class="page-nav-contribute"><a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-backup-restore/issues/new?body=Page%3A%20[데이터 저장소를 클라우드에 백업합니다](https://docs.netapp.com/ko-kr/cloud-manager-backup-restore/task-backup-vm-data-to-cloud.html)" class="page-nav-contribute-link" role="button"><img src="/ko-kr/cloud-manager-backup-restore/images/discuss-sm.svg" class="github-icon" />문서 변경 요청</a><a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-backup-restore/blob/main/task-backup-vm-data-to-cloud.adoc" class="page-nav-contribute-link" role="button"><img src="/ko-kr/cloud-manager-backup-restore/images/edit-sm.svg" class="github-icon" />이 페이지 편집</a><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/ko-kr/cloud-manager-backup-restore/images/article-sm.svg" class="github-icon" />기여하는 방법 자세히 알아보기</a></div>
+  <div class="page-nav-toolbar">
+<div id="flavor-dropdown" class="custom-dropdown" data-url="/ko-kr/cloud-manager-backup-restore/task-backup-vm-data-to-cloud.html">
+  
+  <div class="custom-dropdown-select unselected" title="모든 클라우드 공급자">
+    <label>클라우드 공급자</label>
+    <span>모든 클라우드 공급자</span>
+    <img src="/ko-kr/cloud-manager-backup-restore/images/filter.svg" class="custom-icon" alt="" />
+  </div>
+  
+
+  <ul class="custom-dropdown-menu">
+    
+    
+    <li data-value="aws" data-url="/ko-kr/cloud-manager-backup-restore/aws/task-backup-vm-data-to-cloud.html">
+      <img alt="" src="/ko-kr/cloud-manager-backup-restore/images/aws-ico.svg" onerror="this.src='/ko-kr/cloud-manager-backup-restore/images/blank-ico.png'" class="custom-icon" />Amazon Web Services에서 직접 지원합니다
+    </li>
+    
+    
+    
+    <li data-value="gcp" data-url="/ko-kr/cloud-manager-backup-restore/gcp/task-backup-vm-data-to-cloud.html">
+      <img alt="" src="/ko-kr/cloud-manager-backup-restore/images/gcp-ico.svg" onerror="this.src='/ko-kr/cloud-manager-backup-restore/images/blank-ico.png'" class="custom-icon" />Google 클라우드
+    </li>
+    
+    
+    
+    <li data-value="azure" data-url="/ko-kr/cloud-manager-backup-restore/azure/task-backup-vm-data-to-cloud.html">
+      <img alt="" src="/ko-kr/cloud-manager-backup-restore/images/azure-ico.svg" onerror="this.src='/ko-kr/cloud-manager-backup-restore/images/blank-ico.png'" class="custom-icon" />Microsoft Azure를 참조하십시오
+    </li>
+    
+    
+  </ul>
+</div>
+<div class="page-nav-contribute"><a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-backup-restore/issues/new?body=Page%3A%20[데이터 저장소를 클라우드에 백업합니다](https://docs.netapp.com/ko-kr/cloud-manager-backup-restore/task-backup-vm-data-to-cloud.html)" class="page-nav-contribute-link" role="button"><img src="/ko-kr/cloud-manager-backup-restore/images/discuss-sm.svg" class="github-icon" />문서 변경 요청</a><a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-backup-restore/blob/main/task-backup-vm-data-to-cloud.adoc" class="page-nav-contribute-link" role="button"><img src="/ko-kr/cloud-manager-backup-restore/images/edit-sm.svg" class="github-icon" />이 페이지 편집</a><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/ko-kr/cloud-manager-backup-restore/images/article-sm.svg" class="github-icon" />기여하는 방법 자세히 알아보기</a></div>
     <div class="page-nav-container">
       <nav class="page-nav-fixed">
         <div class="page-nav-title">이 페이지의 내용</div>
@@ -352,8 +384,6 @@
         
         <a target="_blank" href="/ko-kr/cloud-manager-backup-restore/pdfs/fullsite-sidebar/Cloud_Backup_설명서.pdf" >
           <img src="/ko-kr/cloud-manager-backup-restore/images/pdf.png" width="16" height="16"/>이 문서 사이트의 PDF</a>
-
-
 
 
 
@@ -574,6 +604,8 @@
 
 
 
+
+
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
@@ -591,35 +623,6 @@
           
 
 
-
-
-
-    
-      <ul class="subfolders" style="display:none;">
-        <li class="pdf-ux-container">
-          
-          
-          
-          <a target="_blank" 
-            
-              href="/ko-kr/cloud-manager-backup-restore/pdfs/sidebar/교차_계정_및_교차_지역_구성.pdf" 
-            
-          >
-            <img src="/ko-kr/cloud-manager-backup-restore/images/pdf.png" width="16" height="16"/>
-            교차 계정 및 교차 지역 구성
-          </a>
-          
-
-
-
-
-
-          
-        </li>
-      </ul>
-    
-
-  
 
 
 
@@ -698,10 +701,10 @@
     $("#toggleContainerPdf").toggle('display');
     $(".n-pdf-body-container .zip-pdf-link-container").toggle('display');
   });
-</script><div class="sidebar-nav-container" id="mysidebardiv">
-  <ul id="mysidebar" class="nav"><li class=" "><a class="na-navbar-padding" href="https://docs.netapp.com/us-en/cloud-manager-family">
-        모든 Cloud Manager 설명서
-      </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/cloud-manager-backup-restore/index.html">
+</script><div class="prod-nav" id="product-nav">
+  <a target="_self" class="prod-fam-nav" href="https://docs.netapp.com/ko-kr/cloud-manager-family/"><img src="/ko-kr/cloud-manager-backup-restore/images/left_arrow.png" alt=""><pre>All Cloud Manager documentation</pre></a>
+</div><div class="sidebar-nav-container" id="mysidebardiv">
+  <ul id="mysidebar" class="nav"><li class=" "><a class="na-navbar-padding" href="/ko-kr/cloud-manager-backup-restore/index.html">
         Cloud Backup 문서
       </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/cloud-manager-backup-restore/whats-new.html">
         릴리스 정보
@@ -779,21 +782,16 @@
         가상 머신 보호 관리
       </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/cloud-manager-backup-restore/task-restore-vm-data.html">
         가상 머신 데이터를 복구합니다
-      </a></li></ul></li><li class="subfolders "><a href="#">
+      </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/cloud-manager-backup-restore/api-backup-restore.html">
+        REST API를 사용하여 자동화
+      </a></li><li class="subfolders "><a href="#">
         <div class="na-navbar-padding"> 참조하십시오</div>
       </a>
       <ul><li class=" "><a class="na-navbar-padding" href="/ko-kr/cloud-manager-backup-restore/reference-aws-backup-tiers.html">
         지원되는 AWS 아카이브 스토리지 계층
       </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/cloud-manager-backup-restore/reference-azure-backup-tiers.html">
         지원되는 Azure 아카이브 액세스 계층
-      </a></li><li class="subfolders "><a href="/ko-kr/cloud-manager-backup-restore/reference-cross-account.html">
-        <div class="na-navbar-padding"> 교차 계정 및 교차 지역 구성</div>
-      </a>
-      <ul><li class=" "><a class="na-navbar-padding" href="/ko-kr/cloud-manager-backup-restore/reference-backup-multi-account-aws.html">
-        AWS에서 다중 계정 액세스를 위해 백업을 구성합니다
-      </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/cloud-manager-backup-restore/reference-backup-multi-account-azure.html">
-        Azure에서 다중 계정 액세스를 위한 백업을 구성합니다
-      </a></li></ul></li></ul></li><li class="subfolders "><a href="#">
+      </a></li></ul></li><li class="subfolders "><a href="#">
         <div class="na-navbar-padding"> 지식 및 지원</div>
       </a>
       <ul><li class=" "><a class="na-navbar-padding" href="/ko-kr/cloud-manager-backup-restore/task-support-registration.html">

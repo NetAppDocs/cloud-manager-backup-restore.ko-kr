@@ -169,7 +169,39 @@
   
   <!-- Start Page Toolbar -->
   
-  <div class="page-nav-toolbar"><div class="page-nav-contribute"><a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-backup-restore/issues/new?body=Page%3A%20[클라우드 백업을 사용하여 ONTAP 클러스터 데이터를 보호합니다](https://docs.netapp.com/ko-kr/cloud-manager-backup-restore/concept-ontap-backup-to-cloud.html)" class="page-nav-contribute-link" role="button"><img src="/ko-kr/cloud-manager-backup-restore/images/discuss-sm.svg" class="github-icon" />문서 변경 요청</a><a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-backup-restore/blob/main/concept-ontap-backup-to-cloud.adoc" class="page-nav-contribute-link" role="button"><img src="/ko-kr/cloud-manager-backup-restore/images/edit-sm.svg" class="github-icon" />이 페이지 편집</a><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/ko-kr/cloud-manager-backup-restore/images/article-sm.svg" class="github-icon" />기여하는 방법 자세히 알아보기</a></div>
+  <div class="page-nav-toolbar">
+<div id="flavor-dropdown" class="custom-dropdown" data-url="/ko-kr/cloud-manager-backup-restore/concept-ontap-backup-to-cloud.html">
+  
+  <div class="custom-dropdown-select unselected" title="모든 클라우드 공급자">
+    <label>클라우드 공급자</label>
+    <span>모든 클라우드 공급자</span>
+    <img src="/ko-kr/cloud-manager-backup-restore/images/filter.svg" class="custom-icon" alt="" />
+  </div>
+  
+
+  <ul class="custom-dropdown-menu">
+    
+    
+    <li data-value="aws" data-url="/ko-kr/cloud-manager-backup-restore/aws/concept-ontap-backup-to-cloud.html">
+      <img alt="" src="/ko-kr/cloud-manager-backup-restore/images/aws-ico.svg" onerror="this.src='/ko-kr/cloud-manager-backup-restore/images/blank-ico.png'" class="custom-icon" />Amazon Web Services에서 직접 지원합니다
+    </li>
+    
+    
+    
+    <li data-value="gcp" data-url="/ko-kr/cloud-manager-backup-restore/gcp/concept-ontap-backup-to-cloud.html">
+      <img alt="" src="/ko-kr/cloud-manager-backup-restore/images/gcp-ico.svg" onerror="this.src='/ko-kr/cloud-manager-backup-restore/images/blank-ico.png'" class="custom-icon" />Google 클라우드
+    </li>
+    
+    
+    
+    <li data-value="azure" data-url="/ko-kr/cloud-manager-backup-restore/azure/concept-ontap-backup-to-cloud.html">
+      <img alt="" src="/ko-kr/cloud-manager-backup-restore/images/azure-ico.svg" onerror="this.src='/ko-kr/cloud-manager-backup-restore/images/blank-ico.png'" class="custom-icon" />Microsoft Azure를 참조하십시오
+    </li>
+    
+    
+  </ul>
+</div>
+<div class="page-nav-contribute"><a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-backup-restore/issues/new?body=Page%3A%20[클라우드 백업을 사용하여 ONTAP 클러스터 데이터를 보호합니다](https://docs.netapp.com/ko-kr/cloud-manager-backup-restore/concept-ontap-backup-to-cloud.html)" class="page-nav-contribute-link" role="button"><img src="/ko-kr/cloud-manager-backup-restore/images/discuss-sm.svg" class="github-icon" />문서 변경 요청</a><a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-backup-restore/blob/main/concept-ontap-backup-to-cloud.adoc" class="page-nav-contribute-link" role="button"><img src="/ko-kr/cloud-manager-backup-restore/images/edit-sm.svg" class="github-icon" />이 페이지 편집</a><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/ko-kr/cloud-manager-backup-restore/images/article-sm.svg" class="github-icon" />기여하는 방법 자세히 알아보기</a></div>
     <div class="page-nav-container">
       <nav class="page-nav-fixed">
         <div class="page-nav-title">이 페이지의 내용</div>
@@ -352,8 +384,6 @@
         
         <a target="_blank" href="/ko-kr/cloud-manager-backup-restore/pdfs/fullsite-sidebar/Cloud_Backup_설명서.pdf" >
           <img src="/ko-kr/cloud-manager-backup-restore/images/pdf.png" width="16" height="16"/>이 문서 사이트의 PDF</a>
-
-
 
 
 
@@ -574,6 +604,8 @@
 
 
 
+
+
     
       <ul class="subfolders" style="display:none;">
         <li class="pdf-ux-container">
@@ -591,35 +623,6 @@
           
 
 
-
-
-
-    
-      <ul class="subfolders" style="display:none;">
-        <li class="pdf-ux-container">
-          
-          
-          
-          <a target="_blank" 
-            
-              href="/ko-kr/cloud-manager-backup-restore/pdfs/sidebar/교차_계정_및_교차_지역_구성.pdf" 
-            
-          >
-            <img src="/ko-kr/cloud-manager-backup-restore/images/pdf.png" width="16" height="16"/>
-            교차 계정 및 교차 지역 구성
-          </a>
-          
-
-
-
-
-
-          
-        </li>
-      </ul>
-    
-
-  
 
 
 
@@ -698,10 +701,10 @@
     $("#toggleContainerPdf").toggle('display');
     $(".n-pdf-body-container .zip-pdf-link-container").toggle('display');
   });
-</script><div class="sidebar-nav-container" id="mysidebardiv">
-  <ul id="mysidebar" class="nav"><li class=" "><a class="na-navbar-padding" href="https://docs.netapp.com/us-en/cloud-manager-family">
-        모든 Cloud Manager 설명서
-      </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/cloud-manager-backup-restore/index.html">
+</script><div class="prod-nav" id="product-nav">
+  <a target="_self" class="prod-fam-nav" href="https://docs.netapp.com/ko-kr/cloud-manager-family/"><img src="/ko-kr/cloud-manager-backup-restore/images/left_arrow.png" alt=""><pre>All Cloud Manager documentation</pre></a>
+</div><div class="sidebar-nav-container" id="mysidebardiv">
+  <ul id="mysidebar" class="nav"><li class=" "><a class="na-navbar-padding" href="/ko-kr/cloud-manager-backup-restore/index.html">
         Cloud Backup 문서
       </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/cloud-manager-backup-restore/whats-new.html">
         릴리스 정보
@@ -779,21 +782,16 @@
         가상 머신 보호 관리
       </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/cloud-manager-backup-restore/task-restore-vm-data.html">
         가상 머신 데이터를 복구합니다
-      </a></li></ul></li><li class="subfolders "><a href="#">
+      </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/cloud-manager-backup-restore/api-backup-restore.html">
+        REST API를 사용하여 자동화
+      </a></li><li class="subfolders "><a href="#">
         <div class="na-navbar-padding"> 참조하십시오</div>
       </a>
       <ul><li class=" "><a class="na-navbar-padding" href="/ko-kr/cloud-manager-backup-restore/reference-aws-backup-tiers.html">
         지원되는 AWS 아카이브 스토리지 계층
       </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/cloud-manager-backup-restore/reference-azure-backup-tiers.html">
         지원되는 Azure 아카이브 액세스 계층
-      </a></li><li class="subfolders "><a href="/ko-kr/cloud-manager-backup-restore/reference-cross-account.html">
-        <div class="na-navbar-padding"> 교차 계정 및 교차 지역 구성</div>
-      </a>
-      <ul><li class=" "><a class="na-navbar-padding" href="/ko-kr/cloud-manager-backup-restore/reference-backup-multi-account-aws.html">
-        AWS에서 다중 계정 액세스를 위해 백업을 구성합니다
-      </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/cloud-manager-backup-restore/reference-backup-multi-account-azure.html">
-        Azure에서 다중 계정 액세스를 위한 백업을 구성합니다
-      </a></li></ul></li></ul></li><li class="subfolders "><a href="#">
+      </a></li></ul></li><li class="subfolders "><a href="#">
         <div class="na-navbar-padding"> 지식 및 지원</div>
       </a>
       <ul><li class=" "><a class="na-navbar-padding" href="/ko-kr/cloud-manager-backup-restore/task-support-registration.html">
@@ -871,7 +869,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-05-05 19:27:21 +0000">05/05/2022</time>
+    <time datetime="2022-06-09 15:53:11 +0000">06/09/2022</time>
     
   
 
@@ -903,7 +901,7 @@
 <p>클러스터의 모든 볼륨에 단일 백업 정책을 적용하거나 고유한 복구 지점 목표가 있는 볼륨에 다른 백업 정책을 할당합니다.</p>
 </li>
 <li>
-<p>비용 절감을 위해 오래된 백업 파일을 아카이브 스토리지에 계층화(ONTAP 9.10.1 이상을 사용하는 경우 AWS 및 Azure에서 지원)</p>
+<p>비용 절감을 위해 오래된 백업 파일을 아카이브 스토리지에 계층화합니다(ONTAP 9.10.1 이상을 사용할 때 지원됨).</p>
 </li>
 <li>
 <p>클라우드에서 클라우드로, 사내 시스템에서 퍼블릭 또는 프라이빗 클라우드로 백업</p>
@@ -940,7 +938,7 @@
 <p>블록 수준에서 데이터를 복원하여 원래 ACL을 보존하면서 데이터를 사용자가 지정한 위치에 직접 배치합니다.</p>
 </li>
 <li>
-<p>단일 파일 복원을 위한 개별 파일을 선택할 수 있는 탐색 가능한 검색 가능한 파일 카탈로그</p>
+<p>단일 파일 복원을 위한 개별 파일을 선택할 수 있는 탐색 가능한 검색 가능한 파일 카탈로그입니다.</p>
 </li>
 </ul>
 </div>
@@ -960,25 +958,25 @@
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">소스 작업 환경</th>
-<th class="tableblock halign-left valign-top">백업 파일 대상</th>
+<th class="tableblock halign-left valign-top">백업 파일 대상 ifdef::AWS[]</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">AWS의 Cloud Volumes ONTAP</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Amazon S3</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Amazon S3 엔디프::AWS[]ifdef::Azure[]</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Azure의 Cloud Volumes ONTAP</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Azure Blob</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Azure Blob endif::Azure []ifdef::GCP[]</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Google의 Cloud Volumes ONTAP</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Google 클라우드 스토리지</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Google Cloud 스토리지 엔디프::GCP[]</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">사내 ONTAP 시스템</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Amazon S3 Azure Blob Google 클라우드 스토리지 NetApp StorageGRID</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ifdef::AWS[]Amazon S3 endif::AWS[]ifdef::Azure[]Azure Blob endif::Azure[]ifdef::GCP[]Google Cloud Storage endif:GCP[]NetApp StorageGRID</p></td>
 </tr>
 </tbody>
 </table>
@@ -1001,27 +999,27 @@
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">* 위치 *</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">* 볼륨 복원 *</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">* 파일 복원 *</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">* 파일 복원 * ifdef::AWS[]</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Amazon S3</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Cloud Volumes ONTAP를 사내의 AWS ONTAP 시스템에 설치하고</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Cloud Volumes ONTAP를 사내의 AWS ONTAP 시스템에 설치하고</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Cloud Volumes ONTAP in AWS on-premises ONTAP system endif::AWS[]ifdef::Azure[]</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Azure Blob</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Azure 사내 ONTAP 시스템의 Cloud Volumes ONTAP</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Azure 사내 ONTAP 시스템의 Cloud Volumes ONTAP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Azure 사내 ONTAP 시스템의 Cloud Volumes ONTAP endif::Azure []ifdef::GCP[]</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Google 클라우드 스토리지</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Google 사내 ONTAP 시스템의 Cloud Volumes ONTAP</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Google 사내 ONTAP 시스템의 Cloud Volumes ONTAP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Google 사내 ONTAP 시스템의 Cloud Volumes ONTAP::GCP []</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">NetApp StorageGRID를 참조하십시오</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">사내 ONTAP 시스템</p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">사내 ONTAP 시스템</p></td>
 </tr>
 </tbody>
 </table>
@@ -1055,45 +1053,20 @@
 </div>
 </li>
 <li>
-<p>Browse &amp; Restore를 사용한 파일 복원의 경우 Restore 인스턴스가 실행 중일 때만 클라우드 공급자에 컴퓨팅 비용을 지불합니다.</p>
-<div class="paragraph">
-<p>인스턴스는 복원할 개별 파일을 찾기 위해 백업 파일을 검색할 때만 실행됩니다. 비용 절감을 위해 사용하지 않을 때는 인스턴스가 해제됩니다.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>AWS에서 복구 인스턴스는 에서 실행됩니다 <a href="https://aws.amazon.com/ec2/instance-types/m5/" target="_blank" rel="noopener">"m5n.xlarge 인스턴스"</a> CPU 4개, 16GB 메모리 및 EBS 전용 인스턴스 스토리지 포함. 운영 체제 이미지는 Amazon Linux 2입니다.</p>
-<div class="paragraph">
-<p>m5n.xlarge 인스턴스를 사용할 수 없는 지역에서는 대신 M5.xlarge 인스턴스에서 Restore가 실행됩니다.</p>
-</div>
-</li>
-<li>
-<p>Azure에서 Restore virtual machine은 에서 실행됩니다 <a href="https://docs.microsoft.com/en-us/azure/virtual-machines/dv3-dsv3-series#dsv3-series" target="_blank" rel="noopener">"Standard_D4s_v3 VM"</a> CPU 4개, 16GB 메모리 및 32GiB 디스크 운영 체제 이미지는 CentOS 7.5)입니다.</p>
-<div class="paragraph">
-<p>인스턴스의 이름은 _Cloud-Restore-instance_이며 연결된 계정 ID가 있습니다. 예: _ 클라우드 - 복원 - 인스턴스 - MyAccount _.</p>
-</div>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Browse &amp; Restore를 사용한 볼륨 복원의 경우 별도의 인스턴스 또는 가상 머신이 필요하지 않으므로 비용이 들지 않습니다.</p>
-</li>
-<li>
 <p>검색 및 복원을 사용한 볼륨 또는 파일 복원의 경우, 클라우드 공급자가 특정 리소스를 프로비저닝하며 검색 요청에 의해 스캔된 데이터 양과 관련된 TiB 비용이 있습니다.</p>
 <div class="ulist">
 <ul>
 <li>
 <p>AWS에서는 <a href="https://aws.amazon.com/athena/faqs/" target="_blank" rel="noopener">"아마존 애써나"</a> 및 <a href="https://aws.amazon.com/glue/faqs/" target="_blank" rel="noopener">"AWS 글루"</a> 리소스가 새로운 S3 버킷에 구축됩니다.</p>
 </li>
-<li>
-<p>Google에서는 새로운 버킷이 배포되고 <a href="https://cloud.google.com/bigquery" target="_blank" rel="noopener">"Google Cloud BigQuery 서비스"</a> 계정/프로젝트 수준에서 프로비저닝됩니다.</p>
-</li>
 </ul>
 </div>
 </li>
 <li>
-<p>아카이브 스토리지로 이동한 백업 파일(ONTAP 9.10.1 이상을 사용하는 경우 AWS에서 지원)에서 볼륨 데이터를 복구해야 하는 경우 클라우드 공급자로부터 추가 Per-GiB 검색 비용 및 요청당 요금이 부과됩니다.</p>
+<p>Google에서는 새로운 버킷이 배포되고 <a href="https://cloud.google.com/bigquery" target="_blank" rel="noopener">"Google Cloud BigQuery 서비스"</a> 계정/프로젝트 수준에서 프로비저닝됩니다.</p>
+</li>
+<li>
+<p>아카이브 스토리지로 이동한 백업 파일에서 볼륨 데이터를 복구해야 하는 경우, 클라우드 공급자로부터 추가 Per-GiB 검색 비용 및 요청당 수수료를 받을 수 있습니다.</p>
 </li>
 <li>
 <p>서비스 요금 *</p>
@@ -1104,7 +1077,7 @@
 <p>서비스 비용은 NetApp에 지불되며 이러한 백업에서_create_backups와 to_restore_volumes 또는 파일에 대한 비용을 모두 부담합니다. 오브젝트 스토리지에 백업된 ONTAP 볼륨의 소스 논리적 사용 용량(_Before_ONTAP 효율성)을 사용하여 계산한, 자신이 보호하는 데이터에 대해서만 비용을 지불합니다. 이 용량을 FETB(Front-End Terabytes)라고도 합니다.</p>
 </div>
 <div class="paragraph">
-<p>백업 서비스에 대한 비용을 지불하는 방법에는 세 가지가 있습니다. 첫 번째 옵션은 클라우드 공급자를 구독하는 것입니다. 구독하면 매월 요금을 지불할 수 있습니다. 두 번째 옵션은 연간 계약을 얻는 것입니다. 이 계약은 AWS를 통해서만 가능합니다. 세 번째 옵션은 NetApp에서 직접 라이센스를 구매하는 것입니다. 를 읽습니다 <a href="#Licensing">라이센싱</a> 섹션을 참조하십시오.</p>
+<p>백업 서비스에 대한 비용을 지불하는 방법에는 세 가지가 있습니다. 첫 번째 옵션은 클라우드 공급자를 구독하는 것입니다. 구독하면 매월 요금을 지불할 수 있습니다. 두 번째 옵션은 연간 계약을 얻는 것입니다. 세 번째 옵션은 NetApp에서 직접 라이센스를 구매하는 것입니다. 를 읽습니다 <a href="#Licensing">라이센싱</a> 섹션을 참조하십시오.</p>
 </div>
 </div>
 </div>
@@ -1112,7 +1085,23 @@
 <h2 id="라이센싱">라이센싱</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Cloud Backup은 세 가지 라이센스 옵션, 즉 PAYGO(Pay As You Go) 구독, AWS Marketplace의 연간 계약, BYOL(Bring Your Own License) 옵션으로 제공됩니다. PAYGO에 가입하면 30일 무료 평가판을 사용할 수 있습니다.</p>
+<p>Cloud Backup은 몇 가지 라이센스 옵션으로 제공됩니다.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>PAYGO(Pay As You Go) 구독</p>
+</li>
+<li>
+<p>AWS Marketplace에서 연간 계약 체결</p>
+</li>
+<li>
+<p>BYOL(Bring Your Own License)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>PAYGO 구독으로 처음 등록하면 30일 무료 평가판을 사용할 수 있습니다.</p>
 </div>
 <div class="sect2">
 <h3 id="용량제-구독">용량제 구독</h3>
@@ -1362,7 +1351,7 @@
 <div class="ulist">
 <ul>
 <li>
-<p>이전 백업 파일을 아카이브 스토리지에 계층화하려면 클러스터에서 ONTAP 9.10.1 이상(현재 AWS 및 Azure에서 지원됨)이 실행되고 있어야 합니다. 아카이브 스토리지에 있는 백업 파일에서 볼륨을 복원하려면 대상 클러스터에서 ONTAP 9.10.1 이상이 실행되고 있어야 합니다.</p>
+<p>이전 백업 파일을 아카이브 스토리지에 계층화하려면 클러스터에서 ONTAP 9.10.1 이상이 실행되고 있어야 합니다. 아카이브 스토리지에 있는 백업 파일에서 볼륨을 복원하려면 대상 클러스터에서 ONTAP 9.10.1 이상이 실행되고 있어야 합니다.</p>
 </li>
 <li>
 <p>정책에 할당된 볼륨이 없을 때 백업 정책을 생성하거나 편집할 때 유지되는 백업 수는 최대 1018개가 될 수 있습니다. 이 문제를 해결하려면 정책을 생성할 백업 수를 줄일 수 있습니다. 그런 다음 정책에 볼륨을 할당한 후 정책을 편집하여 최대 4000개의 백업을 생성할 수 있습니다.</p>
