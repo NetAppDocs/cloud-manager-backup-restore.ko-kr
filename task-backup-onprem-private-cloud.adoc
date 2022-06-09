@@ -75,8 +75,6 @@ S3 버킷은 입력한 S3 액세스 키와 비밀 키로 표시된 서비스 계
 
 image:diagram_cloud_backup_onprem_storagegrid.png["Cloud Backup이 소스 시스템 및 백업 파일이 있는 대상 스토리지의 볼륨과 통신하는 방법을 보여주는 다이어그램입니다."]
 
-현재 StorageGRID를 사용할 때 단일 파일 복원이 지원되지 않으므로 클라우드 복원 인스턴스는 이 다이어그램에 표시되지 않습니다.
-
 
 
 === ONTAP 클러스터 준비
@@ -88,7 +86,7 @@ https://docs.netapp.com/us-en/cloud-manager-ontap-onprem/task-discovering-ontap.
 ONTAP 요구 사항::
 +
 --
-* ONTAP 9.7P5 이상
+* 최소 ONTAP 9.7P5, ONTAP 9.8P11 이상을 사용하는 것이 좋습니다.
 * SnapMirror 라이센스(프리미엄 번들 또는 데이터 보호 번들의 일부로 포함)
 +
 * 참고: * Cloud Backup을 사용할 때는 "하이브리드 클라우드 번들"이 필요하지 않습니다.

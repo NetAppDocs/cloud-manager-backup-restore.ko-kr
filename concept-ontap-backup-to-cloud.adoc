@@ -26,7 +26,7 @@ Cloud Backup은 ONTAP 클러스터 데이터의 보호 및 장기 아카이브�
 
 * 데이터 볼륨의 독립적인 복사본을 저비용 오브젝트 스토리지로 백업합니다.
 * 클러스터의 모든 볼륨에 단일 백업 정책을 적용하거나 고유한 복구 지점 목표가 있는 볼륨에 다른 백업 정책을 할당합니다.
-* 비용 절감을 위해 오래된 백업 파일을 아카이브 스토리지에 계층화(ONTAP 9.10.1 이상을 사용하는 경우 AWS 및 Azure에서 지원)
+* 비용 절감을 위해 오래된 백업 파일을 아카이브 스토리지에 계층화합니다(ONTAP 9.10.1 이상을 사용할 때 지원됨).
 * 클라우드에서 클라우드로, 사내 시스템에서 퍼블릭 또는 프라이빗 클라우드로 백업
 * Cloud Volumes ONTAP 시스템의 경우 백업이 다른 구독/계정 또는 다른 지역에 있을 수 있습니다.
 * 사용 중인 AES-256비트 암호화 유휴 및 TLS 1.2 HTTPS 연결로 백업 데이터를 보호합니다.
@@ -40,7 +40,7 @@ Cloud Backup은 ONTAP 클러스터 데이터의 보호 및 장기 아카이브�
 * 볼륨 또는 개별 파일을 소스 시스템 또는 다른 시스템으로 복원합니다.
 * 다른 구독/계정을 사용하거나 다른 지역에 있는 작업 환경으로 데이터를 복원합니다.
 * 블록 수준에서 데이터를 복원하여 원래 ACL을 보존하면서 데이터를 사용자가 지정한 위치에 직접 배치합니다.
-* 단일 파일 복원을 위한 개별 파일을 선택할 수 있는 탐색 가능한 검색 가능한 파일 카탈로그
+* 단일 파일 복원을 위한 개별 파일을 선택할 수 있는 탐색 가능한 검색 가능한 파일 카탈로그입니다.
 
 
 
@@ -51,19 +51,19 @@ Cloud Backup을 사용하면 다음과 같은 작업 환경에서 ONTAP 볼륨�
 
 [cols="45,45"]
 |===
-| 소스 작업 환경 | 백업 파일 대상 
+| 소스 작업 환경 | 백업 파일 대상 ifdef::AWS[] 
 
 
-| AWS의 Cloud Volumes ONTAP | Amazon S3 
+| AWS의 Cloud Volumes ONTAP | Amazon S3 엔디프::AWS[]ifdef::Azure[] 
 
 
-| Azure의 Cloud Volumes ONTAP | Azure Blob 
+| Azure의 Cloud Volumes ONTAP | Azure Blob endif::Azure []ifdef::GCP[] 
 
 
-| Google의 Cloud Volumes ONTAP | Google 클라우드 스토리지 
+| Google의 Cloud Volumes ONTAP | Google Cloud 스토리지 엔디프::GCP[] 
 
 
-| 사내 ONTAP 시스템 | Amazon S3 Azure Blob Google 클라우드 스토리지 NetApp StorageGRID 
+| 사내 ONTAP 시스템 | ifdef::AWS[]Amazon S3 endif::AWS[]ifdef::Azure[]Azure Blob endif::Azure[]ifdef::GCP[]Google Cloud Storage endif:GCP[]NetApp StorageGRID 
 |===
 ONTAP 백업 파일에서 다음 작업 환경으로 볼륨 또는 개별 파일을 복원할 수 있습니다.
 
@@ -72,19 +72,19 @@ ONTAP 백업 파일에서 다음 작업 환경으로 볼륨 또는 개별 파일
 | 백업 파일 2+| 대상 작업 환경 
 
 
-| * 위치 * | * 볼륨 복원 * | * 파일 복원 * 
+| * 위치 * | * 볼륨 복원 * | * 파일 복원 * ifdef::AWS[] 
 
 
-| Amazon S3 | Cloud Volumes ONTAP를 사내의 AWS ONTAP 시스템에 설치하고 | Cloud Volumes ONTAP를 사내의 AWS ONTAP 시스템에 설치하고 
+| Amazon S3 | Cloud Volumes ONTAP를 사내의 AWS ONTAP 시스템에 설치하고 | Cloud Volumes ONTAP in AWS on-premises ONTAP system endif::AWS[]ifdef::Azure[] 
 
 
-| Azure Blob | Azure 사내 ONTAP 시스템의 Cloud Volumes ONTAP | Azure 사내 ONTAP 시스템의 Cloud Volumes ONTAP 
+| Azure Blob | Azure 사내 ONTAP 시스템의 Cloud Volumes ONTAP | Azure 사내 ONTAP 시스템의 Cloud Volumes ONTAP endif::Azure []ifdef::GCP[] 
 
 
-| Google 클라우드 스토리지 | Google 사내 ONTAP 시스템의 Cloud Volumes ONTAP | Google 사내 ONTAP 시스템의 Cloud Volumes ONTAP 
+| Google 클라우드 스토리지 | Google 사내 ONTAP 시스템의 Cloud Volumes ONTAP | Google 사내 ONTAP 시스템의 Cloud Volumes ONTAP::GCP [] 
 
 
-| NetApp StorageGRID를 참조하십시오 | 사내 ONTAP 시스템 |  
+| NetApp StorageGRID를 참조하십시오 | 사내 ONTAP 시스템 | 사내 ONTAP 시스템 
 |===
 "사내 ONTAP 시스템"을 지칭할 때 FAS, AFF 및 ONTAP Select 시스템이 포함됩니다.
 
@@ -102,42 +102,55 @@ ONTAP 시스템에서 Cloud Backup을 사용할 경우 리소스 비용과 서�
 +
 Cloud Backup은 소스 볼륨의 스토리지 효율성을 유지하므로 데이터_after_ONTAP 효율성(중복제거 및 압축이 적용된 후 더 적은 양의 데이터)에 대한 클라우드 공급자 개체 스토리지 비용을 지불하게 됩니다.
 
-* Browse & Restore를 사용한 파일 복원의 경우 Restore 인스턴스가 실행 중일 때만 클라우드 공급자에 컴퓨팅 비용을 지불합니다.
-+
-인스턴스는 복원할 개별 파일을 찾기 위해 백업 파일을 검색할 때만 실행됩니다. 비용 절감을 위해 사용하지 않을 때는 인스턴스가 해제됩니다.
-
-+
-** AWS에서 복구 인스턴스는 에서 실행됩니다 https://aws.amazon.com/ec2/instance-types/m5/["m5n.xlarge 인스턴스"^] CPU 4개, 16GB 메모리 및 EBS 전용 인스턴스 스토리지 포함. 운영 체제 이미지는 Amazon Linux 2입니다.
-+
-m5n.xlarge 인스턴스를 사용할 수 없는 지역에서는 대신 M5.xlarge 인스턴스에서 Restore가 실행됩니다.
-
-** Azure에서 Restore virtual machine은 에서 실행됩니다 https://docs.microsoft.com/en-us/azure/virtual-machines/dv3-dsv3-series#dsv3-series["Standard_D4s_v3 VM"^] CPU 4개, 16GB 메모리 및 32GiB 디스크 운영 체제 이미지는 CentOS 7.5)입니다.
-+
-인스턴스의 이름은 _Cloud-Restore-instance_이며 연결된 계정 ID가 있습니다. 예: _ 클라우드 - 복원 - 인스턴스 - MyAccount _.
-
-
-
-* Browse & Restore를 사용한 볼륨 복원의 경우 별도의 인스턴스 또는 가상 머신이 필요하지 않으므로 비용이 들지 않습니다.
 * 검색 및 복원을 사용한 볼륨 또는 파일 복원의 경우, 클라우드 공급자가 특정 리소스를 프로비저닝하며 검색 요청에 의해 스캔된 데이터 양과 관련된 TiB 비용이 있습니다.
 +
+ifdef::aws[]
+
++
 ** AWS에서는 https://aws.amazon.com/athena/faqs/["아마존 애써나"^] 및 https://aws.amazon.com/glue/faqs/["AWS 글루"^] 리소스가 새로운 S3 버킷에 구축됩니다.
-** Google에서는 새로운 버킷이 배포되고 https://cloud.google.com/bigquery["Google Cloud BigQuery 서비스"^] 계정/프로젝트 수준에서 프로비저닝됩니다.
++
+endif::aws[]
 
 
-* 아카이브 스토리지로 이동한 백업 파일(ONTAP 9.10.1 이상을 사용하는 경우 AWS에서 지원)에서 볼륨 데이터를 복구해야 하는 경우 클라우드 공급자로부터 추가 Per-GiB 검색 비용 및 요청당 요금이 부과됩니다.
+
+
+
+ifdef::gcp[]
+
+* Google에서는 새로운 버킷이 배포되고 https://cloud.google.com/bigquery["Google Cloud BigQuery 서비스"^] 계정/프로젝트 수준에서 프로비저닝됩니다.
+
+
+endif::gcp[]
+
+* 아카이브 스토리지로 이동한 백업 파일에서 볼륨 데이터를 복구해야 하는 경우, 클라우드 공급자로부터 추가 Per-GiB 검색 비용 및 요청당 수수료를 받을 수 있습니다.
 
 
 * 서비스 요금 *
 
 서비스 비용은 NetApp에 지불되며 이러한 백업에서_create_backups와 to_restore_volumes 또는 파일에 대한 비용을 모두 부담합니다. 오브젝트 스토리지에 백업된 ONTAP 볼륨의 소스 논리적 사용 용량(_Before_ONTAP 효율성)을 사용하여 계산한, 자신이 보호하는 데이터에 대해서만 비용을 지불합니다. 이 용량을 FETB(Front-End Terabytes)라고도 합니다.
 
-백업 서비스에 대한 비용을 지불하는 방법에는 세 가지가 있습니다. 첫 번째 옵션은 클라우드 공급자를 구독하는 것입니다. 구독하면 매월 요금을 지불할 수 있습니다. 두 번째 옵션은 연간 계약을 얻는 것입니다. 이 계약은 AWS를 통해서만 가능합니다. 세 번째 옵션은 NetApp에서 직접 라이센스를 구매하는 것입니다. 를 읽습니다 <<Licensing,라이센싱>> 섹션을 참조하십시오.
+백업 서비스에 대한 비용을 지불하는 방법에는 세 가지가 있습니다. 첫 번째 옵션은 클라우드 공급자를 구독하는 것입니다. 구독하면 매월 요금을 지불할 수 있습니다. 두 번째 옵션은 연간 계약을 얻는 것입니다. 세 번째 옵션은 NetApp에서 직접 라이센스를 구매하는 것입니다. 를 읽습니다 <<Licensing,라이센싱>> 섹션을 참조하십시오.
 
 
 
 == 라이센싱
 
-Cloud Backup은 세 가지 라이센스 옵션, 즉 PAYGO(Pay As You Go) 구독, AWS Marketplace의 연간 계약, BYOL(Bring Your Own License) 옵션으로 제공됩니다. PAYGO에 가입하면 30일 무료 평가판을 사용할 수 있습니다.
+Cloud Backup은 몇 가지 라이센스 옵션으로 제공됩니다.
+
+* PAYGO(Pay As You Go) 구독
+
+
+ifdef::aws[]
+
+* AWS Marketplace에서 연간 계약 체결
+
+
+endif::aws[]
+
+* BYOL(Bring Your Own License)
+
+
+PAYGO 구독으로 처음 등록하면 30일 무료 평가판을 사용할 수 있습니다.
 
 
 
@@ -146,6 +159,8 @@ Cloud Backup은 세 가지 라이센스 옵션, 즉 PAYGO(Pay As You Go) 구독,
 Cloud Backup은 용량제 모델로 소비 기반 라이센스를 제공합니다. 클라우드 공급자의 마켓플레이스를 구독한 후, 백업된 데이터의 경우 GiB당 비용을 지불하면 됩니다. 이러한 데이터를 미리 지불할 필요가 없습니다. 클라우드 공급자가 월별 요금을 청구합니다.
 
 link:task-licensing-cloud-backup.html#use-a-cloud-backup-paygo-subscription["선불 종량제 구독을 설정하는 방법을 알아보십시오"].
+
+ifdef::aws[]
 
 
 
@@ -158,6 +173,8 @@ AWS Marketplace에서 12개월, 24개월 또는 36개월 조건에 두 가지 �
 
 
 link:task-licensing-cloud-backup.html#subscribe-to-yearly-contracts-through-aws["연간 AWS 계약을 설정하는 방법에 대해 알아보십시오"].
+
+endif::aws[]
 
 
 
@@ -190,9 +207,27 @@ image:diagram_cloud_backup_general.png["Cloud Backup이 소스 시스템의 볼�
 
 백업 복사본은 Cloud Manager에서 클라우드 계정에 만드는 오브젝트 저장소에 저장됩니다. 클러스터/작업 환경당 하나의 오브젝트 저장소가 있으며 Cloud Manager에서는 오브젝트 저장소의 이름을 "NetApp-backup-clusteruuid"로 지정합니다. 이 오브젝트 저장소를 삭제하지 마십시오.
 
+ifdef::aws[]
+
 * AWS에서 Cloud Manager는 를 지원합니다 https://docs.aws.amazon.com/AmazonS3/latest/dev/access-control-block-public-access.html["Amazon S3 블록 공용 액세스 기능입니다"^] S3 버킷에서.
+
+
+endif::aws[]
+
+ifdef::azure[]
+
 * Azure에서 Cloud Manager는 Blob 컨테이너용 스토리지 계정이 있는 새 리소스 그룹 또는 기존 리소스 그룹을 사용합니다. 클라우드 관리자 https://docs.microsoft.com/en-us/azure/storage/blobs/anonymous-read-access-prevent["BLOB 데이터에 대한 공개 액세스를 차단합니다"] 기본적으로 사용됩니다.
+
+
+endif::azure[]
+
+ifdef::gcp[]
+
 * GCP에서 Cloud Manager는 Google Cloud Storage 버킷을 위한 스토리지 계정이 있는 신규 또는 기존 프로젝트를 사용합니다.
+
+
+endif::gcp[]
+
 * StorageGRID에서 Cloud Manager는 오브젝트 저장소 버킷에 기존 스토리지 계정을 사용합니다.
 
 
@@ -202,17 +237,35 @@ image:diagram_cloud_backup_general.png["Cloud Backup이 소스 시스템의 볼�
 
 === 지원되는 스토리지 클래스 또는 액세스 계층
 
+ifdef::aws[]
+
 * AWS에서는 백업이 _Standard_storage 클래스에서 시작되고 30일 후에 _Standard - Infrequent Access_storage 클래스로 전환됩니다.
 +
 클러스터에서 ONTAP 9.10.1 이상을 사용하는 경우 추가 비용 최적화를 위해 일정 일 후에 이전 백업을 _S3 Glacier_또는 _S3 Glacier Deep Archive_storage에 계층화하도록 선택할 수 있습니다. link:reference-aws-backup-tiers.html["AWS 아카이브 스토리지에 대해 자세히 알아보십시오"^].
+
+
+
+endif::aws[]
+
+ifdef::azure[]
 
 * Azure에서 백업은 _Cool_access 계층과 연결됩니다.
 +
 클러스터에서 ONTAP 9.10.1 이상을 사용하는 경우 추가 비용 최적화를 위해 일정 일 후에 이전 백업을 _Azure Archive_storage에 계층화하도록 선택할 수 있습니다. link:reference-azure-backup-tiers.html["Azure 아카이브 스토리지에 대해 자세히 알아보십시오"^].
 
+
+
+endif::azure[]
+
+ifdef::gcp[]
+
 * GCP에서 백업은 기본적으로 _Standard_storage 클래스와 연결됩니다.
 +
 또한 더 낮은 cost_Nearline_storage 클래스 또는 _Coldline_or_Archive_storage 클래스를 사용할 수 있습니다. Google 항목을 참조하십시오 link:https://cloud.google.com/storage/docs/storage-classes["스토리지 클래스"^] 스토리지 클래스 변경에 대한 자세한 내용은 를 참조하십시오.
+
+
+
+endif::gcp[]
 
 * StorageGRID에서 백업은 _Standard_storage 클래스와 연결됩니다.
 
@@ -280,7 +333,7 @@ FlexGroup 볼륨 및 SnapLock 볼륨은 현재 지원되지 않습니다.
 
 == 제한 사항
 
-* 이전 백업 파일을 아카이브 스토리지에 계층화하려면 클러스터에서 ONTAP 9.10.1 이상(현재 AWS 및 Azure에서 지원됨)이 실행되고 있어야 합니다. 아카이브 스토리지에 있는 백업 파일에서 볼륨을 복원하려면 대상 클러스터에서 ONTAP 9.10.1 이상이 실행되고 있어야 합니다.
+* 이전 백업 파일을 아카이브 스토리지에 계층화하려면 클러스터에서 ONTAP 9.10.1 이상이 실행되고 있어야 합니다. 아카이브 스토리지에 있는 백업 파일에서 볼륨을 복원하려면 대상 클러스터에서 ONTAP 9.10.1 이상이 실행되고 있어야 합니다.
 * 정책에 할당된 볼륨이 없을 때 백업 정책을 생성하거나 편집할 때 유지되는 백업 수는 최대 1018개가 될 수 있습니다. 이 문제를 해결하려면 정책을 생성할 백업 수를 줄일 수 있습니다. 그런 다음 정책에 볼륨을 할당한 후 정책을 편집하여 최대 4000개의 백업을 생성할 수 있습니다.
 * DP(데이터 보호) 볼륨을 백업할 때 다음 SnapMirror 레이블과의 관계는 클라우드에 백업되지 않습니다.
 +

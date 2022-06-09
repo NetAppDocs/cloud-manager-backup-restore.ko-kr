@@ -7,11 +7,22 @@ settings:
   prod:
     pdf_enabled: true
     harmony_enabled: false
+  filter:
+    label: 클라우드 공급자
+    default: 모든 클라우드 공급자
+    options:
+    - name: Amazon Web Services에서 직접 지원합니다
+      alias: 설치하고
+      id: aws
+    - name: Google 클라우드
+      alias: Google 클라우드
+      id: gcp
+    - name: Microsoft Azure를 참조하십시오
+      alias: Azure를 지원합니다
+      id: azure
   langs: ko-kr,us-en,ja-jp,zh-cn,zh-tw
 sidebar:
   entries:
-  - title: 모든 Cloud Manager 설명서
-    url: https://docs.netapp.com/us-en/cloud-manager-family
   - title: Cloud Backup 문서
     url: "/index.html"
   - title: 릴리스 정보
@@ -29,16 +40,22 @@ sidebar:
     - title: ONTAP 데이터 보호
       url: "/concept-ontap-backup-to-cloud.html"
     - title: Cloud Volumes ONTAP를 Amazon S3에 백업합니다
+      flavor: aws
       url: "/task-backup-to-s3.html"
     - title: Cloud Volumes ONTAP를 Azure Blob에 백업합니다
+      flavor: azure
       url: "/task-backup-to-azure.html"
     - title: Cloud Volumes ONTAP을 Google Cloud에 백업합니다
+      flavor: gcp
       url: "/task-backup-to-gcp.html"
     - title: 사내 ONTAP를 Amazon S3에 백업
+      flavor: aws
       url: "/task-backup-onprem-to-aws.html"
     - title: 온프레미스 ONTAP를 Azure Blob에 백업
+      flavor: azure
       url: "/task-backup-onprem-to-azure.html"
     - title: 사내 ONTAP를 Google Cloud로 백업합니다
+      flavor: gcp
       url: "/task-backup-onprem-to-gcp.html"
     - title: 사내 ONTAP를 StorageGRID로 백업합니다
       url: "/task-backup-onprem-private-cloud.html"
@@ -51,10 +68,13 @@ sidebar:
     - title: Kubernetes 데이터 보호
       url: "/concept-kubernetes-backup-to-cloud.html"
     - title: Amazon S3에 백업
+      flavor: aws
       url: "/task-backup-kubernetes-to-s3.html"
     - title: Azure Blob에 백업
+      flavor: azure
       url: "/task-backup-kubernetes-to-azure.html"
     - title: Google Cloud로 백업합니다
+      flavor: gcp
       url: "/task-backup-kubernetes-to-gcp.html"
     - title: Kubernetes 백업 관리
       url: "/task-manage-backups-kubernetes.html"
@@ -84,19 +104,14 @@ sidebar:
       url: "/task-manage-vm-data-in-cloud.html"
     - title: 가상 머신 데이터를 복구합니다
       url: "/task-restore-vm-data.html"
+  - title: REST API를 사용하여 자동화
+    url: "/api-backup-restore.html"
   - title: 참조하십시오
     entries:
     - title: 지원되는 AWS 아카이브 스토리지 계층
       url: "/reference-aws-backup-tiers.html"
     - title: 지원되는 Azure 아카이브 액세스 계층
       url: "/reference-azure-backup-tiers.html"
-    - title: 교차 계정 및 교차 지역 구성
-      url: "/reference-cross-account.html"
-      entries:
-      - title: AWS에서 다중 계정 액세스를 위해 백업을 구성합니다
-        url: "/reference-backup-multi-account-aws.html"
-      - title: Azure에서 다중 계정 액세스를 위한 백업을 구성합니다
-        url: "/reference-backup-multi-account-azure.html"
   - title: 지식 및 지원
     entries:
     - title: 지원을 위해 등록하십시오
@@ -119,40 +134,49 @@ homepage:
     links:
     - title: Cloud Volumes ONTAP에서 Amazon S3로 전환
       url: task-backup-to-s3.html
+      flavor: aws
     - title: Cloud Volumes ONTAP에서 Azure Blob으로 설정합니다
       url: task-backup-to-azure.html
+      flavor: azure
     - title: Cloud Volumes ONTAP에서 Google Cloud로
       url: task-backup-to-gcp.html
+      flavor: gcp
     - title: 사내 ONTAP에서 Amazon S3로 전환
       url: task-backup-onprem-to-aws.html
+      flavor: aws
     - title: 온프레미스 ONTAP에서 Azure Blob으로
       url: task-backup-onprem-to-azure.html
+      flavor: azure
     - title: 온프레미스 ONTAP에서 Google Cloud로
       url: task-backup-onprem-to-gcp.html
+      flavor: gcp
     - title: 사내 ONTAP에서 StorageGRID로
       url: task-backup-onprem-private-cloud.html
   - title: Kubernetes 데이터를 클라우드에 백업합니다
     links:
     - title: Kubernetes 클러스터를 Amazon S3에 연결
       url: task-backup-kubernetes-to-s3.html
+      flavor: aws
     - title: Azure Blob에 대한 Kubernetes 클러스터
       url: task-backup-kubernetes-to-azure.html
+      flavor: azure
     - title: Kubernetes 클러스터를 Google Cloud로
       url: task-backup-kubernetes-to-gcp.html
+      flavor: gcp
   - title: 사내 애플리케이션 데이터를 백업 및 복원합니다
     links:
     - title: 사내 애플리케이션 데이터를 클라우드에 백업
-      url: "/task-backup-app-data-to-cloud.html"
+      url: task-backup-app-data-to-cloud.html
     - title: Oracle 데이터베이스를 복원합니다
-      url: "/task-restore-oracle-data.html"
+      url: task-restore-oracle-data.html
     - title: SQL Server 데이터베이스를 복원합니다
-      url: "/task-restore-sql-data.html"
+      url: task-restore-sql-data.html
   - title: 가상 머신 데이터 백업 및 복원
     links:
     - title: 데이터 저장소를 클라우드에 백업합니다
-      url: "/task-backup-vm-data-to-cloud.html"
+      url: task-backup-vm-data-to-cloud.html
     - title: 클라우드에서 가상 머신을 복구합니다
-      url: "/task-restore-vm-data.html"
+      url: task-restore-vm-data.html
   - title: 백업 파일에서 데이터를 복원합니다
     links:
     - title: ONTAP 볼륨을 복원합니다
@@ -192,3 +216,4 @@ homepage:
 product-family:
   name: Cloud Manager
   repo: cloud-manager-family
+  sidebar_label: All Cloud Manager documentation

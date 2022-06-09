@@ -67,13 +67,13 @@ Select Volumes(볼륨 선택) 페이지의 기본 백업 정책을 사용하여 
 * 비공개 연결 - VPN 또는 개인 서비스 연결을 사용하여 개인 IP 주소를 사용하는 개인 Google 액세스 인터페이스를 통해 트래픽을 라우팅합니다.
 
 
-다음 그림에서는 공용 연결 방법과 구성 요소 간에 준비해야 하는 연결을 보여 줍니다.
+다음 그림에서는 * public connection * 메서드와 구성 요소 간에 준비해야 하는 연결을 보여 줍니다.
 
-image:diagram_cloud_backup_onprem_google.png["Cloud Backup이 소스 시스템 및 백업 파일이 있는 대상 스토리지의 볼륨과 통신하는 방법을 보여주는 다이어그램입니다."]
+image:diagram_cloud_backup_onprem_google.png["Cloud Backup이 소스 시스템의 볼륨 및 백업 파일이 있는 대상 스토리지의 볼륨과 공용 연결을 통해 통신하는 방법을 보여 주는 다이어그램입니다."]
 
-다음 그림에서는 전용 연결 방법과 구성 요소 간에 준비해야 하는 연결을 보여 줍니다.
+다음 그림에서는 * private connection * 메서드와 구성 요소 간에 준비해야 하는 연결을 보여 줍니다.
 
-image:diagram_cloud_backup_onprem_google_vpc.png["Cloud Backup이 소스 시스템 및 백업 파일이 있는 대상 스토리지의 볼륨과 통신하는 방법을 보여주는 다이어그램입니다."]
+image:diagram_cloud_backup_onprem_google_vpc.png["Cloud Backup이 프라이빗 연결을 통해 소스 시스템의 볼륨 및 백업 파일이 있는 대상 스토리지와 통신하는 방법을 보여주는 다이어그램입니다."]
 
 
 
@@ -86,7 +86,7 @@ https://docs.netapp.com/us-en/cloud-manager-ontap-onprem/task-discovering-ontap.
 ONTAP 요구 사항::
 +
 --
-* ONTAP 9.7P5 이상
+* 최소 ONTAP 9.7P5, ONTAP 9.8P11 이상을 사용하는 것이 좋습니다.
 * SnapMirror 라이센스(프리미엄 번들 또는 데이터 보호 번들의 일부로 포함)
 +
 * 참고: * Cloud Backup을 사용할 때는 "하이브리드 클라우드 번들"이 필요하지 않습니다.

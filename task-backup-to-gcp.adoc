@@ -62,7 +62,7 @@ Google Cloud 스토리지에 볼륨을 백업하기 전에 다음 요구 사항�
 
 image:diagram_cloud_backup_cvo_google.png["Cloud Backup이 소스 시스템의 볼륨 및 백업 파일이 있는 대상 스토리지와 통신하는 방법을 보여주는 다이어그램입니다."]
 
-지원되는 ONTAP 버전:: Cloud Volumes ONTAP 9.7P5 이상
+지원되는 ONTAP 버전:: 최소 ONTAP 9.7P5, ONTAP 9.8P11 이상을 사용하는 것이 좋습니다.
 지원되는 GCP 지역:: Cloud Backup은 모든 GCP 지역에서 지원됩니다 https://cloud.netapp.com/cloud-volumes-global-regions["Cloud Volumes ONTAP가 지원되는 경우"^].
 라이센스 요구 사항:: Cloud Backup PAYGO 라이센스의 경우, 를 통한 구독 https://console.cloud.google.com/marketplace/details/netapp-cloudmanager/cloud-manager?supportedpurview=project&rif_reserved["GCP 마켓플레이스"^] Cloud Backup을 활성화하기 전에 가 필요합니다. Cloud Backup에 대한 청구는 이 구독을 통해 이루어집니다. https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/task-deploying-gcp.html["작업 환경 마법사의 세부 정보 및 자격 증명 페이지에서 구독할 수 있습니다"^].
 +

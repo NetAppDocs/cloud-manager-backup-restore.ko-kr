@@ -78,15 +78,13 @@ Select Volumes(볼륨 선택) 페이지의 기본 백업 정책을 사용하여 
 * 비공개 연결 - VPN 또는 ExpressRoute를 사용하여 전용 IP 주소를 사용하는 VNET 전용 엔드포인트를 통해 트래픽을 라우팅합니다.
 
 
-다음 그림에서는 공용 연결 방법과 구성 요소 간에 준비해야 하는 연결을 보여 줍니다.
+다음 그림에서는 * public connection * 메서드와 구성 요소 간에 준비해야 하는 연결을 보여 줍니다.
 
-image:diagram_cloud_backup_onprem_azure.png["Cloud Backup이 소스 시스템 및 백업 파일이 있는 대상 스토리지의 볼륨과 통신하는 방법을 보여주는 다이어그램입니다."]
+image:diagram_cloud_backup_onprem_azure.png["Cloud Backup이 소스 시스템의 볼륨 및 백업 파일이 있는 대상 스토리지의 볼륨과 공용 연결을 통해 통신하는 방법을 보여 주는 다이어그램입니다."]
 
-다음 그림에서는 전용 연결 방법과 구성 요소 간에 준비해야 하는 연결을 보여 줍니다.
+다음 그림에서는 * private connection * 메서드와 구성 요소 간에 준비해야 하는 연결을 보여 줍니다.
 
-image:diagram_cloud_backup_onprem_azure_vnet.png["Cloud Backup이 소스 시스템 및 백업 파일이 있는 대상 스토리지의 볼륨과 통신하는 방법을 보여주는 다이어그램입니다."]
-
-Cloud Restore 인스턴스가 클라우드에 배포되면 Connector와 동일한 서브넷에 위치합니다.
+image:diagram_cloud_backup_onprem_azure_vnet.png["Cloud Backup이 프라이빗 연결을 통해 소스 시스템의 볼륨 및 백업 파일이 있는 대상 스토리지와 통신하는 방법을 보여주는 다이어그램입니다."]
 
 
 
@@ -99,7 +97,7 @@ https://docs.netapp.com/us-en/cloud-manager-ontap-onprem/task-discovering-ontap.
 ONTAP 요구 사항::
 +
 --
-* ONTAP 9.7P5 이상
+* 최소 ONTAP 9.7P5, ONTAP 9.8P11 이상을 사용하는 것이 좋습니다.
 * SnapMirror 라이센스(프리미엄 번들 또는 데이터 보호 번들의 일부로 포함)
 +
 * 참고: * Cloud Backup을 사용할 때는 "하이브리드 클라우드 번들"이 필요하지 않습니다.
@@ -189,22 +187,7 @@ Azure Blob 저장소에 데이터를 백업할 때는 Connector가 Azure VNET에
 
 === 백업을 위한 Azure Blob 저장소 준비
 
-. 가상 또는 물리적 네트워크에서 인터넷 액세스에 프록시 서버를 사용하는 경우 클라우드 복원 가상 시스템이 다음 끝점에 연결할 수 있는 아웃바운드 인터넷 액세스를 가지고 있는지 확인합니다.
-+
-[cols="43,57"]
-|===
-| 엔드포인트 | 목적 
-
-
-| http://olcentgbl.trafficmanager.net \https://olcentgbl.trafficmanager.net 으로 문의하십시오 | 클라우드 복원 가상 머신용 CentOS 패키지를 제공합니다. 
-
-
-| https://download.docker.com/linux/centos/docker-ce.repo 으로 문의하십시오 | Docker Engine 패키지를 제공합니다. 
-
-
-| http://cloudmanagerinfraprod.azurecr.io \https://cloudmanagerinfraprod.azurecr.io 으로 문의하십시오 | 클라우드 복원 가상 머신 이미지 리포지토리. 
-|===
-. 기본 Microsoft 관리 암호화 키를 사용하는 대신 활성화 마법사에서 데이터 암호화에 대해 사용자 지정 관리 키를 선택합니다. 이 경우 Azure 가입, 키 저장소 이름 및 키가 필요합니다. https://docs.microsoft.com/en-us/azure/storage/common/customer-managed-keys-overview["자신의 키를 사용하는 방법을 확인하십시오"^].
+. 기본 Microsoft 관리 암호화 키를 사용하는 대신 정품 인증 마법사에서 데이터 암호화에 사용자 지정 관리 키를 사용할 수 있습니다. 이 경우 Azure 가입, 키 저장소 이름 및 키가 필요합니다. https://docs.microsoft.com/en-us/azure/storage/common/customer-managed-keys-overview["자신의 키를 사용하는 방법을 확인하십시오"^].
 . 온프레미스 데이터 센터에서 VNET로 공용 인터넷을 통해 보다 안전하게 연결하려면 활성화 마법사에서 Azure 프라이빗 끝점을 구성하는 옵션이 있습니다. 이 경우 이 연결에 대한 VNET 및 서브넷을 알아야 합니다. https://docs.microsoft.com/en-us/azure/private-link/private-endpoint-overview["개인 엔드포인트 사용에 대한 자세한 내용을 참조하십시오"^].
 
 

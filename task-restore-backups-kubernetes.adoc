@@ -26,16 +26,16 @@ Kubernetes 백업 파일에서 다음 작업 환경으로 볼륨을 복원할 �
 
 [cols="40,40"]
 |===
-| 백업 파일 위치 | 대상 작업 환경 
+| 백업 파일 위치 | 대상 작업 환경 ifdef::AWS[] 
 
 
-| Amazon S3 | AWS의 Kubernetes 클러스터 
+| Amazon S3 | AWS endif::AWS[]ifdef::Azure[]의 Kubernetes 클러스터 
 
 
-| Azure Blob | Azure의 Kubernetes 클러스터 
+| Azure Blob | Azure endif의 Kubernetes 클러스터::Azure []ifdef::GCP[] 
 
 
-| Google 클라우드 스토리지 | Google의 Kubernetes 클러스터 
+| Google 클라우드 스토리지 | Google endif의 Kubernetes 클러스터::GCP[] 
 |===
 
 
@@ -51,7 +51,7 @@ Kubernetes 백업 파일에서 다음 작업 환경으로 볼륨을 복원할 �
 +
 image:screenshot_backup_view_k8s_backups_button.png["백업되는 모든 Kubernetes 클러스터 및 볼륨 목록이 포함된 Kubernetes 대시보드 스크린샷"]
 
-. 복원하려는 볼륨을 찾은 후 을 클릭합니다 image:screenshot_horizontal_more_button.gif["추가 아이콘"], * 볼륨 세부 정보 * 를 차례로 클릭합니다.
+. 복원하려는 볼륨을 찾은 후 을 클릭합니다 image:screenshot_horizontal_more_button.gif["추가 아이콘"]를 클릭한 다음 * 세부 정보 및 백업 목록 * 을 클릭합니다.
 +
 해당 볼륨에 대한 모든 백업 파일 목록이 소스 볼륨, 대상 위치 및 백업 세부 정보에 대한 세부 정보와 함께 표시됩니다.
 

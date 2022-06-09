@@ -110,6 +110,8 @@ NOTE: 작업 환경 세부 정보가 업데이트될 때까지 진행해서는 �
 +
 [role="tabbed-block"]
 ====
+ifdef::aws[]
+
 .Amazon Web Services를 구성합니다
 --
 .. AWS 계정을 지정합니다.
@@ -120,6 +122,10 @@ NOTE: 작업 환경 세부 정보가 업데이트될 때까지 진행해서는 �
 
 
 --
+endif::aws[]
+
+ifdef::azure[]
+
 .Microsoft Azure를 구성합니다
 --
 .. Azure 구독 ID를 지정합니다.
@@ -129,6 +135,12 @@ NOTE: 작업 환경 세부 정보가 업데이트될 때까지 진행해서는 �
 
 
 --
+endif::azure[]
+
+ifdef::gcp[]
+
+endif::gcp[]
+
 ====
 
 
