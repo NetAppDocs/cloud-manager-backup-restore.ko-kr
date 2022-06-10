@@ -25,6 +25,7 @@ link:https://cloud.netapp.com/cloud-backup-service["Cloud Backup에 대해 자�
 * Cloud Volumes ONTAP 및 사내 ONTAP 시스템에서 ONTAP 볼륨을 백업 및 복원합니다. link:concept-ontap-backup-to-cloud.html["자세한 기능은 여기 에서 확인하십시오"].
 * Kubernetes 영구 볼륨의 백업 및 복원 link:concept-kubernetes-backup-to-cloud.html["자세한 기능은 여기 에서 확인하십시오"].
 * 클라우드 백업 for Applications를 사용하여 사내 ONTAP에서 클라우드로 애플리케이션 정합성을 보장하는 스냅샷을 백업합니다. link:concept-protect-app-data-to-cloud.html["자세한 기능은 여기 에서 확인하십시오"].
+* Cloud Backup for VMware를 사용하여 데이터 저장소를 클라우드에 백업하고 가상 머신을 사내 vCenter로 복구합니다. link:concept-protect-vm-data.html["자세한 기능은 여기 에서 확인하십시오"].
 
 
 
