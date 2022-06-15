@@ -862,7 +862,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-06-09 15:53:11 +0000">06/09/2022</time>
+    <time datetime="2022-06-15 13:20:53 +0000">06/15/2022</time>
     
   
 
@@ -1018,6 +1018,12 @@
 </table>
 <div class="paragraph">
 <p>"사내 ONTAP 시스템"을 지칭할 때 FAS, AFF 및 ONTAP Select 시스템이 포함됩니다.</p>
+</div>
+<div class="sect2">
+<h3 id="인터넷-연결이-없는-사이트에-대한-지원">인터넷 연결이 없는 사이트에 대한 지원</h3>
+<div class="paragraph">
+<p>클라우드 백업은 인터넷에 연결되지 않은 사이트("오프라인" 또는 "다크" 사이트라고도 함)에서 로컬 사내 ONTAP 시스템의 볼륨 데이터를 로컬 NetApp StorageGRID 시스템으로 백업하는 데 사용할 수 있습니다. 이 경우 어두운 사이트에 Cloud Manager Connector(최소 버전 3.9.19)를 배포해야 합니다. 을 참조하십시오 <a href="task-backup-onprem-private-cloud.html">"사내 ONTAP 데이터를 StorageGRID에 백업"</a> 를 참조하십시오.</p>
+</div>
 </div>
 </div>
 </div>
@@ -1366,6 +1372,9 @@
 </li>
 <li>
 <p>백업 파일이 아카이브 스토리지에 있는 경우 개별 파일을 복원할 수 없습니다.</p>
+</li>
+<li>
+<p>인터넷 액세스(다크 사이트)가 없는 사이트에 Connector가 설치된 경우 검색 및 복원을 사용하여 파일 수준 복원이 지원되지 않습니다.</p>
 </li>
 </ul>
 </div>
