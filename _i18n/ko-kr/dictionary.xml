@@ -897,7 +897,6 @@
   <block id="e1bba09cbe5efe3bebe61f9c17015ce4" category="paragraph"><block ref="e1bba09cbe5efe3bebe61f9c17015ce4" category="inline-image-macro-rx" type="image"></block></block>
   <block id="5dbbe7da7509bcf07f01ed57d18cb65b" category="paragraph">나중에 이 클러스터에 추가된 모든 볼륨에 백업을 사용하도록 설정하려면 "Automatically back up future volumes..." 확인란을 선택한 상태로 둡니다. 이 설정을 비활성화하면 이후 볼륨에 대해 백업을 수동으로 활성화해야 합니다.</block>
   <block id="2b99fbcba5956318580f80e803ae3f43" category="paragraph">S3 버킷은 입력한 S3 액세스 키와 비밀 키로 표시된 서비스 계정에 자동으로 생성되며 백업 파일은 여기에 저장됩니다. 백업 상태를 모니터링할 수 있도록 볼륨 백업 대시보드가 표시됩니다.</block>
-  <block id="0bb0df9fe9cb69f3388091cfe115b74a" category="paragraph">가능합니다 <block ref="c0943d8deab9c5a18af9b2eef59b9af2" category="inline-link-macro-rx"></block>. 또한 가능합니다 <block ref="9ecaaac52e1027fbd316f468f245b639" category="inline-link-macro-rx"></block> 새로운 볼륨으로 ONTAP 데이터를 이동합니다.</block>
   <block id="b56d3b8789da77177b36c40271c2f56a" category="summary">몇 가지 단계를 완료하여 AKS Kubernetes 클러스터의 영구 볼륨에서 Azure Blob 스토리지로 데이터 백업을 시작하십시오.</block>
   <block id="0ac13b02a6ba476a62c040dff30366e9" category="doc">Kubernetes 영구 볼륨 데이터를 Azure Blob 스토리지에 백업</block>
   <block id="161bfedea918a2206e107c928981572c" category="list-text">클러스터는 '백엔드 스토리지'를 위해 Azure에서 Cloud Volumes ONTAP를 사용해야 합니다.</block>
@@ -1333,12 +1332,7 @@
   <block id="cedae03e22c7bb2c103685dfa74cddab" category="paragraph">BYOL은 1TiB 단위로 기간 기반(12, 24 또는 36개월) _ 및 _ 용량 기반 예를 들어, 1년, 최대 용량(10TiB)에 대해 서비스 사용을 위해 NetApp에 비용을 지불합니다.</block>
   <block id="ea002f9386d9cd059f69c6d59dbea06c" category="list-text">Kubernetes 영구 볼륨의 백업 및 복원 <block ref="03139d1d874301f535e307718cfea817" category="inline-link-macro-rx"></block>.</block>
   <block id="7a6c8511ba9b6f1392c7f34fbd81508d" category="list-text">클라우드 백업 for Applications를 사용하여 사내 ONTAP에서 클라우드로 애플리케이션 정합성을 보장하는 스냅샷을 백업합니다. <block ref="0cae341dd31c4bfca67f66dd24fe06e1" category="inline-link-macro-rx"></block>.</block>
-  <block id="ac86595022f65016dc11614e68c43e81" category="paragraph">데이터를 StorageGRID에 백업할 때 Connector를 사내에서 사용할 수 있어야 합니다. 새 커넥터를 설치하거나 현재 선택한 커넥터가 내부에 있는지 확인해야 합니다.</block>
-  <block id="d9ce11866c3fab16840b61275d2a674e" category="list-text">포트 443을 통해 클라우드 백업으로 아웃바운드 인터넷 연결</block>
   <block id="286fb390ea5475a1fa125d5aade554a0" category="list-text">Canvas에서 온-프레미스 작업 환경을 선택하고 오른쪽 패널의 백업 및 복원 서비스 옆에 있는 * 활성화 &gt; 볼륨 백업 * 을 클릭합니다.</block>
-  <block id="bcf00598aacf0d8030dd1f084ae30cd3" category="list-text">백업 라이센스 파일이 있는 경우 * 라이센스 파일 업로드 * 옵션을 선택하고 표시되는 메시지에 따라 파일을 첨부합니다.</block>
-  <block id="5cd8f01849080c583021a91f23942914" category="list-text">Cloud Manager에서 라이센스를 자동으로 업데이트할 수 없는 경우 라이센스 파일을 수동으로 업로드해야 합니다.</block>
-  <block id="2aa12d91295f6d6d741cb49e313806e2" category="paragraph">BYOL 구독을 갱신하면 Cloud Manager에서 라이센스를 자동으로 업데이트합니다. Cloud Manager가 보안 인터넷 연결을 통해 라이센스 파일에 액세스할 수 없는 경우 직접 파일을 얻고 Cloud Manager에 수동으로 업로드할 수 있습니다. 자세한 내용은 을 참조하십시오 <block ref="797e48816191a5b3cd21a6c146b072f1" category="inline-link-macro-rx"></block>.</block>
   <block id="9a4fc48ebf3077bde35f83be2ee84cc8" category="paragraph">이제 일부 또는 전체 볼륨 이름, 일부 또는 전체 파일 이름, 크기 범위 및 추가 검색 필터를 통해 * 모든 ONTAP 백업 파일 * 에서 볼륨 또는 파일을 검색할 수 있습니다. 이 방법은 어떤 클러스터나 볼륨이 데이터의 소스인지 잘 모르면 복원하려는 데이터를 찾을 수 있는 새로운 방법입니다.<block ref="f28ab8501300af6839923f7181e075ab" category="inline-link-rx"></block>.</block>
   <block id="983a4e7f5913304ec713a249baf7be47" category="section-title">2022년 3월 3일</block>
   <block id="f61163b681442ac500a8018c87241770" category="section-title">2021년 11월 28일</block>
@@ -1789,7 +1783,6 @@
   <block id="b7a41babdf28bb4d456f0725ccfbc402" category="list-text">파일 레벨 복구 작업에 대한 추가 비용 없음</block>
   <block id="898be2b1c15b9168ca69a0986639cb4e" category="list-text">파일 레벨 복구 작업 속도 향상</block>
   <block id="f8cae2a44d4ac885154da71ae7da347a" category="list-text">Connector가 사내에 설치된 경우 클라우드에서 파일에 대한 찾아보기 및 복원 작업 지원</block>
-  <block id="b7fe1f1109cab9c0a50f4ac3ee36df48" category="paragraph">이전에 클라우드 복원 인스턴스/VM을 사용한 경우 자동으로 제거됩니다.</block>
   <block id="06a21d28fcdc17ce4f2e4747a1fe635b" category="section-title">Google Cloud 및 StorageGRID 스토리지에서 파일에 대한 찾아보기 및 복원 지원</block>
   <block id="60222043eb5ad60b7dd1964a983d4f85" category="inline-link">ONTAP 백업에서 볼륨 및 파일을 복원하기 위해 Browse &amp; amp; Restore를 사용하는 방법을 확인하십시오</block>
   <block id="68792eeb104c6fe1ef3c561265ed75dd" category="paragraph">위에서 설명한 대로 Browse &amp; Restore 작업에 대한 컨테이너가 추가되어 Google Cloud 및 StorageGRID 시스템에 저장된 백업 파일에서 파일 복원 작업을 수행할 수 있습니다. 이제 Browse &amp; Restore를 사용하여 모든 퍼블릭 클라우드 공급자 및 StorageGRID에서 파일을 복원할 수 있습니다.<block ref="a4ebf9bfc678bc28afd45dff032c4465" category="inline-link-rx"></block>.</block>
@@ -1937,4 +1930,33 @@
   <block id="9c3d211479947fe5a4243acecfe00203" category="paragraph"><block ref="de207573efa181ef2924818974bfa495" category="inline-image-macro-rx" type="image"></block></block>
   <block id="e25a9f6fb169550c2eb662453971516f" category="paragraph"><block ref="e25a9f6fb169550c2eb662453971516f" category="inline-image-macro-rx" type="image"></block></block>
   <block id="f23af0fb3293030465a68a6d46401ecc" category="list-text">Cloud Backup for VMware를 사용하여 데이터 저장소를 클라우드에 백업하고 가상 머신을 사내 vCenter로 복구합니다. <block ref="7d3aa28b08d11afec4b666dd6503d425" category="inline-link-macro-rx"></block>.</block>
+  <block id="94e8673ef47d436243b258727f9d5a89" category="list-text">AWS 권한이 필요합니다</block>
+  <block id="0868f24313a597293d06e71f7f63fd1e" category="list-text">커넥터는 인터넷에 접속하거나 접속하지 않고 사이트에 설치할 수 있습니다.</block>
+  <block id="97a9760662f83584b35ab92e7aad1071" category="paragraph">커넥터와 사내 ONTAP 시스템이 인터넷에 연결되지 않은 온프레미스 위치에 설치된 경우 StorageGRID 시스템은 동일한 사내 데이터 센터에 있어야 합니다.</block>
+  <block id="360446e3fb6e2087ba1eda4d6e9eafde" category="list-text">노드의 인터클러스터 LIF는 오브젝트 저장소에 액세스할 수 있습니다(Connector가 "어두운" 사이트에 설치된 경우 필요하지 않음).</block>
+  <block id="6dca065caf89927398e08355b9d7718e" category="paragraph">데이터를 StorageGRID에 백업할 때 Connector를 사내에서 사용할 수 있어야 합니다. 새 커넥터를 설치하거나 현재 선택한 커넥터가 내부에 있는지 확인해야 합니다. 커넥터는 인터넷에 접속하거나 접속하지 않고 사이트에 설치할 수 있습니다.</block>
+  <block id="f6428d68ab8312cad4e05d9222dbabc5" category="inline-link">인터넷에 액세스하지 않고 Linux 호스트에 커넥터 설치</block>
+  <block id="d2c6281fb2bfdd80b1c106c90e21e78b" category="list-text"><block ref="d2c6281fb2bfdd80b1c106c90e21e78b" category="inline-link-rx"></block></block>
+  <block id="31f0caf11b57fb7cb77368268e368d75" category="inline-link-macro">클라우드 백업 새로운 기능</block>
+  <block id="f4cec0313eb4678996dc68cfe81c6f4f" category="inline-link">Connector 소프트웨어를 업그레이드합니다</block>
+  <block id="8f5ad70f613db3fef827b6862d3afcf5" category="admonition">Cloud Backup 기능은 Cloud Manager Connector에 내장되어 있습니다. 인터넷에 연결되지 않은 사이트에 설치한 경우 새 기능에 액세스하려면 커넥터 소프트웨어를 정기적으로 업데이트해야 합니다. 를 확인하십시오 <block ref="4b505ef59fae088b7538ff8d53b204e9" category="inline-link-macro-rx"></block> 각 Cloud Backup 릴리즈의 새로운 기능을 보려면 ~ 단계를 따르십시오<block ref="fe297b4d3dd6fcd6173c290370c7c0fe" category="inline-link-rx"></block> 새 기능을 사용하려는 경우</block>
+  <block id="1ad501aca706aedda73a497f3e05cad4" category="list-text">포트 443을 통해 클라우드 백업으로 아웃바운드 인터넷 연결(커넥터가 "어두운" 사이트에 설치된 경우 필요하지 않음)</block>
+  <block id="7213734d8950b4641631fa35737ef55d" category="list-text">백업할 볼륨이 상주하는 ONTAP 클러스터의 IPspace 이 IPspace용 인터클러스터 LIF는 아웃바운드 인터넷 액세스를 가져야 합니다( 커넥터가 "어두운" 사이트에 설치된 경우 필요하지 않음).</block>
+  <block id="8ca1430139ec15a9b91ac2e24e799f84" category="paragraph">가능합니다 <block ref="c0943d8deab9c5a18af9b2eef59b9af2" category="inline-link-macro-rx"></block>. 또한 가능합니다 <block ref="2725cea0a8dc9dd072cc5f5c23563bbd" category="inline-link-macro-rx"></block> 사내 ONTAP 시스템으로.</block>
+  <block id="9fe942ae01924dd657ce7f1996246cc6" category="section-title">인터넷 연결이 없는 사이트에 대한 지원</block>
+  <block id="964abc2112ce28be99c31e711557b29e" category="paragraph">클라우드 백업은 인터넷에 연결되지 않은 사이트("오프라인" 또는 "다크" 사이트라고도 함)에서 로컬 사내 ONTAP 시스템의 볼륨 데이터를 로컬 NetApp StorageGRID 시스템으로 백업하는 데 사용할 수 있습니다. 이 경우 어두운 사이트에 Cloud Manager Connector(최소 버전 3.9.19)를 배포해야 합니다. 을 참조하십시오 <block ref="14e7f2dcf692810422b10a89547f7ac5" category="inline-link-macro-rx"></block> 를 참조하십시오.</block>
+  <block id="012009e84c36a8660d26e3a3201d2fe9" category="list-text">인터넷 액세스(다크 사이트)가 없는 사이트에 Connector가 설치된 경우 검색 및 복원을 사용하여 파일 수준 복원이 지원되지 않습니다.</block>
+  <block id="582a80da24166f21aa8bf6fb72743140" category="cell">인터넷에 액세스할 수 없는 사이트에서 StorageGRID의 볼륨 및 파일을 복원합니다</block>
+  <block id="2deb7493de6dd6e8fd3126d72d730f68" category="cell">어두운 사이트에서는 지원되지 않습니다</block>
+  <block id="540ca524a7005910a6d9020f7c627d95" category="paragraph">인터넷에 액세스할 수 없는 사내 사이트에서 Cloud Backup을 실행 중인 경우, 즉 오프라인 사내 사이트의 호스트에 Cloud Manager Connector를 배포했다면 인터넷에 연결된 시스템에서 라이센스 파일을 얻어야 합니다. 일련 번호 및 NSS 계정을 사용하여 라이센스를 활성화하는 것은 오프라인(다크 사이트) 설치에 사용할 수 없습니다.</block>
+  <block id="664bf8c6e31ba8a710f5213d1874cd18" category="list-text">백업 라이센스 파일이 있는 경우(어두운 사이트에 설치할 때 필요) * 라이센스 파일 업로드 * 옵션을 선택하고 메시지에 따라 파일을 첨부합니다.</block>
+  <block id="5db79377894ec784205c3c0fad010171" category="list-text">Cloud Manager에서 라이센스를 자동으로 업데이트할 수 없는 경우(예: 어두운 사이트에 설치된 경우) 라이센스 파일을 수동으로 업로드해야 합니다.</block>
+  <block id="665ddb058923583228dc01a98438f1fa" category="paragraph">BYOL 구독을 갱신하면 Cloud Manager에서 라이센스를 자동으로 업데이트합니다. Cloud Manager가 보안 인터넷 연결을 통해 라이센스 파일에 액세스할 수 없는 경우(예: 어두운 사이트에 설치된 경우) 직접 파일을 얻고 Cloud Manager에 수동으로 업로드할 수 있습니다. 자세한 내용은 을 참조하십시오 <block ref="797e48816191a5b3cd21a6c146b072f1" category="inline-link-macro-rx"></block>.</block>
+  <block id="d4e2be367ddcfb2b47d5711136446363" category="section-title">2022년 6월 14일</block>
+  <block id="dd16b8804cbc8afa6e2f6deb9acf5bcf" category="section-title">인터넷에 연결되지 않은 사이트에서 사내 ONTAP 클러스터 데이터를 백업하는 데 지원이 추가되었습니다</block>
+  <block id="6f5c7024f5953e20be33f1c72e8d5f4a" category="paragraph">사내 ONTAP 클러스터가 인터넷 액세스가 연결되지 않은 사이트에 있는 경우, 다크 사이트 또는 오프라인 사이트라고도 합니다. 이제 Cloud Backup을 사용하여 볼륨 데이터를 동일한 사이트에 있는 NetApp StorageGRID 시스템에 백업할 수 있습니다. 이 기능을 사용하려면 Cloud Manager Connector(버전 3.9.19 이상)도 오프라인 사이트에 배포해야 합니다.</block>
+  <block id="6f44a1bf2246f054fd573ae9473909b6" category="inline-link">오프라인 사이트에 커넥터를 설치하는 방법을 알아봅니다</block>
+  <block id="826610554423c9dc8481da631ccae8be" category="inline-link">오프라인 사이트에서 ONTAP 데이터를 StorageGRID에 백업하는 방법을 알아봅니다</block>
+  <block id="824ce1955c2b2d5f91cb80c86545d639" category="paragraph"><block ref="eb618b89294e80d594faecbc4641afee" category="inline-link-rx"></block>.<block ref="f39d73248b535226c2e16237e43ff2d0" category="inline-link-rx"></block>.</block>
+  <block id="0a0c24e7fef8cd9bcb19d6db19987b93" category="paragraph">이전에 클라우드 복원 인스턴스/VM을 사용한 경우 자동으로 제거됩니다. Cloud Backup 프로세스는 모든 이전 Cloud Restore 인스턴스를 삭제하기 위해 하루에 한 번 실행됩니다. 이 변경 사항은 완전히 투명하게 나타납니다. 데이터에는 영향을 주지 않으며 백업 또는 복원 작업이 변경되지 않습니다.</block>
 </blocks>

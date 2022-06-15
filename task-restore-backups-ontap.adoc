@@ -54,6 +54,9 @@ image:screenshot_restore_dashboard.png["Browse & amp; Restore 또는 Search & am
 | 볼륨 및 파일 복원은 Amazon S3, Azure Blob, Google Cloud 및 NetApp StorageGRID에 저장된 백업 파일과 함께 작동합니다. | 볼륨 및 파일 복원은 Amazon S3 및 Google Cloud에 저장된 백업 파일과 함께 작동합니다 
 
 
+| 인터넷에 액세스할 수 없는 사이트에서 StorageGRID의 볼륨 및 파일을 복원합니다 | 어두운 사이트에서는 지원되지 않습니다 
+
+
 | 이름이 바뀌거나 삭제된 파일은 처리하지 않습니다 | 새로 생성/삭제/이름 변경된 디렉토리와 새로 생성/삭제/이름 변경된 파일을 처리합니다 
 
 
