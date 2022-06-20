@@ -39,19 +39,18 @@ API 호출을 할 때 권한 부여 헤더에 사용자 토큰을 추가하고 x
 .단계
 . NetApp Cloud Central에서 사용자 토큰을 얻습니다.
 +
+다음 링크에서 새로 고침 토큰을 생성해야 합니다. https://services.cloud.netapp.com/refresh-token/. 새로 고침 토큰은 사용자 토큰을 생성하는 데 사용할 영숫자 문자열입니다.
+
++
 [source, http]
 ----
-POST https://netapp-cloud-account.auth0.com/oauth/token
-Header: Content-Type: application/json
-Body:
-{
-              "username": "<user_email>",
-              "scope": "profile",
-              "audience": "https://api.cloud.netapp.com",
-              "client_id": "<Cloud_Connector_ID>",
-              "grant_type": "password",
-              "password": "<user_password>"
-}
+curl --location --request POST 'https://netapp-cloud-account.auth0.com/oauth/token?=' \
+--header 'Content-Type: application/json' \
+-d '{
+    "grant_type": "refresh_token",
+    "refresh_token": "JxaVHn9cGkX92aPVCkhat3zxxxxxwsC9qMl_pLHkZtsVA",
+    "client_id": "Mu0V1ywgYteI6w1MbD15fKfVIUrNXGWC"
+}'
 ----
 . NetApp Cloud Central 계정 ID를 받습니다.
 +
