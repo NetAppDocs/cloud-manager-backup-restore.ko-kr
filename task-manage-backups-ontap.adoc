@@ -26,7 +26,7 @@ CAUTION: 클라우드 공급자 환경에서 직접 백업 파일을 관리하�
 Backup Dashboard에서 현재 백업 중인 모든 볼륨의 목록을 볼 수 있습니다.
 
 .단계
-. 백업 및 복원 * 탭을 클릭합니다.
+. Cloud Manager의 왼쪽 탐색 메뉴에서 * 백업 및 복원 * 을 클릭합니다.
 . 볼륨 * 탭을 클릭하여 Cloud Volumes ONTAP 및 온-프레미스 ONTAP 시스템의 볼륨 목록을 표시합니다.
 +
 image:screenshot_backup_dashboard.png["백업 파일이 있는 모든 작업 환경 및 볼륨을 보여 주는 스크린샷"]
@@ -99,8 +99,6 @@ ifdef::azure[]
 link:reference-azure-backup-tiers.html["Azure 아카이브 스토리지 사용에 대해 자세히 알아보십시오"].
 
 endif::azure[]
-
-를 누릅니다image:screenshot_backup_modify_policy_page2.png["Cloud Backup의 아카이브 스토리지 설정으로 계층화하는 방법을 보여 주는 스크린샷"]
 
 + 아카이브 스토리지로 계층화된 백업 파일은 아카이브로 백업을 계층화하는 것을 중지하면 해당 계층에 남아 있습니다. 이러한 백업 파일은 자동으로 표준 계층으로 다시 이동되지 않습니다.
 

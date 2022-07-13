@@ -43,7 +43,7 @@ image:screenshot_backup_cvo_enable.png["작업 환경을 선택한 후 사용할
 image:screenshot_backup_provider_settings_azure.png["Cloud Volumes ONTAP 시스템에서 Azure Blob 계층으로 볼륨을 백업할 때의 클라우드 공급자 세부 정보를 보여 주는 스크린샷"]
 
 [role="quick-margin-para"]
-기본 정책은 매일 볼륨을 백업하고 각 볼륨의 최근 30개 백업 복사본을 유지합니다. 시간별, 일별, 주별 또는 월별 백업으로 변경하거나 더 많은 옵션을 제공하는 시스템 정의 정책 중 하나를 선택합니다. 보존할 백업 복사본의 수를 변경할 수도 있습니다.
+기본 정책은 매일 볼륨을 백업하고 각 볼륨의 최근 30개 백업 복사본을 유지합니다. 시간별, 일별, 주별, 월별 또는 연도별 백업으로 변경, 또는 더 많은 옵션을 제공하는 시스템 정의 정책 중 하나를 선택합니다. 보존할 백업 복사본의 수를 변경할 수도 있습니다.
 
 [role="quick-margin-para"]
 기본적으로 백업은 Cool 액세스 계층에 저장됩니다. 클러스터에서 ONTAP 9.10.1 이상을 사용하는 경우 추가 비용 최적화를 위해 일정 일 후에 Azure 아카이브 스토리지에 백업을 계층화하도록 선택할 수 있습니다.
@@ -74,6 +74,7 @@ Cloud Backup BYOL 라이센스의 경우, 라이센스 기간 및 용량 동안 
 
 --
 지원되는 Azure 지역:: Cloud Backup은 모든 Azure 지역에서 지원됩니다 https://cloud.netapp.com/cloud-volumes-global-regions["Cloud Volumes ONTAP가 지원되는 경우"^]Azure Government 지역을 비롯한 모든 지역에서 사용할 수 있습니다.
+다른 Azure 구독에서 백업을 생성하기 위한 필수 설정:: 기본적으로 백업은 Cloud Volumes ONTAP 시스템에 사용되는 것과 동일한 구독을 사용하여 생성됩니다. 백업에 다른 Azure 구독을 사용하려면 을(를) 사용해야 합니다 link:reference-backup-multi-account-azure.html["Azure 포털에 로그인하고 두 구독을 연결합니다"].
 데이터 암호화에 대해 고객이 관리하는 키를 사용하는 데 필요한 정보입니다:: 정품 인증 마법사에서 기본 Microsoft 관리 암호화 키를 사용하는 대신 고객이 관리하는 키를 사용하여 데이터를 암호화할 수 있습니다. 이 경우 Azure 가입, 키 저장소 이름 및 키가 필요합니다. https://docs.microsoft.com/en-us/azure/storage/common/customer-managed-keys-overview["자신의 키를 사용하는 방법을 확인하십시오"].
 
 
@@ -118,6 +119,9 @@ image:screenshot_backup_cvo_enable.png["작업 환경을 선택한 후 사용할
 . 제공업체 세부 정보를 선택하고 * 다음 * 을 클릭합니다.
 +
 .. 백업을 저장하는 데 사용되는 Azure 구독입니다. 이는 Cloud Volumes ONTAP 시스템이 있는 가입과 다를 수 있습니다.
++
+백업에 다른 Azure 구독을 사용하려면 을(를) 사용해야 합니다 link:reference-backup-multi-account-azure.html["Azure 포털에 로그인하고 두 구독을 연결합니다"].
+
 .. 백업이 저장될 영역입니다. 이 영역은 Cloud Volumes ONTAP 시스템이 있는 지역과 다를 수 있습니다.
 .. Blob 컨테이너를 관리하는 리소스 그룹 - 새 리소스 그룹을 만들거나 기존 리소스 그룹을 선택할 수 있습니다.
 .. 기본 Microsoft 관리 암호화 키를 사용하거나 고객이 직접 관리하는 키를 선택하여 데이터 암호화를 관리할지 여부를 결정합니다. (https://docs.microsoft.com/en-us/azure/storage/common/customer-managed-keys-overview["자신의 키를 사용하는 방법을 확인하십시오"])를 클릭합니다.
@@ -126,8 +130,9 @@ image:screenshot_backup_provider_settings_azure.png["Cloud Volumes ONTAP 시스�
 
 
 
-. 기본 백업 정책 세부 정보를 입력하고 * 다음 * 을 클릭합니다.
+. 기본 정책에 사용할 백업 정책 세부 정보를 입력하고 * 다음 * 을 클릭합니다. 기존 정책을 선택하거나 각 섹션에 선택 항목을 입력하여 새 정책을 생성할 수 있습니다.
 +
+.. 기본 정책의 이름을 입력합니다. 이름을 변경할 필요가 없습니다.
 .. 백업 스케줄을 정의하고 보존할 백업 수를 선택합니다. link:concept-ontap-backup-to-cloud.html#customizable-backup-schedule-and-retention-settings-per-cluster["선택할 수 있는 기존 정책 목록을 봅니다"^].
 .. ONTAP 9.10.1 이상을 사용하는 경우 추가 비용 최적화를 위해 일정 일 후에 Azure 아카이브 스토리지에 백업을 계층화하도록 선택할 수 있습니다. link:reference-azure-backup-tiers.html["아카이브 계층 사용에 대해 자세히 알아보십시오"].
 +

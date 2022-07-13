@@ -55,7 +55,7 @@ image:screenshot_backup_onprem_to_azure.png["온프레미스 클러스터에서 
 image:screenshot_backup_onprem_azure_networking.png["ONTAP 시스템에서 Azure Blob 저장소로 볼륨을 백업할 때 네트워킹 세부 정보를 보여 주는 스크린샷"]
 
 [role="quick-margin-para"]
-기본 정책은 매일 볼륨을 백업하고 각 볼륨의 최근 30개 백업 복사본을 유지합니다. 시간별, 일별, 주별 또는 월별 백업으로 변경하거나 더 많은 옵션을 제공하는 시스템 정의 정책 중 하나를 선택합니다. 보존할 백업 복사본의 수를 변경할 수도 있습니다.
+기본 정책은 매일 볼륨을 백업하고 각 볼륨의 최근 30개 백업 복사본을 유지합니다. 시간별, 일별, 주별, 월별 또는 연도별 백업으로 변경, 또는 더 많은 옵션을 제공하는 시스템 정의 정책 중 하나를 선택합니다. 보존할 백업 복사본의 수를 변경할 수도 있습니다.
 
 [role="quick-margin-para"]
 기본적으로 백업은 Cool 액세스 계층에 저장됩니다. 클러스터에서 ONTAP 9.10.1 이상을 사용하는 경우 추가 비용 최적화를 위해 일정 일 후에 Azure 아카이브 스토리지에 백업을 계층화하도록 선택할 수 있습니다.
@@ -78,13 +78,13 @@ Select Volumes(볼륨 선택) 페이지의 기본 백업 정책을 사용하여 
 * 비공개 연결 - VPN 또는 ExpressRoute를 사용하여 전용 IP 주소를 사용하는 VNET 전용 엔드포인트를 통해 트래픽을 라우팅합니다.
 
 
-다음 그림에서는 * public connection * 메서드와 구성 요소 간에 준비해야 하는 연결을 보여 줍니다.
+다음 다이어그램에서는 * public connection * 메서드와 구성 요소 간에 준비해야 하는 연결을 보여 줍니다. 사내에 설치한 Connector 또는 Azure VNET에 배포한 Connector를 사용할 수 있습니다.
 
-image:diagram_cloud_backup_onprem_azure.png["Cloud Backup이 소스 시스템의 볼륨 및 백업 파일이 있는 대상 스토리지의 볼륨과 공용 연결을 통해 통신하는 방법을 보여 주는 다이어그램입니다."]
+image:diagram_cloud_backup_onprem_azure_public.png["Cloud Backup이 공개 연결을 통해 백업 파일이 있는 클러스터 및 Azure Blob 저장소의 볼륨과 통신하는 방법을 보여주는 다이어그램입니다."]
 
-다음 그림에서는 * private connection * 메서드와 구성 요소 간에 준비해야 하는 연결을 보여 줍니다.
+다음 다이어그램에서는 * private connection * 메서드와 구성 요소 간에 준비해야 하는 연결을 보여 줍니다. 사내에 설치한 Connector 또는 Azure VNET에 배포한 Connector를 사용할 수 있습니다.
 
-image:diagram_cloud_backup_onprem_azure_vnet.png["Cloud Backup이 프라이빗 연결을 통해 소스 시스템의 볼륨 및 백업 파일이 있는 대상 스토리지와 통신하는 방법을 보여주는 다이어그램입니다."]
+image:diagram_cloud_backup_onprem_azure_private.png["Cloud Backup이 클러스터 및 백업 파일이 있는 Azure Blob 스토리지의 볼륨과 프라이빗 연결을 통해 통신하는 방법을 보여주는 다이어그램입니다."]
 
 
 
@@ -137,11 +137,12 @@ ONTAP는 오브젝트 스토리지 간에 데이터를 읽고 씁니다. 오브�
 
 === 커넥터 작성 또는 전환
 
-Azure Blob 저장소에 데이터를 백업할 때는 Connector가 Azure VNET에 있고, Connector는 클라우드에 데이터를 백업하는 데 필요합니다. 온-프레미스에 배포된 Connector는 사용할 수 없습니다. 새 커넥터를 만들거나 현재 선택한 커넥터가 올바른 공급자에 있는지 확인해야 합니다.
+Azure VNET 또는 구내에 이미 Connector가 배포되어 있는 경우 모두 설정됩니다. 그렇지 않은 경우 이러한 위치 중 하나에 커넥터를 생성하여 ONTAP 데이터를 Azure Blob 저장소에 백업해야 합니다. 다른 클라우드 공급자에 배포된 Connector는 사용할 수 없습니다.
 
 * https://docs.netapp.com/us-en/cloud-manager-setup-admin/concept-connectors.html["커넥터에 대해 자세히 알아보십시오"^]
-* https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-creating-connectors-azure.html["Azure에서 커넥터 만들기"^]
-* https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-managing-connectors.html["커넥터 간 전환"^]
+* https://docs.netapp.com/us-en/cloud-manager-setup-admin/reference-checklist-cm.html["커넥터 시작하기"^]
+* https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-creating-connectors-azure.html["Azure에 커넥터 설치"^]
+* https://docs.netapp.com/us-en/cloud-manager-setup-admin/task-installing-linux.html["구내에 커넥터 설치"^]
 
 
 
@@ -158,7 +159,7 @@ Azure Blob 저장소에 데이터를 백업할 때는 Connector가 Azure VNET에
 ** 포트 443을 통해 ONTAP 클러스터 관리 LIF에 HTTPS로 연결합니다
 
 
-. Azure 스토리지에 VNET 프라이빗 엔드포인트를 설정합니다. 이 기능은 ONTAP 클러스터에서 VNET로 ExpressRoute 또는 VPN 연결을 사용하는 경우, Connector와 Blob 스토리지 간의 통신을 가상 프라이빗 네트워크에 유지하는 데 필요합니다.
+. Azure 스토리지에 VNET 프라이빗 엔드포인트를 설정합니다. 이 기능은 ONTAP 클러스터에서 VNET로 연결되는 ExpressRoute 또는 VPN 연결이 있고, 가상 프라이빗 네트워크(* 전용* 연결)에 유지하기 위해 Connector와 Blob 스토리지 간의 통신을 원하는 경우에 필요합니다.
 
 
 
@@ -223,8 +224,9 @@ image:screenshot_backup_onprem_azure_networking.png["ONTAP 시스템에서 Azure
 
 
 
-. 기본 백업 정책 세부 정보를 입력하고 * 다음 * 을 클릭합니다.
+. 기본 정책에 사용할 백업 정책 세부 정보를 입력하고 * 다음 * 을 클릭합니다. 기존 정책을 선택하거나 각 섹션에 선택 항목을 입력하여 새 정책을 생성할 수 있습니다.
 +
+.. 기본 정책의 이름을 입력합니다. 이름을 변경할 필요가 없습니다.
 .. 백업 스케줄을 정의하고 보존할 백업 수를 선택합니다. link:concept-ontap-backup-to-cloud.html#customizable-backup-schedule-and-retention-settings-per-cluster["선택할 수 있는 기존 정책 목록을 봅니다"^].
 .. ONTAP 9.10.1 이상을 사용하는 경우 추가 비용 최적화를 위해 일정 일 후에 Azure 아카이브 스토리지에 백업을 계층화하도록 선택할 수 있습니다. link:reference-azure-backup-tiers.html["아카이브 계층 사용에 대해 자세히 알아보십시오"].
 +

@@ -55,7 +55,7 @@ image:screenshot_backup_onprem_enable.png["작업 환경을 선택한 후 사용
 image:screenshot_backup_provider_settings_storagegrid.png["ONTAP 클러스터에서 StorageGRID로 볼륨을 백업할 때의 클라우드 공급자 세부 정보를 보여 주는 스크린샷"]
 
 [role="quick-margin-para"]
-기본 정책은 매일 볼륨을 백업하고 각 볼륨의 최근 30개 백업 복사본을 유지합니다. 시간별, 일별, 주별 또는 월별 백업으로 변경하거나 더 많은 옵션을 제공하는 시스템 정의 정책 중 하나를 선택합니다. 보존할 백업 복사본의 수를 변경할 수도 있습니다.
+기본 정책은 매일 볼륨을 백업하고 각 볼륨의 최근 30개 백업 복사본을 유지합니다. 시간별, 일별, 주별, 월별 또는 연도별 백업으로 변경, 또는 더 많은 옵션을 제공하는 시스템 정의 정책 중 하나를 선택합니다. 보존할 백업 복사본의 수를 변경할 수도 있습니다.
 
 [role="quick-margin-para"]
 image:screenshot_backup_onprem_policy.png["백업 스케줄 및 보존 기간을 선택할 수 있는 Cloud Backup 설정을 보여 주는 스크린샷"]
@@ -219,12 +219,14 @@ image:screenshot_backup_provider_settings_storagegrid.png["온프레미스 클�
 
 
 
-. Define Policy_페이지에서 기본 백업 일정 및 보존 값을 선택하고 * Next * 를 클릭합니다.
+. 기본 정책에 사용할 백업 정책 세부 정보를 입력하고 * 다음 * 을 클릭합니다. 기존 정책을 선택하거나 각 섹션에 선택 항목을 입력하여 새 정책을 생성할 수 있습니다.
++
+.. 기본 정책의 이름을 입력합니다. 이름을 변경할 필요가 없습니다.
+.. 백업 스케줄을 정의하고 보존할 백업 수를 선택합니다. link:concept-ontap-backup-to-cloud.html#customizable-backup-schedule-and-retention-settings-per-cluster["선택할 수 있는 기존 정책 목록을 봅니다"^].
 +
 image:screenshot_backup_onprem_policy.png["백업 스케줄 및 보존 기간을 선택할 수 있는 Cloud Backup 설정을 보여 주는 스크린샷"]
 
-+
-을 참조하십시오 link:concept-ontap-backup-to-cloud.html#customizable-backup-schedule-and-retention-settings-per-cluster["기존 정책 목록입니다"^].
+
 
 . Select Volumes(볼륨 선택) 페이지의 기본 백업 정책을 사용하여 백업할 볼륨을 선택합니다. 특정 볼륨에 서로 다른 백업 정책을 할당하려는 경우 추가 정책을 생성하여 나중에 해당 볼륨에 적용할 수 있습니다.
 +

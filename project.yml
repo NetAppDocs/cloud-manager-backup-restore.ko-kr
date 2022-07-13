@@ -112,6 +112,13 @@ sidebar:
       url: "/reference-aws-backup-tiers.html"
     - title: 지원되는 Azure 아카이브 액세스 계층
       url: "/reference-azure-backup-tiers.html"
+    - title: 교차 계정 및 교차 지역 구성
+      url: "/reference-cross-account.html"
+      entries:
+      - title: AWS에서 다중 계정 액세스를 위해 백업을 구성합니다
+        url: "/reference-backup-multi-account-aws.html"
+      - title: Azure에서 다중 계정 액세스를 위한 백업을 구성합니다
+        url: "/reference-backup-multi-account-azure.html"
   - title: 지식 및 지원
     entries:
     - title: 지원을 위해 등록하십시오
