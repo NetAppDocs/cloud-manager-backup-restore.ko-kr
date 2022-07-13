@@ -206,7 +206,7 @@
     
   </ul>
 </div>
-<div class="page-nav-contribute"><a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-backup-restore/issues/new?body=Page%3A%20[클라우드 백업의 새로운 기능](https://docs.netapp.com/ko-kr/cloud-manager-backup-restore/whats-new.html)" class="page-nav-contribute-link" role="button"><img src="/ko-kr/cloud-manager-backup-restore/images/discuss-sm.svg" class="github-icon" />문서 변경 요청</a><a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-backup-restore/blob/main/whats-new.adoc" class="page-nav-contribute-link" role="button"><img src="/ko-kr/cloud-manager-backup-restore/images/edit-sm.svg" class="github-icon" />이 페이지 편집</a><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/ko-kr/cloud-manager-backup-restore/images/article-sm.svg" class="github-icon" />기여하는 방법 자세히 알아보기</a></div>
+<div class="page-nav-contribute"><a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-backup-restore/issues/new?body=Page%3A%20[클라우드 백업의 새로운 기능](https://docs.netapp.com/ko-kr/cloud-manager-backup-restore/whats-new.html)" class="page-nav-contribute-link" role="button"><img src="/ko-kr/cloud-manager-backup-restore/images/discuss-sm.svg" alt="" class="github-icon" />문서 변경 요청</a><a target="_blank" href="https://github.com/NetAppDocs/cloud-manager-backup-restore/blob/main/whats-new.adoc" class="page-nav-contribute-link" role="button"><img src="/ko-kr/cloud-manager-backup-restore/images/edit-sm.svg" alt="" class="github-icon" />이 페이지 편집</a><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/ko-kr/cloud-manager-backup-restore/images/article-sm.svg" alt="" class="github-icon" />기여하는 방법 자세히 알아보기</a></div>
     <div class="page-nav-container">
       <nav class="page-nav-fixed">
         <div class="page-nav-title">이 페이지의 내용</div>
@@ -295,11 +295,13 @@
           <div id="react-search" 
           data-search-html="/ko-kr/cloud-manager-backup-restore/search.html"
           data-type="widget" 
-          data-placeholder="설명서 검색" 
-          data-no-results-found="{query}에 대한 결과를 찾을 수 없음" 
-          data-did-you-mean="{suggestion}을(를) 검색해보십시오." 
-          data-no-results-found-did-you-mean="{query}에 대한 결과를 찾을 수 없습니다. {suggestion}을(를) 검색하려 하셨습니까?" 
-          data-results-found="{hitCount}개의 결과를 찾음"  
+          data-placeholder="설명서 검색"
+          data-no-results-found="{query}에 대한 결과를 찾을 수 없음"
+          data-did-you-mean="{suggestion}을(를) 검색해보십시오."
+          data-no-results-found-did-you-mean="{query}에 대한 결과를 찾을 수 없습니다. {suggestion}을(를) 검색하려 하셨습니까?"
+          data-results-found="{hitCount}개의 결과를 찾음"
+          data-error-message="We're sorry, an issue occurred when fetching your results. Please try again."
+          data-error-reset="Reset Search"
           data-sk-es-pf-indexes=""
           data-flavor="aws"></div>
           <button class="n-property-bar__search-toggle-button" type="button">
@@ -378,7 +380,7 @@
   <div class="col-md-3" id="sidebar-height">
       <div class="n-pdf-header">
   <a id="toggleButtonPdf" class="n-pdf-button" type="button">
-    <img src="/ko-kr/cloud-manager-backup-restore/images/pdf.png" width="16" height="16"/>사용 가능한 PDF<span>
+    <img src="/ko-kr/cloud-manager-backup-restore/images/pdf.png" alt="" width="16" height="16"/>사용 가능한 PDF<span>
     </span>
   </a>
 </div>
@@ -388,17 +390,10 @@
         
         
         <a target="_blank" href="/ko-kr/cloud-manager-backup-restore/pdfs/aws/fullsite-sidebar/Cloud_Backup_설명서.pdf" >
-          <img src="/ko-kr/cloud-manager-backup-restore/images/pdf.png" width="16" height="16"/>이 문서 사이트의 PDF</a>
+          <img src="/ko-kr/cloud-manager-backup-restore/images/pdf.png" alt="" width="16" height="16"/>이 문서 사이트의 PDF</a>
 
 
-    <ul class="subfolders" style="display:none;"><li class="active pdf-hide">
-  <a target="_blank" href="/ko-kr/cloud-manager-backup-restore/pdfs/pages/whats-new.pdf" >
-    <img src="/ko-kr/cloud-manager-backup-restore/images/pdf.png" width="16" height="16"/>
-    PDF of this page
-  </a>
-</li>
-
-</ul>
+    <ul class="subfolders" id="pdf-remove" style="display:none;"><li class="active"></li></ul>
   
 
 
@@ -414,7 +409,7 @@
               href="/ko-kr/cloud-manager-backup-restore/pdfs/aws/sidebar/시작하십시오.pdf" 
             
           >
-            <img src="/ko-kr/cloud-manager-backup-restore/images/pdf.png" width="16" height="16"/>
+            <img src="/ko-kr/cloud-manager-backup-restore/images/pdf.png" alt="" width="16" height="16"/>
             시작하십시오
           </a>
           
@@ -424,8 +419,6 @@
 
 
 
-
-          
         </li>
       </ul>
     
@@ -445,7 +438,7 @@
               href="/ko-kr/cloud-manager-backup-restore/pdfs/aws/sidebar/ONTAP_데이터를_백업_및_복원합니다.pdf" 
             
           >
-            <img src="/ko-kr/cloud-manager-backup-restore/images/pdf.png" width="16" height="16"/>
+            <img src="/ko-kr/cloud-manager-backup-restore/images/pdf.png" alt="" width="16" height="16"/>
             ONTAP 데이터를 백업 및 복원합니다
           </a>
           
@@ -469,8 +462,6 @@
 
 
 
-
-          
         </li>
       </ul>
     
@@ -490,7 +481,7 @@
               href="/ko-kr/cloud-manager-backup-restore/pdfs/aws/sidebar/Kubernetes_데이터_백업_및_복원.pdf" 
             
           >
-            <img src="/ko-kr/cloud-manager-backup-restore/images/pdf.png" width="16" height="16"/>
+            <img src="/ko-kr/cloud-manager-backup-restore/images/pdf.png" alt="" width="16" height="16"/>
             Kubernetes 데이터 백업 및 복원
           </a>
           
@@ -506,8 +497,6 @@
 
 
 
-
-          
         </li>
       </ul>
     
@@ -527,7 +516,7 @@
               href="/ko-kr/cloud-manager-backup-restore/pdfs/aws/sidebar/사내_애플리케이션_데이터를_백업_및_복원합니다.pdf" 
             
           >
-            <img src="/ko-kr/cloud-manager-backup-restore/images/pdf.png" width="16" height="16"/>
+            <img src="/ko-kr/cloud-manager-backup-restore/images/pdf.png" alt="" width="16" height="16"/>
             사내 애플리케이션 데이터를 백업 및 복원합니다
           </a>
           
@@ -549,7 +538,7 @@
               href="/ko-kr/cloud-manager-backup-restore/pdfs/aws/sidebar/애플리케이션_데이터를_복원합니다.pdf" 
             
           >
-            <img src="/ko-kr/cloud-manager-backup-restore/images/pdf.png" width="16" height="16"/>
+            <img src="/ko-kr/cloud-manager-backup-restore/images/pdf.png" alt="" width="16" height="16"/>
             애플리케이션 데이터를 복원합니다
           </a>
           
@@ -557,8 +546,6 @@
 
 
 
-
-          
         </li>
       </ul>
     
@@ -566,8 +553,6 @@
   
 
 
-
-          
         </li>
       </ul>
     
@@ -587,7 +572,7 @@
               href="/ko-kr/cloud-manager-backup-restore/pdfs/aws/sidebar/가상_머신_데이터_백업_및_복원.pdf" 
             
           >
-            <img src="/ko-kr/cloud-manager-backup-restore/images/pdf.png" width="16" height="16"/>
+            <img src="/ko-kr/cloud-manager-backup-restore/images/pdf.png" alt="" width="16" height="16"/>
             가상 머신 데이터 백업 및 복원
           </a>
           
@@ -599,8 +584,6 @@
 
 
 
-
-          
         </li>
       </ul>
     
@@ -622,7 +605,7 @@
               href="/ko-kr/cloud-manager-backup-restore/pdfs/aws/sidebar/참조하십시오.pdf" 
             
           >
-            <img src="/ko-kr/cloud-manager-backup-restore/images/pdf.png" width="16" height="16"/>
+            <img src="/ko-kr/cloud-manager-backup-restore/images/pdf.png" alt="" width="16" height="16"/>
             참조하십시오
           </a>
           
@@ -631,7 +614,32 @@
 
 
 
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
           
+          
+          
+          <a target="_blank" 
+            
+              href="/ko-kr/cloud-manager-backup-restore/pdfs/aws/sidebar/교차_계정_및_교차_지역_구성.pdf" 
+            
+          >
+            <img src="/ko-kr/cloud-manager-backup-restore/images/pdf.png" alt="" width="16" height="16"/>
+            교차 계정 및 교차 지역 구성
+          </a>
+          
+
+
+
+
+        </li>
+      </ul>
+    
+
+  
+
+
         </li>
       </ul>
     
@@ -651,7 +659,7 @@
               href="/ko-kr/cloud-manager-backup-restore/pdfs/aws/sidebar/지식_및_지원.pdf" 
             
           >
-            <img src="/ko-kr/cloud-manager-backup-restore/images/pdf.png" width="16" height="16"/>
+            <img src="/ko-kr/cloud-manager-backup-restore/images/pdf.png" alt="" width="16" height="16"/>
             지식 및 지원
           </a>
           
@@ -659,8 +667,6 @@
 
 
 
-
-          
         </li>
       </ul>
     
@@ -669,11 +675,10 @@
 
 
 
-
 </li></ul>
   <div class="zip-pdf-link-container" style="display: none;">   
     <a href="#" id="zipPdf">
-      <img src="/ko-kr/cloud-manager-backup-restore/images/pdf-zip.png" width="16" height="16"/>
+      <img src="/ko-kr/cloud-manager-backup-restore/images/pdf-zip.png" alt="" width="16" height="16"/>
       <pre>별도의 PDF 문서 모음<span class="zip-size"></span></pre>
     </a><div id="zip-link-popup" class="hide">
     <div class="inner-modal">
@@ -784,7 +789,14 @@
         지원되는 AWS 아카이브 스토리지 계층
       </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/cloud-manager-backup-restore/aws/reference-azure-backup-tiers.html">
         지원되는 Azure 아카이브 액세스 계층
-      </a></li></ul></li><li class="subfolders "><a href="#">
+      </a></li><li class="subfolders "><a href="/ko-kr/cloud-manager-backup-restore/aws/reference-cross-account.html">
+        <div class="na-navbar-padding"> 교차 계정 및 교차 지역 구성</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ko-kr/cloud-manager-backup-restore/aws/reference-backup-multi-account-aws.html">
+        AWS에서 다중 계정 액세스를 위해 백업을 구성합니다
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/cloud-manager-backup-restore/aws/reference-backup-multi-account-azure.html">
+        Azure에서 다중 계정 액세스를 위한 백업을 구성합니다
+      </a></li></ul></li></ul></li><li class="subfolders "><a href="#">
         <div class="na-navbar-padding"> 지식 및 지원</div>
       </a>
       <ul><li class=" "><a class="na-navbar-padding" href="/ko-kr/cloud-manager-backup-restore/aws/task-support-registration.html">
@@ -862,7 +874,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-06-15 13:20:53 +0000">06/15/2022</time>
+    <time datetime="2022-07-13 13:10:02 +0000">07/13/2022</time>
     
   
 
@@ -873,6 +885,36 @@
 <div class="sectionbody">
 <div class="paragraph lead">
 <p>Cloud Backup의 새로운 기능에 대해 알아보십시오.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="2022년-7월-13일">2022년 7월 13일</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="snaplock-엔터프라이즈-볼륨을-백업하는-데-지원이-추가되었습니다">SnapLock 엔터프라이즈 볼륨을 백업하는 데 지원이 추가되었습니다</h3>
+<div class="paragraph">
+<p>이제 클라우드 백업을 사용하여 SnapLock 엔터프라이즈 볼륨을 퍼블릭 및 프라이빗 클라우드에 백업할 수 있습니다. 이 기능을 사용하려면 ONTAP 시스템에서 ONTAP 9.11.1 이상을 실행해야 합니다. 그러나 SnapLock 규정 준수 볼륨은 현재 지원되지 않습니다.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="이제-온-프레미스-connector를-사용할-때-퍼블릭-클라우드에서-백업-파일을-만들-수-있습니다">이제 온-프레미스 Connector를 사용할 때 퍼블릭 클라우드에서 백업 파일을 만들 수 있습니다</h3>
+<div class="paragraph">
+<p>이전에는 백업 파일을 생성하던 위치와 동일한 클라우드 공급자에 Connector를 구축해야 했습니다. 이제 사내에 구축된 Connector를 사용하여 온프레미스 ONTAP 시스템에서 Amazon S3, Azure Blob 및 Google Cloud Storage로 백업 파일을 생성할 수 있습니다. (StorageGRID 시스템에서 백업 파일을 생성할 때는 항상 내부 커넥터가 필요했습니다.)</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="ontap-시스템에-대한-백업-정책을-생성할-때-추가-기능을-사용할-수-있습니다">ONTAP 시스템에 대한 백업 정책을 생성할 때 추가 기능을 사용할 수 있습니다</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>이제 연간 일정에 대한 백업을 사용할 수 있습니다. 기본 보존 값은 연간 백업의 경우 1이지만 이전 해 백업 파일을 여러 개 액세스하려는 경우 이 값을 변경할 수 있습니다.</p>
+</li>
+<li>
+<p>백업 정책의 이름을 지정하여 보다 자세한 설명이 포함된 텍스트를 사용하여 정책을 식별할 수 있습니다.</p>
+</li>
+</ul>
+</div>
 </div>
 </div>
 </div>
@@ -1001,13 +1043,13 @@
 <p>필요한 경우 클라우드에서 사내로 데이터를 복원할 수 있습니다.</p>
 </div>
 <div class="paragraph">
-<p><a href="https://docs.netapp.com/us-en/cloud-manager-backup-restore/concept-protect-app-data-to-cloud.html">"사내 애플리케이션 데이터를 클라우드로 보호하는 방법에 대해 자세히 알아보십시오"</a>.</p>
+<p><a href="concept-protect-app-data-to-cloud.html">"사내 애플리케이션 데이터를 클라우드로 보호하는 방법에 대해 자세히 알아보십시오"</a>.</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="모든-ontap-백업-파일에서-볼륨-또는-파일을-검색하는-새로운-검색-및-복원-기능">모든 ONTAP 백업 파일에서 볼륨 또는 파일을 검색하는 새로운 검색 및 복원 기능</h3>
 <div class="paragraph">
-<p>이제 일부 또는 전체 볼륨 이름, 일부 또는 전체 파일 이름, 크기 범위 및 추가 검색 필터를 통해 * 모든 ONTAP 백업 파일 * 에서 볼륨 또는 파일을 검색할 수 있습니다. 이 방법은 어떤 클러스터나 볼륨이 데이터의 소스인지 잘 모르면 복원하려는 데이터를 찾을 수 있는 새로운 방법입니다. <a href="https://docs.netapp.com/us-en/cloud-manager-backup-restore/task-restore-backups-ontap.html#restoring-ontap-data-using-search-restore">"검색 및 amp;Restore 사용 방법에 대해 알아봅니다"</a>.</p>
+<p>이제 일부 또는 전체 볼륨 이름, 일부 또는 전체 파일 이름, 크기 범위 및 추가 검색 필터를 통해 * 모든 ONTAP 백업 파일 * 에서 볼륨 또는 파일을 검색할 수 있습니다. 이 방법은 어떤 클러스터나 볼륨이 데이터의 소스인지 잘 모르면 복원하려는 데이터를 찾을 수 있는 새로운 방법입니다. <a href="task-restore-backups-ontap.html#restoring-ontap-data-using-search-restore">"검색 및 amp;Restore 사용 방법에 대해 알아봅니다"</a>.</p>
 </div>
 </div>
 </div>
