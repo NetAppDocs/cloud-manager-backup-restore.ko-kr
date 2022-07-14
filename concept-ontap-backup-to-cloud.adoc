@@ -93,7 +93,7 @@ ONTAP 백업 파일에서 다음 작업 환경으로 볼륨 또는 개별 파일
 
 === 인터넷 연결이 없는 사이트에 대한 지원
 
-클라우드 백업은 인터넷에 연결되지 않은 사이트("오프라인" 또는 "다크" 사이트라고도 함)에서 로컬 사내 ONTAP 시스템의 볼륨 데이터를 로컬 NetApp StorageGRID 시스템으로 백업하는 데 사용할 수 있습니다. 이 구성에서는 볼륨 및 파일 복구도 모두 지원됩니다. 이 경우 어두운 사이트에 Cloud Manager Connector(최소 버전 3.9.19)를 배포해야 합니다. 을 참조하십시오 link:task-backup-onprem-private-cloud.html["사내 ONTAP 데이터를 StorageGRID에 백업"] 를 참조하십시오.
+클라우드 백업은 인터넷에 연결되지 않은 사이트("오프라인" 또는 "다크" 사이트라고도 함)에서 로컬 사내 ONTAP 시스템의 볼륨 데이터를 로컬 NetApp StorageGRID 시스템으로 백업하는 데 사용할 수 있습니다. 이 구성에서는 볼륨 및 파일 복구도 모두 지원됩니다. 이 경우 어두운 사이트에 Cloud Manager Connector(최소 버전 3.9.20)를 배포해야 합니다. 을 참조하십시오 link:task-backup-onprem-private-cloud.html["사내 ONTAP 데이터를 StorageGRID에 백업"] 를 참조하십시오.
 
 
 
