@@ -1775,7 +1775,6 @@
   <block id="5f5358182364ef304e26de4fc2395537" category="list-text">BYOL 라이센스에서 허용하는 것보다 더 많은 데이터를 백업하는 경우 용량제 가입형 모델을 통해 데이터 백업을 계속 수행할 수 있습니다. 예를 들어, 10TiB BYOL 라이센스가 있는 경우 PAYGO 구독을 통해 10TiB를 초과하는 모든 용량이 충전됩니다.</block>
   <block id="49871198f1fc79f432cd047f40a00a48" category="paragraph">클라우드 백업을 위한 몇 가지 PAYGO 계획이 있습니다.</block>
   <block id="20e92bedd41f67c18b032dfcce8e6443" category="list-text">Cloud Volumes ONTAP 데이터와 사내 ONTAP 데이터를 백업할 수 있는 "클라우드 백업" 패키지</block>
-  <block id="82d5e1384762b2b00baba048469a1e46" category="list-text">Cloud Volumes ONTAP와 클라우드 백업을 번들로 제공할 수 있는 "CVO Professional" 패키지입니다. 여기에는 이 라이센스에 대해 청구된 Cloud Volumes ONTAP 볼륨에 대한 무제한 백업이 포함됩니다(백업 용량은 라이센스에 포함되지 않음). 이 옵션을 사용하면 사내 ONTAP 데이터를 백업할 수 없습니다. ifdef::Azure[]</block>
   <block id="cf8915b92cd8246fa33ede992991143a" category="summary">웹 UI를 통해 사용할 수 있는 Cloud Backup 기능도 RESTful API를 통해 사용할 수 있습니다.</block>
   <block id="83d4ca6f3242470b8b6011e0437e8875" category="doc">클라우드 백업 API</block>
   <block id="efbb9906182277bbe4fa02293b54accb" category="paragraph">웹 UI를 통해 사용할 수 있는 Cloud Backup 기능은 RESTful API를 통해서도 사용할 수 있습니다.</block>
@@ -1965,10 +1964,6 @@
   <block id="66145e361f72b54aa011f59d543dfb08" category="section-title">연간 계약을 사용합니다</block>
   <block id="264c1c7d3f4ee3cdcffedb80d7ffdb90" category="paragraph">연간 계약을 구매하여 Cloud Backup 연간 비용 지불</block>
   <block id="2ad823c02fc1acdb11ec531ccd53e0f5" category="paragraph">AWS를 사용할 경우 에서 2개의 연간 계약을 얻을 수 있습니다<block ref="7e9391e5068ba3345180f0de3723960c" category="inline-link-rx"></block> Cloud Volumes ONTAP 및 사내 ONTAP 시스템: 1년, 2년 또는 3년 조건으로 제공됩니다.</block>
-  <block id="442a6a5ce0278cd99b278c1c2c67fbde" category="paragraph">Azure를 사용하는 경우 NetApp 세일즈 담당자에게 연간 계약을 구매하도록 문의하십시오. 이 계약은 Azure 마켓플레이스에서 프라이빗 오퍼로 제공됩니다.</block>
-  <block id="6657c4187090950f0e8b808454af01dd" category="paragraph">NetApp이 프라이빗 오퍼를 공유하면 Cloud Backup 활성화 중에 Azure 마켓플레이스에서 구독할 때 연간 계획을 선택할 수 있습니다.</block>
-  <block id="ab788bf4fa445771d4446e36e923ffe4" category="paragraph">GCP를 사용할 경우 NetApp 세일즈 담당자에게 연간 계약을 구매할 것을 문의하십시오. 이 계약은 Google Cloud Marketplace에서 프라이빗 오퍼로 제공됩니다.</block>
-  <block id="a2384c6b0e0fa211c99dda551850d3c7" category="paragraph">NetApp이 프라이빗 오퍼를 공유하면 Cloud Backup 활성화 중에 Google Cloud 마켓플레이스를 구독할 때 연간 계획을 선택할 수 있습니다.</block>
   <block id="ebfefcd98f010a948a1d7251ef132972" category="list-text">Cloud Manager의 왼쪽 탐색 메뉴에서 * Digital Wallet * 을 클릭한 다음 * Data Services Licenses * 탭을 선택합니다.</block>
   <block id="fa151cd4e924318c49ae962dc9172d21" category="paragraph">AWS VPC 또는 사내에 Connector가 이미 구축되어 있는 경우 모두 설정됩니다. 그렇지 않은 경우 ONTAP 데이터를 AWS S3 스토리지에 백업하기 위한 커넥터를 생성해야 합니다. 또한 AWS S3에 연결할 수 있도록 커넥터의 네트워크 설정을 사용자 지정해야 합니다.</block>
   <block id="376da794bc45a0b27e3c757018f00f1c" category="paragraph">다음 다이어그램에서는 * public connection * 메서드와 구성 요소 간에 준비해야 하는 연결을 보여 줍니다. 사내에 설치한 Connector나 AWS VPC에 구축한 Connector를 사용할 수 있습니다.</block>
@@ -2121,4 +2116,9 @@
   <block id="9aa87cabc3c16ccfd72ed13e9e2a189c" category="list-text">ONTAP 클러스터는 백업 및 복원 작업을 위해 인터클러스터 LIF에서 StorageGRID 게이트웨이 노드에 대한 사용자 지정 포트를 통한 HTTPS 연결을 시작합니다. 백업 설정 중에 포트를 구성할 수 있습니다.</block>
   <block id="92a508a0037c85cca367ecb3e92a0fde" category="list-text">포트 443을 통해 StorageGRID 게이트웨이 노드에 대한 HTTPS 연결</block>
   <block id="dd1011987bc4e3d65b5eae7e319c05b8" category="list-text">StorageGRID 게이트웨이 노드의 FQDN과 ONTAP가 StorageGRID와의 HTTPS 통신에 사용해야 하는 포트(예: 3.eng.company.com:8082`)</block>
+  <block id="65674529f9b6a1e9b7446fe77b924332" category="list-text">Cloud Volumes ONTAP와 클라우드 백업을 번들로 제공할 수 있는 "CVO Professional" 패키지입니다. 여기에는 이 라이센스에 대해 청구된 Cloud Volumes ONTAP 볼륨에 대한 무제한 백업이 포함됩니다(백업 용량은 라이센스에 포함되지 않음). 이 옵션을 사용하면 사내 ONTAP 데이터를 백업할 수 없습니다.</block>
+  <block id="24e6e2f6171b43a847fe194a9a9b5cd0" category="inline-link">글로벌 파일 캐시</block>
+  <block id="bd61e5b31b71c94659fbad6818cbd2dd" category="list-text">"CVO Edge Cache" 패키지는 "CVO Professional" 패키지와 동일한 기능을 제공하지만 에 대한 지원도 포함합니다<block ref="1d3288a8d4b20b4e5413a4b73f45a95b" category="inline-link-rx"></block>. Cloud Volumes ONTAP 시스템에서 3TiB의 프로비저닝된 각 용량에 대해 하나의 글로벌 파일 캐시 에지 시스템을 구축할 수 있습니다. 이 옵션은 Azure 마켓플레이스를 통해서만 사용할 수 있으며, 온프레미스 ONTAP 데이터를 백업할 수 없습니다.</block>
+  <block id="e5078960df05e3b097ebed6ba78c2f45" category="paragraph">Azure를 사용하는 경우 NetApp 세일즈 담당자에게 연간 계약을 구매하도록 문의하십시오. 이 계약은 Azure 마켓플레이스에서 프라이빗 오퍼로 제공됩니다. NetApp이 프라이빗 오퍼를 공유하면 Cloud Backup 활성화 중에 Azure 마켓플레이스에서 구독할 때 연간 계획을 선택할 수 있습니다.</block>
+  <block id="3ae134636b7b1d4b2b9cc5b9e9bfeb40" category="paragraph">GCP를 사용할 경우 NetApp 세일즈 담당자에게 연간 계약을 구매할 것을 문의하십시오. 이 계약은 Google Cloud Marketplace에서 프라이빗 오퍼로 제공됩니다. NetApp이 프라이빗 오퍼를 공유하면 Cloud Backup 활성화 중에 Google Cloud 마켓플레이스를 구독할 때 연간 계획을 선택할 수 있습니다.</block>
 </blocks>
